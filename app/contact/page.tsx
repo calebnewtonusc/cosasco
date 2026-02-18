@@ -76,14 +76,14 @@ export default function ContactPage() {
       {/* ── Hero ── */}
       <section className="relative bg-[#0f2a4a] text-white overflow-hidden py-16 md:py-20">
         <div className="grid-bg absolute inset-0" aria-hidden="true" />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-[#e05000]" aria-hidden="true" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#f4a65d]" aria-hidden="true" />
         <div className="cx relative">
           <nav className="flex items-center gap-2 text-sm text-[#8ab4d4] mb-6">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
             <span className="text-white font-medium">Contact</span>
           </nav>
-          <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-3">Get in Touch</p>
+          <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Get in Touch</p>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-4">
             Contact Cosasco
           </h1>
@@ -101,7 +101,7 @@ export default function ContactPage() {
 
             {/* ── Contact Form (col-span-3) ── */}
             <div className="lg:col-span-3">
-              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-2">Send a Message</p>
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Send a Message</p>
               <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-8">
                 How Can We Help?
               </h2>
@@ -129,13 +129,13 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
-                        Full Name <span className="text-[#e05000]">*</span>
+                        Full Name <span className="text-[#f4a65d]">*</span>
                       </label>
                       <input
                         type="text"
                         required
                         placeholder="Jane Smith"
-                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
+                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                       />
                     </div>
                     <div>
@@ -145,7 +145,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         placeholder="Acme Refining Ltd."
-                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
+                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                       />
                     </div>
                   </div>
@@ -153,13 +153,13 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
-                        Email Address <span className="text-[#e05000]">*</span>
+                        Email Address <span className="text-[#f4a65d]">*</span>
                       </label>
                       <input
                         type="email"
                         required
                         placeholder="jsmith@company.com"
-                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
+                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                       />
                     </div>
                     <div>
@@ -169,7 +169,7 @@ export default function ContactPage() {
                       <input
                         type="tel"
                         placeholder="+1 (555) 000-0000"
-                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
+                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                       />
                     </div>
                   </div>
@@ -179,7 +179,7 @@ export default function ContactPage() {
                       Industry
                     </label>
                     <select
-                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
+                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                     >
                       <option value="">Select your industry...</option>
                       <option>Oil &amp; Gas</option>
@@ -194,11 +194,11 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
-                      Subject <span className="text-[#e05000]">*</span>
+                      Subject <span className="text-[#f4a65d]">*</span>
                     </label>
                     <select
                       required
-                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
+                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                     >
                       <option value="">Select a subject...</option>
                       <option>Sales Inquiry</option>
@@ -212,13 +212,13 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
-                      Message <span className="text-[#e05000]">*</span>
+                      Message <span className="text-[#f4a65d]">*</span>
                     </label>
                     <textarea
                       required
                       rows={5}
                       placeholder="Tell us about your project, application, or question..."
-                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors resize-vertical"
+                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors resize-vertical"
                     />
                   </div>
 
@@ -241,7 +241,7 @@ export default function ContactPage() {
                 <h3 className="font-black text-[#0f2a4a] text-base mb-5">Global Headquarters</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-[#e05000] mt-0.5 flex-shrink-0" />
+                    <MapPin className="w-4 h-4 text-[#f4a65d] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Address</p>
                       <p className="text-sm font-semibold text-[#0f2a4a] leading-snug">
@@ -252,31 +252,31 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Phone className="w-4 h-4 text-[#e05000] mt-0.5 flex-shrink-0" />
+                    <Phone className="w-4 h-4 text-[#f4a65d] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Phone</p>
                       <a
                         href="tel:+15629490123"
-                        className="text-sm font-semibold text-[#0f2a4a] hover:text-[#e05000] transition-colors"
+                        className="text-sm font-semibold text-[#0f2a4a] hover:text-[#f4a65d] transition-colors"
                       >
                         +1 (562) 949-0123
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Mail className="w-4 h-4 text-[#e05000] mt-0.5 flex-shrink-0" />
+                    <Mail className="w-4 h-4 text-[#f4a65d] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Email</p>
                       <a
                         href="mailto:info@cosasco.com"
-                        className="text-sm font-semibold text-[#0f2a4a] hover:text-[#e05000] transition-colors"
+                        className="text-sm font-semibold text-[#0f2a4a] hover:text-[#f4a65d] transition-colors"
                       >
                         info@cosasco.com
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Clock className="w-4 h-4 text-[#e05000] mt-0.5 flex-shrink-0" />
+                    <Clock className="w-4 h-4 text-[#f4a65d] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Business Hours</p>
                       <p className="text-sm font-semibold text-[#0f2a4a]">
@@ -290,13 +290,13 @@ export default function ContactPage() {
 
               {/* Map placeholder */}
               <div className="bg-[#0f2a4a] rounded-xl overflow-hidden flex flex-col items-center justify-center gap-3 h-44">
-                <MapPin className="w-7 h-7 text-[#e05000]" />
+                <MapPin className="w-7 h-7 text-[#f4a65d]" />
                 <p className="text-white/60 text-sm">Santa Fe Springs, CA 90670</p>
                 <a
                   href="https://maps.google.com/?q=11401+Beach+Street+Santa+Fe+Springs+CA+90670"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#e05000] text-xs font-semibold underline underline-offset-2 hover:no-underline"
+                  className="text-[#f4a65d] text-xs font-semibold underline underline-offset-2 hover:no-underline"
                 >
                   Open in Google Maps
                 </a>
@@ -304,7 +304,7 @@ export default function ContactPage() {
 
               {/* Response time notice */}
               <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-4 flex items-start gap-3">
-                <Clock className="w-4 h-4 text-[#e05000] mt-0.5 flex-shrink-0" />
+                <Clock className="w-4 h-4 text-[#f4a65d] mt-0.5 flex-shrink-0" />
                 <p className="text-[#566677] text-xs leading-relaxed">
                   <span className="font-semibold text-[#1e2b3a]">Typical response within 1 business day.</span>{' '}
                   For urgent technical issues, call our support line directly or visit the
@@ -320,7 +320,7 @@ export default function ContactPage() {
       <section className="bg-[#f7f9fc] py-16 md:py-20 border-t border-[#e8edf2]">
         <div className="cx">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-3">Global Reach</p>
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Global Reach</p>
             <h2 className="text-3xl md:text-4xl font-black text-[#0f2a4a] mb-4">
               Regional Offices
             </h2>
@@ -335,7 +335,7 @@ export default function ContactPage() {
               <div key={region.region} className="bg-white border border-[#e8edf2] rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-9 h-9 bg-[#0f2a4a] rounded-lg flex items-center justify-center">
-                    <Globe className="w-4 h-4 text-[#e05000]" />
+                    <Globe className="w-4 h-4 text-[#f4a65d]" />
                   </div>
                   <h3 className="font-black text-[#0f2a4a] text-base">{region.region}</h3>
                 </div>
@@ -351,7 +351,7 @@ export default function ContactPage() {
                         <Phone className="w-3 h-3 text-[#566677]" />
                         <a
                           href={`tel:${office.phone.replace(/[\s()+-]/g, '')}`}
-                          className="text-[#566677] text-xs hover:text-[#e05000] transition-colors"
+                          className="text-[#566677] text-xs hover:text-[#f4a65d] transition-colors"
                         >
                           {office.phone}
                         </a>
@@ -360,7 +360,7 @@ export default function ContactPage() {
                         <Mail className="w-3 h-3 text-[#566677]" />
                         <a
                           href={`mailto:${office.email}`}
-                          className="text-[#566677] text-xs hover:text-[#e05000] transition-colors"
+                          className="text-[#566677] text-xs hover:text-[#f4a65d] transition-colors"
                         >
                           {office.email}
                         </a>

@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} pt-[68px]`}>
+      <body className={`${inter.variable} pt-[75px]`}>
         <Navigation />
         <main>{children}</main>
         <Footer />

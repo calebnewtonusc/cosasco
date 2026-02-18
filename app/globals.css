@@ -19,6 +19,6 @@ body {
   line-height: 1.65;
 }
 
-:focus-visible { outline: 2px solid #e05000; outline-offset: 2px; }
+:focus-visible { outline: 2px solid #f4a65d; outline-offset: 2px; }
 
-::selection { background: #fde8d8; color: #c94700; }
+::selection { background: #fde8d8; color: #d4892a; }

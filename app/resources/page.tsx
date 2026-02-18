@@ -195,7 +195,7 @@ export default function ResourcesPage() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search resources..."
-              className="pl-10 pr-4 border border-[#e8edf2] rounded-lg w-64 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#e05000]"
+              className="pl-10 pr-4 border border-[#e8edf2] rounded-lg w-64 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
             />
           </div>
 
@@ -208,8 +208,8 @@ export default function ResourcesPage() {
                   onClick={() => setActiveFilter(f)}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
                     activeFilter === f
-                      ? 'bg-[#e05000] text-white'
-                      : 'bg-white border border-[#e8edf2] text-[#566677] hover:border-[#e05000] hover:text-[#e05000]'
+                      ? 'bg-[#f4a65d] text-white'
+                      : 'bg-white border border-[#e8edf2] text-[#566677] hover:border-[#f4a65d] hover:text-[#f4a65d]'
                   }`}
                 >
                   {f}
@@ -275,7 +275,7 @@ export default function ResourcesPage() {
                     <span className="text-[#8898aa] text-xs">
                       PDF &middot; {resource.pages} pages &middot; {resource.size}
                     </span>
-                    <button className="bg-[#e05000] text-white text-xs px-3 py-1.5 rounded-md font-semibold flex items-center gap-1 hover:bg-[#c94700] transition-colors">
+                    <button className="bg-[#f4a65d] text-white text-xs px-3 py-1.5 rounded-md font-semibold flex items-center gap-1 hover:bg-[#d4892a] transition-colors">
                       <Download className="w-3 h-3" />
                       Download
                     </button>
@@ -336,7 +336,7 @@ export default function ResourcesPage() {
                 <div className="grid grid-cols-1 gap-4 flex-1">
                   {cs.stats.map((s) => (
                     <div key={s.label} className="border-b border-[#2a4a6c] pb-3 last:border-0 last:pb-0">
-                      <p className="text-[#e05000] font-black text-3xl leading-none">{s.value}</p>
+                      <p className="text-[#f4a65d] font-black text-3xl leading-none">{s.value}</p>
                       <p className="text-white text-sm mt-1 opacity-80">{s.label}</p>
                     </div>
                   ))}

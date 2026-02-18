@@ -101,7 +101,7 @@ export default function SolutionsPage() {
       {/* ── Hero ── */}
       <section className="relative bg-[#0f2a4a] text-white overflow-hidden">
         <div className="grid-bg absolute inset-0" aria-hidden="true" />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-[#e05000]" aria-hidden="true" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#f4a65d]" aria-hidden="true" />
         <div className="cx relative py-20 md:py-28">
           <nav className="flex items-center gap-2 text-sm text-[#8ab4d4] mb-8">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -109,10 +109,10 @@ export default function SolutionsPage() {
             <span className="text-white font-medium">Industry Solutions</span>
           </nav>
           <div className="max-w-3xl">
-            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-4">Industry Solutions</p>
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-4">Industry Solutions</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
               Corrosion Programs Built<br />
-              <span className="text-[#e05000]">for Your Industry</span>
+              <span className="text-[#f4a65d]">for Your Industry</span>
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
               Corrosion is not a generic problem. Each industry carries its own process chemistry,
@@ -136,7 +136,7 @@ export default function SolutionsPage() {
       <section className="bg-white py-20 md:py-24">
         <div className="cx">
           <div className="text-center mb-16">
-            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-3">Sector Expertise</p>
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Sector Expertise</p>
             <h2 className="text-3xl md:text-4xl font-black text-[#0f2a4a] mb-4">
               Tailored for Your Industry
             </h2>
@@ -152,10 +152,10 @@ export default function SolutionsPage() {
             {industries.map((ind) => (
               <div
                 key={ind.slug}
-                className="bg-white border border-[#e8edf2] rounded-xl p-7 hover:shadow-lg hover:border-[#e05000] transition-all group flex flex-col"
+                className="bg-white border border-[#e8edf2] rounded-xl p-7 hover:shadow-lg hover:border-[#f4a65d] transition-all group flex flex-col"
               >
-                <p className="text-[#e05000] text-xs font-bold tracking-wider mb-2">{ind.num}</p>
-                <h3 className="font-black text-[#0f2a4a] text-xl group-hover:text-[#e05000] transition-colors mb-0">
+                <p className="text-[#f4a65d] text-xs font-bold tracking-wider mb-2">{ind.num}</p>
+                <h3 className="font-black text-[#0f2a4a] text-xl group-hover:text-[#f4a65d] transition-colors mb-0">
                   {ind.name}
                 </h3>
                 <p className="text-[#566677] text-sm mt-2 leading-relaxed mb-5">
@@ -167,7 +167,7 @@ export default function SolutionsPage() {
                   <ul className="space-y-2">
                     {ind.challenges.map((c) => (
                       <li key={c} className="flex items-start gap-2 text-sm text-[#566677]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#e05000] flex-shrink-0 mt-1.5" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#f4a65d] flex-shrink-0 mt-1.5" />
                         {c}
                       </li>
                     ))}
@@ -177,7 +177,7 @@ export default function SolutionsPage() {
                 <div className="mt-auto pt-4 border-t border-[#e8edf2]">
                   <Link
                     href={`/solutions/${ind.slug}`}
-                    className="text-[#e05000] text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all"
+                    className="text-[#f4a65d] text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all"
                   >
                     View Solutions
                     <ArrowRight className="w-4 h-4" />

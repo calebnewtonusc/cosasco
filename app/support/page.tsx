@@ -105,7 +105,7 @@ export default function SupportPage() {
             Expert technical assistance for corrosion monitoring and chemical injection systems — from initial setup to long-term maintenance.
           </p>
           {/* Emergency Strip */}
-          <div className="inline-flex items-center gap-3 bg-[#c94700] rounded-lg px-6 py-3">
+          <div className="inline-flex items-center gap-3 bg-[#d4892a] rounded-lg px-6 py-3">
             <AlertTriangle className="text-white w-5 h-5 flex-shrink-0" />
             <span className="text-white font-semibold text-sm">
               Critical System Failure? Call <strong>+1 (562) 949-0123</strong> for 24/7 emergency support
@@ -120,19 +120,19 @@ export default function SupportPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                icon: <MessageSquare className="w-6 h-6 text-[#e05000]" />,
+                icon: <MessageSquare className="w-6 h-6 text-[#f4a65d]" />,
                 title: 'Browse FAQ',
                 description: 'Find answers to the most common questions about Cosasco products, installation procedures, and technical specifications.',
                 link: 'View all FAQs',
               },
               {
-                icon: <Phone className="w-6 h-6 text-[#e05000]" />,
+                icon: <Phone className="w-6 h-6 text-[#f4a65d]" />,
                 title: 'Contact an Engineer',
                 description: 'Speak directly with a Cosasco field engineer for application-specific guidance, sizing support, or complex troubleshooting.',
                 link: 'Talk to an engineer',
               },
               {
-                icon: <FileText className="w-6 h-6 text-[#e05000]" />,
+                icon: <FileText className="w-6 h-6 text-[#f4a65d]" />,
                 title: 'Submit a Request',
                 description: 'Log a formal technical support request and receive a tracked response from our engineering team within agreed SLA windows.',
                 link: 'Submit request',
@@ -149,7 +149,7 @@ export default function SupportPage() {
                 <p className="text-[#566677] mt-3 text-sm leading-relaxed">{card.description}</p>
                 <a
                   href="#"
-                  className="text-[#e05000] font-semibold text-sm mt-5 flex items-center gap-1 hover:gap-2 transition-all"
+                  className="text-[#f4a65d] font-semibold text-sm mt-5 flex items-center gap-1 hover:gap-2 transition-all"
                 >
                   {card.link}
                   <ArrowRight className="w-4 h-4" />
@@ -181,8 +181,8 @@ export default function SupportPage() {
                 }}
                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                   activeCategory === cat
-                    ? 'bg-[#e05000] text-white'
-                    : 'bg-white border border-[#e8edf2] text-[#566677] hover:border-[#e05000] hover:text-[#e05000]'
+                    ? 'bg-[#f4a65d] text-white'
+                    : 'bg-white border border-[#e8edf2] text-[#566677] hover:border-[#f4a65d] hover:text-[#f4a65d]'
                 }`}
               >
                 {cat}
@@ -238,7 +238,7 @@ export default function SupportPage() {
                     <input
                       type="text"
                       placeholder="John Smith"
-                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#e05000]"
+                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
                     />
                   </div>
                   <div>
@@ -246,7 +246,7 @@ export default function SupportPage() {
                     <input
                       type="text"
                       placeholder="Acme Corp"
-                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#e05000]"
+                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
                     />
                   </div>
                 </div>
@@ -258,7 +258,7 @@ export default function SupportPage() {
                     <input
                       type="email"
                       placeholder="john@company.com"
-                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#e05000]"
+                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
                     />
                   </div>
                   <div>
@@ -266,7 +266,7 @@ export default function SupportPage() {
                     <input
                       type="tel"
                       placeholder="+1 (555) 000-0000"
-                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#e05000]"
+                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
                     />
                   </div>
                 </div>
@@ -277,14 +277,14 @@ export default function SupportPage() {
                   <input
                     type="text"
                     placeholder="e.g. ER Probe Model 7012, FieldCom 3.0"
-                    className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#e05000]"
+                    className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
                   />
                 </div>
 
                 {/* Application Type */}
                 <div>
                   <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Application Type</label>
-                  <select className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#e05000] bg-white">
+                  <select className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] bg-white">
                     <option value="">Select application...</option>
                     <option>Oil &amp; Gas — Upstream</option>
                     <option>Oil &amp; Gas — Midstream Pipeline</option>
@@ -303,14 +303,14 @@ export default function SupportPage() {
                   <textarea
                     rows={5}
                     placeholder="Describe the issue, symptoms, and any troubleshooting steps already taken..."
-                    className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#e05000] resize-none"
+                    className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d] resize-none"
                   />
                 </div>
 
                 {/* Priority */}
                 <div>
                   <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Priority</label>
-                  <select className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#e05000] bg-white">
+                  <select className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] bg-white">
                     <option value="critical">Critical — System Down</option>
                     <option value="high">High — Degraded Performance</option>
                     <option value="normal">Normal — Planning / Inquiry</option>
@@ -320,17 +320,17 @@ export default function SupportPage() {
                 {/* File Upload */}
                 <div>
                   <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Attachments</label>
-                  <div className="border-2 border-dashed border-[#e8edf2] rounded-xl p-8 text-center hover:border-[#e05000] transition-colors cursor-pointer">
+                  <div className="border-2 border-dashed border-[#e8edf2] rounded-xl p-8 text-center hover:border-[#f4a65d] transition-colors cursor-pointer">
                     <Upload className="w-8 h-8 text-[#8898aa] mx-auto mb-3" />
                     <p className="text-[#566677] text-sm font-medium">Drag and drop files here</p>
-                    <p className="text-[#8898aa] text-xs mt-1">or <span className="text-[#e05000] font-semibold">browse to upload</span></p>
+                    <p className="text-[#8898aa] text-xs mt-1">or <span className="text-[#f4a65d] font-semibold">browse to upload</span></p>
                     <p className="text-[#8898aa] text-xs mt-2">PDF, PNG, JPG up to 25MB each</p>
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-[#e05000] text-white rounded-lg py-3 font-semibold hover:bg-[#c94700] transition-colors"
+                  className="w-full bg-[#f4a65d] text-white rounded-lg py-3 font-semibold hover:bg-[#d4892a] transition-colors"
                 >
                   Submit Support Request
                 </button>

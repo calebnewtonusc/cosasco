@@ -119,12 +119,12 @@ export default function CorrosionMonitoringPage() {
 
               {/* Stat callouts */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="border-l-4 border-[#e05000] bg-[#f7f9fc] rounded-r-xl px-5 py-4">
-                  <div className="text-[#e05000] font-black text-4xl leading-none">70+</div>
+                <div className="border-l-4 border-[#f4a65d] bg-[#f7f9fc] rounded-r-xl px-5 py-4">
+                  <div className="text-[#f4a65d] font-black text-4xl leading-none">70+</div>
                   <p className="text-[#566677] text-sm mt-1 font-medium">Years of ER probe development</p>
                 </div>
-                <div className="border-l-4 border-[#e05000] bg-[#f7f9fc] rounded-r-xl px-5 py-4">
-                  <div className="text-[#e05000] font-black text-4xl leading-none">1M+</div>
+                <div className="border-l-4 border-[#f4a65d] bg-[#f7f9fc] rounded-r-xl px-5 py-4">
+                  <div className="text-[#f4a65d] font-black text-4xl leading-none">1M+</div>
                   <p className="text-[#566677] text-sm mt-1 font-medium">Active monitoring locations worldwide</p>
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function CorrosionMonitoringPage() {
                 <ul className="space-y-3.5">
                   {features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm text-[#1e2b3a]">
-                      <CheckCircle size={16} className="flex-shrink-0 mt-0.5 text-[#e05000]" />
+                      <CheckCircle size={16} className="flex-shrink-0 mt-0.5 text-[#f4a65d]" />
                       {f}
                     </li>
                   ))}
@@ -171,7 +171,7 @@ export default function CorrosionMonitoringPage() {
                 </div>
                 <Link
                   href={`/contact?product=${encodeURIComponent(prod.name)}`}
-                  className="inline-flex items-center gap-1.5 text-[#e05000] text-sm font-semibold mt-4 hover:text-[#c94700] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-[#f4a65d] text-sm font-semibold mt-4 hover:text-[#d4892a] transition-colors"
                 >
                   Request Information
                   <ArrowRight size={14} />
@@ -197,7 +197,7 @@ export default function CorrosionMonitoringPage() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-[#e05000] text-white rounded-md px-6 py-3 text-sm font-semibold hover:bg-[#c94700] transition-colors"
+                className="inline-flex items-center gap-2 bg-[#f4a65d] text-white rounded-md px-6 py-3 text-sm font-semibold hover:bg-[#d4892a] transition-colors"
               >
                 Request a Quote
               </Link>
@@ -220,17 +220,17 @@ export default function CorrosionMonitoringPage() {
               <h3 className="text-lg font-bold text-white mb-3">Speak with an Engineer</h3>
               <ul className="space-y-2.5 mb-5">
                 <li className="flex items-center gap-3 text-sm text-[#94aabb]">
-                  <Phone size={15} className="text-[#e05000] flex-shrink-0" />
+                  <Phone size={15} className="text-[#f4a65d] flex-shrink-0" />
                   +1 (714) 538-2902
                 </li>
                 <li className="flex items-center gap-3 text-sm text-[#94aabb]">
-                  <Mail size={15} className="text-[#e05000] flex-shrink-0" />
+                  <Mail size={15} className="text-[#f4a65d] flex-shrink-0" />
                   sales@cosasco.com
                 </li>
               </ul>
               <Link
                 href="/contact"
-                className="w-full flex justify-center items-center bg-[#e05000] text-white rounded-md px-4 py-2.5 text-sm font-semibold hover:bg-[#c94700] transition-colors"
+                className="w-full flex justify-center items-center bg-[#f4a65d] text-white rounded-md px-4 py-2.5 text-sm font-semibold hover:bg-[#d4892a] transition-colors"
               >
                 Send an Inquiry
               </Link>
@@ -246,10 +246,10 @@ export default function CorrosionMonitoringPage() {
                   <li key={s.label}>
                     <Link
                       href={s.href}
-                      className="flex items-center justify-between py-2.5 text-sm text-[#1e2b3a] border-b border-[#e8edf2] last:border-0 hover:text-[#e05000] transition-colors group"
+                      className="flex items-center justify-between py-2.5 text-sm text-[#1e2b3a] border-b border-[#e8edf2] last:border-0 hover:text-[#f4a65d] transition-colors group"
                     >
                       {s.label}
-                      <ChevronRight size={14} className="text-[#566677] group-hover:text-[#e05000] transition-colors" />
+                      <ChevronRight size={14} className="text-[#566677] group-hover:text-[#f4a65d] transition-colors" />
                     </Link>
                   </li>
                 ))}
@@ -266,13 +266,13 @@ export default function CorrosionMonitoringPage() {
                   <li key={dl.title}>
                     <Link
                       href="/resources"
-                      className="flex items-start gap-3 p-3 rounded-lg border border-[#e8edf2] hover:border-[#e05000] hover:shadow-sm transition-all group"
+                      className="flex items-start gap-3 p-3 rounded-lg border border-[#e8edf2] hover:border-[#f4a65d] hover:shadow-sm transition-all group"
                     >
-                      <FileText size={18} className="flex-shrink-0 mt-0.5 text-[#566677] group-hover:text-[#e05000] transition-colors" />
+                      <FileText size={18} className="flex-shrink-0 mt-0.5 text-[#566677] group-hover:text-[#f4a65d] transition-colors" />
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-[#1e2b3a] leading-snug">{dl.title}</p>
                         <p className="text-xs text-[#566677] mt-0.5">{dl.desc}</p>
-                        <p className="text-xs font-medium text-[#e05000] mt-1 flex items-center gap-1">
+                        <p className="text-xs font-medium text-[#f4a65d] mt-1 flex items-center gap-1">
                           <Download size={11} />
                           {dl.size}
                         </p>

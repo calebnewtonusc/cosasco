@@ -100,7 +100,7 @@ export default function ProductsPage() {
                 href={ind.href}
                 className={
                   ind.active
-                    ? "px-5 py-2 rounded-full text-sm font-semibold border transition-all bg-[#e05000] text-white border-[#e05000] shadow-sm"
+                    ? "px-5 py-2 rounded-full text-sm font-semibold border transition-all bg-[#f4a65d] text-white border-[#f4a65d] shadow-sm"
                     : "px-5 py-2 rounded-full text-sm font-semibold border transition-all bg-white text-[#1e2b3a] border-[#e8edf2] hover:border-[#0f2a4a] hover:text-[#0f2a4a]"
                 }
               >
@@ -120,7 +120,7 @@ export default function ProductsPage() {
             { stat: "1M+", label: "Monitoring Locations" },
           ].map((item) => (
             <div key={item.stat} className="text-center">
-              <div className="text-[#e05000] font-black text-3xl leading-none">{item.stat}</div>
+              <div className="text-[#f4a65d] font-black text-3xl leading-none">{item.stat}</div>
               <div className="text-[#566677] text-xs mt-1 font-medium">{item.label}</div>
             </div>
           ))}
@@ -165,7 +165,7 @@ export default function ProductsPage() {
                       {cat.products.map((p) => (
                         <li key={p} className="flex items-start gap-2.5 text-sm text-[#1e2b3a]">
                           <span
-                            className="flex-shrink-0 w-1.5 h-1.5 rounded-full mt-1.5 bg-[#e05000]"
+                            className="flex-shrink-0 w-1.5 h-1.5 rounded-full mt-1.5 bg-[#f4a65d]"
                             aria-hidden="true"
                           />
                           {p}
@@ -176,7 +176,7 @@ export default function ProductsPage() {
                     <div className="flex flex-wrap gap-3 mt-auto">
                       <Link
                         href={cat.href}
-                        className="inline-flex items-center gap-2 bg-[#e05000] text-white rounded-md px-4 py-2 text-sm font-semibold hover:bg-[#c94700] transition-colors"
+                        className="inline-flex items-center gap-2 bg-[#f4a65d] text-white rounded-md px-4 py-2 text-sm font-semibold hover:bg-[#d4892a] transition-colors"
                       >
                         View Products
                         <ArrowRight size={14} />
@@ -210,7 +210,7 @@ export default function ProductsPage() {
           <div className="flex flex-wrap gap-3 flex-shrink-0">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-[#e05000] text-white rounded-md px-6 py-3 text-sm font-semibold hover:bg-[#c94700] transition-colors"
+              className="inline-flex items-center gap-2 bg-[#f4a65d] text-white rounded-md px-6 py-3 text-sm font-semibold hover:bg-[#d4892a] transition-colors"
             >
               Talk to an Engineer
             </Link>

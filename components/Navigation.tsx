@@ -5,46 +5,46 @@ import Link from 'next/link'
 import { ChevronDown, Menu, X, Phone } from 'lucide-react'
 
 const industriesDropdown = [
-  { name: 'Oil & Gas', href: '/solutions/oil-gas' },
-  { name: 'Petrochemical', href: '/solutions/petrochemical' },
-  { name: 'Water Treatment', href: '/solutions/water-treatment' },
-  { name: 'Chemical Processing', href: '/solutions/chemical-processing' },
+  { name: 'Upstream Oil & Gas', href: '/solutions/oil-gas' },
+  { name: 'Midstream', href: '/solutions/oil-gas' },
+  { name: 'Downstream / Refining', href: '/solutions/petrochemical' },
+  { name: 'Gas Transmission', href: '/solutions/oil-gas' },
   { name: 'Pulp & Paper', href: '/solutions/pulp-paper' },
-  { name: 'Utilities', href: '/solutions/utilities' },
+  { name: 'Specialty Applications', href: '/solutions/chemical-processing' },
 ]
 
 const productsDropdown = [
   {
     heading: 'Corrosion Monitoring',
     items: [
-      { name: 'ER Probes', href: '/products/corrosion-monitoring' },
-      { name: 'LPR Systems', href: '/products/corrosion-monitoring' },
-      { name: 'Access Fittings', href: '/products/corrosion-monitoring' },
-      { name: 'Corrosion Coupons', href: '/products/corrosion-monitoring' },
+      { name: 'ER Probes', description: 'Electrical resistance probe systems', href: '/products/corrosion-monitoring' },
+      { name: 'LPR Systems', description: 'Linear polarization resistance', href: '/products/corrosion-monitoring' },
+      { name: 'Access Fittings', description: 'Live retrieval equipment', href: '/products/corrosion-monitoring' },
+      { name: 'Corrosion Coupons', description: 'Weight-loss analysis', href: '/products/corrosion-monitoring' },
     ],
   },
   {
     heading: 'Erosion Monitoring',
     items: [
-      { name: 'Sand Detection', href: '/products/erosion-monitoring' },
-      { name: 'UT Sensors', href: '/products/erosion-monitoring' },
-      { name: 'Erosion Probes', href: '/products/erosion-monitoring' },
+      { name: 'Sand Detection', description: '', href: '/products/erosion-monitoring' },
+      { name: 'UT Sensors', description: '', href: '/products/erosion-monitoring' },
+      { name: 'Erosion Probes', description: '', href: '/products/erosion-monitoring' },
     ],
   },
   {
     heading: 'Chemical Injection',
     items: [
-      { name: 'Quill Assemblies', href: '/products/chemical-injection' },
-      { name: 'Injection Valves', href: '/products/chemical-injection' },
-      { name: 'Dosing Systems', href: '/products/chemical-injection' },
+      { name: 'Quill Assemblies', description: '', href: '/products/chemical-injection' },
+      { name: 'Injection Valves', description: '', href: '/products/chemical-injection' },
+      { name: 'Dosing Systems', description: '', href: '/products/chemical-injection' },
     ],
   },
   {
     heading: 'Data Acquisition',
     items: [
-      { name: 'FieldCom Systems', href: '/products/data-acquisition' },
-      { name: 'Data Loggers', href: '/products/data-acquisition' },
-      { name: 'Software', href: '/products/data-acquisition' },
+      { name: 'FieldCom Systems', description: '', href: '/products/data-acquisition' },
+      { name: 'Data Loggers', description: '', href: '/products/data-acquisition' },
+      { name: 'Software', description: '', href: '/products/data-acquisition' },
     ],
   },
 ]
@@ -90,7 +90,7 @@ export default function Navigation() {
   const navLinkBase =
     'flex items-center gap-1 px-3 py-2 text-[0.9rem] font-medium rounded-md transition-colors duration-150'
   const navLinkIdle = 'text-[#334150] hover:text-[#0f2a4a] hover:bg-[#f4f6f8]'
-  const navLinkActive = 'text-[#e05000] bg-[#fef3ee]'
+  const navLinkActive = 'text-[#f4a65d] bg-[#fef8f0]'
 
   return (
     <header
@@ -98,7 +98,7 @@ export default function Navigation() {
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#e8edf2]"
     >
       {/* Orange top strip */}
-      <div className="h-[3px] bg-[#e05000] w-full" />
+      <div className="h-[3px] bg-[#f4a65d] w-full" />
 
       {/* Main nav bar */}
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[72px]">
@@ -110,7 +110,7 @@ export default function Navigation() {
           </div>
           <div className="leading-none">
             <div className="font-black text-[#0f2a4a] tracking-tight text-[1.05rem] leading-none">
-              COSASCO
+              COSASCO<sup className="text-[0.55rem] font-normal align-super ml-[1px]">®</sup>
             </div>
             <div className="text-[10px] text-[#8898aa] tracking-wider uppercase mt-0.5 leading-none">
               A Halma Company
@@ -152,8 +152,8 @@ export default function Navigation() {
           <Link href="/resources" className={`${navLinkBase} ${navLinkIdle}`}>
             Resources
           </Link>
-          <Link href="/products/data-acquisition" className={`${navLinkBase} ${navLinkIdle}`}>
-            Software
+          <Link href="/resources" className={`${navLinkBase} ${navLinkIdle}`}>
+            Innovation
           </Link>
 
           {/* Company */}
@@ -181,9 +181,9 @@ export default function Navigation() {
           </a>
           <Link
             href="/contact"
-            className="bg-[#e05000] hover:bg-[#c94700] text-white text-sm font-semibold px-4 py-2 rounded-md transition-colors duration-150"
+            className="bg-[#f4a65d] hover:bg-[#d4892a] text-white text-sm font-semibold px-4 py-2 rounded-md transition-colors duration-150"
           >
-            Get a Quote
+            Request a Quote
           </Link>
         </div>
 
@@ -207,9 +207,9 @@ export default function Navigation() {
                   key={ind.name}
                   href={ind.href}
                   onClick={() => setOpen(null)}
-                  className="flex items-center gap-2 text-[0.9rem] font-medium text-[#334150] hover:text-[#e05000] transition-colors duration-150 py-1"
+                  className="flex items-center gap-2 text-[0.9rem] font-medium text-[#334150] hover:text-[#f4a65d] transition-colors duration-150 py-1"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#e05000] shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#f4a65d] shrink-0" />
                   {ind.name}
                 </Link>
               ))}
@@ -218,7 +218,7 @@ export default function Navigation() {
               <Link
                 href="/solutions"
                 onClick={() => setOpen(null)}
-                className="text-sm font-semibold text-[#e05000] hover:text-[#c94700] transition-colors duration-150"
+                className="text-sm font-semibold text-[#f4a65d] hover:text-[#d4892a] transition-colors duration-150"
               >
                 View all industries →
               </Link>
@@ -243,9 +243,12 @@ export default function Navigation() {
                         <Link
                           href={item.href}
                           onClick={() => setOpen(null)}
-                          className="block text-[0.875rem] font-medium text-[#334150] hover:text-[#e05000] transition-colors duration-150 py-0.5"
+                          className="block text-[0.875rem] font-medium text-[#334150] hover:text-[#f4a65d] transition-colors duration-150 py-0.5"
                         >
                           {item.name}
+                          {item.description ? (
+                            <span className="text-[#8898aa] text-xs block mt-0.5">{item.description}</span>
+                          ) : null}
                         </Link>
                       </li>
                     ))}
@@ -257,7 +260,7 @@ export default function Navigation() {
               <Link
                 href="/products"
                 onClick={() => setOpen(null)}
-                className="text-sm font-semibold text-[#e05000] hover:text-[#c94700] transition-colors duration-150"
+                className="text-sm font-semibold text-[#f4a65d] hover:text-[#d4892a] transition-colors duration-150"
               >
                 View all products →
               </Link>
@@ -276,7 +279,7 @@ export default function Navigation() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setOpen(null)}
-                  className="text-[0.9rem] font-medium text-[#334150] hover:text-[#e05000] transition-colors duration-150 py-1.5"
+                  className="text-[0.9rem] font-medium text-[#334150] hover:text-[#f4a65d] transition-colors duration-150 py-1.5"
                 >
                   {item.name}
                 </Link>
@@ -309,7 +312,7 @@ export default function Navigation() {
                     key={ind.name}
                     href={ind.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block py-2 text-sm text-[#334150] hover:text-[#e05000] transition-colors duration-150"
+                    className="block py-2 text-sm text-[#334150] hover:text-[#f4a65d] transition-colors duration-150"
                   >
                     {ind.name}
                   </Link>
@@ -340,9 +343,12 @@ export default function Navigation() {
                         key={item.name}
                         href={item.href}
                         onClick={() => setMobileOpen(false)}
-                        className="block py-1.5 text-sm text-[#334150] hover:text-[#e05000] transition-colors duration-150"
+                        className="block py-1.5 text-sm text-[#334150] hover:text-[#f4a65d] transition-colors duration-150"
                       >
                         {item.name}
+                        {item.description ? (
+                          <span className="text-[#8898aa] text-xs block mt-0.5">{item.description}</span>
+                        ) : null}
                       </Link>
                     ))}
                   </div>
@@ -365,11 +371,11 @@ export default function Navigation() {
               Resources
             </Link>
             <Link
-              href="/products/data-acquisition"
+              href="/resources"
               onClick={() => setMobileOpen(false)}
               className="block px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
             >
-              Software
+              Innovation
             </Link>
 
             {/* Company accordion */}
@@ -390,7 +396,7 @@ export default function Navigation() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block py-2 text-sm text-[#334150] hover:text-[#e05000] transition-colors duration-150"
+                    className="block py-2 text-sm text-[#334150] hover:text-[#f4a65d] transition-colors duration-150"
                   >
                     {item.name}
                   </Link>
@@ -403,9 +409,9 @@ export default function Navigation() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="block w-full text-center bg-[#e05000] hover:bg-[#c94700] text-white font-semibold text-sm py-3 rounded-md transition-colors duration-150"
+                className="block w-full text-center bg-[#f4a65d] hover:bg-[#d4892a] text-white font-semibold text-sm py-3 rounded-md transition-colors duration-150"
               >
-                Get a Quote
+                Request a Quote
               </Link>
             </div>
           </div>

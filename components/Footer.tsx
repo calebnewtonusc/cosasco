@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               href="/contact"
-              className="bg-[#e05000] hover:bg-[#c94700] text-white font-semibold text-sm px-5 py-2.5 rounded-md transition-colors duration-150 whitespace-nowrap"
+              className="bg-[#f4a65d] hover:bg-[#d4892a] text-white font-semibold text-sm px-5 py-2.5 rounded-md transition-colors duration-150 whitespace-nowrap"
             >
               Contact an Expert
             </Link>

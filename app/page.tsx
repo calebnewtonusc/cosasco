@@ -1,990 +1,443 @@
-import Link from 'next/link'
-import {
-  Shield,
-  Activity,
-  Droplets,
-  Monitor,
-  ArrowRight,
-  FileText,
-  Wrench,
-  Globe,
-  CheckCircle,
-  Download,
-  ChevronRight,
-} from 'lucide-react'
+import { Shield, Activity, Droplets, BarChart2, FileText, Wrench, Settings, CheckCircle } from 'lucide-react'
 
 /* ─────────────────────────────────────────────────────────────────────────── */
 /*  Static data                                                                */
 /* ─────────────────────────────────────────────────────────────────────────── */
 
+const industries = [
+  {
+    num: '01',
+    name: 'Oil & Gas',
+    desc: 'From wellhead to refinery, our monitoring solutions protect upstream, midstream, and downstream assets operating under extreme pressures and corrosive environments. We serve operators worldwide with API-compliant systems.',
+  },
+  {
+    num: '02',
+    name: 'Petrochemical',
+    desc: 'High-temperature, aggressive chemical process environments demand precision corrosion control. Our instruments handle H2S, chloride, and acid attack in crackers, reformers, and storage facilities.',
+  },
+  {
+    num: '03',
+    name: 'Water Treatment',
+    desc: 'Potable, produced, and wastewater systems require continuous corrosion monitoring to ensure public safety and regulatory compliance. We supply probes and analyzers suited for municipal and industrial scale.',
+  },
+  {
+    num: '04',
+    name: 'Chemical Processing',
+    desc: 'Reactors, heat exchangers, and transfer lines handling caustic or acidic media rely on our ER and LPR probe systems for early corrosion detection and process integrity management.',
+  },
+  {
+    num: '05',
+    name: 'Pulp & Paper',
+    desc: 'Bleaching agents, black liquor, and steam environments create unique corrosion challenges. Our monitoring equipment withstands the demanding conditions found in pulp digesters and recovery systems.',
+  },
+  {
+    num: '06',
+    name: 'Utilities',
+    desc: 'Power generation plants, cooling water systems, and steam distribution networks rely on Cosasco sensors to track metal loss and prevent unplanned outages across critical utility infrastructure.',
+  },
+]
+
 const products = [
   {
     icon: Shield,
-    title: 'Corrosion Monitoring',
-    desc: 'ER probes, LPR systems, access fittings, and coupon holders for continuous or periodic corrosion measurement.',
-    tags: ['Intrusive', 'Non-Intrusive'],
-    href: '/products/corrosion-monitoring',
+    category: 'Corrosion Monitoring',
+    name: 'ER & LPR Probe Systems',
+    desc: 'Electrical resistance and linear polarization resistance probes for continuous, real-time corrosion rate measurement in any process fluid.',
+    pills: ['ER Probes', 'LPR Systems', 'Coupon Holders'],
   },
   {
     icon: Activity,
-    title: 'Erosion Monitoring',
-    desc: 'Ultrasonic wall thickness, sand detection probes, and erosion monitors for high-velocity flow environments.',
-    tags: ['Sand Detection', 'UT Sensors'],
-    href: '/products/erosion-monitoring',
+    category: 'Erosion Monitoring',
+    name: 'Sand & Wall-Loss Detection',
+    desc: 'Ultrasonic sensors and sand detection probes engineered for high-velocity multiphase flow, protecting bends, tees, and reducers.',
+    pills: ['UT Sensors', 'Sand Monitors', 'Flush Probes'],
   },
   {
     icon: Droplets,
-    title: 'Chemical Injection',
-    desc: 'Quill assemblies, injection valves, and dosing systems engineered for reliable chemical delivery into pressurized pipelines.',
-    tags: ['Quill Assemblies', 'Injection Valves'],
-    href: '/products/chemical-injection',
+    category: 'Chemical Injection',
+    name: 'Quill & Injection Systems',
+    desc: 'Precision quill assemblies, injection valves, and check valves engineered for reliable chemical delivery into pressurized pipelines.',
+    pills: ['Injection Quills', 'Check Valves', 'Packing Glands'],
   },
   {
-    icon: Monitor,
-    title: 'Data Acquisition',
-    desc: 'FieldCom wireless loggers, cloud dashboards, and SCADA-compatible systems for real-time corrosion data.',
-    tags: ['Wireless', 'Cloud'],
-    href: '/products/data-acquisition',
+    icon: BarChart2,
+    category: 'Data Acquisition',
+    name: 'FieldCom & Cloud Analytics',
+    desc: 'Wireless data loggers, cloud dashboards, and SCADA-compatible systems for centralised corrosion data management and reporting.',
+    pills: ['FieldCom Logger', 'Cloud Dashboard', 'SCADA Output'],
   },
 ]
 
-const industries = [
-  { num: '01', name: 'Oil & Gas', desc: 'Upstream, midstream, and downstream asset protection.', slug: 'oil-gas' },
-  { num: '02', name: 'Petrochemical', desc: 'High-temperature, corrosive process environments.', slug: 'petrochemical' },
-  { num: '03', name: 'Water Treatment', desc: 'Monitoring for potable, produced, and wastewater systems.', slug: 'water-treatment' },
-  { num: '04', name: 'Chemical Processing', desc: 'Corrosion-resistant solutions for aggressive media.', slug: 'chemical-processing' },
-  { num: '05', name: 'Pulp & Paper', desc: 'Asset monitoring in wet, abrasive mill environments.', slug: 'pulp-paper' },
-  { num: '06', name: 'Utilities', desc: 'Power generation and transmission infrastructure.', slug: 'utilities' },
-]
-
-const stats = [
-  { value: '70+', label: 'Years in Service' },
-  { value: '1,000+', label: 'Products Available' },
-  { value: '50+', label: 'Countries Served' },
-  { value: '24/7', label: 'Technical Support' },
-]
-
-const heroStats = [
-  { value: '70+', label: 'Years of Expertise' },
-  { value: '1,000+', label: 'Products & Systems' },
-  { value: '50+', label: 'Countries Served' },
-  { value: 'ISO 9001', label: 'Certified Quality' },
-]
-
-const features = [
+const services = [
   {
-    icon: Shield,
-    title: 'Application-First Engineering',
-    desc: 'We design around your process conditions, not around a catalog.',
+    icon: FileText,
+    title: 'Design & Documentation',
+    desc: 'Our application engineers work directly with your team to design the right monitoring architecture for your process conditions. We produce full P&ID markups, material selection reports, and site-specific installation drawings. Every design is reviewed against NACE, API, and ISO standards before submission. Documentation packages are available in all major engineering formats.',
   },
   {
     icon: Wrench,
-    title: 'Full Lifecycle Support',
-    desc: 'From specification through commissioning and long-term service.',
+    title: 'Installation & Commissioning',
+    desc: 'Cosasco-trained field technicians handle safe, hot-tap installation of access fittings and retrieval equipment on live process lines. We commission all electronic instruments on site, verify signal integrity, and integrate with your existing DCS or SCADA network. Commissioning reports with baseline corrosion readings are provided at handover. Zero process interruption is our standard.',
   },
   {
-    icon: Globe,
-    title: 'Global Reach, Local Expertise',
-    desc: 'Engineering centers and distributors across 50+ countries.',
-  },
-  {
-    icon: CheckCircle,
-    title: 'Quality Certified',
-    desc: 'ISO 9001:2015, NACE, API, and ATEX/IECEx compliance.',
+    icon: Settings,
+    title: 'Service & Maintenance',
+    desc: 'We offer global service agreements covering periodic probe retrieval, coupon analysis, instrument calibration, and software updates. Our regional service centres maintain a full inventory of replacement parts for minimal downtime. Remote diagnostics via FieldCom allow our engineers to triage sensor issues without an on-site visit. Annual integrity audits keep your programme compliant.',
   },
 ]
-
-const resources = [
-  {
-    title: 'Corrosion Probe Selection Guide',
-    type: 'PDF',
-    pages: '24 pages',
-    desc: 'A comprehensive guide to selecting the right probe technology for your corrosion monitoring application.',
-  },
-  {
-    title: 'Chemical Injection System Design',
-    type: 'Technical Brief',
-    pages: '16 pages',
-    desc: 'Engineering considerations for designing reliable chemical injection systems in high-pressure pipelines.',
-  },
-  {
-    title: 'Pipeline Monitoring Best Practices',
-    type: 'White Paper',
-    pages: null,
-    desc: 'Industry-aligned best practices for continuous pipeline integrity monitoring and corrosion risk management.',
-  },
-]
-
-const operators = ['Shell', 'Chevron', 'ExxonMobil', 'BP', 'Saudi Aramco']
 
 /* ─────────────────────────────────────────────────────────────────────────── */
-/*  Page                                                                       */
+/*  Page component (Server Component — no client directives needed)            */
 /* ─────────────────────────────────────────────────────────────────────────── */
 
 export default function HomePage() {
   return (
     <main>
-      {/* ── 1. HERO ──────────────────────────────────────────────────────── */}
+
+      {/* ─── SECTION 1: HERO ─────────────────────────────────────────────── */}
       <section
-        className="grid-bg relative overflow-hidden"
+        className="relative bg-[#0f2a4a] min-h-[calc(100vh-72px)] flex items-center pt-[72px]"
         style={{
-          background: '#0a1628',
-          minHeight: 'calc(100vh - 68px)',
-          paddingTop: '68px',
+          background: 'radial-gradient(ellipse 80% 60% at 60% 40%, #1a3a5c 0%, #0f2a4a 100%)',
         }}
       >
-        {/* Radial glow */}
+        {/* Grid texture overlay */}
         <div
-          aria-hidden
+          className="absolute inset-0 pointer-events-none"
           style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'radial-gradient(ellipse 70% 50% at 60% 50%, rgba(26,61,110,0.6) 0%, transparent 70%)',
-            pointerEvents: 'none',
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
           }}
         />
 
-        <div
-          className="cx relative"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            minHeight: 'calc(100vh - 68px)',
-            paddingTop: '5rem',
-            paddingBottom: '5rem',
-            gap: '4rem',
-          }}
-        >
-          {/* Left column */}
-          <div style={{ flex: '1 1 0', minWidth: 0 }}>
-            {/* Eyebrow */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                marginBottom: '1.5rem',
-              }}
-            >
-              <span
-                style={{
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  background: '#e05000',
-                  flexShrink: 0,
-                }}
-              />
-              <span className="eyebrow">Corrosion Management Solutions</span>
-            </div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-16 py-20 w-full">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
 
-            {/* H1 */}
-            <h1
-              style={{
-                fontSize: 'clamp(2.8rem, 5vw, 4.5rem)',
-                fontWeight: 800,
-                lineHeight: 1.08,
-                letterSpacing: '-0.02em',
-                color: '#ffffff',
-                marginBottom: '1.5rem',
-              }}
-            >
-              Protecting Critical
-              <br />
-              Infrastructure.
-              <br />
-              <span style={{ color: '#f5600a' }}>Since 1955.</span>
-            </h1>
-
-            {/* Subtext */}
-            <p
-              style={{
-                color: '#b8c8da',
-                fontSize: '1.125rem',
-                lineHeight: 1.7,
-                maxWidth: '540px',
-                marginBottom: '2.5rem',
-              }}
-            >
-              Advanced corrosion and erosion monitoring, chemical injection
-              systems, and data acquisition for oil&nbsp;&amp;&nbsp;gas,
-              petrochemical, and critical industry worldwide.
-            </p>
-
-            {/* CTA buttons */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              <Link href="/products" className="btn btn-primary">
-                Explore Products
-                <ArrowRight size={16} />
-              </Link>
-              <Link href="/solutions" className="btn btn-outline-white">
-                Find Your Industry
-              </Link>
-            </div>
-
-            {/* Certifications micro-bar */}
-            <div
-              style={{
-                marginTop: '3rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1.5rem',
-                flexWrap: 'wrap',
-              }}
-            >
-              {['ISO 9001:2015', 'NACE Approved', 'API Compliant', 'ATEX / IECEx'].map(
-                (cert) => (
-                  <span
-                    key={cert}
-                    style={{
-                      fontSize: '0.75rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
-                      color: '#637c95',
-                      borderLeft: '2px solid #1a3d6e',
-                      paddingLeft: '0.75rem',
-                    }}
-                  >
-                    {cert}
-                  </span>
-                )
-              )}
-            </div>
-          </div>
-
-          {/* Right column — stats card */}
-          <div
-            style={{
-              flex: '0 0 380px',
-              maxWidth: '380px',
-            }}
-          >
-            <div
-              style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                borderRadius: '0.75rem',
-                padding: '2rem',
-                backdropFilter: 'blur(8px)',
-              }}
-            >
-              <p
-                style={{
-                  fontSize: '0.75rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  color: '#637c95',
-                  marginBottom: '1.75rem',
-                }}
-              >
-                Cosasco by the Numbers
+            {/* Left: Copy */}
+            <div className="flex-1">
+              <p className="text-[#e05000] text-sm font-semibold tracking-widest uppercase mb-5">
+                Global Leader in Corrosion Management
               </p>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '0',
-                }}
-              >
-                {heroStats.map((stat, i) => (
-                  <div
-                    key={stat.label}
-                    style={{
-                      padding: '1.25rem',
-                      borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.08)' : 'none',
-                      borderBottom: i < 2 ? '1px solid rgba(255,255,255,0.08)' : 'none',
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontSize: 'clamp(1.75rem, 3vw, 2.25rem)',
-                        fontWeight: 800,
-                        color: '#e05000',
-                        lineHeight: 1,
-                        marginBottom: '0.375rem',
-                      }}
-                    >
-                      {stat.value}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: '0.8125rem',
-                        color: '#637c95',
-                        fontWeight: 500,
-                      }}
-                    >
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Bottom CTA */}
-              <div
-                style={{
-                  marginTop: '1.75rem',
-                  paddingTop: '1.75rem',
-                  borderTop: '1px solid rgba(255,255,255,0.08)',
-                }}
-              >
-                <Link
-                  href="/contact"
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    color: '#ffffff',
-                    fontWeight: 600,
-                    fontSize: '0.9375rem',
-                    textDecoration: 'none',
-                    transition: 'color 0.15s',
-                  }}
+              <h1 className="text-4xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight">
+                Protecting Critical<br />Infrastructure.
+              </h1>
+              <p className="text-[#e05000] font-bold text-2xl lg:text-3xl mt-3">
+                Since 1955.
+              </p>
+              <p className="text-[#94aabb] text-lg mt-5 max-w-xl leading-relaxed">
+                Cosasco delivers world-class corrosion and erosion monitoring instruments, chemical injection systems, and lifecycle support services to the global energy and process industries — keeping pipelines, vessels, and infrastructure safe.
+              </p>
+              <div className="flex flex-wrap gap-4 mt-8">
+                <a
+                  href="/solutions"
+                  className="bg-[#e05000] text-white rounded-md px-6 py-3 font-semibold hover:bg-[#c44400] transition-colors"
                 >
-                  <span>Speak with an Engineer</span>
-                  <ChevronRight size={16} color="#e05000" />
-                </Link>
+                  Explore Solutions
+                </a>
+                <a
+                  href="/contact"
+                  className="border border-white/30 text-white rounded-md px-6 py-3 font-semibold hover:bg-white/10 transition-colors"
+                >
+                  Contact an Expert
+                </a>
               </div>
             </div>
+
+            {/* Right: Stats card */}
+            <div className="lg:w-[380px] w-full">
+              <div className="bg-[#1a3a5c]/80 backdrop-blur border border-white/10 rounded-xl p-6">
+                <p className="text-[#94aabb] text-xs uppercase tracking-widest font-semibold mb-5">
+                  By the Numbers
+                </p>
+                <div className="grid grid-cols-2 gap-6">
+                  {[
+                    { num: '70+', label: 'Years of Expertise' },
+                    { num: '110', label: 'Countries Served' },
+                    { num: '1M+', label: 'Monitoring Locations' },
+                    { num: 'ISO 9001', label: 'Quality Certified' },
+                  ].map(({ num, label }) => (
+                    <div key={label}>
+                      <p className="text-[#e05000] text-4xl font-black leading-none">{num}</p>
+                      <p className="text-[#94aabb] text-sm mt-1">{label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ── 2. TRUST BAR ─────────────────────────────────────────────────── */}
-      <section
-        style={{
-          background: '#eef2f7',
-          borderTop: '1px solid #dde4ef',
-          borderBottom: '1px solid #dde4ef',
-          padding: '2.25rem 0',
-        }}
-      >
-        <div className="cx">
-          <p
-            style={{
-              textAlign: 'center',
-              fontSize: '0.75rem',
-              fontWeight: 700,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              color: '#637c95',
-              marginBottom: '1.5rem',
-            }}
-          >
-            Trusted by leading operators in critical industries
+      {/* ─── SECTION 2: METRICS BAND ──────────────────────────────────────── */}
+      <section className="bg-white border-y border-[#e8edf2] py-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-[#e8edf2]">
+            {[
+              { num: '70+', label: 'Years Industry Leadership' },
+              { num: '110', label: 'Countries Global Operations' },
+              { num: '1,000,000+', label: 'Active Monitoring Locations' },
+            ].map(({ num, label }) => (
+              <div key={label} className="flex flex-col items-center text-center py-6 sm:px-8">
+                <p className="text-[#0f2a4a] font-black text-5xl leading-none">{num}</p>
+                <p className="text-[#566677] text-base mt-2">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 3: INDUSTRIES ────────────────────────────────────────── */}
+      <section className="bg-[#f7f9fc] py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16">
+          <p className="text-[#e05000] text-sm font-semibold uppercase tracking-widest">
+            Industries We Serve
           </p>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '1rem',
-              flexWrap: 'wrap',
-            }}
-          >
-            {operators.map((op) => (
-              <span
-                key={op}
-                style={{
-                  padding: '0.5rem 1.5rem',
-                  border: '1px solid #b8c8da',
-                  borderRadius: '9999px',
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
-                  color: '#637c95',
-                  letterSpacing: '0.03em',
-                  background: 'rgba(255,255,255,0.6)',
-                }}
+          <h2 className="text-[#0f2a4a] font-black text-3xl lg:text-4xl mt-2">
+            From Wellhead to Treatment Plant
+          </h2>
+          <p className="text-[#566677] mt-3 max-w-2xl leading-relaxed">
+            Cosasco monitoring systems operate in the world&rsquo;s most demanding process environments. Whatever your industry, we have the instruments, expertise, and global service network to protect your assets.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+            {industries.map((ind) => (
+              <div
+                key={ind.num}
+                className="bg-white border border-[#e8edf2] rounded-xl p-6 hover:shadow-lg hover:border-[#e05000] transition-all cursor-pointer group"
               >
-                {op}
+                <p className="text-[#e05000] font-bold text-sm">{ind.num}</p>
+                <p className="font-bold text-[#0f2a4a] text-lg mt-1 group-hover:text-[#e05000] transition-colors">
+                  {ind.name}
+                </p>
+                <p className="text-[#566677] text-sm mt-2 leading-relaxed">{ind.desc}</p>
+                <p className="text-[#e05000] text-sm font-semibold mt-4">View Solutions &rarr;</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 4: PRODUCTS ──────────────────────────────────────────── */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16">
+          <div className="text-center mb-12">
+            <h2 className="text-[#0f2a4a] font-black text-3xl lg:text-4xl">
+              Complete Corrosion Management Systems
+            </h2>
+            <p className="text-[#566677] mt-3 text-lg">
+              From probe insertion to cloud analytics &mdash; everything you need.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            {products.map((p) => {
+              const Icon = p.icon
+              return (
+                <div
+                  key={p.name}
+                  className="border border-[#e8edf2] rounded-xl overflow-hidden hover:shadow-lg transition-all group"
+                >
+                  {/* Card top */}
+                  <div
+                    className="bg-[#0f2a4a] p-8 flex items-center justify-center"
+                    style={{
+                      background: 'linear-gradient(135deg, #0f2a4a 0%, #1a3a5c 100%)',
+                    }}
+                  >
+                    <Icon className="w-12 h-12 text-white opacity-90" strokeWidth={1.5} />
+                  </div>
+
+                  {/* Card body */}
+                  <div className="bg-white p-5">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#8898aa] mb-1">
+                      {p.category}
+                    </p>
+                    <p className="font-bold text-[#0f2a4a] text-base">{p.name}</p>
+                    <p className="text-sm text-[#566677] mt-2 leading-relaxed">{p.desc}</p>
+                    <div className="flex flex-wrap gap-1 mt-3">
+                      {p.pills.map((pill) => (
+                        <span
+                          key={pill}
+                          className="bg-[#f0f4f8] text-[#334155] text-xs px-2 py-1 rounded"
+                        >
+                          {pill}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="text-[#e05000] text-sm font-semibold mt-3">
+                      Learn More &rarr;
+                    </p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 5: SERVICES ──────────────────────────────────────────── */}
+      <section className="bg-[#f7f9fc] py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16">
+          <div className="text-center mb-12">
+            <p className="text-[#e05000] text-sm font-semibold uppercase tracking-widest mb-2">
+              Beyond the Product
+            </p>
+            <h2 className="text-[#0f2a4a] font-black text-3xl lg:text-4xl">
+              Full Lifecycle Support
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {services.map((s) => {
+              const Icon = s.icon
+              return (
+                <div
+                  key={s.title}
+                  className="bg-white border border-[#e8edf2] rounded-xl p-8"
+                >
+                  <Icon className="w-8 h-8 text-[#e05000]" strokeWidth={1.75} />
+                  <p className="font-bold text-[#0f2a4a] text-xl mt-4">{s.title}</p>
+                  <p className="text-[#566677] mt-3 leading-relaxed text-sm">{s.desc}</p>
+                  <a href="/support" className="text-[#e05000] text-sm font-semibold mt-5 inline-block hover:underline">
+                    Learn More
+                  </a>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── SECTION 6: SOCIAL PROOF / QUOTE ─────────────────────────────── */}
+      <section className="bg-[#0f2a4a] py-16">
+        <div className="max-w-3xl mx-auto px-6 lg:px-16 text-center">
+          <p className="text-[#e05000] text-6xl font-black leading-none mb-6">&ldquo;</p>
+          <blockquote className="text-white text-xl lg:text-2xl font-medium leading-relaxed">
+            Cosasco&rsquo;s monitoring systems have been integral to our corrosion management program for over 15 years. The data quality is unmatched.
+          </blockquote>
+          <p className="text-[#94aabb] mt-6 text-sm font-medium">
+            &mdash; Senior Corrosion Engineer, Major Gulf Coast Operator
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-6 mt-12">
+            {['SHELL', 'CHEVRON', 'EXXONMOBIL', 'BP', 'SAUDI ARAMCO'].map((co, i, arr) => (
+              <span key={co} className="flex items-center gap-6">
+                <span className="text-[#4a6a84] font-semibold text-sm tracking-wider">{co}</span>
+                {i < arr.length - 1 && (
+                  <span className="text-[#2a4a64] font-bold">&middot;</span>
+                )}
               </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 3. PRODUCT DISCOVERY ─────────────────────────────────────────── */}
-      <section className="section" style={{ background: '#ffffff' }}>
-        <div className="cx">
-          {/* Section header */}
-          <div style={{ marginBottom: '3.5rem', maxWidth: '640px' }}>
-            <p className="eyebrow" style={{ marginBottom: '0.75rem' }}>
-              Product Families
-            </p>
-            <h2
-              style={{
-                fontSize: 'clamp(1.875rem, 3.5vw, 2.75rem)',
-                fontWeight: 800,
-                color: '#0d1f3c',
-                lineHeight: 1.15,
-                letterSpacing: '-0.02em',
-                marginBottom: '1rem',
-              }}
-            >
-              Find the Right Solution
-            </h2>
-            <p style={{ color: '#637c95', fontSize: '1.0625rem', lineHeight: 1.7 }}>
-              70 years of corrosion engineering, distilled into product families
-              for every application.
-            </p>
-          </div>
+      {/* ─── SECTION 7: CONSULTATION CTA ──────────────────────────────────── */}
+      <section className="bg-white py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-          {/* Product cards grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1.5rem',
-            }}
-          >
-            {products.map(({ icon: Icon, title, desc, tags, href }) => (
-              <Link
-                key={title}
-                href={href}
-                style={{ textDecoration: 'none', display: 'block' }}
-              >
-                <article
-                  className="card card-accent"
-                  style={{
-                    padding: '1.75rem',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem',
-                  }}
-                >
-                  {/* Icon */}
-                  <div
-                    style={{
-                      width: '36px',
-                      height: '36px',
-                      background: '#0d1f3c',
-                      borderRadius: '6px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                    }}
-                  >
-                    <Icon size={18} color="#e05000" />
-                  </div>
-
-                  {/* Title */}
-                  <h3
-                    style={{
-                      fontSize: '1.0625rem',
-                      fontWeight: 700,
-                      color: '#0d1f3c',
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {title}
-                  </h3>
-
-                  {/* Description */}
-                  <p
-                    style={{
-                      fontSize: '0.9375rem',
-                      color: '#637c95',
-                      lineHeight: 1.65,
-                      flexGrow: 1,
-                    }}
-                  >
-                    {desc}
-                  </p>
-
-                  {/* Tags */}
-                  <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                    {tags.map((tag) => (
-                      <span key={tag} className="badge badge-slate">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Footer link */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.375rem',
-                      color: '#e05000',
-                      fontWeight: 600,
-                      fontSize: '0.875rem',
-                      marginTop: '0.25rem',
-                    }}
-                  >
-                    <span>View Products</span>
-                    <ArrowRight size={14} />
-                  </div>
-                </article>
-              </Link>
-            ))}
-          </div>
-
-          {/* Bottom CTA */}
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <Link href="/products" className="btn btn-outline-navy">
-              Browse Full Product Catalog
-              <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. INDUSTRIES STRIP ──────────────────────────────────────────── */}
-      <section className="section" style={{ background: '#f7f9fc' }}>
-        <div className="cx">
-          {/* Section header */}
-          <div style={{ marginBottom: '3rem', maxWidth: '560px' }}>
-            <p className="eyebrow" style={{ marginBottom: '0.75rem' }}>
-              Industries Served
-            </p>
-            <h2
-              style={{
-                fontSize: 'clamp(1.875rem, 3.5vw, 2.75rem)',
-                fontWeight: 800,
-                color: '#0d1f3c',
-                lineHeight: 1.15,
-                letterSpacing: '-0.02em',
-              }}
-            >
-              Across 6 Critical Sectors
-            </h2>
-          </div>
-
-          {/* Industry cards */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '1rem',
-            }}
-          >
-            {industries.map(({ num, name, desc, slug }) => (
-              <Link
-                key={slug}
-                href={`/solutions/${slug}`}
-                style={{ textDecoration: 'none' }}
-              >
-                <article
-                  className="card"
-                  style={{
-                    padding: '1.5rem',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '0.75rem',
-                    background: '#ffffff',
-                  }}
-                >
-                  <span
-                    style={{
-                      fontSize: '0.75rem',
-                      fontWeight: 800,
-                      color: '#e05000',
-                      letterSpacing: '0.06em',
-                    }}
-                  >
-                    {num}
-                  </span>
-                  <h3
-                    style={{
-                      fontSize: '1rem',
-                      fontWeight: 700,
-                      color: '#0d1f3c',
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {name}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: '0.875rem',
-                      color: '#637c95',
-                      lineHeight: 1.6,
-                      flexGrow: 1,
-                    }}
-                  >
-                    {desc}
-                  </p>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.25rem',
-                      color: '#e05000',
-                      fontWeight: 600,
-                      fontSize: '0.8125rem',
-                      marginTop: '0.25rem',
-                    }}
-                  >
-                    <span>Learn more</span>
-                    <ArrowRight size={13} />
-                  </div>
-                </article>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 5. STATS (DARK) ──────────────────────────────────────────────── */}
-      <section style={{ background: '#0d1f3c', padding: '5rem 0' }}>
-        <div className="cx">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
-              gap: 0,
-            }}
-          >
-            {stats.map((stat, i) => (
-              <div
-                key={stat.label}
-                style={{
-                  textAlign: 'center',
-                  padding: '2rem 1rem',
-                  borderRight:
-                    i < stats.length - 1
-                      ? '1px solid rgba(255,255,255,0.08)'
-                      : 'none',
-                }}
-              >
-                <div className="stat-number" style={{ marginBottom: '0.5rem' }}>
-                  {stat.value}
-                </div>
-                <div
-                  style={{
-                    fontSize: '0.9375rem',
-                    color: '#637c95',
-                    fontWeight: 500,
-                    letterSpacing: '0.02em',
-                  }}
-                >
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. WHY COSASCO ───────────────────────────────────────────────── */}
-      <section className="section" style={{ background: '#ffffff' }}>
-        <div className="cx">
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 2fr',
-              gap: '5rem',
-              alignItems: 'start',
-            }}
-          >
-            {/* Left column */}
-            <div style={{ position: 'sticky', top: '5rem' }}>
-              <p className="eyebrow" style={{ marginBottom: '0.75rem' }}>
-                Why Cosasco
-              </p>
-              <h2
-                style={{
-                  fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                  fontWeight: 800,
-                  color: '#0d1f3c',
-                  lineHeight: 1.15,
-                  letterSpacing: '-0.02em',
-                  marginBottom: '1.25rem',
-                }}
-              >
-                The Cosasco
-                <br />
-                Difference
-              </h2>
-              <p
-                style={{
-                  color: '#637c95',
-                  fontSize: '1rem',
-                  lineHeight: 1.7,
-                  marginBottom: '2rem',
-                }}
-              >
-                For seven decades, Cosasco has set the standard for corrosion
-                management excellence. We combine deep engineering expertise
-                with field-proven technology to protect your most critical assets.
-              </p>
-              <Link href="/contact" className="btn btn-primary">
-                Contact an Engineer
-                <ArrowRight size={16} />
-              </Link>
-            </div>
-
-            {/* Right 2x2 feature blocks */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: '1.5rem',
-              }}
-            >
-              {features.map(({ icon: Icon, title, desc }) => (
-                <div
-                  key={title}
-                  style={{
-                    padding: '1.75rem',
-                    border: '1px solid #dde4ef',
-                    borderRadius: '0.5rem',
-                    background: '#fafbfd',
-                    transition: 'box-shadow 0.18s ease',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '40px',
-                      height: '40px',
-                      background: '#fde8d8',
-                      borderRadius: '8px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '1rem',
-                    }}
-                  >
-                    <Icon size={20} color="#e05000" />
-                  </div>
-                  <h3
-                    style={{
-                      fontSize: '1rem',
-                      fontWeight: 700,
-                      color: '#0d1f3c',
-                      marginBottom: '0.5rem',
-                      lineHeight: 1.3,
-                    }}
-                  >
-                    {title}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: '0.9375rem',
-                      color: '#637c95',
-                      lineHeight: 1.65,
-                    }}
-                  >
-                    {desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 7. RESOURCES ─────────────────────────────────────────────────── */}
-      <section className="section" style={{ background: '#f7f9fc' }}>
-        <div className="cx">
-          {/* Section header */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'flex-end',
-              justifyContent: 'space-between',
-              gap: '1.5rem',
-              marginBottom: '3rem',
-              flexWrap: 'wrap',
-            }}
-          >
+            {/* Left: Copy */}
             <div>
-              <p className="eyebrow" style={{ marginBottom: '0.75rem' }}>
-                Engineering Library
-              </p>
-              <h2
-                style={{
-                  fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                  fontWeight: 800,
-                  color: '#0d1f3c',
-                  lineHeight: 1.15,
-                  letterSpacing: '-0.02em',
-                }}
-              >
-                Technical Resources
+              <h2 className="text-[#0f2a4a] font-black text-3xl lg:text-4xl leading-tight">
+                Talk to a Corrosion Expert
               </h2>
+              <p className="text-[#566677] mt-4 text-lg leading-relaxed">
+                Tell us about your application and we&rsquo;ll recommend the right monitoring solution for your process environment, budget, and compliance requirements.
+              </p>
+              <ul className="mt-8 flex flex-col gap-4">
+                {[
+                  'No commitment required',
+                  'Response within 1 business day',
+                  'Direct access to application engineers',
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-[#e05000] shrink-0" />
+                    <span className="text-[#334155] font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <Link
-              href="/resources"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.375rem',
-                color: '#e05000',
-                fontWeight: 600,
-                fontSize: '0.9375rem',
-                textDecoration: 'none',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              View all resources
-              <ArrowRight size={15} />
-            </Link>
-          </div>
 
-          {/* Resource cards */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1.5rem',
-            }}
-          >
-            {resources.map(({ title, type, pages, desc }) => (
-              <div
-                key={title}
-                className="card"
-                style={{
-                  background: '#ffffff',
-                  padding: '1.75rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1rem',
-                }}
-              >
-                {/* Icon + badge row */}
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    justifyContent: 'space-between',
-                    gap: '1rem',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '44px',
-                      height: '44px',
-                      background: '#eef2f7',
-                      borderRadius: '8px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                    }}
-                  >
-                    <FileText size={20} color="#0d1f3c" />
-                  </div>
-                  <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
-                    <span className="badge badge-navy">{type}</span>
-                    {pages && (
-                      <span className="badge badge-slate">{pages}</span>
-                    )}
-                  </div>
+            {/* Right: Form */}
+            <div className="bg-[#f7f9fc] rounded-xl p-8 border border-[#e8edf2]">
+              <form className="flex flex-col gap-4">
+                <div>
+                  <label className="block text-sm font-semibold text-[#334155] mb-1">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Your full name"
+                    className="w-full border border-[#d1dbe6] rounded-lg px-4 py-3 text-sm text-[#0f2a4a] bg-white placeholder-[#94aabb] focus:outline-none focus:border-[#e05000] transition-colors"
+                  />
                 </div>
 
-                {/* Content */}
-                <div style={{ flexGrow: 1 }}>
-                  <h3
-                    style={{
-                      fontSize: '1rem',
-                      fontWeight: 700,
-                      color: '#0d1f3c',
-                      lineHeight: 1.35,
-                      marginBottom: '0.625rem',
-                    }}
-                  >
-                    {title}
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: '0.9375rem',
-                      color: '#637c95',
-                      lineHeight: 1.65,
-                    }}
-                  >
-                    {desc}
-                  </p>
+                <div>
+                  <label className="block text-sm font-semibold text-[#334155] mb-1">
+                    Company
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Your company"
+                    className="w-full border border-[#d1dbe6] rounded-lg px-4 py-3 text-sm text-[#0f2a4a] bg-white placeholder-[#94aabb] focus:outline-none focus:border-[#e05000] transition-colors"
+                  />
                 </div>
 
-                {/* Download button */}
-                <Link
-                  href="/resources"
-                  className="btn btn-outline-navy"
-                  style={{ fontSize: '0.875rem', padding: '0.625rem 1.25rem' }}
+                <div>
+                  <label className="block text-sm font-semibold text-[#334155] mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="you@company.com"
+                    className="w-full border border-[#d1dbe6] rounded-lg px-4 py-3 text-sm text-[#0f2a4a] bg-white placeholder-[#94aabb] focus:outline-none focus:border-[#e05000] transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-[#334155] mb-1">
+                    Industry
+                  </label>
+                  <select
+                    className="w-full border border-[#d1dbe6] rounded-lg px-4 py-3 text-sm text-[#0f2a4a] bg-white focus:outline-none focus:border-[#e05000] transition-colors appearance-none"
+                  >
+                    <option value="">Select your industry</option>
+                    <option>Oil &amp; Gas</option>
+                    <option>Petrochemical</option>
+                    <option>Water Treatment</option>
+                    <option>Chemical Processing</option>
+                    <option>Pulp &amp; Paper</option>
+                    <option>Utilities</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-[#334155] mb-1">
+                    What&rsquo;s your biggest corrosion challenge?
+                  </label>
+                  <textarea
+                    rows={4}
+                    placeholder="Describe your application, environment, or specific monitoring needs..."
+                    className="w-full border border-[#d1dbe6] rounded-lg px-4 py-3 text-sm text-[#0f2a4a] bg-white placeholder-[#94aabb] focus:outline-none focus:border-[#e05000] transition-colors resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-[#e05000] text-white font-semibold rounded-lg py-3 hover:bg-[#c44400] transition-colors mt-1"
                 >
-                  <Download size={14} />
-                  Download
-                </Link>
-              </div>
-            ))}
+                  Request Consultation
+                </button>
+              </form>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ── 8. FINAL CTA BAND ────────────────────────────────────────────── */}
-      <section
-        style={{
-          background: 'linear-gradient(135deg, #e05000 0%, #c94700 100%)',
-          padding: '5rem 0',
-        }}
-      >
-        <div className="cx">
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '3rem',
-              flexWrap: 'wrap',
-            }}
-          >
-            {/* Text */}
-            <div style={{ maxWidth: '580px' }}>
-              <h2
-                style={{
-                  fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)',
-                  fontWeight: 800,
-                  color: '#ffffff',
-                  lineHeight: 1.15,
-                  letterSpacing: '-0.02em',
-                  marginBottom: '1rem',
-                }}
-              >
-                Ready to protect your
-                <br />
-                infrastructure?
-              </h2>
-              <p
-                style={{
-                  color: 'rgba(255,255,255,0.85)',
-                  fontSize: '1.0625rem',
-                  lineHeight: 1.7,
-                }}
-              >
-                Speak with a Cosasco engineer today. We&apos;ll recommend the
-                right monitoring solution for your application.
-              </p>
-            </div>
-
-            {/* Buttons */}
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', flexShrink: 0 }}>
-              <Link
-                href="/contact"
-                className="btn"
-                style={{
-                  background: '#ffffff',
-                  color: '#0d1f3c',
-                  borderColor: '#ffffff',
-                  fontWeight: 700,
-                }}
-              >
-                Contact an Engineer
-                <ArrowRight size={16} />
-              </Link>
-              <Link href="/products" className="btn btn-outline-white">
-                Browse Products
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   )
 }

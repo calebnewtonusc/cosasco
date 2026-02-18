@@ -1,108 +1,88 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import {
-  ChevronRight,
-  Thermometer,
-  Activity,
-  Clock,
-  ArrowRight,
-  Phone,
-  FileDown,
-  CheckCircle,
-  Quote,
-} from 'lucide-react';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ChevronRight, ArrowRight, Phone, Mail, FileDown } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Petrochemical Corrosion Solutions | Cosasco',
   description:
-    'Cosasco high-temperature ER probes, flush-mount access fittings, and intrusive coupons protect refineries, cracking units, and heat exchangers from sulfidic, naphthenic acid, and high-temperature corrosion.',
-};
+    'Cosasco high-temperature ER probes, flush-mount fittings, and chemical injection systems protect refineries and petrochemical plants from sulfidic corrosion, naphthenic acid attack, and coke erosion.',
+}
 
 const challenges = [
   {
-    icon: Thermometer,
-    title: 'High-Temperature Sulfidic & Naphthenic Acid Corrosion',
-    body: 'Crude distillation, vacuum units, and delayed cokers operate at temperatures where sulfidic corrosion accelerates exponentially. Naphthenic acid content adds another attack mechanism that conventional probes cannot survive. Cosasco high-temperature ER probes use refractory-grade element materials and purpose-engineered process connections rated to 650°C, delivering real-time corrosion data where periodic inspection alone cannot provide adequate frequency.',
+    title: 'Sulfidic & Naphthenic Acid Corrosion',
+    body: 'High-temperature sulfidic corrosion above 450°F and naphthenic acid attack in crude distillation units cause severe localized wall loss in furnace transfer lines, heat exchangers, and column internals. Cosasco high-temperature ER probes with ceramic-insulated elements provide continuous corrosion rate data in environments that destroy conventional sensors.',
   },
   {
-    icon: Activity,
-    title: 'Erosion-Corrosion in Cracking Units',
-    body: 'Fluid catalytic cracking (FCC) units, cokers, and hydroprocessing reactors combine corrosive chemistry with high catalyst or coke particle velocities. Erosion-corrosion at transfer lines, cyclone inlets, and slurry piping can result in wall-loss rates that outpace annual inspection cycles. Cosasco erosion monitors and high-temperature probes provide continuous wall-loss data to support risk-based inspection decisions and turnaround interval optimization.',
+    title: 'Coke Deposition & Erosion-Corrosion',
+    body: 'Coke deposits in FCC units and thermal cracker transfer lines create underdeposit corrosion and localized erosion at bends and tees. Retractable Cosasco probe assemblies allow safe inspection at operating temperature and pressure, providing quantitative wall-loss data to support run-length extension decisions.',
   },
   {
-    icon: Clock,
-    title: 'Turnaround Optimization & Inspection Interval Extension',
-    body: 'Refinery turnarounds cost tens of millions of dollars in lost production. Integrity teams must justify inspection intervals and equipment run-lengths to regulators with defensible corrosion data. Cosasco continuous monitoring programs build the data record needed to extend run-lengths safely, quantify corrosion inhibitor effectiveness, and prioritize inspection resources on the circuits that actually show accelerated attack.',
+    title: 'Turnaround Optimization',
+    body: 'Extending turnaround intervals from 18 to 36 months can save refineries tens of millions in maintenance and lost production. Continuous ER probe data and corrosion coupon programs provide the documented corrosion rate trends that integrity engineers and regulators need to justify extended inspection intervals.',
   },
-];
+]
 
 const products = [
   {
     name: 'High-Temperature ER Probes',
-    description:
-      'Rated to 650°C for continuous monitoring in crude units, vacuum towers, and coker transfer lines. Refractory element alloys resist sulfidic and naphthenic acid environments.',
-    specs: ['To 650°C operating temperature', 'Sulfidic corrosion rated', 'Alloy 400 / 800 elements'],
+    desc: 'Ceramic-insulated ER probe elements rated for continuous service above 450°F. Retractable configurations enable safe removal at operating conditions without hot work.',
     href: '/products/corrosion-monitoring',
   },
   {
     name: 'Flush-Mount Access Fittings',
-    description:
-      'Low-profile access hardware for heat exchanger shells, vessel nozzles, and process piping where clearance constraints prevent standard retractable assemblies.',
-    specs: ['Flush-to-pipe profile', 'ASME B16.5 Class 150–1500', 'Hot-tap installation option'],
+    desc: 'Low-profile weld-on fittings for probe and coupon access in high-velocity process streams. Full-bore designs minimize turbulence and flow restriction in transfer lines.',
     href: '/products/corrosion-monitoring',
   },
   {
     name: 'Intrusive Corrosion Coupons',
-    description:
-      'Alloy-matched weight-loss coupons with full material certification. Ideal for audit-trail documentation and baseline corrosion rate verification alongside ER probes.',
-    specs: ['Alloy-matched materials', 'Full MTR documentation', 'Retrievable under pressure'],
+    desc: 'Weighted and strip coupons in alloy materials matched to process fluid chemistry. Full traceability documentation for PSM compliance and inspection audit trails.',
     href: '/products/corrosion-monitoring',
   },
   {
     name: 'Chemical Injection Systems',
-    description:
-      'Neutralizing amine and corrosion inhibitor injection into overhead condensers and distillation column overhead systems to control chloride-induced corrosion.',
-    specs: ['Overhead circuit optimized', 'Variable-rate control', 'HPHT check valves'],
+    desc: 'Precision corrosion inhibitor and neutralizer injection for crude column overhead and atmospheric distillation units. Hastelloy and titanium wetted components for high-acid-number service.',
     href: '/products/chemical-injection',
   },
-];
+]
+
+const relatedIndustries = [
+  { name: 'Oil & Gas', href: '/solutions/oil-gas' },
+  { name: 'Chemical Processing', href: '/solutions/chemical-processing' },
+  { name: 'Utilities', href: '/solutions/utilities' },
+]
 
 export default function PetrochemicalPage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* Breadcrumb */}
-      <div className="bg-[#f7f9fc] border-b border-[#dde4ef]">
+      {/* ── Breadcrumb ── */}
+      <div className="bg-[#f7f9fc] border-b border-[#e8edf2]">
         <div className="cx py-3">
-          <nav className="flex items-center gap-2 text-sm text-[#637c95]">
-            <Link href="/" className="hover:text-[#0d1f3c] transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-sm text-[#566677]">
+            <Link href="/" className="hover:text-[#0f2a4a] transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <Link href="/solutions" className="hover:text-[#0d1f3c] transition-colors">Solutions</Link>
+            <Link href="/solutions" className="hover:text-[#0f2a4a] transition-colors">Solutions</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-[#0d1f3c] font-medium">Petrochemical</span>
+            <span className="text-[#1e2b3a] font-medium">Petrochemical</span>
           </nav>
         </div>
       </div>
 
       {/* ── Hero ── */}
-      <section className="relative bg-[#0d1f3c] text-white overflow-hidden">
+      <section className="relative bg-[#0f2a4a] text-white overflow-hidden">
         <div className="grid-bg absolute inset-0" aria-hidden="true" />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-[#0d1f3c] border-t-4 border-[#e05000]" aria-hidden="true" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#e05000]" aria-hidden="true" />
         <div className="cx relative py-20 md:py-28">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="badge badge-orange">Industry Solutions</span>
-              <span className="text-[#637c95]">/</span>
-              <span className="text-[#b8c8da] text-sm font-medium">Petrochemical</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Petrochemical<br />
-              <span className="text-[#e05000]">Corrosion Solutions</span>
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-4">Industry Solutions</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
+              Petrochemical Solutions
             </h1>
-            <p className="text-[#b8c8da] text-lg md:text-xl leading-relaxed max-w-2xl">
-              Refineries and petrochemical plants operate at the extremes of temperature, pressure,
-              and chemical aggression. Cosasco high-temperature probes and flush-mount access systems
-              deliver real-time integrity data where conventional monitoring cannot survive.
+            <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
+              Refineries, cracking units, and heat exchangers operating at extreme temperatures —
+              Cosasco high-temperature monitoring systems protect your most critical assets
+              without interrupting process continuity.
             </p>
           </div>
         </div>
@@ -110,59 +90,40 @@ export default function PetrochemicalPage() {
 
       {/* ── Main 2-col layout ── */}
       <div className="cx py-16 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="lg:grid lg:grid-cols-3 gap-12">
 
           {/* ── MAIN CONTENT ── */}
-          <main className="lg:col-span-8 space-y-20">
+          <div className="lg:col-span-2 space-y-16">
 
-            {/* Challenges */}
+            {/* Key Challenges */}
             <section>
-              <p className="eyebrow mb-2">What We Solve</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0d1f3c] mb-2">Industry Challenges</h2>
-              <div className="w-12 h-1 bg-[#e05000] rounded mb-8" />
-              <div className="space-y-6">
-                {challenges.map((ch) => {
-                  const Icon = ch.icon;
-                  return (
-                    <div key={ch.title} className="card card-accent p-6 md:p-8">
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-lg bg-[#e05000]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Icon className="w-5 h-5 text-[#e05000]" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-bold text-[#0d1f3c] mb-2">{ch.title}</h3>
-                          <p className="text-[#637c95] leading-relaxed text-sm">{ch.body}</p>
-                        </div>
-                      </div>
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-2">What We Solve</p>
+              <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-6">Key Challenges</h2>
+              <div className="bg-[#f7f9fc] rounded-xl p-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {challenges.map((ch) => (
+                    <div key={ch.title} className="bg-white border border-[#e8edf2] rounded-xl p-5">
+                      <div className="w-2 h-2 rounded-full bg-[#e05000] mb-4" />
+                      <h3 className="font-black text-[#0f2a4a] text-base mb-3">{ch.title}</h3>
+                      <p className="text-[#566677] text-sm leading-relaxed">{ch.body}</p>
                     </div>
-                  );
-                })}
+                  ))}
+                </div>
               </div>
             </section>
 
-            {/* Recommended Products */}
+            {/* Recommended Solutions */}
             <section>
-              <p className="eyebrow mb-2">Product Recommendations</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0d1f3c] mb-2">Recommended Solutions</h2>
-              <div className="w-12 h-1 bg-[#e05000] rounded mb-8" />
-              <div className="grid sm:grid-cols-2 gap-6">
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-2">Product Recommendations</p>
+              <h3 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-6">Recommended Solutions</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {products.map((p) => (
-                  <div key={p.name} className="card flex flex-col">
-                    <div className="p-6 flex flex-col flex-1">
-                      <h3 className="text-base font-bold text-[#0d1f3c] mb-2">{p.name}</h3>
-                      <p className="text-sm text-[#637c95] leading-relaxed mb-4">{p.description}</p>
-                      <div className="mb-5">
-                        {p.specs.map((s) => (
-                          <div key={s} className="flex items-center gap-2 text-xs text-[#4a5e72] py-1 border-b border-[#dde4ef] last:border-0">
-                            <CheckCircle className="w-3.5 h-3.5 text-[#e05000] flex-shrink-0" />
-                            {s}
-                          </div>
-                        ))}
-                      </div>
-                      <Link href={p.href} className="mt-auto flex items-center gap-1.5 text-sm font-bold text-[#0d1f3c] hover:text-[#e05000] transition-colors">
-                        View Product <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </div>
+                  <div key={p.name} className="bg-white border border-[#e8edf2] rounded-xl p-6 hover:shadow-lg hover:border-[#e05000] transition-all group flex flex-col">
+                    <h4 className="font-black text-[#0f2a4a] text-base mb-2 group-hover:text-[#e05000] transition-colors">{p.name}</h4>
+                    <p className="text-[#566677] text-sm leading-relaxed mb-4 flex-1">{p.desc}</p>
+                    <Link href={p.href} className="text-[#e05000] text-sm font-semibold flex items-center gap-1 mt-auto">
+                      View Product <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -170,97 +131,97 @@ export default function PetrochemicalPage() {
 
             {/* Case Study */}
             <section>
-              <p className="eyebrow mb-2">Proven Results</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0d1f3c] mb-2">Case Study</h2>
-              <div className="w-12 h-1 bg-[#e05000] rounded mb-8" />
-              <div className="bg-[#0d1f3c] rounded-xl overflow-hidden">
-                <div className="p-8 md:p-10">
-                  <span className="badge badge-orange mb-5">Gulf Coast Refinery</span>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-                    High-Temperature Monitoring Extends Coker Run-Length by Two Months
-                  </h3>
-                  <p className="text-[#b8c8da] leading-relaxed mb-8 text-sm">
-                    A Gulf Coast refinery installed Cosasco high-temperature ER probes in the delayed
-                    coker transfer lines and fractionator bottoms circuit. Continuous wall-loss trending
-                    replaced 6-month manual UT campaigns, providing the data record regulators required
-                    to sanction a run-length extension from 18 to 20 months — saving an estimated
-                    $4.2M in avoided turnaround costs.
-                  </p>
-                  <div className="grid grid-cols-3 gap-6 mb-8">
-                    {[
-                      { value: '2 mo', label: 'Run-Length Extension' },
-                      { value: '$4.2M', label: 'Avoided Turnaround Cost' },
-                      { value: '94%', label: 'Data Uptime Achieved' },
-                    ].map((s) => (
-                      <div key={s.label} className="text-center">
-                        <div className="stat-number">{s.value}</div>
-                        <div className="text-[#637c95] text-xs mt-1 leading-tight">{s.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                    <Quote className="w-5 h-5 text-[#e05000] mb-3" />
-                    <p className="text-[#b8c8da] text-sm leading-relaxed italic mb-3">
-                      "We finally had real-time data in the coker transfer line, not a six-month
-                      snapshot. That changed the conversation with our inspection authority entirely."
-                    </p>
-                    <p className="text-[#637c95] text-xs font-semibold">
-                      — Senior Integrity Engineer, Gulf Coast Refinery
-                    </p>
-                  </div>
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-2">Proven Results</p>
+              <h3 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-6">Case Study</h3>
+              <div className="bg-[#0f2a4a] rounded-xl p-8 text-white">
+                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-2">Gulf Coast Refinery</p>
+                <h4 className="text-xl font-black text-white mb-4">
+                  High-Temp ER Probes Enable Turnaround Extension at Crude Unit
+                </h4>
+                <p className="text-[#8ab4d4] text-sm leading-relaxed mb-8">
+                  A major Gulf Coast refinery deployed Cosasco high-temperature ER probes
+                  at 12 locations on the crude distillation unit overhead system and transfer
+                  lines. Continuous corrosion rate trending over 24 months provided the
+                  documented evidence required to extend the unit turnaround interval from
+                  18 to 30 months, avoiding a planned shutdown and delivering substantial savings.
+                </p>
+                <div className="grid grid-cols-3 gap-4 mb-8">
+                  {[
+                    { value: '30 mo', label: 'Extended Turnaround Interval' },
+                    { value: '41%', label: 'Reduction in Corrosion Events' },
+                    { value: '$2.4M', label: 'Avoided Shutdown Cost' },
+                  ].map((s) => (
+                    <div key={s.label} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
+                      <div className="text-3xl font-black text-[#e05000] mb-1">{s.value}</div>
+                      <div className="text-[#8ab4d4] text-xs leading-tight">{s.label}</div>
+                    </div>
+                  ))}
                 </div>
+                <p className="text-[#8ab4d4] text-xs">
+                  Source: Internal performance data, Gulf Coast refinery operator, 2023. Results may vary.
+                </p>
               </div>
             </section>
-          </main>
+          </div>
 
           {/* ── SIDEBAR ── */}
-          <aside className="lg:col-span-4 space-y-6">
-            <div className="bg-[#0d1f3c] rounded-xl p-6 text-white sticky top-6">
-              <p className="eyebrow text-[#e05000] mb-3">Get Expert Guidance</p>
-              <h3 className="text-lg font-bold mb-3">Speak with a Refinery Specialist</h3>
-              <p className="text-[#b8c8da] text-sm leading-relaxed mb-5">
-                Our engineers understand refinery unit operations, API inspection intervals, and
-                the data requirements of modern RBI programs.
+          <aside className="lg:col-span-1 mt-12 lg:mt-0 space-y-6">
+            <div className="bg-[#0f2a4a] rounded-xl p-6 text-white">
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-3">Get Expert Guidance</p>
+              <h3 className="font-black text-white text-lg mb-3">Speak with a Petrochemical Specialist</h3>
+              <p className="text-[#8ab4d4] text-sm leading-relaxed mb-5">
+                Our application engineers understand refinery process chemistry, turnaround
+                planning, and inspection compliance requirements.
               </p>
-              <Link href="/contact" className="btn btn-primary w-full justify-center mb-3">
-                <Phone className="w-4 h-4" /> Contact an Expert
+              <div className="space-y-3 mb-5">
+                <a href="tel:+15629490123" className="flex items-center gap-2 text-[#8ab4d4] text-sm hover:text-white transition-colors">
+                  <Phone className="w-4 h-4 text-[#e05000] flex-shrink-0" />
+                  +1 (562) 949-0123
+                </a>
+                <a href="mailto:petrochem@cosasco.com" className="flex items-center gap-2 text-[#8ab4d4] text-sm hover:text-white transition-colors">
+                  <Mail className="w-4 h-4 text-[#e05000] flex-shrink-0" />
+                  petrochem@cosasco.com
+                </a>
+              </div>
+              <Link href="/contact" className="btn btn-primary w-full justify-center text-sm">
+                Contact an Expert
               </Link>
-              <p className="text-center text-xs text-[#637c95]">Response within 1 business day</p>
             </div>
-            <div className="card p-6">
+
+            <div className="bg-white border border-[#e8edf2] rounded-xl p-5">
               <FileDown className="w-6 h-6 text-[#e05000] mb-3" />
-              <h3 className="text-base font-bold text-[#0d1f3c] mb-2">Petrochemical Application Guide</h3>
-              <p className="text-sm text-[#637c95] leading-relaxed mb-4">
-                High-temperature probe selection, refinery circuit monitoring strategies, and RBI
-                program integration guidance.
+              <h3 className="font-black text-[#0f2a4a] text-sm mb-2">Petrochemical Application Guide PDF</h3>
+              <p className="text-[#566677] text-xs leading-relaxed mb-4">
+                High-temperature probe selection, installation requirements, and corrosion
+                program recommendations for refinery and petrochemical environments.
               </p>
               <Link href="/resources" className="btn btn-outline-navy w-full justify-center text-sm">
                 Download PDF
               </Link>
             </div>
-            <div className="card p-6">
-              <h3 className="text-base font-bold text-[#0d1f3c] mb-4">Related Industries</h3>
-              <ul className="space-y-3">
-                {[
-                  { name: 'Oil & Gas', href: '/solutions/oil-gas' },
-                  { name: 'Chemical Processing', href: '/solutions/chemical-processing' },
-                  { name: 'Utilities', href: '/solutions/utilities' },
-                ].map((r) => (
+
+            <div className="bg-white border border-[#e8edf2] rounded-xl p-5">
+              <h3 className="font-black text-[#0f2a4a] text-sm mb-4">Related Industries</h3>
+              <ul className="space-y-2">
+                {relatedIndustries.map((r) => (
                   <li key={r.href}>
-                    <Link href={r.href} className="flex items-center gap-2 text-sm text-[#4a5e72] hover:text-[#e05000] transition-colors font-medium">
-                      <ArrowRight className="w-3.5 h-3.5 text-[#e05000]" /> {r.name}
+                    <Link href={r.href} className="flex items-center gap-2 text-sm text-[#566677] hover:text-[#e05000] transition-colors font-medium">
+                      <ArrowRight className="w-3.5 h-3.5 text-[#e05000]" />
+                      {r.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <div className="divider my-4" />
-              <Link href="/solutions" className="flex items-center gap-1.5 text-sm text-[#637c95] hover:text-[#0d1f3c] transition-colors">
-                <ChevronRight className="w-3.5 h-3.5" /> View All Industries
-              </Link>
+              <div className="border-t border-[#e8edf2] mt-4 pt-4">
+                <Link href="/solutions" className="flex items-center gap-1.5 text-sm text-[#566677] hover:text-[#0f2a4a] transition-colors">
+                  <ChevronRight className="w-3.5 h-3.5" />
+                  View All Industries
+                </Link>
+              </div>
             </div>
           </aside>
         </div>
       </div>
     </div>
-  );
+  )
 }

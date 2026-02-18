@@ -1,6 +1,7 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
+import { useState } from 'react'
+import Link from 'next/link'
 import {
   MapPin,
   Phone,
@@ -9,14 +10,12 @@ import {
   CheckCircle,
   Globe,
   ChevronRight,
-} from 'lucide-react';
-
-// ─── Data ─────────────────────────────────────────────────────────────────────
+  ArrowRight,
+} from 'lucide-react'
 
 const regionalOffices = [
   {
     region: 'North America',
-    icon: <Globe size={20} />,
     offices: [
       {
         name: 'Headquarters',
@@ -34,7 +33,6 @@ const regionalOffices = [
   },
   {
     region: 'Europe & Middle East',
-    icon: <Globe size={20} />,
     offices: [
       {
         name: 'European Operations',
@@ -52,7 +50,6 @@ const regionalOffices = [
   },
   {
     region: 'Asia Pacific',
-    icon: <Globe size={20} />,
     offices: [
       {
         name: 'APAC Regional',
@@ -68,61 +65,54 @@ const regionalOffices = [
       },
     ],
   },
-];
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
+]
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false)
 
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
 
-      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
-      <section
-        className="relative overflow-hidden grid-bg"
-        style={{ background: '#0d1f3c', paddingTop: '6rem', paddingBottom: '5rem' }}
-      >
-        <div className="cx">
-          <p className="eyebrow mb-3">Get in Touch</p>
-          <h1
-            className="text-white font-extrabold tracking-tight leading-tight mb-4"
-            style={{ fontSize: 'clamp(2rem, 4.5vw, 3.25rem)' }}
-          >
+      {/* ── Hero ── */}
+      <section className="relative bg-[#0f2a4a] text-white overflow-hidden py-16 md:py-20">
+        <div className="grid-bg absolute inset-0" aria-hidden="true" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#e05000]" aria-hidden="true" />
+        <div className="cx relative">
+          <nav className="flex items-center gap-2 text-sm text-[#8ab4d4] mb-6">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <span className="text-white font-medium">Contact</span>
+          </nav>
+          <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-3">Get in Touch</p>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-tight mb-4">
             Contact Cosasco
           </h1>
-          <p className="text-white/65 text-lg max-w-xl leading-relaxed">
-            Whether you have a sales inquiry, a technical question, or need product information,
-            our team is ready to respond.
+          <p className="text-[#8ab4d4] text-lg max-w-xl leading-relaxed">
+            Whether you have a sales inquiry, a technical question, or need product
+            information, our engineering team is ready to respond.
           </p>
         </div>
       </section>
 
-      {/* ── MAIN SECTION ─────────────────────────────────────────────────────── */}
-      <section className="section" style={{ background: '#ffffff' }}>
+      {/* ── Main Section ── */}
+      <section className="bg-white py-20 md:py-24">
         <div className="cx">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
 
-            {/* Contact Form (wider) */}
+            {/* ── Contact Form (col-span-3) ── */}
             <div className="lg:col-span-3">
-              <p className="eyebrow mb-2">Send a Message</p>
-              <h2
-                className="font-extrabold tracking-tight text-[#0d1f3c] mb-8"
-                style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}
-              >
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-2">Send a Message</p>
+              <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-8">
                 How Can We Help?
               </h2>
 
               {submitted ? (
-                <div
-                  className="flex flex-col items-center justify-center text-center rounded-xl p-16 gap-4"
-                  style={{ background: '#f7f9fc', border: '1px solid #dde4ef' }}
-                >
-                  <CheckCircle size={56} style={{ color: '#16a34a' }} />
-                  <h3 className="text-[#0d1f3c] font-bold text-xl">Message Sent</h3>
-                  <p className="text-[#637c95] text-sm max-w-sm leading-relaxed">
-                    Thank you for reaching out. A member of the Cosasco team will review your message
-                    and respond within one business day.
+                <div className="flex flex-col items-center justify-center text-center bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-16 gap-4">
+                  <CheckCircle className="w-14 h-14 text-green-600" />
+                  <h3 className="text-[#0f2a4a] font-black text-xl">Message Sent</h3>
+                  <p className="text-[#566677] text-sm max-w-sm leading-relaxed">
+                    Thank you for reaching out. A member of the Cosasco team will review
+                    your message and respond within one business day.
                   </p>
                   <button
                     className="btn btn-outline-navy mt-2 text-sm"
@@ -134,217 +124,244 @@ export default function ContactPage() {
               ) : (
                 <form
                   className="space-y-5"
-                  onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
+                  onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-[#334150] mb-1.5">Full Name *</label>
+                      <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                        Full Name <span className="text-[#e05000]">*</span>
+                      </label>
                       <input
                         type="text"
                         required
-                        className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
-                        style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
                         placeholder="Jane Smith"
+                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-[#334150] mb-1.5">Company</label>
+                      <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                        Company
+                      </label>
                       <input
                         type="text"
-                        className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
-                        style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
                         placeholder="Acme Refining Ltd."
+                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-[#334150] mb-1.5">Email Address *</label>
+                      <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                        Email Address <span className="text-[#e05000]">*</span>
+                      </label>
                       <input
                         type="email"
                         required
-                        className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
-                        style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
                         placeholder="jsmith@company.com"
+                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-[#334150] mb-1.5">Phone Number</label>
+                      <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                        Phone Number
+                      </label>
                       <input
                         type="tel"
-                        className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
-                        style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
                         placeholder="+1 (555) 000-0000"
+                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-[#334150] mb-1.5">Subject *</label>
+                    <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                      Industry
+                    </label>
                     <select
-                      required
-                      className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
-                      style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
+                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
                     >
-                      <option value="">Select a subject...</option>
-                      <option>Sales Inquiry</option>
-                      <option>Technical Support</option>
-                      <option>Product Information</option>
-                      <option>Partnership</option>
+                      <option value="">Select your industry...</option>
+                      <option>Oil &amp; Gas</option>
+                      <option>Petrochemical</option>
+                      <option>Water Treatment</option>
+                      <option>Chemical Processing</option>
+                      <option>Pulp &amp; Paper</option>
+                      <option>Utilities</option>
                       <option>Other</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-[#334150] mb-1.5">Message *</label>
+                    <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                      Subject <span className="text-[#e05000]">*</span>
+                    </label>
+                    <select
+                      required
+                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors"
+                    >
+                      <option value="">Select a subject...</option>
+                      <option>Sales Inquiry</option>
+                      <option>Technical Support</option>
+                      <option>Product Information</option>
+                      <option>Quote Request</option>
+                      <option>Partnership / Distribution</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                      Message <span className="text-[#e05000]">*</span>
+                    </label>
                     <textarea
                       required
                       rows={5}
-                      className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535] resize-vertical"
-                      style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
                       placeholder="Tell us about your project, application, or question..."
+                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#e05000] transition-colors resize-vertical"
                     />
                   </div>
 
-                  <button type="submit" className="btn btn-primary w-full justify-center text-base">
-                    Send Message <ChevronRight size={17} />
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-full justify-center text-base"
+                  >
+                    Send Message
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </form>
               )}
             </div>
 
-            {/* Sidebar */}
+            {/* ── Sidebar (col-span-2) ── */}
             <div className="lg:col-span-2 flex flex-col gap-6">
 
-              {/* HQ Card */}
-              <div className="card p-6">
-                <h3 className="text-[#0d1f3c] font-bold text-base mb-5">
-                  Global Headquarters
-                </h3>
+              {/* HQ address card */}
+              <div className="bg-white border border-[#e8edf2] rounded-xl p-6">
+                <h3 className="font-black text-[#0f2a4a] text-base mb-5">Global Headquarters</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <MapPin size={16} style={{ color: '#e05000', marginTop: '2px' }} className="shrink-0" />
+                    <MapPin className="w-4 h-4 text-[#e05000] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-xs text-[#637c95] font-medium uppercase tracking-wide mb-0.5">Address</p>
-                      <p className="text-sm font-semibold text-[#0d1f3c] leading-snug">
-                        11401 Beach Street<br />Santa Fe Springs, CA 90670<br />United States
+                      <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Address</p>
+                      <p className="text-sm font-semibold text-[#0f2a4a] leading-snug">
+                        11401 Beach Street<br />
+                        Santa Fe Springs, CA 90670<br />
+                        United States
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Phone size={16} style={{ color: '#e05000', marginTop: '2px' }} className="shrink-0" />
+                    <Phone className="w-4 h-4 text-[#e05000] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-xs text-[#637c95] font-medium uppercase tracking-wide mb-0.5">Phone</p>
-                      <a href="tel:+15629490123" className="text-sm font-semibold text-[#0d1f3c] hover:text-[#e05000] transition-colors">
+                      <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Phone</p>
+                      <a
+                        href="tel:+15629490123"
+                        className="text-sm font-semibold text-[#0f2a4a] hover:text-[#e05000] transition-colors"
+                      >
                         +1 (562) 949-0123
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Mail size={16} style={{ color: '#e05000', marginTop: '2px' }} className="shrink-0" />
+                    <Mail className="w-4 h-4 text-[#e05000] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-xs text-[#637c95] font-medium uppercase tracking-wide mb-0.5">Email</p>
-                      <a href="mailto:info@cosasco.com" className="text-sm font-semibold text-[#0d1f3c] hover:text-[#e05000] transition-colors">
+                      <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Email</p>
+                      <a
+                        href="mailto:info@cosasco.com"
+                        className="text-sm font-semibold text-[#0f2a4a] hover:text-[#e05000] transition-colors"
+                      >
                         info@cosasco.com
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <Clock size={16} style={{ color: '#e05000', marginTop: '2px' }} className="shrink-0" />
+                    <Clock className="w-4 h-4 text-[#e05000] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-xs text-[#637c95] font-medium uppercase tracking-wide mb-0.5">Business Hours</p>
-                      <p className="text-sm font-semibold text-[#0d1f3c]">
+                      <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Business Hours</p>
+                      <p className="text-sm font-semibold text-[#0f2a4a]">
                         Mon–Fri: 7:00am – 5:00pm PT<br />
-                        <span className="text-[#637c95] font-normal">Emergency: 24/7</span>
+                        <span className="text-[#566677] font-normal text-xs">Emergency support available 24/7</span>
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div
-                className="rounded-xl overflow-hidden flex flex-col items-center justify-center gap-3"
-                style={{ background: '#0d1f3c', height: '180px', border: '1px solid #dde4ef' }}
-              >
-                <MapPin size={28} style={{ color: '#e05000' }} />
-                <p className="text-white/60 text-sm">Santa Fe Springs, CA</p>
+              {/* Map placeholder */}
+              <div className="bg-[#0f2a4a] rounded-xl overflow-hidden flex flex-col items-center justify-center gap-3 h-44">
+                <MapPin className="w-7 h-7 text-[#e05000]" />
+                <p className="text-white/60 text-sm">Santa Fe Springs, CA 90670</p>
                 <a
                   href="https://maps.google.com/?q=11401+Beach+Street+Santa+Fe+Springs+CA+90670"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-semibold underline underline-offset-2 hover:no-underline"
-                  style={{ color: '#e05000' }}
+                  className="text-[#e05000] text-xs font-semibold underline underline-offset-2 hover:no-underline"
                 >
-                  View in Google Maps
+                  Open in Google Maps
                 </a>
               </div>
 
-              {/* Response time note */}
-              <div
-                className="rounded-xl p-4 flex items-start gap-3"
-                style={{ background: '#f7f9fc', border: '1px solid #dde4ef' }}
-              >
-                <Clock size={16} style={{ color: '#e05000', marginTop: '2px', flexShrink: 0 }} />
-                <p className="text-[#637c95] text-xs leading-relaxed">
-                  <span className="font-semibold text-[#0d1f3c]">Typical response within 1 business day.</span>{' '}
-                  For urgent technical issues, call our support line or visit the Support page to submit
-                  a prioritized request.
+              {/* Response time notice */}
+              <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-4 flex items-start gap-3">
+                <Clock className="w-4 h-4 text-[#e05000] mt-0.5 flex-shrink-0" />
+                <p className="text-[#566677] text-xs leading-relaxed">
+                  <span className="font-semibold text-[#1e2b3a]">Typical response within 1 business day.</span>{' '}
+                  For urgent technical issues, call our support line directly or visit the
+                  Support page to submit a prioritized request.
                 </p>
               </div>
-
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── REGIONAL OFFICES ─────────────────────────────────────────────────── */}
-      <section className="section" style={{ background: '#f7f9fc' }}>
+      {/* ── Regional Offices ── */}
+      <section className="bg-[#f7f9fc] py-16 md:py-20 border-t border-[#e8edf2]">
         <div className="cx">
           <div className="text-center mb-12">
-            <p className="eyebrow mb-2">Global Reach</p>
-            <h2
-              className="font-extrabold tracking-tight text-[#0d1f3c] mb-4"
-              style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}
-            >
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-3">Global Reach</p>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0f2a4a] mb-4">
               Regional Offices
             </h2>
-            <p className="text-[#637c95] text-base max-w-lg mx-auto">
-              With offices across three continents, Cosasco delivers local support to customers
-              wherever they operate.
+            <p className="text-[#566677] text-base max-w-lg mx-auto leading-relaxed">
+              With offices across three continents, Cosasco delivers local technical support
+              to customers wherever they operate across our 110-country network.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {regionalOffices.map((region) => (
-              <div key={region.region} className="card p-6">
+              <div key={region.region} className="bg-white border border-[#e8edf2] rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-5">
-                  <div
-                    className="w-9 h-9 rounded-lg flex items-center justify-center"
-                    style={{ background: '#0d1f3c', color: '#e05000' }}
-                  >
-                    {region.icon}
+                  <div className="w-9 h-9 bg-[#0f2a4a] rounded-lg flex items-center justify-center">
+                    <Globe className="w-4 h-4 text-[#e05000]" />
                   </div>
-                  <h3 className="text-[#0d1f3c] font-bold text-base">{region.region}</h3>
+                  <h3 className="font-black text-[#0f2a4a] text-base">{region.region}</h3>
                 </div>
                 <div className="space-y-5">
                   {region.offices.map((office) => (
                     <div key={office.name}>
-                      <p className="text-[#0d1f3c] font-semibold text-sm mb-1">{office.name}</p>
+                      <p className="font-semibold text-[#0f2a4a] text-sm mb-1">{office.name}</p>
                       <div className="flex items-center gap-1.5 mb-1">
-                        <MapPin size={12} style={{ color: '#637c95' }} />
-                        <span className="text-[#637c95] text-xs">{office.city}</span>
+                        <MapPin className="w-3 h-3 text-[#566677]" />
+                        <span className="text-[#566677] text-xs">{office.city}</span>
                       </div>
                       <div className="flex items-center gap-1.5 mb-1">
-                        <Phone size={12} style={{ color: '#637c95' }} />
-                        <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="text-[#637c95] text-xs hover:text-[#e05000] transition-colors">
+                        <Phone className="w-3 h-3 text-[#566677]" />
+                        <a
+                          href={`tel:${office.phone.replace(/[\s()+-]/g, '')}`}
+                          className="text-[#566677] text-xs hover:text-[#e05000] transition-colors"
+                        >
                           {office.phone}
                         </a>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Mail size={12} style={{ color: '#637c95' }} />
-                        <a href={`mailto:${office.email}`} className="text-[#637c95] text-xs hover:text-[#e05000] transition-colors">
+                        <Mail className="w-3 h-3 text-[#566677]" />
+                        <a
+                          href={`mailto:${office.email}`}
+                          className="text-[#566677] text-xs hover:text-[#e05000] transition-colors"
+                        >
                           {office.email}
                         </a>
                       </div>
@@ -356,7 +373,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-    </main>
-  );
+    </div>
+  )
 }

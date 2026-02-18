@@ -1,22 +1,12 @@
 import Link from "next/link";
-import {
-  Shield,
-  Activity,
-  Droplets,
-  BarChart2,
-  ChevronRight,
-  CheckCircle,
-  Download,
-  ArrowRight,
-  Phone,
-} from "lucide-react";
+import { Shield, Activity, Droplets, BarChart2, ChevronRight, ArrowRight, Download } from "lucide-react";
 
 const industries = [
-  { label: "All Products", href: "/products" },
+  { label: "All", href: "/products", active: true },
   { label: "Oil & Gas", href: "/products?industry=oil-gas" },
   { label: "Petrochemical", href: "/products?industry=petrochemical" },
   { label: "Water Treatment", href: "/products?industry=water-treatment" },
-  { label: "Chemical Processing", href: "/products?industry=chemical-processing" },
+  { label: "Chemical", href: "/products?industry=chemical" },
   { label: "Pulp & Paper", href: "/products?industry=pulp-paper" },
   { label: "Utilities", href: "/products?industry=utilities" },
 ];
@@ -29,7 +19,7 @@ const categories = [
     desc: "Industry-proven electrical resistance and electrochemical monitoring systems for continuous and periodic corrosion measurement across all process environments.",
     products: [
       "ER Probes (Straight, Flush Mount, Retractable)",
-      "LPR Monitors",
+      "LPR Electrochemical Probes",
       "Access Fittings (1\" to 3\")",
       "Corrosion Coupons & Racks",
       "Pipe Penetration Fittings",
@@ -42,7 +32,7 @@ const categories = [
     desc: "Sand and particle detection systems, ultrasonic wall thickness monitoring, and intrusive erosion probes for high-velocity flow protection.",
     products: [
       "Sand & Erosion Probes",
-      "UT Transducers (permanent and temp)",
+      "UT Transducers (Permanent and Temp)",
       "Intrusive ER Erosion Systems",
       "Pipe Wall Mapping",
       "Erosion Data Loggers",
@@ -54,7 +44,7 @@ const categories = [
     href: "/products/chemical-injection",
     desc: "Precision chemical delivery systems engineered for reliable, consistent dosing into pressurized pipelines and vessels under live operating conditions.",
     products: [
-      "Quill Assemblies (fixed and retractable)",
+      "Quill Assemblies (Fixed and Retractable)",
       "Injection Check Valves",
       "Pulsation Dampeners",
       "Mixing Tees",
@@ -79,77 +69,40 @@ const categories = [
 export default function ProductsPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section
-        className="relative overflow-hidden grid-bg"
-        style={{ background: "#0d1f3c" }}
-      >
-        <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
-          aria-hidden="true"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 60% at 70% 50%, #1a3d6e 0%, transparent 70%)",
-          }}
-        />
-        <div className="cx relative py-20 md:py-28">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-1.5 text-sm text-blue-300 mb-6" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
+      {/* HERO */}
+      <section className="bg-[#0f2a4a] pt-[72px] pb-16 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center gap-1.5 text-sm text-[#8ab4d4] mb-6" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight size={14} className="opacity-50" />
             <span className="text-white font-medium">Products</span>
           </nav>
-
-          <div className="eyebrow mb-4">Product Catalog</div>
-
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-3xl mb-6">
+          <h1 className="text-white font-black text-4xl lg:text-5xl leading-tight mb-4">
             Corrosion Management Products
           </h1>
-
-          <p className="text-blue-100 text-lg md:text-xl max-w-2xl leading-relaxed mb-10">
-            Purpose-built monitoring, injection, and data systems for oil&nbsp;&amp;&nbsp;gas,
-            petrochemical, water treatment, and industrial process environments.
-            From probe elements to cloud-connected analytics — engineered to perform.
+          <p className="text-[#94aabb] text-lg max-w-2xl leading-relaxed">
+            Purpose-built monitoring, injection, and data systems trusted in over 110 countries
+            across oil&nbsp;&amp;&nbsp;gas, petrochemical, water treatment, and industrial process environments.
           </p>
-
-          <div className="flex flex-wrap gap-3">
-            {[
-              "API RP 17D / 580 Compliant",
-              "ATEX / IECEx Certified Options",
-              "50+ Years of Field-Proven Design",
-              "Global Inventory & Support",
-            ].map((tag) => (
-              <span
-                key={tag}
-                className="flex items-center gap-2 text-sm text-white/80 bg-white/10 border border-white/15 rounded-full px-4 py-1.5"
-              >
-                <CheckCircle size={14} className="text-orange-500 flex-shrink-0" />
-                {tag}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* ── FILTER / DISCOVERY ── */}
-      <section className="bg-white border-b border-slate-200 py-10">
-        <div className="cx">
-          <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">
+      {/* FILTER BAR */}
+      <section className="bg-white border-b border-[#e8edf2] py-8 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#566677] mb-4">
             Find Products by Application
           </p>
           <div className="flex flex-wrap gap-2">
-            {industries.map((ind, i) => (
+            {industries.map((ind) => (
               <Link
                 key={ind.label}
                 href={ind.href}
-                className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-150 ${
-                  i === 0
-                    ? "bg-orange-500 text-white border-orange-500 shadow-sm"
-                    : "bg-white text-slate-700 border-slate-300 hover:border-navy-800 hover:text-navy-800"
-                }`}
-                style={i === 0 ? { background: "#e05000", borderColor: "#e05000" } : {}}
+                className={
+                  ind.active
+                    ? "px-5 py-2 rounded-full text-sm font-semibold border transition-all bg-[#e05000] text-white border-[#e05000] shadow-sm"
+                    : "px-5 py-2 rounded-full text-sm font-semibold border transition-all bg-white text-[#1e2b3a] border-[#e8edf2] hover:border-[#0f2a4a] hover:text-[#0f2a4a]"
+                }
               >
                 {ind.label}
               </Link>
@@ -158,16 +111,30 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* ── CATEGORY CARDS ── */}
-      <section className="bg-slate-50 section">
-        <div className="cx">
-          <div className="mb-12 max-w-2xl">
-            <h2 className="text-3xl font-bold text-navy-800" style={{ color: "#0d1f3c" }}>
-              Browse Product Categories
-            </h2>
-            <p className="text-slate-500 mt-2 leading-relaxed">
-              Four core product lines covering the full lifecycle of corrosion management — from
-              measurement and injection to data collection and analysis.
+      {/* STATS BAND */}
+      <section className="bg-[#f7f9fc] border-b border-[#e8edf2] py-8 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto grid grid-cols-3 gap-8 max-w-2xl">
+          {[
+            { stat: "70+", label: "Years of Innovation" },
+            { stat: "110", label: "Countries Served" },
+            { stat: "1M+", label: "Monitoring Locations" },
+          ].map((item) => (
+            <div key={item.stat} className="text-center">
+              <div className="text-[#e05000] font-black text-3xl leading-none">{item.stat}</div>
+              <div className="text-[#566677] text-xs mt-1 font-medium">{item.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CATEGORY CARDS */}
+      <section className="bg-white py-20 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12">
+            <h2 className="text-3xl font-black text-[#1e2b3a] mb-2">Browse Product Categories</h2>
+            <p className="text-[#566677] max-w-2xl">
+              Four core product lines covering the full lifecycle of corrosion management —
+              from measurement and injection to data collection and analysis.
             </p>
           </div>
 
@@ -177,34 +144,28 @@ export default function ProductsPage() {
               return (
                 <article
                   key={cat.title}
-                  className="card flex flex-col overflow-hidden"
+                  className="bg-white border border-[#e8edf2] rounded-xl overflow-hidden hover:shadow-lg transition-all flex flex-col"
                 >
                   {/* Card header */}
-                  <div
-                    className="flex items-center gap-4 p-7"
-                    style={{
-                      background: "linear-gradient(135deg, #0d1f3c 0%, #1a3d6e 100%)",
-                    }}
-                  >
-                    <div className="w-12 h-12 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0">
+                  <div className="bg-[#0f2a4a] p-6 flex items-center gap-4">
+                    <div className="bg-[#1a3a5c] rounded-lg p-2.5 flex-shrink-0">
                       <Icon size={24} className="text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-white">{cat.title}</h3>
+                    <h3 className="text-white font-bold text-xl">{cat.title}</h3>
                   </div>
 
                   {/* Card body */}
-                  <div className="p-7 flex flex-col flex-1 bg-white">
-                    <p className="text-slate-600 leading-relaxed mb-6">{cat.desc}</p>
+                  <div className="p-6 flex flex-col flex-1">
+                    <p className="text-[#566677] text-sm leading-relaxed">{cat.desc}</p>
 
-                    <ul className="space-y-2.5 mb-8">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#8898aa] mt-4 mb-2">
+                      Key Products
+                    </p>
+                    <ul className="space-y-2 mb-6 flex-1">
                       {cat.products.map((p) => (
-                        <li
-                          key={p}
-                          className="flex items-start gap-2.5 text-sm text-slate-700"
-                        >
+                        <li key={p} className="flex items-start gap-2.5 text-sm text-[#1e2b3a]">
                           <span
-                            className="flex-shrink-0 w-1.5 h-1.5 rounded-full mt-1.5"
-                            style={{ background: "#e05000" }}
+                            className="flex-shrink-0 w-1.5 h-1.5 rounded-full mt-1.5 bg-[#e05000]"
                             aria-hidden="true"
                           />
                           {p}
@@ -212,17 +173,20 @@ export default function ProductsPage() {
                       ))}
                     </ul>
 
-                    <div className="mt-auto flex flex-wrap gap-3">
-                      <Link href={cat.href} className="btn btn-primary">
-                        View All Products
-                        <ArrowRight size={16} />
+                    <div className="flex flex-wrap gap-3 mt-auto">
+                      <Link
+                        href={cat.href}
+                        className="inline-flex items-center gap-2 bg-[#e05000] text-white rounded-md px-4 py-2 text-sm font-semibold hover:bg-[#c94700] transition-colors"
+                      >
+                        View Products
+                        <ArrowRight size={14} />
                       </Link>
                       <Link
                         href="/resources"
-                        className="btn btn-outline-navy"
+                        className="inline-flex items-center gap-2 border border-[#0f2a4a] text-[#0f2a4a] rounded-md px-4 py-2 text-sm font-semibold hover:bg-[#0f2a4a] hover:text-white transition-colors"
                       >
-                        <Download size={15} />
-                        Download Catalog
+                        <Download size={14} />
+                        Download Spec Sheet
                       </Link>
                     </div>
                   </div>
@@ -233,36 +197,28 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* ── BOTTOM CTA ── */}
-      <section
-        className="py-20"
-        style={{
-          background: "linear-gradient(90deg, #e05000 0%, #c94700 60%, #a83b00 100%)",
-        }}
-      >
-        <div className="cx text-center">
-          <p className="eyebrow text-white/70 mb-4">Engineering Support</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 max-w-2xl mx-auto">
-            Need help selecting the right product?
-          </h2>
-          <p className="text-orange-100 text-lg mb-10 max-w-xl mx-auto">
-            Our engineers are standing by. Describe your process conditions and we will
-            recommend the optimal monitoring and injection configuration.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
+      {/* BOTTOM CTA */}
+      <section className="bg-[#f7f9fc] border-t border-[#e8edf2] py-16 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 className="text-2xl font-black text-[#1e2b3a]">Need help selecting the right product?</h2>
+            <p className="text-[#566677] mt-1">
+              Our engineers are standing by. Describe your process conditions and we&rsquo;ll recommend
+              the optimal monitoring and injection configuration.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 flex-shrink-0">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-white font-bold px-8 py-3.5 rounded-md text-sm transition-all hover:bg-orange-50"
-              style={{ color: "#e05000" }}
+              className="inline-flex items-center gap-2 bg-[#e05000] text-white rounded-md px-6 py-3 text-sm font-semibold hover:bg-[#c94700] transition-colors"
             >
-              <Phone size={16} />
               Talk to an Engineer
             </Link>
             <Link
               href="/resources"
-              className="inline-flex items-center gap-2 border-2 border-white/50 hover:border-white text-white font-semibold px-8 py-3.5 rounded-md text-sm transition-all"
+              className="inline-flex items-center gap-2 border border-[#0f2a4a] text-[#0f2a4a] rounded-md px-6 py-3 text-sm font-semibold hover:bg-[#0f2a4a] hover:text-white transition-colors"
             >
-              <Download size={16} />
+              <Download size={14} />
               Product Catalog PDF
             </Link>
           </div>

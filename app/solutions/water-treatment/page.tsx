@@ -1,261 +1,214 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import {
-  ChevronRight,
-  Waves,
-  Microscope,
-  FlaskConical,
-  ArrowRight,
-  Phone,
-  FileDown,
-  CheckCircle,
-  Quote,
-} from 'lucide-react';
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { ChevronRight, ArrowRight, Phone, Mail, FileDown } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Water Treatment Corrosion Solutions | Cosasco',
   description:
-    'Cosasco corrosion monitoring probes, bypass coupon assemblies, and chemical dosing quills protect municipal and industrial water and wastewater treatment infrastructure.',
-};
+    'Cosasco ER probes, coupon holders, and chemical dosing systems protect municipal water systems, industrial cooling loops, and wastewater facilities from MIC, pH attack, and scaling.',
+}
 
 const challenges = [
   {
-    icon: Waves,
-    title: 'pH Variability & Chlorine-Induced Corrosion',
-    body: 'Distribution mains, treatment vessels, and process piping experience pH excursions during upset events, seasonal source-water changes, and chemical dosing variations. Chlorine and chloramine disinfectants attack mild steel and galvanized pipe aggressively at elevated concentrations. Cosasco low-profile ER probes placed at corrosion sentinel locations provide continuous detection of accelerated wall-loss events before they propagate to costly failures.',
+    title: 'pH Fluctuation & Chemical Attack',
+    body: 'Swings in pH from seasonal source water changes, coagulant overdose, or treatment upsets cause aggressive acidic or alkaline pipe attack in distribution networks. Cosasco bypass coupon assemblies and inline ER probes provide continuous corrosion rate data to alert operators before wall loss becomes critical.',
   },
   {
-    icon: Microscope,
-    title: 'Microbiologically Influenced Corrosion (MIC)',
-    body: 'Stagnant zones, dead legs, and low-flow areas in raw water intake structures, clarifiers, and filter backwash piping accumulate biofilm colonies — sulfate-reducing bacteria (SRB), iron-oxidizing bacteria, and methanogens that drive accelerated localized corrosion. Cosasco bypass coupon assemblies with retrievable coupons enable periodic microbiological sampling alongside weight-loss measurement, providing both corrosion rate and biological activity data from the same monitoring point.',
+    title: 'Microbiologically Influenced Corrosion',
+    body: 'MIC driven by sulfate-reducing bacteria and aerobic biofilm communities causes rapid localized pitting in low-velocity zones, dead legs, and stagnant sections of distribution and cooling systems. Cosasco MIC coupon holders with biological sampling ports provide simultaneous corrosion rate and microbial activity data at the same monitoring point.',
   },
   {
-    icon: FlaskConical,
     title: 'Chemical Dosing Optimization',
-    body: 'Corrosion inhibitor, scale inhibitor, biocide, and pH-adjustment chemical costs represent significant operating expense in large water treatment facilities. Under-dosing risks corrosion and regulatory non-compliance; over-dosing raises costs and may create secondary chemistry problems. Cosasco chemical injection quills optimized for low-velocity water systems provide uniform reagent dispersion, while ER probe feedback enables dose-response correlation to achieve the minimum effective dosing rate.',
+    body: 'Scale inhibitors, corrosion inhibitors, and biocides must be dosed precisely to maintain protection without wasteful overdose. Cosasco precision chemical injection quills — sized for low-flow water systems — ensure complete dispersion of treatment chemicals into the process stream at every dosing point.',
   },
-];
+]
 
 const products = [
   {
     name: 'Low-Profile ER Probes',
-    description:
-      'Compact electrical resistance probes designed for water system pressures and flow velocities. Ideal for distribution mains, treatment vessels, and pump station piping.',
-    specs: ['Rated to 300 psi / 20 bar', 'Stainless and glass-filled nylon bodies', 'Compatible with FieldCom loggers'],
+    desc: 'Compact ER probe designs for low-pressure water system flanges and threaded ports. Continuous corrosion rate measurement without process interruption.',
     href: '/products/corrosion-monitoring',
   },
   {
     name: 'Bypass Coupon Assemblies',
-    description:
-      'Side-stream bypass piping assemblies that expose weighted corrosion coupons to representative process flow. Enables sample retrieval without main-line isolation.',
-    specs: ['Full-flow or bypass configurations', 'Multiple coupon slots', 'CPVC and stainless options'],
+    desc: 'Side-stream coupon holders for periodic coupon retrieval and MIC sampling. Adjustable flow rates and multiple coupon positions in a single assembly.',
     href: '/products/corrosion-monitoring',
   },
   {
     name: 'Chemical Dosing Quills',
-    description:
-      'Quill-tip injection assemblies for uniform reagent dispersion in water mains and treatment vessels. Low-velocity optimized to prevent short-circuit dosing near injection point.',
-    specs: ['316SS and CPVC materials', 'Adjustable insertion depth', 'Integral check valve'],
+    desc: 'Low-pressure injection quills for water treatment chemical delivery. PVC and CPVC-compatible designs for potable and treated water applications.',
     href: '/products/chemical-injection',
   },
   {
-    name: 'Automated Data Loggers',
-    description:
-      'Wireless and wired data acquisition for continuous ER probe monitoring across distributed water infrastructure. SCADA-compatible outputs for integration with SCADA/HMI systems.',
-    specs: ['4-20 mA and Modbus outputs', 'Solar-powered option', 'Cloud data portal included'],
+    name: 'FieldCom Data Loggers',
+    desc: 'Wireless and wired data loggers for remote corrosion monitoring across geographically distributed water infrastructure without dedicated fiber or SCADA wiring.',
     href: '/products/data-acquisition',
   },
-];
+]
+
+const relatedIndustries = [
+  { name: 'Oil & Gas', href: '/solutions/oil-gas' },
+  { name: 'Utilities', href: '/solutions/utilities' },
+  { name: 'Chemical Processing', href: '/solutions/chemical-processing' },
+]
 
 export default function WaterTreatmentPage() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* Breadcrumb */}
-      <div className="bg-[#f7f9fc] border-b border-[#dde4ef]">
+      <div className="bg-[#f7f9fc] border-b border-[#e8edf2]">
         <div className="cx py-3">
-          <nav className="flex items-center gap-2 text-sm text-[#637c95]">
-            <Link href="/" className="hover:text-[#0d1f3c] transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-sm text-[#566677]">
+            <Link href="/" className="hover:text-[#0f2a4a] transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <Link href="/solutions" className="hover:text-[#0d1f3c] transition-colors">Solutions</Link>
+            <Link href="/solutions" className="hover:text-[#0f2a4a] transition-colors">Solutions</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-[#0d1f3c] font-medium">Water Treatment</span>
+            <span className="text-[#1e2b3a] font-medium">Water Treatment</span>
           </nav>
         </div>
       </div>
 
-      {/* ── Hero ── */}
-      <section className="relative bg-[#0d1f3c] text-white overflow-hidden">
+      <section className="relative bg-[#0f2a4a] text-white overflow-hidden">
         <div className="grid-bg absolute inset-0" aria-hidden="true" />
         <div className="absolute top-0 left-0 right-0 h-1 bg-[#e05000]" aria-hidden="true" />
         <div className="cx relative py-20 md:py-28">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="badge badge-orange">Industry Solutions</span>
-              <span className="text-[#637c95]">/</span>
-              <span className="text-[#b8c8da] text-sm font-medium">Water Treatment</span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Water Treatment<br />
-              <span className="text-[#e05000]">Corrosion Solutions</span>
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-4">Industry Solutions</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
+              Water Treatment Solutions
             </h1>
-            <p className="text-[#b8c8da] text-lg md:text-xl leading-relaxed max-w-2xl">
-              Municipal and industrial water infrastructure demands reliable, low-maintenance corrosion
-              monitoring. Cosasco provides probes, bypass coupon assemblies, and chemical dosing quills
-              suited for pH-variable environments, chlorinated systems, and biofilm-prone networks.
+            <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
+              Municipal distribution networks, industrial cooling systems, and wastewater
+              treatment facilities — Cosasco monitoring and dosing systems protect water
+              infrastructure from MIC, pH attack, and chemical scaling.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ── Main 2-col layout ── */}
       <div className="cx py-16 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-
-          <main className="lg:col-span-8 space-y-20">
+        <div className="lg:grid lg:grid-cols-3 gap-12">
+          <div className="lg:col-span-2 space-y-16">
 
             <section>
-              <p className="eyebrow mb-2">What We Solve</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0d1f3c] mb-2">Industry Challenges</h2>
-              <div className="w-12 h-1 bg-[#e05000] rounded mb-8" />
-              <div className="space-y-6">
-                {challenges.map((ch) => {
-                  const Icon = ch.icon;
-                  return (
-                    <div key={ch.title} className="card card-accent p-6 md:p-8">
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-lg bg-[#e05000]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                          <Icon className="w-5 h-5 text-[#e05000]" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-bold text-[#0d1f3c] mb-2">{ch.title}</h3>
-                          <p className="text-[#637c95] leading-relaxed text-sm">{ch.body}</p>
-                        </div>
-                      </div>
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-2">What We Solve</p>
+              <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-6">Key Challenges</h2>
+              <div className="bg-[#f7f9fc] rounded-xl p-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {challenges.map((ch) => (
+                    <div key={ch.title} className="bg-white border border-[#e8edf2] rounded-xl p-5">
+                      <div className="w-2 h-2 rounded-full bg-[#e05000] mb-4" />
+                      <h3 className="font-black text-[#0f2a4a] text-base mb-3">{ch.title}</h3>
+                      <p className="text-[#566677] text-sm leading-relaxed">{ch.body}</p>
                     </div>
-                  );
-                })}
+                  ))}
+                </div>
               </div>
             </section>
 
             <section>
-              <p className="eyebrow mb-2">Product Recommendations</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0d1f3c] mb-2">Recommended Solutions</h2>
-              <div className="w-12 h-1 bg-[#e05000] rounded mb-8" />
-              <div className="grid sm:grid-cols-2 gap-6">
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-2">Product Recommendations</p>
+              <h3 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-6">Recommended Solutions</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {products.map((p) => (
-                  <div key={p.name} className="card flex flex-col">
-                    <div className="p-6 flex flex-col flex-1">
-                      <h3 className="text-base font-bold text-[#0d1f3c] mb-2">{p.name}</h3>
-                      <p className="text-sm text-[#637c95] leading-relaxed mb-4">{p.description}</p>
-                      <div className="mb-5">
-                        {p.specs.map((s) => (
-                          <div key={s} className="flex items-center gap-2 text-xs text-[#4a5e72] py-1 border-b border-[#dde4ef] last:border-0">
-                            <CheckCircle className="w-3.5 h-3.5 text-[#e05000] flex-shrink-0" /> {s}
-                          </div>
-                        ))}
-                      </div>
-                      <Link href={p.href} className="mt-auto flex items-center gap-1.5 text-sm font-bold text-[#0d1f3c] hover:text-[#e05000] transition-colors">
-                        View Product <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </div>
+                  <div key={p.name} className="bg-white border border-[#e8edf2] rounded-xl p-6 hover:shadow-lg hover:border-[#e05000] transition-all group flex flex-col">
+                    <h4 className="font-black text-[#0f2a4a] text-base mb-2 group-hover:text-[#e05000] transition-colors">{p.name}</h4>
+                    <p className="text-[#566677] text-sm leading-relaxed mb-4 flex-1">{p.desc}</p>
+                    <Link href={p.href} className="text-[#e05000] text-sm font-semibold flex items-center gap-1 mt-auto">
+                      View Product <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
                 ))}
               </div>
             </section>
 
             <section>
-              <p className="eyebrow mb-2">Proven Results</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0d1f3c] mb-2">Case Study</h2>
-              <div className="w-12 h-1 bg-[#e05000] rounded mb-8" />
-              <div className="bg-[#0d1f3c] rounded-xl overflow-hidden">
-                <div className="p-8 md:p-10">
-                  <span className="badge badge-orange mb-5">Midwest Municipal Utility</span>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
-                    MIC Detection Program Prevents Major Distribution Main Failure
-                  </h3>
-                  <p className="text-[#b8c8da] leading-relaxed mb-8 text-sm">
-                    A Midwest municipal water utility deployed Cosasco bypass coupon assemblies at
-                    12 low-flow sentinel locations throughout their aging cast-iron distribution network.
-                    SRB colonies were detected at three locations within the first monitoring period,
-                    enabling targeted biocide dosing and lining rehabilitation before any main failures
-                    occurred. The utility avoided an estimated $2.8M in emergency repair costs.
-                  </p>
-                  <div className="grid grid-cols-3 gap-6 mb-8">
-                    {[
-                      { value: '12', label: 'Monitoring Stations Deployed' },
-                      { value: '3', label: 'MIC Hot Spots Detected' },
-                      { value: '$2.8M', label: 'Avoided Repair Costs' },
-                    ].map((s) => (
-                      <div key={s.label} className="text-center">
-                        <div className="stat-number">{s.value}</div>
-                        <div className="text-[#637c95] text-xs mt-1 leading-tight">{s.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                    <Quote className="w-5 h-5 text-[#e05000] mb-3" />
-                    <p className="text-[#b8c8da] text-sm leading-relaxed italic mb-3">
-                      "The bypass coupon program gave us early warning on MIC activity we would
-                      never have caught with our conventional annual inspection schedule."
-                    </p>
-                    <p className="text-[#637c95] text-xs font-semibold">
-                      — Distribution System Engineer, Midwest Municipal Utility
-                    </p>
-                  </div>
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-2">Proven Results</p>
+              <h3 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-6">Case Study</h3>
+              <div className="bg-[#0f2a4a] rounded-xl p-8 text-white">
+                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-2">Municipal Water Utility — Southwest USA</p>
+                <h4 className="text-xl font-black text-white mb-4">
+                  Bypass Coupon Program Identifies MIC Source in Distribution System
+                </h4>
+                <p className="text-[#8ab4d4] text-sm leading-relaxed mb-8">
+                  A southwestern US water utility deployed Cosasco bypass coupon assemblies
+                  with integrated MIC sampling ports at 22 locations across their 380-mile
+                  distribution network. Within 6 months, biological analysis on retrieved
+                  coupons identified sulfate-reducing bacteria concentrations at five
+                  dead-leg locations — enabling targeted biocide treatment and infrastructure
+                  replacement that eliminated the corrosion risk before customer service disruptions occurred.
+                </p>
+                <div className="grid grid-cols-3 gap-4 mb-8">
+                  {[
+                    { value: '22', label: 'Monitoring Locations Deployed' },
+                    { value: '5', label: 'MIC Hotspots Identified' },
+                    { value: '6 mo', label: 'Time to Full Network Assessment' },
+                  ].map((s) => (
+                    <div key={s.label} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
+                      <div className="text-3xl font-black text-[#e05000] mb-1">{s.value}</div>
+                      <div className="text-[#8ab4d4] text-xs leading-tight">{s.label}</div>
+                    </div>
+                  ))}
                 </div>
+                <p className="text-[#8ab4d4] text-xs">
+                  Source: Internal performance data, Southwest municipal water utility, 2022. Results may vary.
+                </p>
               </div>
             </section>
-          </main>
+          </div>
 
-          <aside className="lg:col-span-4 space-y-6">
-            <div className="bg-[#0d1f3c] rounded-xl p-6 text-white sticky top-6">
-              <p className="eyebrow text-[#e05000] mb-3">Get Expert Guidance</p>
-              <h3 className="text-lg font-bold mb-3">Speak with a Water Treatment Specialist</h3>
-              <p className="text-[#b8c8da] text-sm leading-relaxed mb-5">
-                Our engineers understand municipal water regulations, EPA guidelines, and the unique
-                corrosion challenges of potable and industrial water systems.
+          <aside className="lg:col-span-1 mt-12 lg:mt-0 space-y-6">
+            <div className="bg-[#0f2a4a] rounded-xl p-6 text-white">
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#e05000] mb-3">Get Expert Guidance</p>
+              <h3 className="font-black text-white text-lg mb-3">Speak with a Water Treatment Specialist</h3>
+              <p className="text-[#8ab4d4] text-sm leading-relaxed mb-5">
+                Our engineers understand municipal water system requirements, MIC control,
+                and chemical treatment program design.
               </p>
-              <Link href="/contact" className="btn btn-primary w-full justify-center mb-3">
-                <Phone className="w-4 h-4" /> Contact an Expert
-              </Link>
-              <p className="text-center text-xs text-[#637c95]">Response within 1 business day</p>
+              <div className="space-y-3 mb-5">
+                <a href="tel:+15629490123" className="flex items-center gap-2 text-[#8ab4d4] text-sm hover:text-white transition-colors">
+                  <Phone className="w-4 h-4 text-[#e05000] flex-shrink-0" />
+                  +1 (562) 949-0123
+                </a>
+                <a href="mailto:water@cosasco.com" className="flex items-center gap-2 text-[#8ab4d4] text-sm hover:text-white transition-colors">
+                  <Mail className="w-4 h-4 text-[#e05000] flex-shrink-0" />
+                  water@cosasco.com
+                </a>
+              </div>
+              <Link href="/contact" className="btn btn-primary w-full justify-center text-sm">Contact an Expert</Link>
             </div>
-            <div className="card p-6">
+
+            <div className="bg-white border border-[#e8edf2] rounded-xl p-5">
               <FileDown className="w-6 h-6 text-[#e05000] mb-3" />
-              <h3 className="text-base font-bold text-[#0d1f3c] mb-2">Water Treatment Application Guide</h3>
-              <p className="text-sm text-[#637c95] leading-relaxed mb-4">
-                Probe selection, bypass assembly configurations, and MIC monitoring program design
-                for municipal and industrial water systems.
+              <h3 className="font-black text-[#0f2a4a] text-sm mb-2">Water Treatment Application Guide PDF</h3>
+              <p className="text-[#566677] text-xs leading-relaxed mb-4">
+                Probe selection, coupon program design, and dosing system recommendations
+                for municipal and industrial water treatment applications.
               </p>
-              <Link href="/resources" className="btn btn-outline-navy w-full justify-center text-sm">
-                Download PDF
-              </Link>
+              <Link href="/resources" className="btn btn-outline-navy w-full justify-center text-sm">Download PDF</Link>
             </div>
-            <div className="card p-6">
-              <h3 className="text-base font-bold text-[#0d1f3c] mb-4">Related Industries</h3>
-              <ul className="space-y-3">
-                {[
-                  { name: 'Oil & Gas', href: '/solutions/oil-gas' },
-                  { name: 'Chemical Processing', href: '/solutions/chemical-processing' },
-                  { name: 'Utilities', href: '/solutions/utilities' },
-                  { name: 'Pulp & Paper', href: '/solutions/pulp-paper' },
-                ].map((r) => (
+
+            <div className="bg-white border border-[#e8edf2] rounded-xl p-5">
+              <h3 className="font-black text-[#0f2a4a] text-sm mb-4">Related Industries</h3>
+              <ul className="space-y-2">
+                {relatedIndustries.map((r) => (
                   <li key={r.href}>
-                    <Link href={r.href} className="flex items-center gap-2 text-sm text-[#4a5e72] hover:text-[#e05000] transition-colors font-medium">
-                      <ArrowRight className="w-3.5 h-3.5 text-[#e05000]" /> {r.name}
+                    <Link href={r.href} className="flex items-center gap-2 text-sm text-[#566677] hover:text-[#e05000] transition-colors font-medium">
+                      <ArrowRight className="w-3.5 h-3.5 text-[#e05000]" />
+                      {r.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-              <div className="divider my-4" />
-              <Link href="/solutions" className="flex items-center gap-1.5 text-sm text-[#637c95] hover:text-[#0d1f3c] transition-colors">
-                <ChevronRight className="w-3.5 h-3.5" /> View All Industries
-              </Link>
+              <div className="border-t border-[#e8edf2] mt-4 pt-4">
+                <Link href="/solutions" className="flex items-center gap-1.5 text-sm text-[#566677] hover:text-[#0f2a4a] transition-colors">
+                  <ChevronRight className="w-3.5 h-3.5" />View All Industries
+                </Link>
+              </div>
             </div>
           </aside>
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -11,40 +11,34 @@ import {
 
 const products = [
   {
-    name: "ER Probes",
-    desc: "Electrical resistance probes provide continuous, real-time cumulative metal loss measurement without process shutdown. Available in straight, flush mount, and retractable configurations for threaded or flanged access fittings.",
-    spec: { label: "Max Temperature", value: "200°C (392°F)" },
-    href: "#er-probes",
+    name: "ER Probes (Electrical Resistance)",
+    desc: "Continuous, real-time cumulative metal loss measurement without process shutdown. Available in straight, flush mount, and retractable configurations for threaded or flanged access fittings.",
+    spec: "Max Temp: 200°C · Max Pressure: 10,000 PSI",
   },
   {
     name: "LPR Electrochemical Probes",
-    desc: "Linear polarization resistance probes deliver instantaneous corrosion rate readings in conductive aqueous environments. Ideal for water injection, produced water, and cooling water systems where real-time rate data is critical.",
-    spec: { label: "Sensitivity", value: "0.001 mpy" },
-    href: "#lpr-probes",
+    desc: "Linear polarization resistance probes deliver instantaneous corrosion rate readings in conductive aqueous environments. Ideal for water injection, produced water, and cooling water systems.",
+    spec: "Sensitivity: 0.001 mpy",
   },
   {
-    name: "Access Fittings & Retrievers",
-    desc: "Cosasco access fittings are the industry standard for safe, live insertion and retrieval of monitoring instruments at full operating pressure. Hydraulic and mechanical retrieval tool variants available for all line sizes.",
-    spec: { label: "Rated", value: "10,000 PSI / 400°F" },
-    href: "#access-fittings",
+    name: "Retractable Access Fittings",
+    desc: "Cosasco access fittings are the industry standard for safe, live insertion and retrieval of monitoring instruments at full operating pressure. Hydraulic and mechanical retrieval tool variants available.",
+    spec: "Rating: 10,000 PSI / 400°F",
   },
   {
     name: "Corrosion Coupons",
-    desc: "Precision-manufactured weight-loss coupons provide baseline general and localized corrosion data per NACE SP0775. Flat, cylindrical, and disc geometries with optional paired laboratory analysis and certified reporting.",
-    spec: { label: "Materials", value: "CS, SS, Duplex, Alloy" },
-    href: "#coupons",
+    desc: "Precision-manufactured weight-loss coupons provide baseline general and localized corrosion data. Flat, cylindrical, and disc geometries with optional paired laboratory analysis and certified reporting.",
+    spec: "Standard: NACE TM-0169",
   },
   {
     name: "Coupon Racks & Holders",
-    desc: "Multi-position coupon racks allow simultaneous exposure of several coupons at different locations within the flow stream. Suitable for bypass spool or mainline installation across a broad range of pipe sizes.",
-    spec: { label: "Sizes", value: "1\" to 6\" NPT" },
-    href: "#coupon-racks",
+    desc: "Multi-position coupon racks allow simultaneous exposure of several coupons at different locations within the flow stream. Suitable for bypass spool or mainline installation.",
+    spec: "Sizes: 1\" to 6\" NPT",
   },
   {
     name: "Pipe Penetration Fittings",
-    desc: "Weld-in fittings provide a permanent, pressure-rated entry point for probe installation into pipelines, vessels, and process equipment. Full bore and reduced bore versions available across all ANSI pressure classes.",
-    spec: { label: "Pressure Class", value: "150 to 2500" },
-    href: "#penetration-fittings",
+    desc: "Weld-in fittings provide a permanent, pressure-rated entry point for probe installation into pipelines, vessels, and process equipment. Full bore and reduced bore versions available.",
+    spec: "Pressure Class: 150 to 2500#",
   },
 ];
 
@@ -80,323 +74,215 @@ const downloads = [
 export default function CorrosionMonitoringPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: "#0d1f3c" }}
-        aria-label="Page hero"
-      >
-        <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
-          aria-hidden="true"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 80% at 80% 50%, #1a3d6e 0%, transparent 70%)",
-          }}
-        />
-        <div className="cx relative py-18 md:py-24">
-          {/* Breadcrumb */}
-          <nav
-            className="flex items-center gap-1.5 text-sm text-blue-300 mb-6"
-            aria-label="Breadcrumb"
-          >
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
+      {/* HERO */}
+      <section className="bg-[#0f2a4a] pt-[72px] pb-16 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center gap-1.5 text-sm text-[#8ab4d4] mb-6" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight size={14} className="opacity-50" />
-            <Link href="/products" className="hover:text-white transition-colors">
-              Products
-            </Link>
+            <Link href="/products" className="hover:text-white transition-colors">Products</Link>
             <ChevronRight size={14} className="opacity-50" />
             <span className="text-white font-medium">Corrosion Monitoring</span>
           </nav>
-
-          <div className="eyebrow mb-4">Corrosion Monitoring Systems</div>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-3xl mb-6">
+          <h1 className="text-white font-black text-4xl lg:text-5xl leading-tight mb-4">
             Precision Instruments for Internal Corrosion Measurement
           </h1>
-
-          <p className="text-blue-100 text-lg max-w-2xl leading-relaxed">
+          <p className="text-[#94aabb] text-lg max-w-2xl leading-relaxed">
             From electrical resistance probes and LPR electrochemical sensors to access fittings,
-            corrosion coupons, and pipe penetration hardware — Cosasco delivers a complete,
-            integrated corrosion monitoring system for any process environment.
+            corrosion coupons, and pipe penetration hardware — a complete, integrated corrosion
+            monitoring system for any process environment.
           </p>
         </div>
       </section>
 
-      {/* ── MAIN CONTENT + SIDEBAR ── */}
-      <div className="bg-white">
-        <div className="cx py-14 md:py-20">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-            {/* ── LEFT CONTENT COLUMN (8/12) ── */}
-            <div className="flex-1 min-w-0">
-              {/* Intro */}
-              <div className="flex flex-col md:flex-row gap-10 mb-14">
-                {/* Text */}
-                <div className="flex-1">
-                  <h2
-                    className="text-2xl font-bold mb-4"
-                    style={{ color: "#0d1f3c" }}
-                  >
-                    About Our Monitoring Systems
-                  </h2>
-                  <p className="text-slate-600 leading-relaxed mb-4">
-                    Cosasco&rsquo;s corrosion monitoring portfolio is anchored by our electrical
-                    resistance (ER) probe systems — the most widely deployed technology for
-                    continuous, online metal loss measurement in oil and gas pipelines, process
-                    vessels, and petrochemical equipment. ER probes measure the increase in
-                    electrical resistance of a corroding sensing element, delivering cumulative
-                    corrosion data that is independent of process fluid conductivity.
-                  </p>
-                  <p className="text-slate-600 leading-relaxed">
-                    For conductive aqueous environments, our LPR electrochemical probes provide
-                    instantaneous corrosion rate readings that enable operators to respond rapidly
-                    to changing process conditions. Access fittings and pipe penetration hardware
-                    complete the system, allowing safe, live insertion and retrieval of all probe
-                    types without process shutdown or depressurization.
-                  </p>
+      {/* INTRO SECTION */}
+      <section className="bg-white py-16 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Left — 2 cols */}
+            <div className="lg:col-span-2">
+              <h2 className="font-black text-[#0f2a4a] text-3xl mb-4">About Our Monitoring Systems</h2>
+              <p className="text-[#566677] leading-relaxed mb-4">
+                Cosasco&rsquo;s corrosion monitoring portfolio is anchored by our electrical resistance
+                (ER) probe systems — the most widely deployed technology for continuous, online metal
+                loss measurement in oil and gas pipelines, process vessels, and petrochemical equipment.
+                ER probes measure the increase in electrical resistance of a corroding sensing element,
+                delivering cumulative corrosion data that is independent of process fluid conductivity.
+              </p>
+              <p className="text-[#566677] leading-relaxed mb-8">
+                For conductive aqueous environments, our LPR electrochemical probes provide instantaneous
+                corrosion rate readings that enable operators to respond rapidly to changing process
+                conditions. Access fittings and pipe penetration hardware complete the system, allowing
+                safe, live insertion and retrieval of all probe types without process shutdown or
+                depressurization.
+              </p>
 
-                  {/* Key stats */}
-                  <div className="grid grid-cols-2 gap-6 mt-8">
-                    <div
-                      className="rounded-lg p-5 border-l-4"
-                      style={{
-                        background: "#f7f9fc",
-                        borderColor: "#e05000",
-                      }}
-                    >
-                      <div className="stat-number">35+</div>
-                      <p className="text-sm text-slate-600 mt-1 font-medium">
-                        Years of ER probe development
-                      </p>
-                    </div>
-                    <div
-                      className="rounded-lg p-5 border-l-4"
-                      style={{
-                        background: "#f7f9fc",
-                        borderColor: "#e05000",
-                      }}
-                    >
-                      <div className="stat-number">40K</div>
-                      <p className="text-sm text-slate-600 mt-1 font-medium">
-                        PSI — deepest installation rated
-                      </p>
-                    </div>
-                  </div>
+              {/* Stat callouts */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="border-l-4 border-[#e05000] bg-[#f7f9fc] rounded-r-xl px-5 py-4">
+                  <div className="text-[#e05000] font-black text-4xl leading-none">70+</div>
+                  <p className="text-[#566677] text-sm mt-1 font-medium">Years of ER probe development</p>
                 </div>
-
-                {/* Feature list */}
-                <div
-                  className="md:w-72 flex-shrink-0 rounded-lg p-6"
-                  style={{ background: "#f7f9fc", border: "1px solid #dde4ef" }}
-                >
-                  <p
-                    className="text-xs font-bold uppercase tracking-widest mb-5"
-                    style={{ color: "#0d1f3c" }}
-                  >
-                    System Advantages
-                  </p>
-                  <ul className="space-y-3.5">
-                    {features.map((f) => (
-                      <li key={f} className="flex items-start gap-3 text-sm text-slate-700">
-                        <CheckCircle
-                          size={16}
-                          className="flex-shrink-0 mt-0.5"
-                          style={{ color: "#e05000" }}
-                        />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="divider mb-12" />
-
-              {/* Product grid */}
-              <div>
-                <h2
-                  className="text-2xl font-bold mb-2"
-                  style={{ color: "#0d1f3c" }}
-                >
-                  Products in This Category
-                </h2>
-                <p className="text-slate-500 mb-8">
-                  Select a product for full specifications, drawings, and ordering information.
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-                  {products.map((prod) => (
-                    <article
-                      key={prod.name}
-                      className="card card-accent flex flex-col"
-                    >
-                      <div className="p-5 flex flex-col flex-1">
-                        <h3
-                          className="font-bold text-base mb-2 leading-snug"
-                          style={{ color: "#0d1f3c" }}
-                        >
-                          {prod.name}
-                        </h3>
-                        <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">
-                          {prod.desc}
-                        </p>
-
-                        {/* Key spec */}
-                        <div
-                          className="rounded-md px-3 py-2 text-xs font-semibold mb-4"
-                          style={{
-                            background: "#eef2f7",
-                            color: "#334150",
-                          }}
-                        >
-                          <span className="text-slate-400 font-normal">
-                            {prod.spec.label}:{" "}
-                          </span>
-                          {prod.spec.value}
-                        </div>
-
-                        <Link
-                          href={`/contact?product=${encodeURIComponent(prod.name)}`}
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
-                          style={{ color: "#e05000" }}
-                        >
-                          Request Info
-                          <ArrowRight size={14} />
-                        </Link>
-                      </div>
-                    </article>
-                  ))}
+                <div className="border-l-4 border-[#e05000] bg-[#f7f9fc] rounded-r-xl px-5 py-4">
+                  <div className="text-[#e05000] font-black text-4xl leading-none">1M+</div>
+                  <p className="text-[#566677] text-sm mt-1 font-medium">Active monitoring locations worldwide</p>
                 </div>
               </div>
             </div>
 
-            {/* ── SIDEBAR (4/12) ── */}
-            <aside className="lg:w-80 xl:w-88 flex-shrink-0 space-y-6">
-              {/* Speak with Engineer */}
-              <div
-                className="rounded-lg p-6 text-white"
-                style={{ background: "#0d1f3c" }}
-              >
-                <p className="text-xs font-bold uppercase tracking-widest text-blue-300 mb-3">
-                  Direct Engineering Support
+            {/* Right — Key Features card */}
+            <div className="lg:col-span-1">
+              <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-6 h-full">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#0f2a4a] mb-5">
+                  Key Features
                 </p>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  Speak with an Engineer
-                </h3>
-                <p className="text-sm text-blue-200 leading-relaxed mb-6">
-                  Our corrosion specialists can help you select the correct probe configuration,
-                  element type, and access hardware for your process conditions.
-                </p>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center gap-3 text-sm text-blue-100">
-                    <Phone size={15} className="text-orange-400 flex-shrink-0" />
-                    +1 (714) 538-2902
-                  </li>
-                  <li className="flex items-center gap-3 text-sm text-blue-100">
-                    <Mail size={15} className="text-orange-400 flex-shrink-0" />
-                    sales@cosasco.com
-                  </li>
-                </ul>
-                <Link href="/contact" className="btn btn-primary w-full justify-center text-sm">
-                  Send an Inquiry
-                </Link>
-              </div>
-
-              {/* Related Solutions */}
-              <div
-                className="rounded-lg p-6"
-                style={{ background: "#f7f9fc", border: "1px solid #dde4ef" }}
-              >
-                <p
-                  className="text-xs font-bold uppercase tracking-widest mb-4"
-                  style={{ color: "#0d1f3c" }}
-                >
-                  Related Solutions
-                </p>
-                <ul className="space-y-1">
-                  {relatedSolutions.map((s) => (
-                    <li key={s.label}>
-                      <Link
-                        href={s.href}
-                        className="flex items-center justify-between py-2.5 text-sm text-slate-700 border-b border-slate-200 last:border-0 hover:text-orange-600 transition-colors group"
-                      >
-                        {s.label}
-                        <ChevronRight
-                          size={14}
-                          className="text-slate-400 group-hover:text-orange-500 transition-colors"
-                        />
-                      </Link>
+                <ul className="space-y-3.5">
+                  {features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm text-[#1e2b3a]">
+                      <CheckCircle size={16} className="flex-shrink-0 mt-0.5 text-[#e05000]" />
+                      {f}
                     </li>
                   ))}
                 </ul>
               </div>
-
-              {/* Downloads */}
-              <div
-                className="rounded-lg p-6"
-                style={{ background: "#f7f9fc", border: "1px solid #dde4ef" }}
-              >
-                <p
-                  className="text-xs font-bold uppercase tracking-widest mb-4"
-                  style={{ color: "#0d1f3c" }}
-                >
-                  Download Resources
-                </p>
-                <ul className="space-y-3">
-                  {downloads.map((dl) => (
-                    <li key={dl.title}>
-                      <Link
-                        href="/resources"
-                        className="flex items-start gap-3 p-3 rounded-md bg-white border border-slate-200 hover:border-orange-300 hover:shadow-sm transition-all group"
-                      >
-                        <FileText
-                          size={18}
-                          className="flex-shrink-0 mt-0.5 text-slate-400 group-hover:text-orange-500 transition-colors"
-                        />
-                        <div className="min-w-0">
-                          <p className="text-sm font-semibold text-slate-800 leading-snug">
-                            {dl.title}
-                          </p>
-                          <p className="text-xs text-slate-500 mt-0.5">{dl.desc}</p>
-                          <p className="text-xs font-medium text-orange-500 mt-1 flex items-center gap-1">
-                            <Download size={11} />
-                            {dl.size}
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </aside>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* ── BOTTOM CTA ── */}
-      <section
-        className="py-16"
-        style={{ background: "#f7f9fc", borderTop: "1px solid #dde4ef" }}
-      >
-        <div className="cx flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h2 className="text-2xl font-bold" style={{ color: "#0d1f3c" }}>
+      {/* PRODUCT GRID */}
+      <section className="bg-[#f7f9fc] py-16 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="font-black text-[#0f2a4a] text-3xl mb-2">Products</h2>
+          <p className="text-[#566677] mb-10">
+            Select a product for full specifications, drawings, and ordering information.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {products.map((prod) => (
+              <article
+                key={prod.name}
+                className="bg-white border border-[#e8edf2] rounded-xl p-6 hover:shadow-md transition-all flex flex-col"
+              >
+                <h3 className="font-bold text-[#0f2a4a] text-base leading-snug">{prod.name}</h3>
+                <p className="text-[#566677] text-sm mt-2 leading-relaxed flex-1">{prod.desc}</p>
+                <div className="bg-[#f0f4f8] rounded-md px-3 py-1.5 text-xs font-mono mt-3 inline-block text-[#1e2b3a]">
+                  {prod.spec}
+                </div>
+                <Link
+                  href={`/contact?product=${encodeURIComponent(prod.name)}`}
+                  className="inline-flex items-center gap-1.5 text-[#e05000] text-sm font-semibold mt-4 hover:text-[#c94700] transition-colors"
+                >
+                  Request Information
+                  <ArrowRight size={14} />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SIDEBAR + CTA SECTION */}
+      <section className="bg-white py-16 px-6 md:px-10 xl:px-16 border-t border-[#e8edf2]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+          {/* Main CTA left */}
+          <div className="lg:col-span-8 flex flex-col justify-center">
+            <h2 className="font-black text-[#0f2a4a] text-2xl mb-2">
               Ready to configure your monitoring system?
             </h2>
-            <p className="text-slate-500 mt-1">
+            <p className="text-[#566677] mb-6">
               Request a quote or talk to an engineer about your specific process conditions.
+              We&rsquo;ll recommend the right probe type, element configuration, and access hardware.
             </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[#e05000] text-white rounded-md px-6 py-3 text-sm font-semibold hover:bg-[#c94700] transition-colors"
+              >
+                Request a Quote
+              </Link>
+              <Link
+                href="/products"
+                className="inline-flex items-center gap-2 border border-[#0f2a4a] text-[#0f2a4a] rounded-md px-6 py-3 text-sm font-semibold hover:bg-[#0f2a4a] hover:text-white transition-colors"
+              >
+                Back to Products
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-3 flex-shrink-0">
-            <Link href="/contact" className="btn btn-primary">
-              Request a Quote
-            </Link>
-            <Link href="/products" className="btn btn-outline-navy">
-              Back to Products
-            </Link>
-          </div>
+
+          {/* Sidebar right */}
+          <aside className="lg:col-span-4 space-y-4">
+            {/* Speak with Engineer */}
+            <div className="bg-[#0f2a4a] text-white rounded-xl p-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#8ab4d4] mb-2">
+                Engineering Support
+              </p>
+              <h3 className="text-lg font-bold text-white mb-3">Speak with an Engineer</h3>
+              <ul className="space-y-2.5 mb-5">
+                <li className="flex items-center gap-3 text-sm text-[#94aabb]">
+                  <Phone size={15} className="text-[#e05000] flex-shrink-0" />
+                  +1 (714) 538-2902
+                </li>
+                <li className="flex items-center gap-3 text-sm text-[#94aabb]">
+                  <Mail size={15} className="text-[#e05000] flex-shrink-0" />
+                  sales@cosasco.com
+                </li>
+              </ul>
+              <Link
+                href="/contact"
+                className="w-full flex justify-center items-center bg-[#e05000] text-white rounded-md px-4 py-2.5 text-sm font-semibold hover:bg-[#c94700] transition-colors"
+              >
+                Send an Inquiry
+              </Link>
+            </div>
+
+            {/* Related Solutions */}
+            <div className="bg-white border border-[#e8edf2] rounded-xl p-5">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#0f2a4a] mb-3">
+                Related Solutions
+              </p>
+              <ul>
+                {relatedSolutions.map((s) => (
+                  <li key={s.label}>
+                    <Link
+                      href={s.href}
+                      className="flex items-center justify-between py-2.5 text-sm text-[#1e2b3a] border-b border-[#e8edf2] last:border-0 hover:text-[#e05000] transition-colors group"
+                    >
+                      {s.label}
+                      <ChevronRight size={14} className="text-[#566677] group-hover:text-[#e05000] transition-colors" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Downloads */}
+            <div className="bg-white border border-[#e8edf2] rounded-xl p-5">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#0f2a4a] mb-3">
+                Download Resources
+              </p>
+              <ul className="space-y-3">
+                {downloads.map((dl) => (
+                  <li key={dl.title}>
+                    <Link
+                      href="/resources"
+                      className="flex items-start gap-3 p-3 rounded-lg border border-[#e8edf2] hover:border-[#e05000] hover:shadow-sm transition-all group"
+                    >
+                      <FileText size={18} className="flex-shrink-0 mt-0.5 text-[#566677] group-hover:text-[#e05000] transition-colors" />
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-[#1e2b3a] leading-snug">{dl.title}</p>
+                        <p className="text-xs text-[#566677] mt-0.5">{dl.desc}</p>
+                        <p className="text-xs font-medium text-[#e05000] mt-1 flex items-center gap-1">
+                          <Download size={11} />
+                          {dl.size}
+                        </p>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
         </div>
       </section>
     </>

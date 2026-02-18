@@ -13,32 +13,32 @@ const products = [
   {
     name: "FieldCom Wireless System",
     desc: "Intrinsically safe wireless data logger with 900 MHz mesh radio for probe readout and transmission across large process facilities. Eliminates cable runs and enables rapid deployment on brownfield sites.",
-    spec: { label: "Range", value: "Up to 1,000 m (LOS)" },
+    spec: "Range: Up to 1,000 m (LOS)",
   },
   {
     name: "ER Data Loggers",
     desc: "Standalone battery-powered data loggers for ER probe readout with configurable scan intervals from 1 minute to 24 hours. Direct PC download via USB or RS-485 with Bluetooth option.",
-    spec: { label: "Memory", value: "500,000 readings" },
+    spec: "Memory: 500,000 readings",
   },
   {
     name: "Multiplexer Systems",
     desc: "16- and 32-channel multiplexer units allow a single ER instrument to scan multiple probe channels sequentially, reducing capital cost and complexity for large monitoring installations.",
-    spec: { label: "Channels", value: "Up to 32 per unit" },
+    spec: "Channels: Up to 32 per unit",
   },
   {
     name: "Cloud Analytics Platform",
     desc: "Cosasco Connect cloud dashboard aggregates data from all FieldCom nodes and wired loggers into a unified view with configurable trend charts, alarm thresholds, and automated exception reports.",
-    spec: { label: "Uptime SLA", value: "99.9%" },
+    spec: "Uptime SLA: 99.9%",
   },
   {
     name: "SCADA Integration",
     desc: "Modbus TCP/RTU and OPC-UA drivers enable direct integration of Cosasco probe data into plant DCS and SCADA platforms. Pre-configured templates available for Honeywell, Emerson, and Yokogawa systems.",
-    spec: { label: "Protocols", value: "Modbus, OPC-UA, HART" },
+    spec: "Protocols: Modbus, OPC-UA, HART",
   },
   {
     name: "Portable ER Reader",
     desc: "Handheld battery-powered instrument for periodic manual readout of all Cosasco ER probe types. Auto-identifies probe type and stores up to 10,000 readings for PC download and trending.",
-    spec: { label: "Battery Life", value: "40 hours continuous" },
+    spec: "Battery Life: 40 hours continuous",
   },
 ];
 
@@ -74,29 +74,20 @@ const downloads = [
 export default function DataAcquisitionPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ background: "#0d1f3c" }}>
-        <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
-          aria-hidden="true"
-          style={{ background: "radial-gradient(ellipse 70% 80% at 80% 50%, #1a3d6e 0%, transparent 70%)" }}
-        />
-        <div className="cx relative py-18 md:py-24">
-          <nav className="flex items-center gap-1.5 text-sm text-blue-300 mb-6" aria-label="Breadcrumb">
+      {/* HERO */}
+      <section className="bg-[#0f2a4a] pt-[72px] pb-16 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex items-center gap-1.5 text-sm text-[#8ab4d4] mb-6" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight size={14} className="opacity-50" />
             <Link href="/products" className="hover:text-white transition-colors">Products</Link>
             <ChevronRight size={14} className="opacity-50" />
             <span className="text-white font-medium">Data Acquisition</span>
           </nav>
-
-          <div className="eyebrow mb-4">Data Acquisition & Connectivity</div>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-3xl mb-6">
-            Wireless Loggers, SCADA Integration & Cloud Analytics
+          <h1 className="text-white font-black text-4xl lg:text-5xl leading-tight mb-4">
+            Wireless Loggers, SCADA Integration &amp; Cloud Analytics
           </h1>
-
-          <p className="text-blue-100 text-lg max-w-2xl leading-relaxed">
+          <p className="text-[#94aabb] text-lg max-w-2xl leading-relaxed">
             FieldCom mesh wireless networks, Ethernet-based data systems, and the Cosasco Connect
             cloud platform centralize corrosion monitoring data from distributed probe networks
             into actionable, real-time asset integrity intelligence.
@@ -104,166 +95,189 @@ export default function DataAcquisitionPage() {
         </div>
       </section>
 
-      {/* ── MAIN CONTENT + SIDEBAR ── */}
-      <div className="bg-white">
-        <div className="cx py-14 md:py-20">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-            {/* Content column */}
-            <div className="flex-1 min-w-0">
-              <div className="flex flex-col md:flex-row gap-10 mb-14">
-                <div className="flex-1">
-                  <h2 className="text-2xl font-bold mb-4" style={{ color: "#0d1f3c" }}>
-                    About Data Acquisition
-                  </h2>
-                  <p className="text-slate-600 leading-relaxed mb-4">
-                    Cosasco&rsquo;s FieldCom wireless system transforms distributed probe networks
-                    into a unified, real-time monitoring infrastructure. Self-forming mesh nodes
-                    eliminate the cost and complexity of cable routing across large process plants,
-                    while the 900 MHz radio frequency ensures reliable communication in challenging
-                    RF environments including large metal structures and offshore topsides.
-                  </p>
-                  <p className="text-slate-600 leading-relaxed">
-                    For operators seeking deeper integration, the Cosasco Connect cloud analytics
-                    platform provides trend visualization, configurable alarm management, and
-                    automated exception reporting — accessible from any device via secure web
-                    browser. Native Modbus TCP/RTU and OPC-UA drivers ensure seamless integration
-                    with existing plant DCS and SCADA infrastructure.
-                  </p>
+      {/* INTRO SECTION */}
+      <section className="bg-white py-16 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Left — 2 cols */}
+            <div className="lg:col-span-2">
+              <h2 className="font-black text-[#0f2a4a] text-3xl mb-4">About Data Acquisition</h2>
+              <p className="text-[#566677] leading-relaxed mb-4">
+                Cosasco&rsquo;s FieldCom wireless system transforms distributed probe networks into a
+                unified, real-time monitoring infrastructure. Self-forming mesh nodes eliminate the
+                cost and complexity of cable routing across large process plants, while the 900 MHz
+                radio frequency ensures reliable communication in challenging RF environments
+                including large metal structures and offshore topsides.
+              </p>
+              <p className="text-[#566677] leading-relaxed mb-8">
+                For operators seeking deeper integration, the Cosasco Connect cloud analytics
+                platform provides trend visualization, configurable alarm management, and automated
+                exception reporting — accessible from any device via secure web browser. Native
+                Modbus TCP/RTU and OPC-UA drivers ensure seamless integration with existing plant
+                DCS and SCADA infrastructure across our 1M+ global monitoring locations in over
+                110 countries.
+              </p>
 
-                  <div className="grid grid-cols-2 gap-6 mt-8">
-                    <div className="rounded-lg p-5 border-l-4" style={{ background: "#f7f9fc", borderColor: "#e05000" }}>
-                      <div className="stat-number">1K</div>
-                      <p className="text-sm text-slate-600 mt-1 font-medium">m line-of-sight range per node</p>
-                    </div>
-                    <div className="rounded-lg p-5 border-l-4" style={{ background: "#f7f9fc", borderColor: "#e05000" }}>
-                      <div className="stat-number">99.9%</div>
-                      <p className="text-sm text-slate-600 mt-1 font-medium">Cloud platform uptime SLA</p>
-                    </div>
-                  </div>
+              {/* Stat callouts */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="border-l-4 border-[#e05000] bg-[#f7f9fc] rounded-r-xl px-5 py-4">
+                  <div className="text-[#e05000] font-black text-4xl leading-none">1K</div>
+                  <p className="text-[#566677] text-sm mt-1 font-medium">m line-of-sight range per FieldCom node</p>
                 </div>
-
-                <div className="md:w-72 flex-shrink-0 rounded-lg p-6" style={{ background: "#f7f9fc", border: "1px solid #dde4ef" }}>
-                  <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: "#0d1f3c" }}>
-                    System Advantages
-                  </p>
-                  <ul className="space-y-3.5">
-                    {features.map((f) => (
-                      <li key={f} className="flex items-start gap-3 text-sm text-slate-700">
-                        <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#e05000" }} />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="divider mb-12" />
-
-              <div>
-                <h2 className="text-2xl font-bold mb-2" style={{ color: "#0d1f3c" }}>
-                  Products in This Category
-                </h2>
-                <p className="text-slate-500 mb-8">
-                  Contact us for system architecture consultation, network design, and SCADA integration support.
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-                  {products.map((prod) => (
-                    <article key={prod.name} className="card card-accent flex flex-col">
-                      <div className="p-5 flex flex-col flex-1">
-                        <h3 className="font-bold text-base mb-2 leading-snug" style={{ color: "#0d1f3c" }}>
-                          {prod.name}
-                        </h3>
-                        <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">{prod.desc}</p>
-                        <div className="rounded-md px-3 py-2 text-xs font-semibold mb-4" style={{ background: "#eef2f7", color: "#334150" }}>
-                          <span className="text-slate-400 font-normal">{prod.spec.label}: </span>
-                          {prod.spec.value}
-                        </div>
-                        <Link
-                          href={`/contact?product=${encodeURIComponent(prod.name)}`}
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
-                          style={{ color: "#e05000" }}
-                        >
-                          Request Info <ArrowRight size={14} />
-                        </Link>
-                      </div>
-                    </article>
-                  ))}
+                <div className="border-l-4 border-[#e05000] bg-[#f7f9fc] rounded-r-xl px-5 py-4">
+                  <div className="text-[#e05000] font-black text-4xl leading-none">99.9%</div>
+                  <p className="text-[#566677] text-sm mt-1 font-medium">Cloud platform uptime SLA</p>
                 </div>
               </div>
             </div>
 
-            {/* Sidebar */}
-            <aside className="lg:w-80 xl:w-88 flex-shrink-0 space-y-6">
-              <div className="rounded-lg p-6 text-white" style={{ background: "#0d1f3c" }}>
-                <p className="text-xs font-bold uppercase tracking-widest text-blue-300 mb-3">Direct Engineering Support</p>
-                <h3 className="text-lg font-bold text-white mb-2">Speak with an Engineer</h3>
-                <p className="text-sm text-blue-200 leading-relaxed mb-6">
-                  Our connectivity specialists can design a FieldCom network for your facility and
-                  assist with SCADA integration, data historian configuration, and cloud onboarding.
+            {/* Right — Key Features */}
+            <div className="lg:col-span-1">
+              <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-6 h-full">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#0f2a4a] mb-5">
+                  Key Features
                 </p>
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-center gap-3 text-sm text-blue-100">
-                    <Phone size={15} className="text-orange-400 flex-shrink-0" /> +1 (714) 538-2902
-                  </li>
-                  <li className="flex items-center gap-3 text-sm text-blue-100">
-                    <Mail size={15} className="text-orange-400 flex-shrink-0" /> sales@cosasco.com
-                  </li>
-                </ul>
-                <Link href="/contact" className="btn btn-primary w-full justify-center text-sm">
-                  Send an Inquiry
-                </Link>
-              </div>
-
-              <div className="rounded-lg p-6" style={{ background: "#f7f9fc", border: "1px solid #dde4ef" }}>
-                <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#0d1f3c" }}>Related Solutions</p>
-                <ul className="space-y-1">
-                  {relatedSolutions.map((s) => (
-                    <li key={s.label}>
-                      <Link href={s.href} className="flex items-center justify-between py-2.5 text-sm text-slate-700 border-b border-slate-200 last:border-0 hover:text-orange-600 transition-colors group">
-                        {s.label}
-                        <ChevronRight size={14} className="text-slate-400 group-hover:text-orange-500 transition-colors" />
-                      </Link>
+                <ul className="space-y-3.5">
+                  {features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm text-[#1e2b3a]">
+                      <CheckCircle size={16} className="flex-shrink-0 mt-0.5 text-[#e05000]" />
+                      {f}
                     </li>
                   ))}
                 </ul>
               </div>
-
-              <div className="rounded-lg p-6" style={{ background: "#f7f9fc", border: "1px solid #dde4ef" }}>
-                <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#0d1f3c" }}>Download Resources</p>
-                <ul className="space-y-3">
-                  {downloads.map((dl) => (
-                    <li key={dl.title}>
-                      <Link href="/resources" className="flex items-start gap-3 p-3 rounded-md bg-white border border-slate-200 hover:border-orange-300 hover:shadow-sm transition-all group">
-                        <FileText size={18} className="flex-shrink-0 mt-0.5 text-slate-400 group-hover:text-orange-500 transition-colors" />
-                        <div className="min-w-0">
-                          <p className="text-sm font-semibold text-slate-800 leading-snug">{dl.title}</p>
-                          <p className="text-xs text-slate-500 mt-0.5">{dl.desc}</p>
-                          <p className="text-xs font-medium text-orange-500 mt-1 flex items-center gap-1">
-                            <Download size={11} /> {dl.size}
-                          </p>
-                        </div>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </aside>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* ── BOTTOM CTA ── */}
-      <section className="py-16" style={{ background: "#f7f9fc", borderTop: "1px solid #dde4ef" }}>
-        <div className="cx flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h2 className="text-2xl font-bold" style={{ color: "#0d1f3c" }}>Ready to connect your monitoring network?</h2>
-            <p className="text-slate-500 mt-1">Request a quote or schedule a FieldCom network design consultation.</p>
+      {/* PRODUCT GRID */}
+      <section className="bg-[#f7f9fc] py-16 px-6 md:px-10 xl:px-16">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="font-black text-[#0f2a4a] text-3xl mb-2">Products</h2>
+          <p className="text-[#566677] mb-10">
+            Contact us for system architecture consultation, network design, and SCADA integration support.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {products.map((prod) => (
+              <article
+                key={prod.name}
+                className="bg-white border border-[#e8edf2] rounded-xl p-6 hover:shadow-md transition-all flex flex-col"
+              >
+                <h3 className="font-bold text-[#0f2a4a] text-base leading-snug">{prod.name}</h3>
+                <p className="text-[#566677] text-sm mt-2 leading-relaxed flex-1">{prod.desc}</p>
+                <div className="bg-[#f0f4f8] rounded-md px-3 py-1.5 text-xs font-mono mt-3 inline-block text-[#1e2b3a]">
+                  {prod.spec}
+                </div>
+                <Link
+                  href={`/contact?product=${encodeURIComponent(prod.name)}`}
+                  className="inline-flex items-center gap-1.5 text-[#e05000] text-sm font-semibold mt-4 hover:text-[#c94700] transition-colors"
+                >
+                  Request Information
+                  <ArrowRight size={14} />
+                </Link>
+              </article>
+            ))}
           </div>
-          <div className="flex flex-wrap gap-3 flex-shrink-0">
-            <Link href="/contact" className="btn btn-primary">Request a Quote</Link>
-            <Link href="/products" className="btn btn-outline-navy">Back to Products</Link>
+        </div>
+      </section>
+
+      {/* CTA + SIDEBAR */}
+      <section className="bg-white py-16 px-6 md:px-10 xl:px-16 border-t border-[#e8edf2]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div className="lg:col-span-8 flex flex-col justify-center">
+            <h2 className="font-black text-[#0f2a4a] text-2xl mb-2">
+              Ready to connect your monitoring network?
+            </h2>
+            <p className="text-[#566677] mb-6">
+              Request a quote or schedule a FieldCom network design consultation with our data systems team.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-[#e05000] text-white rounded-md px-6 py-3 text-sm font-semibold hover:bg-[#c94700] transition-colors"
+              >
+                Request a Quote
+              </Link>
+              <Link
+                href="/products"
+                className="inline-flex items-center gap-2 border border-[#0f2a4a] text-[#0f2a4a] rounded-md px-6 py-3 text-sm font-semibold hover:bg-[#0f2a4a] hover:text-white transition-colors"
+              >
+                Back to Products
+              </Link>
+            </div>
           </div>
+
+          <aside className="lg:col-span-4 space-y-4">
+            <div className="bg-[#0f2a4a] text-white rounded-xl p-6">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#8ab4d4] mb-2">
+                Engineering Support
+              </p>
+              <h3 className="text-lg font-bold text-white mb-3">Speak with an Engineer</h3>
+              <ul className="space-y-2.5 mb-5">
+                <li className="flex items-center gap-3 text-sm text-[#94aabb]">
+                  <Phone size={15} className="text-[#e05000] flex-shrink-0" />
+                  +1 (714) 538-2902
+                </li>
+                <li className="flex items-center gap-3 text-sm text-[#94aabb]">
+                  <Mail size={15} className="text-[#e05000] flex-shrink-0" />
+                  sales@cosasco.com
+                </li>
+              </ul>
+              <Link
+                href="/contact"
+                className="w-full flex justify-center items-center bg-[#e05000] text-white rounded-md px-4 py-2.5 text-sm font-semibold hover:bg-[#c94700] transition-colors"
+              >
+                Send an Inquiry
+              </Link>
+            </div>
+
+            <div className="bg-white border border-[#e8edf2] rounded-xl p-5">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#0f2a4a] mb-3">
+                Related Solutions
+              </p>
+              <ul>
+                {relatedSolutions.map((s) => (
+                  <li key={s.label}>
+                    <Link
+                      href={s.href}
+                      className="flex items-center justify-between py-2.5 text-sm text-[#1e2b3a] border-b border-[#e8edf2] last:border-0 hover:text-[#e05000] transition-colors group"
+                    >
+                      {s.label}
+                      <ChevronRight size={14} className="text-[#566677] group-hover:text-[#e05000] transition-colors" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white border border-[#e8edf2] rounded-xl p-5">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#0f2a4a] mb-3">
+                Download Resources
+              </p>
+              <ul className="space-y-3">
+                {downloads.map((dl) => (
+                  <li key={dl.title}>
+                    <Link
+                      href="/resources"
+                      className="flex items-start gap-3 p-3 rounded-lg border border-[#e8edf2] hover:border-[#e05000] hover:shadow-sm transition-all group"
+                    >
+                      <FileText size={18} className="flex-shrink-0 mt-0.5 text-[#566677] group-hover:text-[#e05000] transition-colors" />
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-[#1e2b3a] leading-snug">{dl.title}</p>
+                        <p className="text-xs text-[#566677] mt-0.5">{dl.desc}</p>
+                        <p className="text-xs font-medium text-[#e05000] mt-1 flex items-center gap-1">
+                          <Download size={11} />
+                          {dl.size}
+                        </p>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
         </div>
       </section>
     </>

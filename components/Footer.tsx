@@ -1,14 +1,5 @@
 import Link from 'next/link'
-import { Linkedin, Youtube } from 'lucide-react'
-
-const productLinks = [
-  { label: 'ER Probes', href: '/products/corrosion-monitoring' },
-  { label: 'Access Fittings', href: '/products/corrosion-monitoring' },
-  { label: 'Corrosion Coupons', href: '/products/corrosion-monitoring' },
-  { label: 'Chemical Injection', href: '/products/chemical-injection' },
-  { label: 'Erosion Monitoring', href: '/products/erosion-monitoring' },
-  { label: 'Data Acquisition', href: '/products/data-acquisition' },
-]
+import { Linkedin } from 'lucide-react'
 
 const industryLinks = [
   { label: 'Oil & Gas', href: '/solutions/oil-gas' },
@@ -19,100 +10,119 @@ const industryLinks = [
   { label: 'Utilities', href: '/solutions/utilities' },
 ]
 
+const productLinks = [
+  { label: 'ER Probes', href: '/products/corrosion-monitoring' },
+  { label: 'Access Fittings', href: '/products/corrosion-monitoring' },
+  { label: 'Erosion Monitoring', href: '/products/erosion-monitoring' },
+  { label: 'Chemical Injection', href: '/products/chemical-injection' },
+  { label: 'FieldCom Systems', href: '/products/data-acquisition' },
+  { label: 'View All Products', href: '/products' },
+]
+
 const companyLinks = [
   { label: 'About', href: '/about' },
-  { label: 'Resources', href: '/resources' },
-  { label: 'News & Events', href: '/news' },
   { label: 'Careers', href: '/careers' },
+  { label: 'News & Events', href: '/news' },
 ]
 
 const supportLinks = [
-  { label: 'FAQ', href: '/support/faq' },
   { label: 'Technical Support', href: '/support/technical' },
+  { label: 'FAQ', href: '/support/faq' },
   { label: 'Submit Request', href: '/support/submit' },
-  { label: 'Warranty', href: '/support/warranty' },
+  { label: 'Software Login', href: '/software-login' },
 ]
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#0a1628' }} className="text-white">
-      <div className="cx py-16">
-        {/* Top 4-column grid */}
+    <footer className="bg-[#0f2a4a] text-white">
+
+      {/* Top CTA band */}
+      <div className="bg-[#1a3a5c]">
+        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+          <p className="text-white font-bold text-xl leading-snug">
+            Ready to solve your corrosion challenge?
+          </p>
+          <div className="flex items-center gap-3 shrink-0">
+            <Link
+              href="/contact"
+              className="bg-[#e05000] hover:bg-[#c94700] text-white font-semibold text-sm px-5 py-2.5 rounded-md transition-colors duration-150 whitespace-nowrap"
+            >
+              Contact an Expert
+            </Link>
+            <Link
+              href="/resources/catalog"
+              className="border border-white text-white hover:bg-white hover:text-[#0f2a4a] font-semibold text-sm px-5 py-2.5 rounded-md transition-colors duration-150 whitespace-nowrap"
+            >
+              Download Product Catalog
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Main footer grid */}
+      <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-14">
 
-          {/* Column 1 — Brand */}
+          {/* Col 1 — Brand */}
           <div className="md:col-span-1">
-            <div className="mb-4">
-              <span className="text-xl font-bold tracking-tight text-white">COSASCO</span>
-              <p className="text-xs mt-0.5" style={{ color: '#637c95' }}>
-                Corrosion Management Since 1955
-              </p>
+            {/* Logo */}
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-[34px] h-[34px] bg-white rounded-md flex items-center justify-center shrink-0">
+                <span className="text-[#0f2a4a] font-black text-sm leading-none">C</span>
+              </div>
+              <div className="leading-none">
+                <div className="font-black text-white tracking-tight text-[1.05rem] leading-none">
+                  COSASCO
+                </div>
+                <div className="text-[10px] text-[#8ab4d4] tracking-wider uppercase mt-0.5 leading-none">
+                  A Halma Company
+                </div>
+              </div>
             </div>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: '#637c95' }}>
+
+            <p className="text-[#b8cfe0] text-sm leading-relaxed mb-5">
               Industry-leading corrosion and erosion monitoring solutions for
-              critical infrastructure worldwide.
+              critical infrastructure worldwide since 1955.
             </p>
 
-            {/* Contact info */}
-            <ul className="space-y-1.5 text-sm mb-6" style={{ color: '#637c95' }}>
-              <li>14492 Sherwood Ave, Santa Fe Springs, CA 90670</li>
-              <li>
+            {/* Address & contact */}
+            <address className="not-italic space-y-1.5 text-sm text-[#b8cfe0] mb-5">
+              <p>14492 Sherwood Ave</p>
+              <p>Santa Fe Springs, CA 90670</p>
+              <p>
                 <a
                   href="tel:+15629490123"
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-white transition-colors duration-150"
                 >
                   +1 (562) 949-0123
                 </a>
-              </li>
-              <li>
+              </p>
+              <p>
                 <a
                   href="mailto:info@cosasco.com"
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-white transition-colors duration-150"
                 >
                   info@cosasco.com
                 </a>
-              </li>
-            </ul>
+              </p>
+            </address>
 
-            {/* ISO badge */}
-            <span
-              className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full border"
-              style={{ color: '#637c95', borderColor: 'rgba(255,255,255,0.12)' }}
+            {/* LinkedIn */}
+            <a
+              href="https://www.linkedin.com/company/cosasco"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Cosasco on LinkedIn"
+              className="inline-flex items-center gap-2 text-[#8ab4d4] hover:text-white transition-colors duration-150 text-sm"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
-              ISO 9001 Certified
-            </span>
+              <Linkedin size={16} />
+              <span>LinkedIn</span>
+            </a>
           </div>
 
-          {/* Column 2 — Products */}
+          {/* Col 2 — Industries */}
           <div>
-            <h4
-              className="text-xs font-semibold uppercase tracking-widest mb-4"
-              style={{ color: '#637c95' }}
-            >
-              Products
-            </h4>
-            <ul className="space-y-2.5">
-              {productLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm transition-colors duration-200 hover:text-white"
-                    style={{ color: '#637c95' }}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 3 — Industries */}
-          <div>
-            <h4
-              className="text-xs font-semibold uppercase tracking-widest mb-4"
-              style={{ color: '#637c95' }}
-            >
+            <h4 className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
               Industries
             </h4>
             <ul className="space-y-2.5">
@@ -120,8 +130,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors duration-200 hover:text-white"
-                    style={{ color: '#637c95' }}
+                    className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150"
                   >
                     {link.label}
                   </Link>
@@ -130,21 +139,36 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 — Company + Support */}
+          {/* Col 3 — Products */}
           <div>
-            <h4
-              className="text-xs font-semibold uppercase tracking-widest mb-4"
-              style={{ color: '#637c95' }}
-            >
+            <h4 className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
+              Products
+            </h4>
+            <ul className="space-y-2.5">
+              {productLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 4 — Company + Support */}
+          <div>
+            <h4 className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
               Company
             </h4>
-            <ul className="space-y-2.5 mb-8">
+            <ul className="space-y-2.5 mb-7">
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors duration-200 hover:text-white"
-                    style={{ color: '#637c95' }}
+                    className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150"
                   >
                     {link.label}
                   </Link>
@@ -152,10 +176,7 @@ export default function Footer() {
               ))}
             </ul>
 
-            <h4
-              className="text-xs font-semibold uppercase tracking-widest mb-4"
-              style={{ color: '#637c95' }}
-            >
+            <h4 className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
               Support
             </h4>
             <ul className="space-y-2.5">
@@ -163,8 +184,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors duration-200 hover:text-white"
-                    style={{ color: '#637c95' }}
+                    className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150"
                   >
                     {link.label}
                   </Link>
@@ -174,52 +194,17 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div
-          className="my-10 h-px"
-          style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-        />
-
         {/* Bottom bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm" style={{ color: '#637c95' }}>
-          {/* Left */}
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[#6b8aa0]">
           <p>&copy; 2025 Cosasco. All rights reserved.</p>
-
-          {/* Center */}
-          <div className="flex items-center gap-4">
-            <Link href="/privacy" className="hover:text-white transition-colors duration-200">
+          <div className="flex items-center gap-3">
+            <Link href="/privacy" className="hover:text-white transition-colors duration-150">
               Privacy Policy
             </Link>
-            <span style={{ color: 'rgba(255,255,255,0.2)' }}>&middot;</span>
-            <Link href="/terms" className="hover:text-white transition-colors duration-200">
+            <span className="text-white/20">·</span>
+            <Link href="/terms" className="hover:text-white transition-colors duration-150">
               Terms of Use
             </Link>
-            <span style={{ color: 'rgba(255,255,255,0.2)' }}>&middot;</span>
-            <Link href="/sitemap" className="hover:text-white transition-colors duration-200">
-              Sitemap
-            </Link>
-          </div>
-
-          {/* Right — social icons */}
-          <div className="flex items-center gap-4">
-            <a
-              href="https://www.linkedin.com/company/cosasco"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors duration-200"
-              aria-label="Cosasco on LinkedIn"
-            >
-              <Linkedin size={18} />
-            </a>
-            <a
-              href="https://www.youtube.com/@cosasco"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors duration-200"
-              aria-label="Cosasco on YouTube"
-            >
-              <Youtube size={18} />
-            </a>
           </div>
         </div>
       </div>

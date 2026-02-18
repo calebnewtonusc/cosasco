@@ -1,179 +1,24 @@
 @import "tailwindcss";
 
 @theme inline {
+  --font-sans: var(--font-inter), "Mukta", ui-sans-serif, system-ui, sans-serif;
   --color-background: #ffffff;
-  --color-foreground: #1a2535;
-
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-
-  /* ── Brand ── */
-  --color-navy-950: #060f1a;
-  --color-navy-900: #0a1628;
-  --color-navy-800: #0d1f3c;
-  --color-navy-700: #122b52;
-  --color-navy-600: #1a3d6e;
-  --color-navy-500: #1f4d8a;
-  --color-blue-400:  #2e72b8;
-  --color-blue-300:  #4a8fd4;
-  --color-blue-100:  #d4e8f8;
-
-  --color-orange-600: #c94700;
-  --color-orange-500: #e05000;
-  --color-orange-400: #f5600a;
-  --color-orange-300: #ff7a2e;
-  --color-orange-100: #fde8d8;
-
-  --color-slate-50:  #f7f9fc;
-  --color-slate-100: #eef2f7;
-  --color-slate-200: #dde4ef;
-  --color-slate-300: #b8c8da;
-  --color-slate-500: #637c95;
-  --color-slate-600: #4a5e72;
-  --color-slate-700: #334150;
-  --color-slate-900: #1a2535;
+  --color-foreground: #1e2b3a;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: #ffffff;
-  color: #1a2535;
+  background: #fff;
+  color: #1e2b3a;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-/* ── Container ── */
-.cx {
-  max-width: 1280px;
-  margin-inline: auto;
-  padding-inline: 1.5rem;
-}
-@media (min-width: 768px)  { .cx { padding-inline: 2.5rem; } }
-@media (min-width: 1280px) { .cx { padding-inline: 4rem; } }
+:focus-visible { outline: 2px solid #e05000; outline-offset: 2px; }
 
-/* ── Orange accent line (top of sticky nav) ── */
-.accent-line::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #e05000 0%, #f5600a 50%, #e05000 100%);
-}
-
-/* ── Section spacing ── */
-.section { padding-block: 5rem; }
-@media (min-width: 768px) { .section { padding-block: 7rem; } }
-
-/* ── Button base ── */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  letter-spacing: 0.01em;
-  border-radius: 0.375rem;
-  transition: all 0.18s ease;
-  cursor: pointer;
-  white-space: nowrap;
-  padding: 0.75rem 1.75rem;
-  border: 2px solid transparent;
-}
-
-.btn-primary {
-  background: #e05000;
-  color: #fff;
-  border-color: #e05000;
-}
-.btn-primary:hover { background: #c94700; border-color: #c94700; }
-
-.btn-outline-white {
-  background: transparent;
-  color: #fff;
-  border-color: rgba(255,255,255,0.5);
-}
-.btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
-
-.btn-outline-navy {
-  background: transparent;
-  color: #0d1f3c;
-  border-color: #0d1f3c;
-}
-.btn-outline-navy:hover { background: #0d1f3c; color: #fff; }
-
-/* ── Card ── */
-.card {
-  background: #fff;
-  border: 1px solid #dde4ef;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  transition: box-shadow 0.18s ease, transform 0.18s ease;
-}
-.card:hover {
-  box-shadow: 0 8px 40px -8px rgba(13,31,60,0.14);
-  transform: translateY(-2px);
-}
-
-/* ── Orange left border card accent ── */
-.card-accent {
-  border-left: 4px solid #e05000;
-}
-
-/* ── Label / badge ── */
-.badge {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-}
-.badge-orange { background: #fde8d8; color: #c94700; }
-.badge-navy   { background: #e0e8f4; color: #0d1f3c; }
-.badge-slate  { background: #eef2f7; color: #4a5e72; }
-
-/* ── Eyebrow ── */
-.eyebrow {
-  font-size: 0.8125rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #e05000;
-}
-
-/* ── Industrial grid bg ── */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* ── Stat number ── */
-.stat-number {
-  font-size: clamp(2.5rem, 5vw, 3.75rem);
-  font-weight: 800;
-  line-height: 1;
-  color: #e05000;
-}
-
-/* ── Divider ── */
-.divider { height: 1px; background: #dde4ef; }
-
-/* ── Focus ring ── */
-:focus-visible {
-  outline: 2px solid #e05000;
-  outline-offset: 2px;
-}
+::selection { background: #fde8d8; color: #c94700; }

@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* ─── Base ─────────────────────────────────────────────────────────────── */
+
+:root {
+  --background: #ffffff;
+  --foreground: #1E293B;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  /* Cosasco Brand */
+  --color-cosasco-navy:        #0F2A4A;
+  --color-cosasco-navy-light:  #1a3a5c;
+  --color-cosasco-blue:        #1B5EA8;
+  --color-cosasco-blue-light:  #2470c8;
+  --color-cosasco-orange:      #E8500A;
+  --color-cosasco-orange-light:#f06020;
+  --color-cosasco-text:        #1E293B;
+
+  /* Shadows */
+  --shadow-nav:   0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
+  --shadow-mega:  0 20px 60px -10px rgb(15 42 74 / 0.18), 0 8px 24px -6px rgb(0 0 0 / 0.12);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Reusable Utilities ──────────────────────────────────────────────── */
+
+.container-cosasco {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container-cosasco {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+/* Navigation link */
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #1E293B;
+  transition: color 0.15s ease;
+  padding: 0.25rem 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: #1B5EA8;
+}
+
+/* Primary button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #E8500A;
+  color: white;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: filter 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -4px rgb(232 80 10 / 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Mega menu shadow */
+.shadow-mega {
+  box-shadow: var(--shadow-mega);
+}
+
+/* Nav shadow */
+.shadow-nav {
+  box-shadow: var(--shadow-nav);
+}
+
+/* Animation for mobile drawer */
+@keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.2s ease forwards;
+}

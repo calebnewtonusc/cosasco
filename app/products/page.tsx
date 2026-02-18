@@ -1,326 +1,273 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
+import {
+  Shield,
+  Activity,
+  Droplets,
+  BarChart2,
+  ChevronRight,
+  CheckCircle,
+  Download,
+  ArrowRight,
+  Phone,
+} from "lucide-react";
 
 const industries = [
-  "All Industries",
-  "Oil & Gas",
-  "Petrochemical",
-  "Pipeline",
-  "Offshore",
-  "Power Generation",
-  "Water Treatment",
+  { label: "All Products", href: "/products" },
+  { label: "Oil & Gas", href: "/products?industry=oil-gas" },
+  { label: "Petrochemical", href: "/products?industry=petrochemical" },
+  { label: "Water Treatment", href: "/products?industry=water-treatment" },
+  { label: "Chemical Processing", href: "/products?industry=chemical-processing" },
+  { label: "Pulp & Paper", href: "/products?industry=pulp-paper" },
+  { label: "Utilities", href: "/products?industry=utilities" },
 ];
 
-const productCategories = [
+const categories = [
   {
-    title: "Corrosion Monitoring Systems",
+    icon: Shield,
+    title: "Corrosion Monitoring",
     href: "/products/corrosion-monitoring",
-    description:
-      "Comprehensive solutions for detecting, measuring, and analyzing internal corrosion in pipelines, vessels, and process equipment. Our monitoring systems provide real-time data to help operators make informed integrity management decisions.",
-    industries: ["Oil & Gas", "Pipeline", "Offshore", "Petrochemical"],
-    keyProducts: [
-      "Access Fittings & Retrieval Equipment",
-      "Corrosion Coupons & Weight Loss Analysis",
-      "ER (Electrical Resistance) Probes",
-      "Intrusive Corrosion Monitors",
-      "Non-Intrusive Corrosion Monitors",
+    desc: "Industry-proven electrical resistance and electrochemical monitoring systems for continuous and periodic corrosion measurement across all process environments.",
+    products: [
+      "ER Probes (Straight, Flush Mount, Retractable)",
+      "LPR Monitors",
+      "Access Fittings (1\" to 3\")",
+      "Corrosion Coupons & Racks",
       "Pipe Penetration Fittings",
     ],
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10" aria-hidden="true">
-        <circle cx="24" cy="24" r="20" stroke="#1B5EA8" strokeWidth="2.5" />
-        <path d="M16 28 C18 20, 22 32, 24 24 C26 16, 30 28, 32 22" stroke="#E8500A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-        <circle cx="16" cy="28" r="2" fill="#E8500A"/>
-        <circle cx="32" cy="22" r="2" fill="#E8500A"/>
-        <line x1="12" y1="36" x2="36" y2="36" stroke="#1B5EA8" strokeWidth="2" strokeLinecap="round"/>
-        <line x1="12" y1="12" x2="12" y2="36" stroke="#1B5EA8" strokeWidth="2" strokeLinecap="round"/>
-      </svg>
-    ),
   },
   {
-    title: "Erosion Monitoring Systems",
+    icon: Activity,
+    title: "Erosion Monitoring",
     href: "/products/erosion-monitoring",
-    description:
-      "Advanced ultrasonic and probe-based erosion monitoring systems designed for high-velocity flow environments. Detect sand and particle erosion before it causes critical failures in bends, elbows, and choke valves.",
-    industries: ["Oil & Gas", "Offshore", "Pipeline"],
-    keyProducts: [
-      "UT (Ultrasonic) Sensors",
-      "Sand Detection Systems",
-      "Erosion Probes",
-      "Flush Mounted UT Sensors",
+    desc: "Sand and particle detection systems, ultrasonic wall thickness monitoring, and intrusive erosion probes for high-velocity flow protection.",
+    products: [
+      "Sand & Erosion Probes",
+      "UT Transducers (permanent and temp)",
+      "Intrusive ER Erosion Systems",
+      "Pipe Wall Mapping",
+      "Erosion Data Loggers",
     ],
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10" aria-hidden="true">
-        <rect x="8" y="20" width="32" height="10" rx="5" stroke="#1B5EA8" strokeWidth="2.5"/>
-        <path d="M20 20 L20 14 M28 20 L28 14" stroke="#1B5EA8" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M14 30 L10 38 M24 30 L24 38 M34 30 L38 38" stroke="#E8500A" strokeWidth="2" strokeLinecap="round"/>
-        <circle cx="14" cy="11" r="2.5" fill="#E8500A"/>
-        <circle cx="22" cy="9" r="1.5" fill="#1B5EA8"/>
-        <circle cx="30" cy="11" r="2" fill="#E8500A"/>
-      </svg>
-    ),
   },
   {
-    title: "Chemical Injection Systems",
+    icon: Droplets,
+    title: "Chemical Injection",
     href: "/products/chemical-injection",
-    description:
-      "Precision chemical injection solutions engineered for reliable inhibitor delivery in demanding process environments. From simple quill assemblies to fully automated dosing systems, we ensure consistent protection against corrosion and scale.",
-    industries: ["Oil & Gas", "Petrochemical", "Power Generation", "Water Treatment"],
-    keyProducts: [
-      "Quill Assemblies",
-      "Injection Valves",
-      "Chemical Dosing Systems",
+    desc: "Precision chemical delivery systems engineered for reliable, consistent dosing into pressurized pipelines and vessels under live operating conditions.",
+    products: [
+      "Quill Assemblies (fixed and retractable)",
+      "Injection Check Valves",
       "Pulsation Dampeners",
-      "Injection Quills",
+      "Mixing Tees",
+      "Dosing Skids",
     ],
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10" aria-hidden="true">
-        <rect x="19" y="6" width="10" height="16" rx="3" stroke="#1B5EA8" strokeWidth="2.5"/>
-        <path d="M24 22 L24 34" stroke="#1B5EA8" strokeWidth="2.5" strokeLinecap="round"/>
-        <path d="M14 30 L34 30" stroke="#0F2A4A" strokeWidth="3" strokeLinecap="round"/>
-        <circle cx="24" cy="37" r="4" stroke="#E8500A" strokeWidth="2.5"/>
-        <path d="M20 12 L28 12" stroke="#E8500A" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M22 9 L26 9" stroke="#E8500A" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
   },
   {
-    title: "Data Acquisition & Connectivity",
+    icon: BarChart2,
+    title: "Data Acquisition",
     href: "/products/data-acquisition",
-    description:
-      "Intelligent data acquisition systems and software platforms that connect your monitoring infrastructure to actionable insights. From field instruments to cloud dashboards, our connectivity solutions enable smarter asset integrity management.",
-    industries: ["Oil & Gas", "Pipeline", "Offshore", "Power Generation"],
-    keyProducts: [
-      "FieldCom Systems",
-      "Data Loggers",
-      "Software Solutions",
-      "Remote Monitoring",
+    desc: "FieldCom wireless loggers, Ethernet-based data systems, and cloud-connected dashboards for centralized corrosion monitoring and reporting.",
+    products: [
+      "FieldCom Wireless Systems",
+      "ER Data Loggers",
+      "Multiplexer Systems",
+      "Cloud Analytics Platform",
+      "SCADA Integration",
     ],
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10" aria-hidden="true">
-        <rect x="6" y="28" width="10" height="12" rx="2" stroke="#1B5EA8" strokeWidth="2.5"/>
-        <rect x="19" y="20" width="10" height="20" rx="2" stroke="#1B5EA8" strokeWidth="2.5"/>
-        <rect x="32" y="12" width="10" height="28" rx="2" stroke="#E8500A" strokeWidth="2.5"/>
-        <path d="M11 28 L11 22 L24 22" stroke="#0F2A4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M24 20 L37 20 L37 12" stroke="#0F2A4A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
   },
 ];
 
 export default function ProductsPage() {
-  const [activeIndustry, setActiveIndustry] = useState("All Industries");
-
-  const filteredCategories =
-    activeIndustry === "All Industries"
-      ? productCategories
-      : productCategories.filter((cat) =>
-          cat.industries.includes(activeIndustry)
-        );
-
   return (
-    <div className="min-h-screen bg-white font-sans">
-      {/* Nav Bar */}
-      <nav className="bg-[#0F2A4A] border-b border-[#1B5EA8]/30">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-white text-xl font-bold tracking-wide">
-            COSASCO
-          </Link>
-          <div className="flex gap-8 text-sm text-slate-300">
-            <Link href="/products" className="text-white font-semibold border-b-2 border-[#E8500A] pb-0.5">Products</Link>
-            <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
-            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-            <Link href="/about" className="hover:text-white transition-colors">About</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero */}
+    <>
+      {/* ── HERO ── */}
       <section
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #0F2A4A 0%, #1B5EA8 100%)" }}
+        className="relative overflow-hidden grid-bg"
+        style={{ background: "#0d1f3c" }}
       >
-        <div className="absolute inset-0 opacity-10">
-          <svg viewBox="0 0 800 400" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-            <circle cx="700" cy="50" r="200" fill="#E8500A"/>
-            <circle cx="100" cy="350" r="150" fill="#1B5EA8"/>
-          </svg>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-6 py-24">
-          <div className="flex items-center gap-2 text-sm text-blue-300 mb-4">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <svg viewBox="0 0 16 16" fill="none" className="w-3 h-3" aria-hidden="true">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <span className="text-white">Products</span>
-          </div>
-          <h1 className="text-5xl font-bold text-white mb-6 leading-tight max-w-2xl">
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 70% 50%, #1a3d6e 0%, transparent 70%)",
+          }}
+        />
+        <div className="cx relative py-20 md:py-28">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-1.5 text-sm text-blue-300 mb-6" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+            <ChevronRight size={14} className="opacity-50" />
+            <span className="text-white font-medium">Products</span>
+          </nav>
+
+          <div className="eyebrow mb-4">Product Catalog</div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight max-w-3xl mb-6">
             Corrosion Management Products
           </h1>
-          <p className="text-blue-100 text-xl max-w-2xl leading-relaxed">
-            Industry-leading hardware and software for corrosion monitoring, erosion detection, and chemical injection — engineered for the world's most demanding process environments.
+
+          <p className="text-blue-100 text-lg md:text-xl max-w-2xl leading-relaxed mb-10">
+            Purpose-built monitoring, injection, and data systems for oil&nbsp;&amp;&nbsp;gas,
+            petrochemical, water treatment, and industrial process environments.
+            From probe elements to cloud-connected analytics — engineered to perform.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <div className="flex items-center gap-2 text-white/80 text-sm">
-              <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[#E8500A]" aria-hidden="true">
-                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd"/>
-              </svg>
-              API-compliant solutions
-            </div>
-            <div className="flex items-center gap-2 text-white/80 text-sm">
-              <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[#E8500A]" aria-hidden="true">
-                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd"/>
-              </svg>
-              ATEX / IECEx certified options
-            </div>
-            <div className="flex items-center gap-2 text-white/80 text-sm">
-              <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 text-[#E8500A]" aria-hidden="true">
-                <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clipRule="evenodd"/>
-              </svg>
-              Global field support
-            </div>
+
+          <div className="flex flex-wrap gap-3">
+            {[
+              "API RP 17D / 580 Compliant",
+              "ATEX / IECEx Certified Options",
+              "50+ Years of Field-Proven Design",
+              "Global Inventory & Support",
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="flex items-center gap-2 text-sm text-white/80 bg-white/10 border border-white/15 rounded-full px-4 py-1.5"
+              >
+                <CheckCircle size={14} className="text-orange-500 flex-shrink-0" />
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Application-based discovery */}
-      <section className="bg-slate-50 border-b border-slate-200 py-10 px-6">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-sm font-semibold text-[#0F2A4A] uppercase tracking-widest mb-4">
+      {/* ── FILTER / DISCOVERY ── */}
+      <section className="bg-white border-b border-slate-200 py-10">
+        <div className="cx">
+          <p className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">
             Find Products by Application
           </p>
           <div className="flex flex-wrap gap-2">
-            {industries.map((industry) => (
-              <button
-                key={industry}
-                onClick={() => setActiveIndustry(industry)}
-                className={`px-5 py-2 rounded-full text-sm font-medium border transition-all duration-200 cursor-pointer ${
-                  activeIndustry === industry
-                    ? "bg-[#1B5EA8] text-white border-[#1B5EA8] shadow-md"
-                    : "bg-white text-[#0F2A4A] border-slate-300 hover:border-[#1B5EA8] hover:text-[#1B5EA8]"
+            {industries.map((ind, i) => (
+              <Link
+                key={ind.label}
+                href={ind.href}
+                className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-150 ${
+                  i === 0
+                    ? "bg-orange-500 text-white border-orange-500 shadow-sm"
+                    : "bg-white text-slate-700 border-slate-300 hover:border-navy-800 hover:text-navy-800"
                 }`}
+                style={i === 0 ? { background: "#e05000", borderColor: "#e05000" } : {}}
               >
-                {industry}
-              </button>
+                {ind.label}
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Product category cards */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
-        {filteredCategories.length === 0 ? (
-          <div className="text-center py-20 text-slate-500">
-            <p className="text-lg">No product categories match this filter.</p>
-            <button
-              onClick={() => setActiveIndustry("All Industries")}
-              className="mt-4 text-[#1B5EA8] font-medium hover:underline"
-            >
-              Clear filter
-            </button>
+      {/* ── CATEGORY CARDS ── */}
+      <section className="bg-slate-50 section">
+        <div className="cx">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-3xl font-bold text-navy-800" style={{ color: "#0d1f3c" }}>
+              Browse Product Categories
+            </h2>
+            <p className="text-slate-500 mt-2 leading-relaxed">
+              Four core product lines covering the full lifecycle of corrosion management — from
+              measurement and injection to data collection and analysis.
+            </p>
           </div>
-        ) : (
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {filteredCategories.map((category) => (
-              <div
-                key={category.title}
-                className="group bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#1B5EA8]/30 transition-all duration-300 overflow-hidden flex flex-col"
-              >
-                {/* Card header */}
-                <div className="bg-gradient-to-br from-[#0F2A4A] to-[#1B5EA8] p-8 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                    <svg viewBox="0 0 100 100" fill="none">
-                      <circle cx="80" cy="20" r="60" fill="white"/>
-                    </svg>
-                  </div>
-                  <div className="relative">
-                    <div className="w-16 h-16 bg-white/10 rounded-xl flex items-center justify-center mb-4 backdrop-blur-sm">
-                      {category.icon}
+            {categories.map((cat) => {
+              const Icon = cat.icon;
+              return (
+                <article
+                  key={cat.title}
+                  className="card flex flex-col overflow-hidden"
+                >
+                  {/* Card header */}
+                  <div
+                    className="flex items-center gap-4 p-7"
+                    style={{
+                      background: "linear-gradient(135deg, #0d1f3c 0%, #1a3d6e 100%)",
+                    }}
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0">
+                      <Icon size={24} className="text-white" />
                     </div>
-                    <h2 className="text-2xl font-bold text-white mb-1">{category.title}</h2>
-                    <div className="flex flex-wrap gap-1.5 mt-3">
-                      {category.industries.map((ind) => (
-                        <span
-                          key={ind}
-                          className="text-xs px-2.5 py-0.5 rounded-full bg-white/15 text-blue-100 font-medium"
+                    <h3 className="text-xl font-bold text-white">{cat.title}</h3>
+                  </div>
+
+                  {/* Card body */}
+                  <div className="p-7 flex flex-col flex-1 bg-white">
+                    <p className="text-slate-600 leading-relaxed mb-6">{cat.desc}</p>
+
+                    <ul className="space-y-2.5 mb-8">
+                      {cat.products.map((p) => (
+                        <li
+                          key={p}
+                          className="flex items-start gap-2.5 text-sm text-slate-700"
                         >
-                          {ind}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card body */}
-                <div className="p-8 flex flex-col flex-1">
-                  <p className="text-slate-600 leading-relaxed mb-6">{category.description}</p>
-
-                  <div className="mb-8">
-                    <p className="text-xs font-bold text-[#0F2A4A] uppercase tracking-widest mb-3">
-                      Key Products
-                    </p>
-                    <ul className="space-y-2">
-                      {category.keyProducts.map((product) => (
-                        <li key={product} className="flex items-start gap-2.5 text-sm text-slate-700">
-                          <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#E8500A]" aria-hidden="true">
-                            <path d="M6 8l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            <circle cx="8" cy="8" r="6.5" stroke="currentColor" strokeWidth="1"/>
-                          </svg>
-                          {product}
+                          <span
+                            className="flex-shrink-0 w-1.5 h-1.5 rounded-full mt-1.5"
+                            style={{ background: "#e05000" }}
+                            aria-hidden="true"
+                          />
+                          {p}
                         </li>
                       ))}
                     </ul>
-                  </div>
 
-                  <div className="mt-auto">
-                    <Link
-                      href={category.href}
-                      className="inline-flex items-center gap-2 bg-[#E8500A] hover:bg-[#c94208] text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 group-hover:shadow-md"
-                    >
-                      View Products
-                      <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </Link>
+                    <div className="mt-auto flex flex-wrap gap-3">
+                      <Link href={cat.href} className="btn btn-primary">
+                        View All Products
+                        <ArrowRight size={16} />
+                      </Link>
+                      <Link
+                        href="/resources"
+                        className="btn btn-outline-navy"
+                      >
+                        <Download size={15} />
+                        Download Catalog
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </article>
+              );
+            })}
           </div>
-        )}
+        </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="bg-[#0F2A4A] py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Need help selecting the right solution?</h2>
-          <p className="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">
-            Our corrosion engineering specialists can help you identify the optimal monitoring and injection strategy for your specific process conditions.
+      {/* ── BOTTOM CTA ── */}
+      <section
+        className="py-20"
+        style={{
+          background: "linear-gradient(90deg, #e05000 0%, #c94700 60%, #a83b00 100%)",
+        }}
+      >
+        <div className="cx text-center">
+          <p className="eyebrow text-white/70 mb-4">Engineering Support</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 max-w-2xl mx-auto">
+            Need help selecting the right product?
+          </h2>
+          <p className="text-orange-100 text-lg mb-10 max-w-xl mx-auto">
+            Our engineers are standing by. Describe your process conditions and we will
+            recommend the optimal monitoring and injection configuration.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="bg-[#E8500A] hover:bg-[#c94208] text-white font-semibold px-8 py-3.5 rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-white font-bold px-8 py-3.5 rounded-md text-sm transition-all hover:bg-orange-50"
+              style={{ color: "#e05000" }}
             >
+              <Phone size={16} />
               Talk to an Engineer
             </Link>
             <Link
-              href="/solutions"
-              className="bg-transparent border-2 border-white/30 hover:border-white text-white font-semibold px-8 py-3.5 rounded-lg transition-colors"
+              href="/resources"
+              className="inline-flex items-center gap-2 border-2 border-white/50 hover:border-white text-white font-semibold px-8 py-3.5 rounded-md text-sm transition-all"
             >
-              Browse Solutions
+              <Download size={16} />
+              Product Catalog PDF
             </Link>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-[#0a1e35] py-8 px-6 text-center text-slate-500 text-sm">
-        <p>© 2026 Cosasco. All rights reserved.</p>
-      </footer>
-    </div>
+    </>
   );
 }

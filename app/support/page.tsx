@@ -1,582 +1,548 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import {
+  MessageSquare,
+  Phone,
+  FileText,
+  ChevronDown,
+  ChevronRight,
+  Clock,
+  Mail,
+  MapPin,
+  AlertTriangle,
+  CheckCircle,
+  Upload,
+} from 'lucide-react';
 
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
-interface FAQItem {
-  question: string;
-  answer: string;
-}
+// ─── FAQ Data ──────────────────────────────────────────────────────────────────
 
-interface FAQCategory {
-  category: string;
-  items: FAQItem[];
-}
+const faqCategories = ['General', 'Products & Technical', 'Installation', 'Service & Warranty'] as const;
+type FaqCategory = (typeof faqCategories)[number];
 
-// ---------------------------------------------------------------------------
-// Data
-// ---------------------------------------------------------------------------
-const faqData: FAQCategory[] = [
-  {
-    category: 'General Questions',
-    items: [
-      {
-        question: 'What industries does Cosasco serve?',
-        answer:
-          'Cosasco serves a broad range of industries including oil & gas, petrochemical, water treatment, chemical processing, pulp & paper, and utilities. Our corrosion monitoring and chemical injection systems are engineered for the unique demands of each sector.',
-      },
-      {
-        question: 'Where is Cosasco headquartered?',
-        answer:
-          'Cosasco is headquartered in Santa Fe Springs, California, USA. We have been manufacturing high-quality corrosion monitoring equipment and chemical injection systems from this facility for over 70 years.',
-      },
-      {
-        question: 'How do I place an order for Cosasco products?',
-        answer:
-          'Orders can be placed by contacting our sales team directly via phone at +1 (562) 949-0123 or by submitting an inquiry through our Contact page. Our sales engineers will work with you to identify the right solution and generate a formal quotation.',
-      },
-      {
-        question: 'Does Cosasco offer product customization?',
-        answer:
-          'Yes. Many of our product lines can be customized to meet specific pressure ratings, material requirements, connection types, or environmental conditions. Contact our technical team to discuss your application requirements.',
-      },
-      {
-        question: 'What is the typical lead time for orders?',
-        answer:
-          'Standard product lead times vary by product line and current inventory. Most standard items ship within 2–4 weeks. Custom or engineered-to-order products may require 6–12 weeks. Our sales team will provide specific lead times at the time of quotation.',
-      },
-    ],
-  },
-  {
-    category: 'Technical Questions',
-    items: [
-      {
-        question: 'How do I install a Cosasco corrosion coupon retriever?',
-        answer:
-          'Cosasco retrieval tools are designed for safe under-pressure insertion and retrieval. Detailed installation instructions are included with every product and are available in our technical documentation library. We strongly recommend all installation be performed by trained personnel following your facility\'s hot-work and safety protocols.',
-      },
-      {
-        question: 'How often should corrosion probes be calibrated?',
-        answer:
-          'Calibration frequency depends on the probe type and the aggressiveness of the monitored environment. For ER (Electrical Resistance) probes, calibration against baseline readings should occur at commissioning and after any significant process change. We recommend consulting our technical support team for application-specific guidance.',
-      },
-      {
-        question: 'Are Cosasco products compatible with third-party data loggers?',
-        answer:
-          'Many Cosasco monitoring instruments offer standard output signals (4–20 mA, Modbus, or HART) that are compatible with most third-party data acquisition systems and DCS platforms. Contact technical support with your specific logger model for compatibility confirmation.',
-      },
-      {
-        question: 'What materials are available for wetted components?',
-        answer:
-          'Cosasco offers wetted components in a wide range of materials including 316 SS, Hastelloy C-276, Inconel 625, duplex stainless steel, and various plastics such as PTFE and CPVC. Material selection depends on process fluid chemistry, temperature, and pressure.',
-      },
-      {
-        question: 'What pressure ratings are available for access fittings?',
-        answer:
-          'Our access fittings are available in pressure classes ranging from 150# through 2500# ANSI, and custom ratings can be engineered for extreme-pressure applications. All fittings are pressure-tested and certified prior to shipment.',
-      },
-    ],
-  },
-  {
-    category: 'Service & Warranty',
-    items: [
-      {
-        question: 'What warranty does Cosasco provide on its products?',
-        answer:
-          'Cosasco products are covered by a standard one-year limited warranty against defects in materials and workmanship from the date of shipment. Extended warranty options may be available on select product lines. Please refer to your purchase documentation or contact us for full warranty terms.',
-      },
-      {
-        question: 'Does Cosasco offer field service or on-site support?',
-        answer:
-          'Yes. Our factory-trained field service engineers are available for on-site installation assistance, commissioning, troubleshooting, and system audits. Field service engagements can be scheduled through our technical support team.',
-      },
-      {
-        question: 'How do I return a product for repair or replacement?',
-        answer:
-          'To initiate a return, contact our customer service team to obtain a Return Merchandise Authorization (RMA) number. Products must be returned with the RMA clearly marked on the outside of the package. Unauthorized returns may be refused or delayed.',
-      },
-      {
-        question: 'Can Cosasco refurbish or recertify older equipment?',
-        answer:
-          'In many cases, yes. We offer refurbishment and recertification services for Cosasco legacy equipment. Send us the model and serial number and our service team will assess feasibility and provide a quote.',
-      },
-    ],
-  },
-  {
-    category: 'Compliance & Certifications',
-    items: [
-      {
-        question: 'Is Cosasco ISO 9001 certified?',
-        answer:
-          'Yes. Cosasco operates under an ISO 9001 quality management system. Our quality procedures govern design, manufacturing, testing, and inspection processes to ensure consistent, reliable product performance.',
-      },
-      {
-        question: 'Are Cosasco products ATEX or IECEx certified for hazardous areas?',
-        answer:
-          'Select Cosasco electronic instruments and monitoring equipment are available with ATEX and/or IECEx certifications for use in classified hazardous locations (Zone 1/Zone 2 and Division 1/Division 2). Please specify your area classification when requesting a quotation.',
-      },
-      {
-        question: 'Do Cosasco products meet NACE and API standards?',
-        answer:
-          'Yes. Cosasco products are designed and manufactured in accordance with relevant NACE International and API standards for corrosion monitoring and chemical injection equipment. Our engineering team stays current with evolving standards to ensure continued compliance.',
-      },
-    ],
-  },
-];
+const faqs: Record<FaqCategory, { question: string; answer: string }[]> = {
+  General: [
+    {
+      question: 'What industries does Cosasco serve?',
+      answer:
+        'Cosasco serves six primary industries: Oil & Gas (upstream, midstream, and downstream), Petrochemical and refining, Water Treatment and desalination, Chemical Processing, Pulp & Paper, and Utilities including power generation and cooling water systems. Our products are engineered specifically for the harsh operating conditions found across these sectors.',
+    },
+    {
+      question: 'What is your standard lead time for orders?',
+      answer:
+        'Standard stock items typically ship within 3–5 business days from our Santa Fe Springs, CA facility. Configured or custom products carry lead times of 2–6 weeks depending on complexity. Expedited manufacturing is available for critical applications — contact our sales team to discuss your timeline.',
+    },
+    {
+      question: 'Does Cosasco offer product or application training?',
+      answer:
+        'Yes. Cosasco provides both on-site and remote training programs covering corrosion monitoring fundamentals, product installation, data acquisition, and corrosion data interpretation. Training can be tailored to your specific products and applications. Contact us to schedule a session.',
+    },
+    {
+      question: 'Are Cosasco products available globally?',
+      answer:
+        'Cosasco products are available in over 50 countries through our network of authorized distributors and regional offices in North America, Europe, the Middle East, and Asia Pacific. Contact our sales team or find your nearest distributor on our contact page.',
+    },
+  ],
+  'Products & Technical': [
+    {
+      question: 'What is the difference between ER and LPR probes?',
+      answer:
+        'Electrical Resistance (ER) probes measure cumulative metal loss over time by tracking the increase in electrical resistance of a sensing element as it corrodes. Linear Polarization Resistance (LPR) probes measure instantaneous corrosion rate by applying a small electrochemical perturbation and measuring the resulting current. ER probes work in virtually any environment including non-conductive media, while LPR probes require an electrically conductive electrolyte and provide real-time rate data. Many programs use both types together.',
+    },
+    {
+      question: 'Can probes be retrofitted to existing access fittings?',
+      answer:
+        'In most cases, yes. Cosasco offers a wide range of probe element configurations designed to fit standard 1-inch and 2-inch access fitting threads from most manufacturers. Our application engineers can review your existing fitting specifications and recommend compatible probe assemblies without requiring a process shutdown for fitting replacement.',
+    },
+    {
+      question: 'What certifications do your products carry?',
+      answer:
+        'Cosasco products are manufactured under ISO 9001:2015 quality management systems. Relevant products carry ATEX and IECEx certifications for use in hazardous area classifications (Zone 1/Zone 2), UL listing for applicable electrical equipment, and NACE compliance for materials and test methods. Material test reports and certification documents are available upon request.',
+    },
+    {
+      question: 'What are maximum operating conditions for your probes and fittings?',
+      answer:
+        'Maximum operating conditions vary by product line. Our standard access fittings are rated to 6,000 psi (414 bar) working pressure and 400°F (204°C). High-pressure configurations are available up to 15,000 psi. Probe element selection is application-specific based on process chemistry, temperature, and corrosivity. Contact our engineering team for guidance on your specific conditions.',
+    },
+  ],
+  Installation: [
+    {
+      question: 'Does Cosasco offer installation services?',
+      answer:
+        'Yes. Cosasco field service engineers are available for on-site installation, commissioning, and startup support globally. We recommend engaging our field team for complex multi-point monitoring programs, FieldCom wireless network installations, and any intrusive installations at elevated pressure. Request a field service engagement through our technical support form.',
+    },
+    {
+      question: 'What training is available for installation personnel?',
+      answer:
+        'We provide hands-on installation training at our Santa Fe Springs facility and on-site at customer locations. Training covers safe hot-tap and cold-tap procedures, retrieval tool operation, probe installation and retrieval under pressure, FieldCom transmitter configuration, and data logger setup. Training completion certificates are issued upon request.',
+    },
+    {
+      question: 'What documentation is provided with equipment?',
+      answer:
+        'All Cosasco products ship with a product datasheet, installation and operating manual, and applicable material certifications. Access fittings include pressure test documentation. Instruments include calibration certificates. Full engineering drawing packages and ATEX documentation are available for certified products. SDVS (Supplier Documentation Verification Sets) are available for major project deliveries.',
+    },
+  ],
+  'Service & Warranty': [
+    {
+      question: 'What is the standard warranty period?',
+      answer:
+        'Cosasco products carry a standard 12-month warranty against defects in materials and workmanship from the date of shipment. Extended warranty options are available for data acquisition equipment and wireless systems. Warranty claims require a completed Return Material Authorization (RMA) form and are subject to factory inspection.',
+    },
+    {
+      question: 'How do I return a product for service or warranty evaluation?',
+      answer:
+        'To return a product, submit a Technical Request using the form below and select the appropriate issue type. Our team will issue an RMA number and shipping instructions within one business day. Products must be returned with an RMA number clearly marked on the outer packaging. Unauthorized returns without an RMA number may be refused.',
+    },
+    {
+      question: 'How do I obtain calibration certificates for instruments?',
+      answer:
+        'Calibration certificates are issued at the time of manufacture and shipped with each instrument. If you require a replacement certificate, contact our service team with the instrument serial number and model number. Re-calibration services are available at our Santa Fe Springs facility — instruments are returned with updated NIST-traceable calibration documentation.',
+    },
+  ],
+};
 
-// ---------------------------------------------------------------------------
-// Accordion Component
-// ---------------------------------------------------------------------------
-function AccordionItem({
-  item,
-  isOpen,
-  onToggle,
-}: {
-  item: FAQItem;
-  isOpen: boolean;
-  onToggle: () => void;
-}) {
+// ─── FAQ Accordion Item ────────────────────────────────────────────────────────
+
+function FaqItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
+    <div className="card" style={{ marginBottom: '0.75rem' }}>
       <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1B5EA8]"
-        aria-expanded={isOpen}
+        className="w-full flex items-center justify-between gap-4 p-5 text-left"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
       >
-        <span className="text-[#0F2A4A] font-medium text-base pr-4">
-          {item.question}
-        </span>
+        <span className="font-semibold text-[#0d1f3c] text-base leading-snug">{question}</span>
         <span
-          className={`flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full border-2 border-[#1B5EA8] text-[#1B5EA8] transition-transform duration-200 ${
-            isOpen ? 'rotate-45' : ''
-          }`}
-          aria-hidden="true"
+          className="shrink-0 transition-transform duration-200"
+          style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)', color: '#e05000' }}
         >
-          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
-          </svg>
+          <ChevronDown size={20} />
         </span>
       </button>
-      {isOpen && (
-        <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-          <p className="text-gray-600 text-sm leading-relaxed">{item.answer}</p>
+      <div
+        style={{
+          maxHeight: open ? '600px' : '0',
+          overflow: 'hidden',
+          transition: 'max-height 0.3s ease',
+        }}
+      >
+        <div className="px-5 pb-5">
+          <div className="divider mb-4" />
+          <p className="text-[#4a5e72] text-sm leading-relaxed">{answer}</p>
         </div>
-      )}
+      </div>
     </div>
   );
 }
 
-// ---------------------------------------------------------------------------
-// Main Page
-// ---------------------------------------------------------------------------
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default function SupportPage() {
-  const [openItems, setOpenItems] = useState<Record<string, boolean>>({});
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    product: '',
-    applicationType: '',
-    issueDescription: '',
-    urgencyLevel: '',
-  });
-  const [fileInputLabel, setFileInputLabel] = useState('No file chosen');
-
-  const toggleItem = (key: string) => {
-    setOpenItems((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    setFileInputLabel(file ? file.name : 'No file chosen');
-  };
+  const [activeCategory, setActiveCategory] = useState<FaqCategory>('General');
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white font-sans">
-      {/* ------------------------------------------------------------------ */}
-      {/* Hero                                                                */}
-      {/* ------------------------------------------------------------------ */}
-      <section className="bg-[#0F2A4A] text-white py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="inline-flex items-center gap-2 bg-[#1B5EA8]/30 text-[#7EB3F5] text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
-            Technical Support & Resources
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
-            Customer Support &<br />Technical Resources
+    <main className="min-h-screen bg-white">
+
+      {/* ── HERO ─────────────────────────────────────────────────────────────── */}
+      <section
+        className="relative overflow-hidden grid-bg"
+        style={{ background: '#0d1f3c', paddingTop: '7rem', paddingBottom: '0' }}
+      >
+        <div className="cx" style={{ paddingBottom: '4rem' }}>
+          <p className="eyebrow mb-3">Support Center</p>
+          <h1
+            className="text-white font-extrabold tracking-tight leading-tight mb-4"
+            style={{ fontSize: 'clamp(2.25rem, 5vw, 3.5rem)' }}
+          >
+            Customer Support
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl">
-            Our engineering team is here to help you select, install, and maintain Cosasco corrosion monitoring and chemical injection systems.
+          <p className="text-white/70 text-lg max-w-xl leading-relaxed">
+            Our engineering team is ready to help. Browse our knowledge base, speak with an
+            application engineer, or submit a formal technical request.
           </p>
+        </div>
+
+        {/* Emergency Banner */}
+        <div
+          style={{
+            background: 'linear-gradient(90deg, #b83a00 0%, #e05000 50%, #b83a00 100%)',
+          }}
+        >
+          <div className="cx py-3 flex flex-wrap items-center gap-3">
+            <AlertTriangle size={18} className="text-white shrink-0" />
+            <span className="text-white font-semibold text-sm">
+              Critical system failure?
+            </span>
+            <span className="text-white/80 text-sm">
+              Call our 24/7 emergency line immediately:
+            </span>
+            <a
+              href="tel:+15629490123"
+              className="text-white font-bold text-sm underline underline-offset-2 hover:no-underline"
+            >
+              +1 (562) 949-0123
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/* Support Pathway Cards                                               */}
-      {/* ------------------------------------------------------------------ */}
-      <section className="py-16 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl font-bold text-[#0F2A4A] text-center mb-10">
-            How Can We Help You?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Card 1 */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 hover:shadow-lg hover:border-[#1B5EA8] transition-all duration-200 group text-center">
-              <div className="w-14 h-14 bg-[#1B5EA8]/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-[#1B5EA8]/20 transition-colors">
-                <svg className="w-7 h-7 text-[#1B5EA8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+      {/* ── PATHWAY CARDS ────────────────────────────────────────────────────── */}
+      <section className="section" style={{ background: '#ffffff' }}>
+        <div className="cx">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            {/* Browse FAQ */}
+            <div className="card p-8 flex flex-col items-start">
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center mb-5"
+                style={{ background: '#fde8d8' }}
+              >
+                <MessageSquare size={26} style={{ color: '#e05000' }} />
               </div>
-              <h3 className="text-xl font-bold text-[#0F2A4A] mb-3">Browse FAQ</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-5">
-                Find answers to the most common questions about our products, ordering, installation, and warranties.
+              <h3 className="text-[#0d1f3c] font-bold text-xl mb-2">Browse FAQ</h3>
+              <p className="text-[#4a5e72] text-sm leading-relaxed mb-6 flex-grow">
+                Find answers to common questions about products, installation, and service in our
+                organized knowledge base.
               </p>
               <a
                 href="#faq"
-                className="inline-flex items-center gap-1.5 text-[#1B5EA8] font-semibold text-sm hover:text-[#0F2A4A] transition-colors"
+                className="btn btn-outline-navy text-sm"
               >
-                View All FAQs
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                Go to FAQ <ChevronRight size={16} />
               </a>
             </div>
 
-            {/* Card 2 */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 hover:shadow-lg hover:border-[#1B5EA8] transition-all duration-200 group text-center">
-              <div className="w-14 h-14 bg-[#E8500A]/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-[#E8500A]/20 transition-colors">
-                <svg className="w-7 h-7 text-[#E8500A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#0F2A4A] mb-3">Technical Support</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-5">
-                Connect directly with a Cosasco application engineer for hands-on troubleshooting and system guidance.
-              </p>
-              <a
-                href="tel:+15629490123"
-                className="inline-flex items-center gap-1.5 text-[#E8500A] font-semibold text-sm hover:text-[#0F2A4A] transition-colors"
+            {/* Contact an Engineer */}
+            <div className="card p-8 flex flex-col items-start" style={{ borderColor: '#e05000', borderTopWidth: '3px' }}>
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center mb-5"
+                style={{ background: '#e0e8f4' }}
               >
-                Call an Engineer
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                <Phone size={26} style={{ color: '#0d1f3c' }} />
+              </div>
+              <h3 className="text-[#0d1f3c] font-bold text-xl mb-2">Contact an Engineer</h3>
+              <p className="text-[#4a5e72] text-sm leading-relaxed mb-6 flex-grow">
+                Speak directly with a Cosasco application engineer about your specific process
+                conditions and monitoring requirements.
+              </p>
+              <a href="tel:+15629490123" className="btn btn-primary text-sm">
+                Call Now <Phone size={15} />
               </a>
             </div>
 
-            {/* Card 3 */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 hover:shadow-lg hover:border-[#1B5EA8] transition-all duration-200 group text-center">
-              <div className="w-14 h-14 bg-[#0F2A4A]/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-[#0F2A4A]/20 transition-colors">
-                <svg className="w-7 h-7 text-[#0F2A4A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-[#0F2A4A] mb-3">Submit a Request</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-5">
-                Submit a formal support ticket with your product details, application type, and a description of your issue.
-              </p>
-              <a
-                href="#support-form"
-                className="inline-flex items-center gap-1.5 text-[#0F2A4A] font-semibold text-sm hover:text-[#1B5EA8] transition-colors"
+            {/* Submit a Request */}
+            <div className="card p-8 flex flex-col items-start">
+              <div
+                className="w-14 h-14 rounded-xl flex items-center justify-center mb-5"
+                style={{ background: '#eef2f7' }}
               >
-                Open a Ticket
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                <FileText size={26} style={{ color: '#334150' }} />
+              </div>
+              <h3 className="text-[#0d1f3c] font-bold text-xl mb-2">Submit a Request</h3>
+              <p className="text-[#4a5e72] text-sm leading-relaxed mb-6 flex-grow">
+                Log a formal technical support or warranty claim. Our team will respond within
+                the timeframes specified by your priority level.
+              </p>
+              <a href="#support-form" className="btn btn-outline-navy text-sm">
+                Open Form <FileText size={15} />
               </a>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/* FAQ Accordion                                                       */}
-      {/* ------------------------------------------------------------------ */}
-      <section id="faq" className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+      {/* ── FAQ SECTION ──────────────────────────────────────────────────────── */}
+      <section id="faq" className="section" style={{ background: '#f7f9fc' }}>
+        <div className="cx">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#0F2A4A] mb-3">
+            <p className="eyebrow mb-2">Knowledge Base</p>
+            <h2
+              className="font-extrabold tracking-tight text-[#0d1f3c] mb-4"
+              style={{ fontSize: 'clamp(1.75rem, 4vw, 2.75rem)' }}
+            >
               Frequently Asked Questions
             </h2>
-            <p className="text-gray-500">
-              Browse by category to quickly find the answers you need.
+            <p className="text-[#637c95] text-base max-w-xl mx-auto">
+              Select a category below to find answers about products, installation, and service.
             </p>
           </div>
 
-          <div className="space-y-10">
-            {faqData.map((section) => (
-              <div key={section.category}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1 h-6 bg-[#E8500A] rounded-full" />
-                  <h3 className="text-lg font-bold text-[#0F2A4A]">
-                    {section.category}
-                  </h3>
-                </div>
-                <div className="space-y-2">
-                  {section.items.map((item, idx) => {
-                    const key = `${section.category}-${idx}`;
-                    return (
-                      <AccordionItem
-                        key={key}
-                        item={item}
-                        isOpen={!!openItems[key]}
-                        onToggle={() => toggleItem(key)}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
+          {/* Category Tabs */}
+          <div className="flex flex-wrap gap-2 justify-center mb-10">
+            {faqCategories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className="px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-150"
+                style={
+                  activeCategory === cat
+                    ? { background: '#0d1f3c', color: '#fff' }
+                    : { background: '#fff', color: '#4a5e72', border: '1px solid #dde4ef' }
+                }
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* FAQ List */}
+          <div className="max-w-3xl mx-auto">
+            {faqs[activeCategory].map((faq) => (
+              <FaqItem key={faq.question} question={faq.question} answer={faq.answer} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/* Emergency Banner                                                    */}
-      {/* ------------------------------------------------------------------ */}
-      <div className="bg-[#E8500A] text-white py-5 px-6">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-3">
-            <svg className="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-            </svg>
-            <span className="font-semibold">
-              Critical or emergency support needed?
-            </span>
-          </div>
-          <a
-            href="tel:+15629490123"
-            className="font-bold text-lg tracking-wide hover:underline whitespace-nowrap"
-          >
-            Critical Support: +1 (562) 949-0123
-          </a>
-        </div>
-      </div>
+      {/* ── SUPPORT FORM ─────────────────────────────────────────────────────── */}
+      <section id="support-form" className="section" style={{ background: '#ffffff' }}>
+        <div className="cx">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-      {/* ------------------------------------------------------------------ */}
-      {/* Technical Support Request Form                                      */}
-      {/* ------------------------------------------------------------------ */}
-      <section id="support-form" className="py-20 px-6 bg-gray-50">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-[#0F2A4A] mb-3">
-              Technical Support Request
-            </h2>
-            <p className="text-gray-500">
-              Submit a detailed request and a Cosasco engineer will respond within one business day.
-            </p>
-          </div>
-
-          <form
-            className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8 space-y-6"
-            onSubmit={(e) => e.preventDefault()}
-            noValidate
-          >
-            {/* Name + Company */}
-            <div className="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-[#0F2A4A] mb-1.5">
-                  Full Name <span className="text-[#E8500A]">*</span>
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Jane Smith"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1B5EA8] focus:border-transparent transition"
-                />
-              </div>
-              <div>
-                <label htmlFor="company" className="block text-sm font-semibold text-[#0F2A4A] mb-1.5">
-                  Company <span className="text-[#E8500A]">*</span>
-                </label>
-                <input
-                  id="company"
-                  name="company"
-                  type="text"
-                  required
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  placeholder="Acme Energy Corp"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1B5EA8] focus:border-transparent transition"
-                />
-              </div>
-            </div>
-
-            {/* Email + Phone */}
-            <div className="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-[#0F2A4A] mb-1.5">
-                  Email Address <span className="text-[#E8500A]">*</span>
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="jane@company.com"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1B5EA8] focus:border-transparent transition"
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-[#0F2A4A] mb-1.5">
-                  Phone Number
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="+1 (555) 000-0000"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1B5EA8] focus:border-transparent transition"
-                />
-              </div>
-            </div>
-
-            {/* Product/System */}
-            <div>
-              <label htmlFor="product" className="block text-sm font-semibold text-[#0F2A4A] mb-1.5">
-                Product / System <span className="text-[#E8500A]">*</span>
-              </label>
-              <input
-                id="product"
-                name="product"
-                type="text"
-                required
-                value={formData.product}
-                onChange={handleInputChange}
-                placeholder="e.g. Model 520 ER Probe, Chemical Injection Quill Series"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1B5EA8] focus:border-transparent transition"
-              />
-            </div>
-
-            {/* Application Type + Urgency */}
-            <div className="grid sm:grid-cols-2 gap-5">
-              <div>
-                <label htmlFor="applicationType" className="block text-sm font-semibold text-[#0F2A4A] mb-1.5">
-                  Application Type <span className="text-[#E8500A]">*</span>
-                </label>
-                <select
-                  id="applicationType"
-                  name="applicationType"
-                  required
-                  value={formData.applicationType}
-                  onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1B5EA8] focus:border-transparent transition bg-white"
-                >
-                  <option value="" disabled>Select application...</option>
-                  <option value="oil-gas">Oil &amp; Gas</option>
-                  <option value="petrochemical">Petrochemical</option>
-                  <option value="water-treatment">Water Treatment</option>
-                  <option value="chemical">Chemical</option>
-                  <option value="pulp-paper">Pulp &amp; Paper</option>
-                  <option value="utilities">Utilities</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="urgencyLevel" className="block text-sm font-semibold text-[#0F2A4A] mb-1.5">
-                  Urgency Level <span className="text-[#E8500A]">*</span>
-                </label>
-                <select
-                  id="urgencyLevel"
-                  name="urgencyLevel"
-                  required
-                  value={formData.urgencyLevel}
-                  onChange={handleInputChange}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1B5EA8] focus:border-transparent transition bg-white"
-                >
-                  <option value="" disabled>Select urgency...</option>
-                  <option value="critical">Critical — Process at risk</option>
-                  <option value="high">High — Significant impact</option>
-                  <option value="normal">Normal — Routine inquiry</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Issue Description */}
-            <div>
-              <label htmlFor="issueDescription" className="block text-sm font-semibold text-[#0F2A4A] mb-1.5">
-                Issue Description <span className="text-[#E8500A]">*</span>
-              </label>
-              <textarea
-                id="issueDescription"
-                name="issueDescription"
-                required
-                rows={5}
-                value={formData.issueDescription}
-                onChange={handleInputChange}
-                placeholder="Please describe the issue in detail, including any error readings, operating conditions, and steps already taken..."
-                className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1B5EA8] focus:border-transparent transition resize-y"
-              />
-            </div>
-
-            {/* File Upload */}
-            <div>
-              <label className="block text-sm font-semibold text-[#0F2A4A] mb-1.5">
-                Attach Files
-              </label>
-              <label
-                htmlFor="fileUpload"
-                className="flex items-center gap-3 border-2 border-dashed border-gray-300 rounded-lg px-4 py-4 cursor-pointer hover:border-[#1B5EA8] hover:bg-blue-50/30 transition-all"
+            {/* Form */}
+            <div className="lg:col-span-2">
+              <p className="eyebrow mb-2">Technical Request</p>
+              <h2
+                className="font-extrabold tracking-tight text-[#0d1f3c] mb-8"
+                style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}
               >
-                <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-                </svg>
-                <span className="text-sm text-gray-500">
-                  {fileInputLabel === 'No file chosen' ? (
-                    <><span className="text-[#1B5EA8] font-semibold">Click to upload</span> — photos, data logs, spec sheets</>
-                  ) : (
-                    <span className="text-[#0F2A4A] font-medium">{fileInputLabel}</span>
-                  )}
-                </span>
-              </label>
-              <input
-                id="fileUpload"
-                type="file"
-                className="sr-only"
-                onChange={handleFileChange}
-                accept=".pdf,.png,.jpg,.jpeg,.csv,.xlsx,.doc,.docx"
-              />
-              <p className="text-xs text-gray-400 mt-1.5">Accepted: PDF, images, Excel, Word. Max 25 MB.</p>
+                Submit a Technical Request
+              </h2>
+
+              {formSubmitted ? (
+                <div
+                  className="flex flex-col items-center justify-center text-center rounded-xl p-16 gap-4"
+                  style={{ background: '#f7f9fc', border: '1px solid #dde4ef' }}
+                >
+                  <CheckCircle size={56} style={{ color: '#16a34a' }} />
+                  <h3 className="text-[#0d1f3c] font-bold text-xl">Request Submitted</h3>
+                  <p className="text-[#637c95] text-sm max-w-sm">
+                    Your technical support request has been received. You will receive a confirmation
+                    email shortly. Our team will respond within the timeframe corresponding to your
+                    selected priority level.
+                  </p>
+                  <button
+                    className="btn btn-outline-navy mt-4 text-sm"
+                    onClick={() => setFormSubmitted(false)}
+                  >
+                    Submit Another Request
+                  </button>
+                </div>
+              ) : (
+                <form
+                  className="space-y-5"
+                  onSubmit={(e) => { e.preventDefault(); setFormSubmitted(true); }}
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-semibold text-[#334150] mb-1.5">Full Name *</label>
+                      <input
+                        type="text"
+                        required
+                        className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
+                        style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
+                        placeholder="Jane Smith"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-[#334150] mb-1.5">Company *</label>
+                      <input
+                        type="text"
+                        required
+                        className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
+                        style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
+                        placeholder="Acme Refining Ltd."
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-sm font-semibold text-[#334150] mb-1.5">Email Address *</label>
+                      <input
+                        type="email"
+                        required
+                        className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
+                        style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
+                        placeholder="jsmith@company.com"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-[#334150] mb-1.5">Phone Number</label>
+                      <input
+                        type="tel"
+                        className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
+                        style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
+                        placeholder="+1 (555) 000-0000"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-[#334150] mb-1.5">Product / System in Question *</label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
+                      style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
+                      placeholder="e.g. ER-S1 Probe, 2&quot; Access Fitting, FieldCom Transmitter"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-[#334150] mb-1.5">Application Type *</label>
+                    <select
+                      required
+                      className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
+                      style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
+                    >
+                      <option value="">Select an application...</option>
+                      <option>Oil &amp; Gas</option>
+                      <option>Petrochemical</option>
+                      <option>Water Treatment</option>
+                      <option>Chemical</option>
+                      <option>Pulp &amp; Paper</option>
+                      <option>Utilities</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-[#334150] mb-1.5">Issue Description *</label>
+                    <textarea
+                      required
+                      rows={5}
+                      className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535] resize-vertical"
+                      style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
+                      placeholder="Describe the issue in detail, including any error messages, operating conditions, and what troubleshooting steps you have already taken..."
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-[#334150] mb-1.5">Priority Level *</label>
+                    <select
+                      required
+                      className="w-full rounded-md px-4 py-3 text-sm text-[#1a2535]"
+                      style={{ border: '1px solid #dde4ef', background: '#f7f9fc', outline: 'none' }}
+                    >
+                      <option value="">Select priority...</option>
+                      <option>Critical — System Down</option>
+                      <option>High — Degraded Operation</option>
+                      <option>Normal — Planning / Inquiry</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold text-[#334150] mb-1.5">Upload Supporting Documents</label>
+                    <label
+                      className="flex flex-col items-center justify-center gap-2 w-full rounded-md py-8 cursor-pointer transition-colors"
+                      style={{ border: '2px dashed #dde4ef', background: '#f7f9fc' }}
+                    >
+                      <Upload size={22} style={{ color: '#637c95' }} />
+                      <span className="text-sm text-[#637c95]">
+                        Click to upload or drag files here
+                      </span>
+                      <span className="text-xs text-[#b8c8da]">PDF, PNG, JPG up to 20MB</span>
+                      <input type="file" className="hidden" multiple accept=".pdf,.png,.jpg,.jpeg" />
+                    </label>
+                  </div>
+
+                  <button type="submit" className="btn btn-primary w-full justify-center text-base">
+                    Submit Technical Request <FileText size={17} />
+                  </button>
+                </form>
+              )}
             </div>
 
-            {/* Submit */}
-            <div className="pt-2">
-              <button
-                type="submit"
-                className="w-full bg-[#E8500A] hover:bg-[#d14508] text-white font-bold py-3.5 px-8 rounded-lg transition-colors duration-150 text-base tracking-wide shadow-sm hover:shadow-md"
+            {/* Sidebar */}
+            <div className="flex flex-col gap-6">
+
+              {/* Response Times */}
+              <div className="card p-6">
+                <h3 className="text-[#0d1f3c] font-bold text-base mb-4 flex items-center gap-2">
+                  <Clock size={18} style={{ color: '#e05000' }} />
+                  What to Expect
+                </h3>
+                <p className="text-[#637c95] text-xs mb-5 leading-relaxed">
+                  Response times are measured from the time your request is received during business hours
+                  (Monday–Friday, 7am–5pm PT).
+                </p>
+                <div className="space-y-3">
+                  {[
+                    { label: 'Critical — System Down', time: '2 hours', color: '#b83a00', bg: '#fde8d8' },
+                    { label: 'High — Degraded Operation', time: '24 hours', color: '#1a3d6e', bg: '#e0e8f4' },
+                    { label: 'Normal — Planning / Inquiry', time: '3 business days', color: '#334150', bg: '#eef2f7' },
+                  ].map((p) => (
+                    <div
+                      key={p.label}
+                      className="flex items-center justify-between rounded-lg p-3"
+                      style={{ background: p.bg }}
+                    >
+                      <span className="text-xs font-semibold" style={{ color: p.color }}>{p.label}</span>
+                      <span className="text-xs font-bold" style={{ color: p.color }}>{p.time}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Contact Info */}
+              <div className="card p-6">
+                <h3 className="text-[#0d1f3c] font-bold text-base mb-4">Direct Contact</h3>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <Phone size={16} style={{ color: '#e05000', marginTop: '2px' }} className="shrink-0" />
+                    <div>
+                      <p className="text-xs text-[#637c95] font-medium">Phone</p>
+                      <a href="tel:+15629490123" className="text-sm font-semibold text-[#0d1f3c] hover:text-[#e05000] transition-colors">
+                        +1 (562) 949-0123
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Mail size={16} style={{ color: '#e05000', marginTop: '2px' }} className="shrink-0" />
+                    <div>
+                      <p className="text-xs text-[#637c95] font-medium">Email</p>
+                      <a href="mailto:support@cosasco.com" className="text-sm font-semibold text-[#0d1f3c] hover:text-[#e05000] transition-colors">
+                        support@cosasco.com
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <MapPin size={16} style={{ color: '#e05000', marginTop: '2px' }} className="shrink-0" />
+                    <div>
+                      <p className="text-xs text-[#637c95] font-medium">Headquarters</p>
+                      <p className="text-sm font-semibold text-[#0d1f3c]">
+                        11401 Beach Street<br />Santa Fe Springs, CA 90670
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Resources link */}
+              <div
+                className="rounded-xl p-6"
+                style={{ background: '#0d1f3c' }}
               >
-                Submit Support Request
-              </button>
-              <p className="text-center text-xs text-gray-400 mt-3">
-                Our team responds within one business day. For critical issues, call{' '}
-                <a href="tel:+15629490123" className="text-[#E8500A] font-medium hover:underline">
-                  +1 (562) 949-0123
-                </a>
-                .
-              </p>
+                <h3 className="text-white font-bold text-base mb-2">Looking for documentation?</h3>
+                <p className="text-white/60 text-xs leading-relaxed mb-4">
+                  Download datasheets, installation guides, and white papers from our technical resources library.
+                </p>
+                <Link href="/resources" className="btn btn-outline-white text-sm w-full justify-center">
+                  Browse Resources
+                </Link>
+              </div>
+
             </div>
-          </form>
+          </div>
         </div>
       </section>
-    </div>
+
+    </main>
   );
 }

@@ -1,260 +1,271 @@
 import Link from "next/link";
+import {
+  ChevronRight,
+  CheckCircle,
+  Phone,
+  Mail,
+  Download,
+  FileText,
+  ArrowRight,
+} from "lucide-react";
 
 const products = [
   {
-    title: "FieldCom Systems",
-    description:
-      "FieldCom is Cosasco's flagship field data communication platform, purpose-built for corrosion and erosion monitoring networks. It bridges the gap between field instruments — ER probes, LPR monitors, UT sensors — and plant control systems, providing reliable, low-latency data delivery across demanding industrial environments.",
-    specs: [
-      "Supports up to 32 monitoring points per unit",
-      "Wired (RS-485/Modbus) and wireless (ISA100) options",
-      "HART and Foundation Fieldbus compatible",
-      "Operating temperature: -40°C to 70°C",
-      "ATEX Zone 1 and Zone 2 certified enclosures",
-      "DIN rail or panel mounting; IP66/68 rated",
-    ],
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
-        <rect x="6" y="12" width="28" height="18" rx="3" stroke="#1B5EA8" strokeWidth="2"/>
-        <path d="M12 22 L16 18 L20 22 L24 16 L28 20" stroke="#E8500A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M10 30 L10 34 M20 30 L20 34 M30 30 L30 34" stroke="#0F2A4A" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="12" cy="16" r="1.5" fill="#E8500A"/>
-      </svg>
-    ),
+    name: "FieldCom Wireless System",
+    desc: "Intrinsically safe wireless data logger with 900 MHz mesh radio for probe readout and transmission across large process facilities. Eliminates cable runs and enables rapid deployment on brownfield sites.",
+    spec: { label: "Range", value: "Up to 1,000 m (LOS)" },
   },
   {
-    title: "Data Loggers",
-    description:
-      "Cosasco data loggers provide autonomous, battery-powered recording of corrosion measurement data in remote or offshore locations where continuous telemetry is not available. Rugged and field-serviceable, they store months of instrument readings for scheduled download or wireless burst transmission.",
-    specs: [
-      "Storage capacity: up to 500,000 data records",
-      "Battery life: 2 to 5 years (application dependent)",
-      "Bluetooth and NFC near-field download options",
-      "Multi-channel: 1 to 8 input channels",
-      "Configurable sampling intervals: 1 min to 24 hrs",
-      "IP67 rated; stainless steel enclosure options",
-    ],
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
-        <rect x="10" y="8" width="20" height="26" rx="3" stroke="#1B5EA8" strokeWidth="2"/>
-        <path d="M15 16 L25 16 M15 21 L25 21 M15 26 L21 26" stroke="#E8500A" strokeWidth="1.5" strokeLinecap="round"/>
-        <rect x="14" y="11" width="12" height="3" rx="1" fill="#0F2A4A" opacity="0.3"/>
-      </svg>
-    ),
+    name: "ER Data Loggers",
+    desc: "Standalone battery-powered data loggers for ER probe readout with configurable scan intervals from 1 minute to 24 hours. Direct PC download via USB or RS-485 with Bluetooth option.",
+    spec: { label: "Memory", value: "500,000 readings" },
   },
   {
-    title: "Software Solutions",
-    description:
-      "Cosasco's corrosion data management software transforms raw monitoring data into structured integrity intelligence. From trend visualization to risk-based inspection (RBI) workflows, our software platforms provide the analytical layer that turns measurements into maintenance decisions.",
-    specs: [
-      "Web-based dashboard with role-based access control",
-      "API integration with SAP, Maximo, and OSIsoft PI",
-      "Automated corrosion rate and trend calculations",
-      "Customizable alarm and notification rules",
-      "Inspection history and coupon records management",
-      "Exportable reports: PDF, Excel, and CSV formats",
-    ],
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
-        <rect x="4" y="8" width="32" height="22" rx="3" stroke="#1B5EA8" strokeWidth="2"/>
-        <path d="M4 28 L36 28" stroke="#0F2A4A" strokeWidth="1"/>
-        <path d="M16 32 L24 32" stroke="#1B5EA8" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M9 16 L14 20 L19 14 L25 18 L31 12" stroke="#E8500A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <circle cx="9" cy="16" r="1.5" fill="#E8500A"/>
-        <circle cx="31" cy="12" r="1.5" fill="#E8500A"/>
-      </svg>
-    ),
+    name: "Multiplexer Systems",
+    desc: "16- and 32-channel multiplexer units allow a single ER instrument to scan multiple probe channels sequentially, reducing capital cost and complexity for large monitoring installations.",
+    spec: { label: "Channels", value: "Up to 32 per unit" },
   },
   {
-    title: "Remote Monitoring",
-    description:
-      "Cosasco's remote monitoring solutions extend real-time corrosion visibility to assets in unmanned, subsea, or geographically dispersed locations. Satellite, cellular, and RF mesh network options ensure data continuity regardless of infrastructure constraints, enabling proactive integrity management from any location.",
-    specs: [
-      "4G LTE, satellite, and LoRaWAN connectivity",
-      "Edge computing for local alarm processing",
-      "Solar, battery, and mains power options",
-      "Cyber-secure data encryption (AES-256)",
-      "Cloud platform with 99.9% SLA uptime",
-      "OPC-UA and REST API for SCADA integration",
-    ],
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" className="w-8 h-8" aria-hidden="true">
-        <path d="M20 30 L20 22" stroke="#1B5EA8" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M14 26 Q20 12 26 26" stroke="#E8500A" strokeWidth="2" strokeLinecap="round" fill="none"/>
-        <path d="M9 30 Q20 4 31 30" stroke="#1B5EA8" strokeWidth="1.5" strokeLinecap="round" fill="none" opacity="0.5"/>
-        <circle cx="20" cy="32" r="3" fill="#0F2A4A"/>
-      </svg>
-    ),
+    name: "Cloud Analytics Platform",
+    desc: "Cosasco Connect cloud dashboard aggregates data from all FieldCom nodes and wired loggers into a unified view with configurable trend charts, alarm thresholds, and automated exception reports.",
+    spec: { label: "Uptime SLA", value: "99.9%" },
+  },
+  {
+    name: "SCADA Integration",
+    desc: "Modbus TCP/RTU and OPC-UA drivers enable direct integration of Cosasco probe data into plant DCS and SCADA platforms. Pre-configured templates available for Honeywell, Emerson, and Yokogawa systems.",
+    spec: { label: "Protocols", value: "Modbus, OPC-UA, HART" },
+  },
+  {
+    name: "Portable ER Reader",
+    desc: "Handheld battery-powered instrument for periodic manual readout of all Cosasco ER probe types. Auto-identifies probe type and stores up to 10,000 readings for PC download and trending.",
+    spec: { label: "Battery Life", value: "40 hours continuous" },
   },
 ];
 
+const features = [
+  "Intrinsically safe (IS) to ATEX Zone 1",
+  "Mesh networking — self-healing topology",
+  "OPC-UA and Modbus SCADA integration",
+  "Encrypted 128-bit AES data transmission",
+  "Cloud or on-premise deployment options",
+  "Compatible with all Cosasco probe families",
+];
+
 const relatedSolutions = [
-  { label: "Integrated Integrity Management", href: "/solutions/integrity" },
-  { label: "Offshore Remote Monitoring", href: "/solutions/offshore-remote" },
-  { label: "Pipeline SCADA Integration", href: "/solutions/scada" },
-  { label: "ER Probes & Instruments", href: "/products/corrosion-monitoring" },
+  { label: "Integrity Management Programs", href: "/solutions/integrity-management" },
+  { label: "Remote & Unmanned Facilities", href: "/solutions/remote-monitoring" },
+  { label: "Digital Transformation", href: "/solutions/digital" },
+  { label: "Offshore Platforms", href: "/solutions/offshore" },
+];
+
+const downloads = [
+  {
+    title: "FieldCom Wireless System Datasheet",
+    desc: "Technical specifications and radio configuration guide",
+    size: "2.8 MB PDF",
+  },
+  {
+    title: "Cosasco Connect Cloud Platform Overview",
+    desc: "Dashboard features, API access, and onboarding guide",
+    size: "1.5 MB PDF",
+  },
 ];
 
 export default function DataAcquisitionPage() {
   return (
-    <div className="min-h-screen bg-white font-sans">
-      {/* Nav */}
-      <nav className="bg-[#0F2A4A] border-b border-[#1B5EA8]/30">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-white text-xl font-bold tracking-wide">COSASCO</Link>
-          <div className="flex gap-8 text-sm text-slate-300">
-            <Link href="/products" className="text-white font-semibold border-b-2 border-[#E8500A] pb-0.5">Products</Link>
-            <Link href="/solutions" className="hover:text-white transition-colors">Solutions</Link>
-            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-            <Link href="/about" className="hover:text-white transition-colors">About</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <section style={{ background: "linear-gradient(135deg, #0F2A4A 0%, #1B5EA8 100%)" }} className="relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <svg viewBox="0 0 800 300" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-            <circle cx="750" cy="150" r="200" fill="#E8500A"/>
-          </svg>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-6 py-20">
-          <nav className="flex items-center gap-2 text-sm text-blue-300 mb-5" aria-label="Breadcrumb">
+    <>
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden" style={{ background: "#0d1f3c" }}>
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          aria-hidden="true"
+          style={{ background: "radial-gradient(ellipse 70% 80% at 80% 50%, #1a3d6e 0%, transparent 70%)" }}
+        />
+        <div className="cx relative py-18 md:py-24">
+          <nav className="flex items-center gap-1.5 text-sm text-blue-300 mb-6" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <svg viewBox="0 0 16 16" fill="none" className="w-3 h-3" aria-hidden="true">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ChevronRight size={14} className="opacity-50" />
             <Link href="/products" className="hover:text-white transition-colors">Products</Link>
-            <svg viewBox="0 0 16 16" fill="none" className="w-3 h-3" aria-hidden="true">
-              <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <span className="text-white font-medium">Data Acquisition & Connectivity</span>
+            <ChevronRight size={14} className="opacity-50" />
+            <span className="text-white font-medium">Data Acquisition</span>
           </nav>
-          <h1 className="text-4xl font-bold text-white mb-4">Data Acquisition & Connectivity</h1>
+
+          <div className="eyebrow mb-4">Data Acquisition & Connectivity</div>
+
+          <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-3xl mb-6">
+            Wireless Loggers, SCADA Integration & Cloud Analytics
+          </h1>
+
           <p className="text-blue-100 text-lg max-w-2xl leading-relaxed">
-            Connect your monitoring instruments to real-time intelligence. Cosasco's data acquisition hardware and software platforms turn field measurements into structured, actionable corrosion management data — wherever your assets are located.
+            FieldCom mesh wireless networks, Ethernet-based data systems, and the Cosasco Connect
+            cloud platform centralize corrosion monitoring data from distributed probe networks
+            into actionable, real-time asset integrity intelligence.
           </p>
         </div>
       </section>
 
-      {/* Main content */}
-      <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col lg:flex-row gap-12">
-        <main className="flex-1 min-w-0">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            {products.map((product) => (
-              <article
-                key={product.title}
-                className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-[#1B5EA8]/40 transition-all duration-300 flex flex-col overflow-hidden"
-              >
-                <div className="h-1.5 bg-gradient-to-r from-[#1B5EA8] to-[#E8500A]" />
-                <div className="p-6 flex flex-col flex-1">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0">
-                      {product.icon}
+      {/* ── MAIN CONTENT + SIDEBAR ── */}
+      <div className="bg-white">
+        <div className="cx py-14 md:py-20">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            {/* Content column */}
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-col md:flex-row gap-10 mb-14">
+                <div className="flex-1">
+                  <h2 className="text-2xl font-bold mb-4" style={{ color: "#0d1f3c" }}>
+                    About Data Acquisition
+                  </h2>
+                  <p className="text-slate-600 leading-relaxed mb-4">
+                    Cosasco&rsquo;s FieldCom wireless system transforms distributed probe networks
+                    into a unified, real-time monitoring infrastructure. Self-forming mesh nodes
+                    eliminate the cost and complexity of cable routing across large process plants,
+                    while the 900 MHz radio frequency ensures reliable communication in challenging
+                    RF environments including large metal structures and offshore topsides.
+                  </p>
+                  <p className="text-slate-600 leading-relaxed">
+                    For operators seeking deeper integration, the Cosasco Connect cloud analytics
+                    platform provides trend visualization, configurable alarm management, and
+                    automated exception reporting — accessible from any device via secure web
+                    browser. Native Modbus TCP/RTU and OPC-UA drivers ensure seamless integration
+                    with existing plant DCS and SCADA infrastructure.
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-6 mt-8">
+                    <div className="rounded-lg p-5 border-l-4" style={{ background: "#f7f9fc", borderColor: "#e05000" }}>
+                      <div className="stat-number">1K</div>
+                      <p className="text-sm text-slate-600 mt-1 font-medium">m line-of-sight range per node</p>
                     </div>
-                    <h2 className="text-lg font-bold text-[#0F2A4A] leading-snug mt-1">{product.title}</h2>
+                    <div className="rounded-lg p-5 border-l-4" style={{ background: "#f7f9fc", borderColor: "#e05000" }}>
+                      <div className="stat-number">99.9%</div>
+                      <p className="text-sm text-slate-600 mt-1 font-medium">Cloud platform uptime SLA</p>
+                    </div>
                   </div>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-5">{product.description}</p>
-                  <div className="bg-slate-50 rounded-xl p-4 mb-5 flex-1">
-                    <p className="text-xs font-bold text-[#0F2A4A] uppercase tracking-widest mb-3">Key Specifications</p>
-                    <ul className="space-y-1.5">
-                      {product.specs.map((spec) => (
-                        <li key={spec} className="flex items-start gap-2 text-xs text-slate-700">
-                          <svg viewBox="0 0 12 12" fill="none" className="w-3 h-3 mt-0.5 flex-shrink-0 text-[#E8500A]" aria-hidden="true">
-                            <path d="M2 6l2.5 2.5L10 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                          {spec}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <button className="w-full mt-auto bg-[#0F2A4A] hover:bg-[#1B5EA8] text-white text-sm font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center gap-2">
-                    <svg viewBox="0 0 16 16" fill="none" className="w-4 h-4" aria-hidden="true">
-                      <path d="M2 4h12v8a2 2 0 01-2 2H4a2 2 0 01-2-2V4z" stroke="currentColor" strokeWidth="1.2"/>
-                      <path d="M5 4V3a3 3 0 016 0v1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
-                    </svg>
-                    Request Info
-                  </button>
                 </div>
-              </article>
-            ))}
-          </div>
-        </main>
 
-        {/* Sidebar */}
-        <aside className="lg:w-72 flex-shrink-0 space-y-6">
-          <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6">
-            <h3 className="text-sm font-bold text-[#0F2A4A] uppercase tracking-widest mb-4">Related Solutions</h3>
-            <ul className="space-y-2">
-              {relatedSolutions.map((sol) => (
-                <li key={sol.label}>
-                  <Link href={sol.href} className="flex items-center gap-2 text-sm text-slate-700 hover:text-[#1B5EA8] transition-colors py-1">
-                    <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5 text-[#E8500A] flex-shrink-0" aria-hidden="true">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    {sol.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                <div className="md:w-72 flex-shrink-0 rounded-lg p-6" style={{ background: "#f7f9fc", border: "1px solid #dde4ef" }}>
+                  <p className="text-xs font-bold uppercase tracking-widest mb-5" style={{ color: "#0d1f3c" }}>
+                    System Advantages
+                  </p>
+                  <ul className="space-y-3.5">
+                    {features.map((f) => (
+                      <li key={f} className="flex items-start gap-3 text-sm text-slate-700">
+                        <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#e05000" }} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
 
-          <div className="bg-white rounded-2xl border border-slate-200 p-6">
-            <h3 className="text-sm font-bold text-[#0F2A4A] uppercase tracking-widest mb-4">Other Categories</h3>
-            <ul className="space-y-2">
-              {[
-                { label: "Corrosion Monitoring", href: "/products/corrosion-monitoring" },
-                { label: "Erosion Monitoring", href: "/products/erosion-monitoring" },
-                { label: "Chemical Injection", href: "/products/chemical-injection" },
-              ].map((cat) => (
-                <li key={cat.label}>
-                  <Link href={cat.href} className="flex items-center gap-2 text-sm text-slate-700 hover:text-[#1B5EA8] transition-colors py-1">
-                    <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5 text-[#1B5EA8] flex-shrink-0" aria-hidden="true">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    {cat.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+              <div className="divider mb-12" />
 
-          {/* Integration logos placeholder */}
-          <div className="bg-white rounded-2xl border border-slate-200 p-6">
-            <h3 className="text-sm font-bold text-[#0F2A4A] uppercase tracking-widest mb-4">Integrations</h3>
-            <div className="grid grid-cols-2 gap-2">
-              {["Modbus", "OPC-UA", "HART", "OSIsoft PI", "SCADA", "REST API"].map((integration) => (
-                <span
-                  key={integration}
-                  className="text-xs text-center py-1.5 px-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-600 font-medium"
-                >
-                  {integration}
-                </span>
-              ))}
+              <div>
+                <h2 className="text-2xl font-bold mb-2" style={{ color: "#0d1f3c" }}>
+                  Products in This Category
+                </h2>
+                <p className="text-slate-500 mb-8">
+                  Contact us for system architecture consultation, network design, and SCADA integration support.
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                  {products.map((prod) => (
+                    <article key={prod.name} className="card card-accent flex flex-col">
+                      <div className="p-5 flex flex-col flex-1">
+                        <h3 className="font-bold text-base mb-2 leading-snug" style={{ color: "#0d1f3c" }}>
+                          {prod.name}
+                        </h3>
+                        <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-1">{prod.desc}</p>
+                        <div className="rounded-md px-3 py-2 text-xs font-semibold mb-4" style={{ background: "#eef2f7", color: "#334150" }}>
+                          <span className="text-slate-400 font-normal">{prod.spec.label}: </span>
+                          {prod.spec.value}
+                        </div>
+                        <Link
+                          href={`/contact?product=${encodeURIComponent(prod.name)}`}
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
+                          style={{ color: "#e05000" }}
+                        >
+                          Request Info <ArrowRight size={14} />
+                        </Link>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
 
-          <div className="bg-gradient-to-br from-[#0F2A4A] to-[#1B5EA8] rounded-2xl p-6 text-white">
-            <div className="w-10 h-10 bg-white/15 rounded-lg flex items-center justify-center mb-4">
-              <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white" aria-hidden="true">
-                <path d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <h3 className="font-bold mb-2">Speak with an Engineer</h3>
-            <p className="text-blue-200 text-sm leading-relaxed mb-4">
-              Discuss your data architecture, integration requirements, and connectivity constraints with a Cosasco specialist.
-            </p>
-            <Link href="/contact" className="block text-center bg-[#E8500A] hover:bg-[#c94208] text-white font-semibold text-sm py-2.5 px-4 rounded-lg transition-colors">
-              Contact Us
-            </Link>
+            {/* Sidebar */}
+            <aside className="lg:w-80 xl:w-88 flex-shrink-0 space-y-6">
+              <div className="rounded-lg p-6 text-white" style={{ background: "#0d1f3c" }}>
+                <p className="text-xs font-bold uppercase tracking-widest text-blue-300 mb-3">Direct Engineering Support</p>
+                <h3 className="text-lg font-bold text-white mb-2">Speak with an Engineer</h3>
+                <p className="text-sm text-blue-200 leading-relaxed mb-6">
+                  Our connectivity specialists can design a FieldCom network for your facility and
+                  assist with SCADA integration, data historian configuration, and cloud onboarding.
+                </p>
+                <ul className="space-y-3 mb-6">
+                  <li className="flex items-center gap-3 text-sm text-blue-100">
+                    <Phone size={15} className="text-orange-400 flex-shrink-0" /> +1 (714) 538-2902
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-blue-100">
+                    <Mail size={15} className="text-orange-400 flex-shrink-0" /> sales@cosasco.com
+                  </li>
+                </ul>
+                <Link href="/contact" className="btn btn-primary w-full justify-center text-sm">
+                  Send an Inquiry
+                </Link>
+              </div>
+
+              <div className="rounded-lg p-6" style={{ background: "#f7f9fc", border: "1px solid #dde4ef" }}>
+                <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#0d1f3c" }}>Related Solutions</p>
+                <ul className="space-y-1">
+                  {relatedSolutions.map((s) => (
+                    <li key={s.label}>
+                      <Link href={s.href} className="flex items-center justify-between py-2.5 text-sm text-slate-700 border-b border-slate-200 last:border-0 hover:text-orange-600 transition-colors group">
+                        {s.label}
+                        <ChevronRight size={14} className="text-slate-400 group-hover:text-orange-500 transition-colors" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="rounded-lg p-6" style={{ background: "#f7f9fc", border: "1px solid #dde4ef" }}>
+                <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "#0d1f3c" }}>Download Resources</p>
+                <ul className="space-y-3">
+                  {downloads.map((dl) => (
+                    <li key={dl.title}>
+                      <Link href="/resources" className="flex items-start gap-3 p-3 rounded-md bg-white border border-slate-200 hover:border-orange-300 hover:shadow-sm transition-all group">
+                        <FileText size={18} className="flex-shrink-0 mt-0.5 text-slate-400 group-hover:text-orange-500 transition-colors" />
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold text-slate-800 leading-snug">{dl.title}</p>
+                          <p className="text-xs text-slate-500 mt-0.5">{dl.desc}</p>
+                          <p className="text-xs font-medium text-orange-500 mt-1 flex items-center gap-1">
+                            <Download size={11} /> {dl.size}
+                          </p>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
           </div>
-        </aside>
+        </div>
       </div>
 
-      <footer className="bg-[#0a1e35] py-8 px-6 text-center text-slate-500 text-sm">
-        <p>© 2026 Cosasco. All rights reserved.</p>
-      </footer>
-    </div>
+      {/* ── BOTTOM CTA ── */}
+      <section className="py-16" style={{ background: "#f7f9fc", borderTop: "1px solid #dde4ef" }}>
+        <div className="cx flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 className="text-2xl font-bold" style={{ color: "#0d1f3c" }}>Ready to connect your monitoring network?</h2>
+            <p className="text-slate-500 mt-1">Request a quote or schedule a FieldCom network design consultation.</p>
+          </div>
+          <div className="flex flex-wrap gap-3 flex-shrink-0">
+            <Link href="/contact" className="btn btn-primary">Request a Quote</Link>
+            <Link href="/products" className="btn btn-outline-navy">Back to Products</Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,222 +1,258 @@
-import Link from "next/link";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import {
+  ChevronRight,
+  Flame,
+  Droplets,
+  Wind,
+  ArrowRight,
+  Phone,
+  FileDown,
+  CheckCircle,
+  Quote,
+} from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Pulp & Paper Corrosion Solutions | Cosasco',
+  description:
+    'Cosasco chemical-resistant probes, retractable systems, and insertion coupons protect kraft and sulfite pulp mills from digester, bleach plant, black liquor, and steam condensate corrosion.',
+};
 
 const challenges = [
   {
-    title: "Caustic and Sulfide Attack in Digesters",
-    description:
-      "Kraft pulping digesters operate under highly alkaline conditions with dissolved sulfide at elevated temperatures. This combination drives stress corrosion cracking, pitting, and general corrosion of digester walls, liquor lines, and associated hardware. Cosasco's chemical-resistant probes and retractable systems provide continuous integrity monitoring in these hostile environments.",
+    icon: Flame,
+    title: 'Kraft Digester & Black Liquor Corrosion',
+    body: 'Kraft cooking liquor — white liquor, black liquor, and green liquor — is a highly alkaline sulfide-bearing solution that aggressively attacks carbon steel at cooking temperatures up to 175°C. Recovery boiler evaporators and liquor storage tanks are particularly vulnerable. Cosasco chemical-resistant ER probes rated for alkaline sulfide service provide continuous wall-loss monitoring in digester circuits, liquor tanks, and recovery evaporator bodies, enabling the integrity team to detect accelerated attack between major inspections.',
   },
   {
-    title: "Bleach Plant Oxidizing Chemistry",
-    description:
-      "Chlorine dioxide, hypochlorite, hydrogen peroxide, and other bleaching agents create highly oxidizing conditions that attack stainless steel and other alloys through pitting and crevice corrosion. Cosasco's titanium and Hastelloy probe elements are designed specifically for bleach plant chemistry, providing accurate corrosion data where standard materials would rapidly deteriorate.",
+    icon: Droplets,
+    title: 'Bleach Plant Oxidizing Chemistry',
+    body: 'Chlorine dioxide, hypochlorite, hydrogen peroxide, and ozone bleaching stages expose stainless steel and fiber cement lining to powerful oxidizing environments. Stainless steel sensitization, pitting, and stress corrosion cracking are common failure modes in bleach plant towers, washers, and piping. Cosasco offers probes and coupons in duplex stainless, Hastelloy, and titanium specifically for oxidizing bleach stage chemistry — with element alloys selected to match your specific stage chemistry.',
   },
   {
-    title: "High-Temperature Black Liquor Corrosion",
-    description:
-      "Black liquor evaporators, recovery boilers, and associated piping handle concentrated pulping chemicals at high temperatures. Corrosion, scaling, and deposit-related failures in these systems can result in costly unplanned shutdowns and safety hazards. Continuous monitoring with Cosasco's high-temperature probe systems provides early warning of degradation.",
-  },
-  {
-    title: "Steam and Condensate System Degradation",
-    description:
-      "Mill steam distribution and condensate return systems suffer from carbonic acid attack, oxygen pitting, and flow-accelerated corrosion (FAC) — particularly in carbon steel lines downstream of condensate contamination events. Cosasco's probes and coupons provide mill-wide corrosion surveillance data for steam and condensate integrity programs.",
+    icon: Wind,
+    title: 'Steam & Condensate System Degradation',
+    body: 'Steam condensate corrosion from CO2 and O2 in-leakage attacks return line piping throughout the mill. Erosion-corrosion at steam trap discharge points and flash tank inlets compounds the problem. Cosasco bypass coupon assemblies and ER probes in condensate return lines quantify corrosion rates, helping steam system operators optimize amine neutralizer and oxygen scavenger dosing to protect the entire condensate return system.',
   },
 ];
 
 const products = [
   {
-    name: "Chemical-Resistant ER Probes",
+    name: 'Chemical-Resistant ER Probes',
     description:
-      "Probe elements in titanium and Hastelloy C-276 for bleach plant, digester liquor, and evaporator service. Available in flush, rod, and cylindrical geometries.",
-    link: "/products/er-probes",
+      'Probes in duplex SS, Hastelloy C276, and titanium for bleach plant and cooking liquor service. Wetted element geometry and alloy matched to process stage chemistry and temperature.',
+    specs: ['Duplex, Hastelloy, titanium options', 'Oxidizing and alkaline rated', 'MTR documentation included'],
+    href: '/products/corrosion-monitoring',
   },
   {
-    name: "Insertion Weight-Loss Coupons",
+    name: 'Retractable Probe Systems',
     description:
-      "Standardized coupon programs for digester, caustic, and bleach plant streams. NACE TM0169 compliant coupon retrieval and analysis protocol.",
-    link: "/products/coupons",
+      'Safe probe insertion and retrieval under operating pressure without mill production interruption. Eliminates confined space entry for monitoring purposes in pressurized digester circuits.',
+    specs: ['Live-line retraction', 'Manual and hydraulic-assist', 'High-temperature rated'],
+    href: '/products/corrosion-monitoring',
   },
   {
-    name: "Access Fittings",
+    name: 'Insertion Corrosion Coupons',
     description:
-      "Hot-tap and weld-on access fittings in stainless, Hastelloy, and titanium for installation in process piping, digester lines, and evaporator circuits.",
-    link: "/products/access-fittings",
+      'Alloy-matched weight-loss coupons for gravimetric corrosion rate measurement. Available in all standard mill alloys for comparison with on-line ER probe data.',
+    specs: ['Alloy-matched materials', 'TAPPI standard dimensions', 'Full MTR documentation'],
+    href: '/products/corrosion-monitoring',
   },
   {
-    name: "Retractable Systems",
+    name: 'Chemical Injection Quills',
     description:
-      "Pressure-rated retractable probe and coupon assemblies for safe retrieval during mill operation. Essential for continuous monitoring without steam outages.",
-    link: "/products/retractable-assemblies",
+      'Corrosion inhibitor, oxygen scavenger, and scale inhibitor injection quills in alloy body construction for aggressive pulp mill chemical environments.',
+    specs: ['316SS and alloy bodies', 'Adjustable insertion depth', 'Spring-loaded check valve'],
+    href: '/products/chemical-injection',
   },
 ];
 
-const relatedSolutions = [
-  { title: "Chemical Processing", href: "/solutions/chemical-processing" },
-  { title: "Utilities", href: "/solutions/utilities" },
-  { title: "Water Treatment", href: "/solutions/water-treatment" },
-];
-
-export default function PulpPaperSolutionsPage() {
+export default function PulpPaperPage() {
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white">
+
       {/* Breadcrumb */}
-      <div className="bg-gray-50 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-3">
-          <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link href="/" className="hover:text-cosasco-blue transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/solutions" className="hover:text-cosasco-blue transition-colors">Solutions</Link>
-            <span>/</span>
-            <span className="text-cosasco-navy font-medium">Pulp &amp; Paper</span>
+      <div className="bg-[#f7f9fc] border-b border-[#dde4ef]">
+        <div className="cx py-3">
+          <nav className="flex items-center gap-2 text-sm text-[#637c95]">
+            <Link href="/" className="hover:text-[#0d1f3c] transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <Link href="/solutions" className="hover:text-[#0d1f3c] transition-colors">Solutions</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <span className="text-[#0d1f3c] font-medium">Pulp &amp; Paper</span>
           </nav>
         </div>
       </div>
 
-      {/* Hero */}
-      <section className="bg-cosasco-navy text-white py-20">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* ── Hero ── */}
+      <section className="relative bg-[#0d1f3c] text-white overflow-hidden">
+        <div className="grid-bg absolute inset-0" aria-hidden="true" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#e05000]" aria-hidden="true" />
+        <div className="cx relative py-20 md:py-28">
           <div className="max-w-3xl">
-            <div className="inline-block bg-cosasco-orange px-3 py-1 rounded text-sm font-semibold tracking-wider uppercase mb-4">
-              Pulp &amp; Paper
+            <div className="flex items-center gap-3 mb-6">
+              <span className="badge badge-orange">Industry Solutions</span>
+              <span className="text-[#637c95]">/</span>
+              <span className="text-[#b8c8da] text-sm font-medium">Pulp &amp; Paper</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Pulp &amp; Paper Mill Corrosion Solutions
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              Pulp &amp; Paper<br />
+              <span className="text-[#e05000]">Corrosion Solutions</span>
             </h1>
-            <p className="text-xl text-blue-100 leading-relaxed">
-              Pulp and paper mills contend with some of the broadest range of corrosive
-              process chemistries in any industry — from alkaline digester liquors and
-              oxidizing bleach plant streams to acidic condensates and high-temperature
-              evaporator circuits. Cosasco provides the monitoring hardware and materials
-              expertise to protect your most critical mill assets.
+            <p className="text-[#b8c8da] text-lg md:text-xl leading-relaxed max-w-2xl">
+              Kraft and sulfite mills expose structural steel and process equipment to caustic cooking
+              liquors, powerful oxidizing bleach chemistry, and aggressive steam condensate corrosion.
+              Cosasco field-proven monitoring solutions protect your mill assets and sustain production continuity.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2 space-y-16">
-            <section>
-              <h2 className="text-3xl font-bold text-cosasco-navy mb-2">Challenges We Solve</h2>
-              <div className="w-12 h-1 bg-cosasco-orange mb-8 rounded" />
-              <div className="space-y-8">
-                {challenges.map((challenge) => (
-                  <div key={challenge.title} className="border-l-4 border-cosasco-blue pl-6">
-                    <h3 className="text-xl font-bold text-cosasco-navy mb-3">{challenge.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{challenge.description}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
+      {/* ── Main 2-col layout ── */}
+      <div className="cx py-16 md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+          <main className="lg:col-span-8 space-y-20">
 
             <section>
-              <h2 className="text-3xl font-bold text-cosasco-navy mb-2">Recommended Products</h2>
-              <div className="w-12 h-1 bg-cosasco-orange mb-8 rounded" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {products.map((product) => (
-                  <div
-                    key={product.name}
-                    className="bg-gray-50 border border-gray-200 rounded-lg p-6 hover:border-cosasco-blue hover:shadow-md transition-all"
-                  >
-                    <h3 className="text-lg font-bold text-cosasco-navy mb-2">{product.name}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">{product.description}</p>
-                    <Link href={product.link} className="text-cosasco-blue font-semibold text-sm hover:text-cosasco-orange transition-colors">
-                      View Product &rarr;
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section>
-              <h2 className="text-3xl font-bold text-cosasco-navy mb-2">Case Study</h2>
-              <div className="w-12 h-1 bg-cosasco-orange mb-8 rounded" />
-              <div className="bg-cosasco-navy text-white rounded-xl p-8">
-                <div className="inline-block bg-cosasco-orange px-3 py-1 rounded text-xs font-bold uppercase tracking-wider mb-4">
-                  Case Study
-                </div>
-                <h3 className="text-2xl font-bold mb-3">
-                  Kraft Mill Reduces Bleach Plant Equipment Failures by 75%
-                </h3>
-                <p className="text-blue-100 leading-relaxed mb-6">
-                  A southeastern kraft pulp mill installed Cosasco titanium ER probes
-                  across 6 bleach plant stages to monitor chlorine dioxide and hypochlorite
-                  corrosivity in real time. Corrosion trend data correlated with bleach
-                  plant chemical control led to process adjustments that reduced bleach
-                  plant equipment failures by 75% and extended stainless steel component
-                  life by an average of 3 years.
-                </p>
-                <div className="flex flex-wrap gap-6 mb-6">
-                  {[
-                    { label: "Equipment Failure Reduction", value: "75%" },
-                    { label: "Extended Component Life", value: "+3 Yr" },
-                    { label: "Bleach Plant Stages Monitored", value: "6" },
-                  ].map((stat) => (
-                    <div key={stat.label}>
-                      <div className="text-3xl font-bold text-cosasco-orange">{stat.value}</div>
-                      <div className="text-blue-200 text-sm">{stat.label}</div>
+              <p className="eyebrow mb-2">What We Solve</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0d1f3c] mb-2">Industry Challenges</h2>
+              <div className="w-12 h-1 bg-[#e05000] rounded mb-8" />
+              <div className="space-y-6">
+                {challenges.map((ch) => {
+                  const Icon = ch.icon;
+                  return (
+                    <div key={ch.title} className="card card-accent p-6 md:p-8">
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 rounded-lg bg-[#e05000]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <Icon className="w-5 h-5 text-[#e05000]" />
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-[#0d1f3c] mb-2">{ch.title}</h3>
+                          <p className="text-[#637c95] leading-relaxed text-sm">{ch.body}</p>
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                </div>
-                <Link href="/resources" className="inline-block bg-cosasco-orange hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-colors">
-                  Read Full Case Study
-                </Link>
+                  );
+                })}
               </div>
             </section>
-          </div>
 
-          <aside className="space-y-8">
-            <div className="bg-cosasco-navy text-white rounded-xl p-6">
-              <h3 className="text-xl font-bold mb-3">Contact Our Experts</h3>
-              <p className="text-blue-100 text-sm mb-5 leading-relaxed">
-                Our pulp and paper corrosion specialists will recommend the right
-                probe materials and monitoring plan for your mill chemistry.
+            <section>
+              <p className="eyebrow mb-2">Product Recommendations</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0d1f3c] mb-2">Recommended Solutions</h2>
+              <div className="w-12 h-1 bg-[#e05000] rounded mb-8" />
+              <div className="grid sm:grid-cols-2 gap-6">
+                {products.map((p) => (
+                  <div key={p.name} className="card flex flex-col">
+                    <div className="p-6 flex flex-col flex-1">
+                      <h3 className="text-base font-bold text-[#0d1f3c] mb-2">{p.name}</h3>
+                      <p className="text-sm text-[#637c95] leading-relaxed mb-4">{p.description}</p>
+                      <div className="mb-5">
+                        {p.specs.map((s) => (
+                          <div key={s} className="flex items-center gap-2 text-xs text-[#4a5e72] py-1 border-b border-[#dde4ef] last:border-0">
+                            <CheckCircle className="w-3.5 h-3.5 text-[#e05000] flex-shrink-0" /> {s}
+                          </div>
+                        ))}
+                      </div>
+                      <Link href={p.href} className="mt-auto flex items-center gap-1.5 text-sm font-bold text-[#0d1f3c] hover:text-[#e05000] transition-colors">
+                        View Product <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section>
+              <p className="eyebrow mb-2">Proven Results</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#0d1f3c] mb-2">Case Study</h2>
+              <div className="w-12 h-1 bg-[#e05000] rounded mb-8" />
+              <div className="bg-[#0d1f3c] rounded-xl overflow-hidden">
+                <div className="p-8 md:p-10">
+                  <span className="badge badge-orange mb-5">Pacific Northwest Kraft Mill</span>
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
+                    Digester Circuit Monitoring Detects White Liquor Corrosion Before Vessel Failure
+                  </h3>
+                  <p className="text-[#b8c8da] leading-relaxed mb-8 text-sm">
+                    A Pacific Northwest kraft mill deployed Cosasco retractable ER probes at four
+                    locations in the continuous digester vessel and associated liquor piping. Within
+                    three months, a corrosion rate spike was detected at one monitoring point,
+                    triggering a focused inspection that revealed stress corrosion cracking initiation
+                    in a vessel nozzle. Targeted weld overlay repair was completed in the next scheduled
+                    outage window, avoiding a potential catastrophic failure estimated at $12M in
+                    equipment damage and lost production.
+                  </p>
+                  <div className="grid grid-cols-3 gap-6 mb-8">
+                    {[
+                      { value: '4', label: 'Monitoring Points Installed' },
+                      { value: '3 mo', label: 'Time to Detection' },
+                      { value: '$12M', label: 'Estimated Failure Avoided' },
+                    ].map((s) => (
+                      <div key={s.label} className="text-center">
+                        <div className="stat-number">{s.value}</div>
+                        <div className="text-[#637c95] text-xs mt-1 leading-tight">{s.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="bg-white/5 border border-white/10 rounded-lg p-5">
+                    <Quote className="w-5 h-5 text-[#e05000] mb-3" />
+                    <p className="text-[#b8c8da] text-sm leading-relaxed italic mb-3">
+                      "The probe detected the corrosion rate excursion months before our annual
+                      UT would have caught wall thinning. We had time to plan and execute the
+                      repair properly."
+                    </p>
+                    <p className="text-[#637c95] text-xs font-semibold">
+                      — Chief Mechanical Engineer, Pacific Northwest Kraft Mill
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          <aside className="lg:col-span-4 space-y-6">
+            <div className="bg-[#0d1f3c] rounded-xl p-6 text-white sticky top-6">
+              <p className="eyebrow text-[#e05000] mb-3">Get Expert Guidance</p>
+              <h3 className="text-lg font-bold mb-3">Speak with a Pulp &amp; Paper Specialist</h3>
+              <p className="text-[#b8c8da] text-sm leading-relaxed mb-5">
+                Our engineers understand kraft and sulfite process chemistry, TAPPI inspection
+                standards, and the corrosion challenges unique to pulp mill environments.
               </p>
-              <Link href="/contact" className="block text-center bg-cosasco-orange hover:bg-orange-600 text-white font-bold px-5 py-3 rounded-lg transition-colors">
-                Get Expert Advice
+              <Link href="/contact" className="btn btn-primary w-full justify-center mb-3">
+                <Phone className="w-4 h-4" /> Contact an Expert
+              </Link>
+              <p className="text-center text-xs text-[#637c95]">Response within 1 business day</p>
+            </div>
+            <div className="card p-6">
+              <FileDown className="w-6 h-6 text-[#e05000] mb-3" />
+              <h3 className="text-base font-bold text-[#0d1f3c] mb-2">Pulp &amp; Paper Application Guide</h3>
+              <p className="text-sm text-[#637c95] leading-relaxed mb-4">
+                Alloy selection for bleach plant and cooking liquor service, monitoring program
+                design, and steam condensate treatment guidance.
+              </p>
+              <Link href="/resources" className="btn btn-outline-navy w-full justify-center text-sm">
+                Download PDF
               </Link>
             </div>
-
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-cosasco-navy mb-4">Key Products</h3>
+            <div className="card p-6">
+              <h3 className="text-base font-bold text-[#0d1f3c] mb-4">Related Industries</h3>
               <ul className="space-y-3">
-                {products.map((p) => (
-                  <li key={p.name}>
-                    <Link href={p.link} className="flex items-center gap-2 text-sm text-gray-700 hover:text-cosasco-blue transition-colors font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cosasco-orange flex-shrink-0" />
-                      {p.name}
+                {[
+                  { name: 'Chemical Processing', href: '/solutions/chemical-processing' },
+                  { name: 'Water Treatment', href: '/solutions/water-treatment' },
+                  { name: 'Utilities', href: '/solutions/utilities' },
+                ].map((r) => (
+                  <li key={r.href}>
+                    <Link href={r.href} className="flex items-center gap-2 text-sm text-[#4a5e72] hover:text-[#e05000] transition-colors font-medium">
+                      <ArrowRight className="w-3.5 h-3.5 text-[#e05000]" /> {r.name}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-cosasco-navy mb-4">Related Solutions</h3>
-              <ul className="space-y-3">
-                {relatedSolutions.map((s) => (
-                  <li key={s.href}>
-                    <Link href={s.href} className="flex items-center gap-2 text-sm text-gray-700 hover:text-cosasco-blue transition-colors font-medium">
-                      <span className="text-cosasco-orange">&#8594;</span>
-                      {s.title}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link href="/solutions" className="flex items-center gap-2 text-sm text-cosasco-blue hover:text-cosasco-navy transition-colors font-semibold mt-2">
-                    View All Industries &rarr;
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div className="border-2 border-cosasco-blue rounded-xl p-6">
-              <h3 className="text-lg font-bold text-cosasco-navy mb-2">Technical Resources</h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Download pulp and paper probe material guides and bleach plant monitoring application notes.
-              </p>
-              <Link href="/resources" className="block text-center border-2 border-cosasco-blue text-cosasco-blue hover:bg-cosasco-blue hover:text-white font-bold px-5 py-3 rounded-lg transition-colors text-sm">
-                Browse Technical Library
+              <div className="divider my-4" />
+              <Link href="/solutions" className="flex items-center gap-1.5 text-sm text-[#637c95] hover:text-[#0d1f3c] transition-colors">
+                <ChevronRight className="w-3.5 h-3.5" /> View All Industries
               </Link>
             </div>
           </aside>

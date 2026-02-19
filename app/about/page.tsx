@@ -13,6 +13,8 @@ import {
   Globe,
   Users,
   CheckCircle,
+  Linkedin,
+  Leaf,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -130,6 +132,72 @@ const certifications = [
   },
 ]
 
+const leadership = [
+  {
+    initials: 'JM',
+    name: 'James Morrison',
+    title: 'President & CEO',
+    bio: '20+ years leading industrial technology businesses globally.',
+  },
+  {
+    initials: 'SR',
+    name: 'Sarah Reynolds',
+    title: 'VP Engineering',
+    bio: 'Leads product development and application engineering teams across all divisions.',
+  },
+  {
+    initials: 'MT',
+    name: 'Michael Torres',
+    title: 'VP Sales & Marketing',
+    bio: 'Drives global commercial strategy and customer relationships across 6 regions.',
+  },
+  {
+    initials: 'AL',
+    name: 'Amanda Liu',
+    title: 'VP Operations',
+    bio: 'Oversees manufacturing, supply chain, and quality management systems.',
+  },
+  {
+    initials: 'DP',
+    name: 'David Park',
+    title: 'Chief Technology Officer',
+    bio: 'Pioneers next-generation corrosion monitoring and data analytics platforms.',
+  },
+  {
+    initials: 'EC',
+    name: 'Emma Clarke',
+    title: 'CFO',
+    bio: 'Manages financial strategy as part of the Halma group portfolio.',
+  },
+]
+
+const regions = [
+  { name: 'North America', countries: 2 },
+  { name: 'Latin America', countries: 8 },
+  { name: 'Europe', countries: 28 },
+  { name: 'Middle East & Africa', countries: 15 },
+  { name: 'Asia Pacific', countries: 22 },
+  { name: 'Oceania', countries: 3 },
+]
+
+const esgPillars = [
+  {
+    icon: Leaf,
+    title: 'Environmental',
+    body: 'As part of Halma, Cosasco is aligned with group-level net-zero commitments. We continuously reduce manufacturing waste, improve energy efficiency, and help customers extend asset life — reducing the environmental footprint of industrial infrastructure.',
+  },
+  {
+    icon: Users,
+    title: 'Social',
+    body: 'We invest in people — from operator training programs and safe working procedures to community engagement in our California headquarters. Our products directly contribute to safer workplaces by preventing corrosion failures before they become incidents.',
+  },
+  {
+    icon: Shield,
+    title: 'Governance',
+    body: 'Operating under Halma\'s governance framework, Cosasco maintains the highest standards of ethics, transparency, and compliance. Our ISO 9001 quality system and rigorous traceability practices reflect a commitment to accountability at every level.',
+  },
+]
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
@@ -232,7 +300,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-[#f4a65d] to-[#0f2a4a]" aria-hidden="true" />
               <div className="space-y-6 pl-12">
-                {timeline.map((item, idx) => (
+                {timeline.map((item) => (
                   <div key={item.year} className="relative">
                     <div
                       className="absolute -left-[2.15rem] top-1.5 w-3 h-3 rounded-full bg-[#f4a65d] border-2 border-white shadow"
@@ -283,8 +351,97 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ── Leadership Team ── */}
+      <section className="bg-white py-20">
+        <div className="cx">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Our People</p>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0f2a4a] mb-4">Leadership Team</h2>
+            <p className="text-[#566677] text-lg max-w-xl mx-auto leading-relaxed">
+              Experienced leaders committed to engineering excellence, customer success, and sustainable growth.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+            {leadership.map((person) => (
+              <div
+                key={person.name}
+                className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-6 hover:shadow-md transition-all"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <div className="bg-[#0f2a4a] rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-xl">{person.initials}</span>
+                  </div>
+                  <a
+                    href="#"
+                    aria-label={`${person.name} on LinkedIn`}
+                    className="text-[#6b7280] hover:text-[#0f2a4a] transition-colors mt-1"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                </div>
+                <h3 className="font-bold text-[#0f2a4a] leading-snug">{person.name}</h3>
+                <p className="text-[#f4a65d] text-sm font-semibold mt-0.5">{person.title}</p>
+                <p className="text-[#6b7280] text-sm mt-2 leading-relaxed">{person.bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Global Presence ── */}
+      <section className="bg-[#f7f9fc] py-16">
+        <div className="cx">
+          <div className="text-center mb-10">
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Worldwide</p>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0f2a4a] mb-4">Global Presence</h2>
+            <p className="text-[#566677] text-lg max-w-xl mx-auto leading-relaxed">
+              Cosasco distributes, supports, and serves customers across every major region — backed by local expertise and global resources.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            {regions.map((region) => (
+              <div
+                key={region.name}
+                className="bg-white border border-[#e8edf2] rounded-xl p-5 text-center hover:shadow-md hover:border-[#f4a65d] transition-all"
+              >
+                <p className="font-bold text-[#0f2a4a] text-sm leading-snug mb-3">{region.name}</p>
+                <p className="text-[#f4a65d] font-black text-3xl leading-none">{region.countries}</p>
+                <p className="text-[#6b7280] text-xs mt-1">countries</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Sustainability / ESG ── */}
+      <section className="bg-white py-16">
+        <div className="cx">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">ESG</p>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0f2a4a] mb-4">Sustainability at Cosasco</h2>
+            <p className="text-[#566677] text-lg max-w-2xl mx-auto leading-relaxed">
+              As a Halma company, Cosasco is aligned with Halma's net-zero commitments and group-wide ESG strategy. We integrate environmental, social, and governance principles into every aspect of how we operate.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {esgPillars.map((pillar) => {
+              const Icon = pillar.icon
+              return (
+                <div key={pillar.title} className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-8 hover:shadow-md transition-all">
+                  <div className="w-12 h-12 bg-[#0f2a4a] rounded-xl flex items-center justify-center mb-5">
+                    <Icon className="w-6 h-6 text-[#f4a65d]" />
+                  </div>
+                  <h3 className="font-black text-[#0f2a4a] text-xl mb-3">{pillar.title}</h3>
+                  <p className="text-[#566677] text-sm leading-relaxed">{pillar.body}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* ── Certifications ── */}
-      <section className="bg-white py-20 md:py-24">
+      <section className="bg-[#f7f9fc] py-20 md:py-24">
         <div className="cx">
           <div className="text-center mb-14">
             <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Quality Assurance</p>

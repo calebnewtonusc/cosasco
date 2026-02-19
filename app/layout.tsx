@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import '@fontsource/mukta-mahee/300.css'
+import '@fontsource/mukta-mahee/400.css'
+import '@fontsource/mukta-mahee/500.css'
+import '@fontsource/mukta-mahee/600.css'
+import '@fontsource/mukta-mahee/700.css'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
+import BackToTop from '@/components/BackToTop'
+import CookieBanner from '@/components/CookieBanner'
 
 export const metadata: Metadata = {
   title: 'Cosasco | Corrosion Management Solutions',
@@ -22,10 +23,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} pt-[75px]`}>
+      <body className="pt-[75px]">
         <Navigation />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
+        <CookieBanner />
       </body>
     </html>
   )

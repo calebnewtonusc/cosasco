@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Linkedin } from 'lucide-react'
+import { Linkedin, Twitter, Youtube, CheckCircle } from 'lucide-react'
 
 const industryLinks = [
   { label: 'Oil & Gas', href: '/solutions/oil-gas' },
@@ -32,6 +32,14 @@ const supportLinks = [
   { label: 'Software Login', href: '/software-login' },
 ]
 
+const certBadges = [
+  'ISO 9001:2015',
+  'NACE Member',
+  'API Compliant',
+  'ATEX Certified',
+  'A Halma Company',
+]
+
 export default function Footer() {
   return (
     <footer className="bg-[#0f2a4a] text-white">
@@ -56,6 +64,24 @@ export default function Footer() {
               Download Product Catalog
             </Link>
           </div>
+        </div>
+      </div>
+
+      {/* Certification badges strip */}
+      <div className="bg-[#1a3a5c] border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center gap-3">
+          <span className="text-[#8ab4d4] text-xs font-semibold tracking-wider shrink-0">
+            Certified &amp; Compliant:
+          </span>
+          {certBadges.map((badge) => (
+            <span
+              key={badge}
+              className="bg-white/5 border border-white/10 text-[#b8cfe0] text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5"
+            >
+              <CheckCircle size={12} className="text-[#f4a65d] shrink-0" />
+              {badge}
+            </span>
+          ))}
         </div>
       </div>
 
@@ -87,9 +113,9 @@ export default function Footer() {
 
             {/* Address & contact */}
             <address className="not-italic space-y-1.5 text-sm text-[#b8cfe0] mb-5">
-              <p>14492 Sherwood Ave</p>
-              <p>Santa Fe Springs, CA 90670</p>
-              <p>
+              <p className="font-medium text-white">14492 Sherwood Ave</p>
+              <p className="font-medium text-white">Santa Fe Springs, CA 90670, USA</p>
+              <p className="mt-2">
                 <a
                   href="tel:+15629490123"
                   className="hover:text-white transition-colors duration-150"
@@ -107,17 +133,23 @@ export default function Footer() {
               </p>
             </address>
 
-            {/* LinkedIn */}
-            <a
-              href="https://www.linkedin.com/company/cosasco"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Cosasco on LinkedIn"
-              className="inline-flex items-center gap-2 text-[#8ab4d4] hover:text-white transition-colors duration-150 text-sm"
-            >
-              <Linkedin size={16} />
-              <span>LinkedIn</span>
-            </a>
+            {/* Newsletter signup */}
+            <p className="text-[#8ab4d4] text-xs font-bold uppercase tracking-wider mt-6 mb-3">
+              Stay Updated
+            </p>
+            <form className="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="bg-white/10 border border-white/20 text-white placeholder-[#8ab4d4] text-sm rounded-l-md px-3 py-2 flex-1 min-w-0 outline-none focus:border-[#f4a65d]"
+              />
+              <button
+                type="submit"
+                className="bg-[#f4a65d] hover:bg-[#d4892a] text-white text-sm font-semibold px-4 py-2 rounded-r-md transition-colors shrink-0"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
 
           {/* Col 2 — Industries */}
@@ -195,16 +227,60 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[#6b8aa0]">
-          <p>&copy; 2025 Cosasco. All rights reserved.</p>
-          <div className="flex items-center gap-3">
-            <Link href="/privacy" className="hover:text-white transition-colors duration-150">
-              Privacy Policy
-            </Link>
-            <span className="text-white/20">·</span>
-            <Link href="/terms" className="hover:text-white transition-colors duration-150">
-              Terms of Use
-            </Link>
+        <div className="mt-10 pt-6 border-t border-white/10">
+          {/* Social icons row */}
+          <div className="flex items-center justify-between gap-4 mb-4">
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.linkedin.com/company/cosasco"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cosasco on LinkedIn"
+                className="text-[#8ab4d4] hover:text-white transition-colors duration-150"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                href="https://twitter.com/cosasco"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cosasco on Twitter"
+                className="text-[#8ab4d4] hover:text-white transition-colors duration-150"
+              >
+                <Twitter size={18} />
+              </a>
+              <a
+                href="https://www.youtube.com/@cosasco"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cosasco on YouTube"
+                className="text-[#8ab4d4] hover:text-white transition-colors duration-150"
+              >
+                <Youtube size={18} />
+              </a>
+            </div>
+          </div>
+
+          {/* Copyright + legal links */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[#6b8aa0]">
+            <p>&copy; 2025 Cosasco. All rights reserved.</p>
+            <div className="flex items-center gap-3">
+              <Link href="/privacy" className="hover:text-white transition-colors duration-150">
+                Privacy Policy
+              </Link>
+              <span className="text-white/20">·</span>
+              <Link href="/privacy" className="hover:text-white transition-colors duration-150">
+                Privacy
+              </Link>
+              <span className="text-white/20">·</span>
+              <Link href="/accessibility" className="hover:text-white transition-colors duration-150">
+                Accessibility
+              </Link>
+              <span className="text-white/20">·</span>
+              <Link href="/terms" className="hover:text-white transition-colors duration-150">
+                Terms of Use
+              </Link>
+            </div>
           </div>
         </div>
       </div>

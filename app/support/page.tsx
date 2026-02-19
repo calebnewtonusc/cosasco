@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { AlertTriangle, MessageSquare, Phone, FileText, ArrowRight, ChevronDown, Upload } from 'lucide-react'
+import { AlertTriangle, MessageSquare, Phone, FileText, ArrowRight, ChevronDown, Upload, Search, X, Download, MessageCircle } from 'lucide-react'
 
 const faqData: Record<string, { question: string; answer: string }[]> = {
   General: [
@@ -86,11 +86,42 @@ const faqData: Record<string, { question: string; answer: string }[]> = {
 
 const categories = ['General', 'Technical', 'Installation', 'Service & Warranty'] as const
 
+// Flatten all FAQs with their category for searching
+const allFaqs = Object.entries(faqData).flatMap(([category, faqs]) =>
+  faqs.map((faq) => ({ ...faq, category }))
+)
+
+function highlightText(text: string, query: string): React.ReactNode {
+  if (!query.trim()) return text
+  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
+  const parts = text.split(regex)
+  return parts.map((part, i) =>
+    regex.test(part) ? (
+      <mark key={i} className="bg-[#f4a65d]/30 text-[#0f2a4a] rounded px-0.5">
+        {part}
+      </mark>
+    ) : (
+      part
+    )
+  )
+}
+
 export default function SupportPage() {
   const [activeCategory, setActiveCategory] = useState<string>('General')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [searchQuery, setSearchQuery] = useState('')
 
-  const currentFaqs = faqData[activeCategory] ?? []
+  const isSearching = searchQuery.trim().length > 0
+
+  const searchResults = isSearching
+    ? allFaqs.filter(
+        (faq) =>
+          faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : []
+
+  const currentFaqs = isSearching ? [] : (faqData[activeCategory] ?? [])
 
   return (
     <div className="bg-white min-h-screen">
@@ -166,53 +197,202 @@ export default function SupportPage() {
           <h2 className="text-[#0f2a4a] font-black text-4xl text-center mb-3">
             Frequently Asked Questions
           </h2>
-          <p className="text-[#566677] text-center mb-10">
+          <p className="text-[#566677] text-center mb-8">
             Browse by category to find the answers you need.
           </p>
 
-          {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {categories.map((cat) => (
+          {/* Search Input */}
+          <div className="relative max-w-md mx-auto mb-8">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8898aa]" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search FAQs..."
+              className="border border-[#e8edf2] rounded-lg pl-10 pr-10 py-3 text-sm w-full block focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d] bg-white"
+            />
+            {searchQuery && (
               <button
-                key={cat}
-                onClick={() => {
-                  setActiveCategory(cat)
-                  setOpenIndex(null)
-                }}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                  activeCategory === cat
-                    ? 'bg-[#f4a65d] text-white'
-                    : 'bg-white border border-[#e8edf2] text-[#566677] hover:border-[#f4a65d] hover:text-[#f4a65d]'
-                }`}
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#8898aa] hover:text-[#566677]"
               >
-                {cat}
+                <X className="w-4 h-4" />
               </button>
-            ))}
+            )}
           </div>
 
-          {/* Accordion */}
-          <div>
-            {currentFaqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white border border-[#e8edf2] rounded-xl mb-3 overflow-hidden"
-              >
+          {/* Search results count */}
+          {isSearching && (
+            <p className="text-center text-sm text-[#566677] mb-6">
+              <span className="font-semibold text-[#0f2a4a]">{searchResults.length}</span>{' '}
+              result{searchResults.length !== 1 ? 's' : ''} for &ldquo;{searchQuery}&rdquo;
+            </p>
+          )}
+
+          {/* Category Tabs — hidden during search */}
+          {!isSearching && (
+            <div className="flex flex-wrap justify-center gap-2 mb-10">
+              {categories.map((cat) => (
                 <button
-                  className="w-full px-6 py-4 flex justify-between items-center text-left"
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  key={cat}
+                  onClick={() => {
+                    setActiveCategory(cat)
+                    setOpenIndex(null)
+                  }}
+                  className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
+                    activeCategory === cat
+                      ? 'bg-[#f4a65d] text-white'
+                      : 'bg-white border border-[#e8edf2] text-[#566677] hover:border-[#f4a65d] hover:text-[#f4a65d]'
+                  }`}
                 >
-                  <span className="text-[#0f2a4a] font-semibold pr-4">{faq.question}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-[#566677] flex-shrink-0 transition-transform duration-200 ${
-                      openIndex === index ? 'rotate-180' : ''
-                    }`}
-                  />
+                  {cat}
                 </button>
-                {openIndex === index && (
-                  <div className="px-6 pb-5 border-t border-[#e8edf2] pt-4">
-                    <p className="text-[#566677] text-sm leading-relaxed">{faq.answer}</p>
+              ))}
+            </div>
+          )}
+
+          {/* Accordion — category view */}
+          {!isSearching && (
+            <div>
+              {currentFaqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="bg-white border border-[#e8edf2] rounded-xl mb-3 overflow-hidden"
+                >
+                  <button
+                    className="w-full px-6 py-4 flex justify-between items-center text-left"
+                    onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  >
+                    <span className="text-[#0f2a4a] font-semibold pr-4">{faq.question}</span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-[#566677] flex-shrink-0 transition-transform duration-200 ${
+                        openIndex === index ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  {openIndex === index && (
+                    <div className="px-6 pb-5 border-t border-[#e8edf2] pt-4">
+                      <p className="text-[#566677] text-sm leading-relaxed">{faq.answer}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Search results — always expanded */}
+          {isSearching && (
+            <div>
+              {searchResults.length === 0 ? (
+                <div className="text-center py-12 bg-white border border-[#e8edf2] rounded-xl">
+                  <p className="text-[#566677] text-sm">No FAQs matched your search. Try different keywords or contact our support team.</p>
+                </div>
+              ) : (
+                searchResults.map((faq, index) => (
+                  <div
+                    key={index}
+                    className="bg-white border border-[#e8edf2] rounded-xl mb-3 overflow-hidden"
+                  >
+                    <div className="px-6 py-4">
+                      <span className="inline-block text-xs font-semibold text-[#f4a65d] uppercase tracking-wider mb-2">
+                        {faq.category}
+                      </span>
+                      <p className="text-[#0f2a4a] font-semibold mb-3">
+                        {highlightText(faq.question, searchQuery)}
+                      </p>
+                      <div className="border-t border-[#e8edf2] pt-3">
+                        <p className="text-[#566677] text-sm leading-relaxed">
+                          {highlightText(faq.answer, searchQuery)}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                )}
+                ))
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* SOFTWARE DOWNLOADS */}
+      <section className="bg-[#f7f9fc] py-16 border-t border-[#e8edf2]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Resources</p>
+            <h2 className="text-[#0f2a4a] font-black text-3xl md:text-4xl mb-3">Software Downloads</h2>
+            <p className="text-[#566677] text-base max-w-xl mx-auto">
+              Download the latest Cosasco software for Windows or get our mobile apps on iOS and Android.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              {
+                name: 'FieldCom Desktop',
+                version: 'v5.0',
+                platform: 'Windows 10/11',
+                size: '245 MB',
+                icon: <Download className="w-6 h-6 text-[#f4a65d]" />,
+                buttonLabel: 'Download',
+                buttonClass: 'bg-[#0f2a4a] text-white hover:bg-[#1a3d66]',
+              },
+              {
+                name: 'CorrView Analysis',
+                version: '',
+                platform: 'Windows 10/11',
+                size: '128 MB',
+                icon: <Download className="w-6 h-6 text-[#f4a65d]" />,
+                buttonLabel: 'Download',
+                buttonClass: 'bg-[#0f2a4a] text-white hover:bg-[#1a3d66]',
+              },
+              {
+                name: 'FieldCom Mobile',
+                version: '',
+                platform: 'iOS — App Store',
+                size: null,
+                icon: (
+                  <svg className="w-6 h-6 text-[#f4a65d]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 18.5A6.5 6.5 0 1 0 12 5.5a6.5 6.5 0 0 0 0 13Zm0-10v4m0 0 1.5-1.5M12 12.5l-1.5-1.5" />
+                  </svg>
+                ),
+                buttonLabel: 'Get on App Store',
+                buttonClass: 'bg-black text-white hover:bg-[#222]',
+              },
+              {
+                name: 'FieldCom Mobile',
+                version: '',
+                platform: 'Android — Play Store',
+                size: null,
+                icon: (
+                  <svg className="w-6 h-6 text-[#f4a65d]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M12 18.5A6.5 6.5 0 1 0 12 5.5a6.5 6.5 0 0 0 0 13Zm-3.5-6.5 7 0m-3.5-3.5v7" />
+                  </svg>
+                ),
+                buttonLabel: 'Get on Play Store',
+                buttonClass: 'bg-[#34A853] text-white hover:bg-[#2d9148]',
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white border border-[#e8edf2] rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-all"
+              >
+                <div className="w-12 h-12 bg-[#f0f4f8] rounded-lg flex items-center justify-center">
+                  {item.icon}
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-black text-[#0f2a4a] text-sm leading-snug">{item.name}</h3>
+                  {item.version && (
+                    <span className="inline-block text-xs text-[#f4a65d] font-semibold mt-0.5">{item.version}</span>
+                  )}
+                  <p className="text-[#566677] text-xs mt-1">{item.platform}</p>
+                  {item.size && (
+                    <p className="text-[#8898aa] text-xs mt-0.5">{item.size}</p>
+                  )}
+                </div>
+                <button
+                  className={`w-full rounded-lg px-4 py-2.5 text-xs font-semibold transition-colors ${item.buttonClass}`}
+                >
+                  {item.buttonLabel}
+                </button>
               </div>
             ))}
           </div>
@@ -379,6 +559,26 @@ export default function SupportPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* WHATSAPP / CHAT CTA STRIP */}
+      <section className="bg-[#0f2a4a] py-10">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <MessageCircle className="w-6 h-6 text-[#f4a65d]" />
+            </div>
+            <p className="text-white font-semibold text-lg">
+              Need immediate help? Chat with our support team.
+            </p>
+          </div>
+          <a
+            href="#"
+            className="flex-shrink-0 bg-[#f4a65d] hover:bg-[#d4892a] text-white font-bold rounded-lg px-7 py-3 text-sm transition-colors whitespace-nowrap"
+          >
+            Start Chat →
+          </a>
         </div>
       </section>
     </div>

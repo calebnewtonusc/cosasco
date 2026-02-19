@@ -1,33 +1,66 @@
 import Link from 'next/link'
 
+const popularLinks = [
+  { label: 'Products', desc: 'Browse our monitoring portfolio', href: '/products' },
+  { label: 'Solutions', desc: 'Find solutions for your industry', href: '/solutions' },
+  { label: 'About', desc: 'Our history and mission', href: '/about' },
+  { label: 'Support', desc: 'Technical support and documentation', href: '/support' },
+  { label: 'Resources', desc: 'Case studies, whitepapers, and more', href: '/resources' },
+  { label: 'Contact', desc: 'Speak with an application engineer', href: '/contact' },
+]
+
 export default function NotFound() {
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center text-center px-6"
-      style={{ background: '#f8fafc' }}
+      className="min-h-screen bg-[#0f2a4a] flex flex-col items-center justify-center px-6 pt-[75px]"
     >
-      <p
-        className="text-8xl font-black mb-6"
-        style={{ color: '#E8500A' }}
-      >
-        404
-      </p>
-      <h1
-        className="text-3xl font-extrabold mb-4"
-        style={{ color: '#0F2A4A' }}
-      >
-        Page Not Found
-      </h1>
-      <p className="text-gray-500 mb-10 max-w-md">
-        The page you&apos;re looking for doesn&apos;t exist or has been moved.
-      </p>
-      <Link
-        href="/"
-        className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-semibold text-white transition-all hover:brightness-110"
-        style={{ background: '#0F2A4A' }}
-      >
-        Back to Home
-      </Link>
+      <div className="max-w-3xl w-full text-center">
+
+        {/* 404 number */}
+        <p className="text-8xl font-black text-[#f4a65d] leading-none select-none">
+          404
+        </p>
+
+        {/* Heading */}
+        <h1 className="text-white font-bold text-3xl mt-4">
+          Page not found
+        </h1>
+
+        {/* Subtext */}
+        <p className="text-[#94aabb] mt-3 max-w-md mx-auto leading-relaxed">
+          The page you&apos;re looking for doesn&apos;t exist or may have been
+          moved. Try one of the links below to get back on track.
+        </p>
+
+        {/* Popular links grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-10 text-left">
+          {popularLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="bg-[#1a3a5c] border border-[#2a4a6c] rounded-xl p-4 hover:border-[#f4a65d] hover:bg-[#1f4268] transition-all duration-200 group"
+            >
+              <div className="font-semibold text-white group-hover:text-[#f4a65d] transition-colors text-sm">
+                {link.label}
+              </div>
+              <div className="text-[#94aabb] text-xs mt-1 leading-snug">
+                {link.desc}
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Go home button */}
+        <div className="mt-10">
+          <Link
+            href="/"
+            className="inline-block bg-[#f4a65d] hover:bg-[#d4892a] text-white font-semibold px-8 py-3.5 rounded-lg transition-colors"
+          >
+            Go home
+          </Link>
+        </div>
+
+      </div>
     </div>
   )
 }

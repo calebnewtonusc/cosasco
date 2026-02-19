@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { ChevronDown, Menu, X, Phone } from 'lucide-react'
+import { ChevronDown, Menu, X, Phone, Search, ShoppingCart, Globe } from 'lucide-react'
 
 const industriesDropdown = [
   { name: 'Upstream Oil & Gas', href: '/solutions/oil-gas' },
@@ -54,6 +54,7 @@ const companyDropdown = [
   { name: 'Careers', href: '/careers' },
   { name: 'News & Events', href: '/news' },
   { name: 'Contact Us', href: '/contact' },
+  { name: 'Software Login', href: '/software' },
 ]
 
 type OpenMenu = 'industries' | 'products' | 'company' | null
@@ -62,6 +63,8 @@ export default function Navigation() {
   const [open, setOpen] = useState<OpenMenu>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileAccordion, setMobileAccordion] = useState<string | null>(null)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const searchInputRef = useRef<HTMLInputElement>(null)
   const navRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -79,11 +82,18 @@ export default function Navigation() {
       if (e.key === 'Escape') {
         setOpen(null)
         setMobileOpen(false)
+        setSearchOpen(false)
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [])
+
+  useEffect(() => {
+    if (searchOpen && searchInputRef.current) {
+      searchInputRef.current.focus()
+    }
+  }, [searchOpen])
 
   const toggle = (menu: OpenMenu) => setOpen(open === menu ? null : menu)
 
@@ -97,6 +107,14 @@ export default function Navigation() {
       ref={navRef}
       className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#e8edf2]"
     >
+      {/* Skip to main content */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-[78px] focus:left-4 focus:z-50 focus:bg-[#f4a65d] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:text-sm focus:font-semibold"
+      >
+        Skip to main content
+      </a>
+
       {/* Orange top strip */}
       <div className="h-[3px] bg-[#f4a65d] w-full" />
 
@@ -171,7 +189,34 @@ export default function Navigation() {
         </nav>
 
         {/* Desktop right */}
-        <div className="hidden lg:flex items-center gap-4 shrink-0">
+        <div className="hidden lg:flex items-center gap-3 shrink-0">
+          {/* Region selector */}
+          <button className="flex items-center gap-1 text-[0.7rem] text-[#8898aa] hover:text-[#566677] transition-colors duration-150">
+            <Globe size={12} />
+            <span>Global — EN</span>
+          </button>
+
+          {/* Search button */}
+          <button
+            onClick={() => setSearchOpen(!searchOpen)}
+            aria-label="Toggle search"
+            className="p-1.5 rounded-md text-[#566677] hover:text-[#0f2a4a] hover:bg-[#f4f6f8] transition-colors duration-150"
+          >
+            <Search size={16} />
+          </button>
+
+          {/* Quote cart */}
+          <Link
+            href="/contact?quote=true"
+            aria-label="Quote cart"
+            className="relative inline-flex p-1.5 rounded-md text-[#566677] hover:text-[#0f2a4a] hover:bg-[#f4f6f8] transition-colors duration-150"
+          >
+            <ShoppingCart size={16} />
+            <span className="absolute -top-1 -right-1 bg-[#f4a65d] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-semibold leading-none">
+              0
+            </span>
+          </Link>
+
           <a
             href="tel:+15629490123"
             className="flex items-center gap-1.5 text-[0.8rem] text-[#566677] hover:text-[#0f2a4a] transition-colors duration-150"
@@ -197,9 +242,31 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* ── INDUSTRIES MEGA DROPDOWN ── */}
+      {/* Search overlay */}
+      {searchOpen && (
+        <div className="absolute top-full left-0 right-0 bg-white border-t border-[#e8edf2] shadow-md animate-[fadeInDown_0.15s_ease]">
+          <div className="max-w-7xl mx-auto px-6 py-3 flex items-center gap-3">
+            <Search size={16} className="text-[#8898aa] shrink-0" />
+            <input
+              ref={searchInputRef}
+              type="text"
+              placeholder="Search products, industries, resources..."
+              className="flex-1 text-[0.9rem] text-[#334150] placeholder-[#aab4bf] outline-none bg-transparent"
+            />
+            <button
+              onClick={() => setSearchOpen(false)}
+              className="p-1 rounded text-[#8898aa] hover:text-[#334150] transition-colors duration-150"
+              aria-label="Close search"
+            >
+              <X size={16} />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* INDUSTRIES MEGA DROPDOWN */}
       {open === 'industries' && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2]">
+        <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2] animate-[fadeInDown_0.15s_ease]">
           <div className="max-w-7xl mx-auto px-6 py-8">
             <div className="grid grid-cols-2 gap-x-16 gap-y-3 max-w-xl">
               {industriesDropdown.map((ind) => (
@@ -227,9 +294,9 @@ export default function Navigation() {
         </div>
       )}
 
-      {/* ── PRODUCTS MEGA DROPDOWN ── */}
+      {/* PRODUCTS MEGA DROPDOWN */}
       {open === 'products' && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2]">
+        <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2] animate-[fadeInDown_0.15s_ease]">
           <div className="max-w-7xl mx-auto px-6 py-8">
             <div className="grid grid-cols-4 gap-8">
               {productsDropdown.map((col) => (
@@ -269,9 +336,9 @@ export default function Navigation() {
         </div>
       )}
 
-      {/* ── COMPANY DROPDOWN ── */}
+      {/* COMPANY DROPDOWN */}
       {open === 'company' && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2]">
+        <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2] animate-[fadeInDown_0.15s_ease]">
           <div className="max-w-7xl mx-auto px-6 py-6">
             <div className="grid grid-cols-2 gap-x-12 gap-y-2 max-w-xs">
               {companyDropdown.map((item) => (
@@ -289,7 +356,7 @@ export default function Navigation() {
         </div>
       )}
 
-      {/* ── MOBILE MENU ── */}
+      {/* MOBILE MENU */}
       {mobileOpen && (
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-[#e8edf2] shadow-xl max-h-[calc(100vh-75px)] overflow-y-auto">
           <div className="px-4 py-3 space-y-0.5">

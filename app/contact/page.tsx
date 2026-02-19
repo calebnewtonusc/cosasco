@@ -11,6 +11,7 @@ import {
   Globe,
   ChevronRight,
   ArrowRight,
+  MessageCircle,
 } from 'lucide-react'
 
 const regionalOffices = [
@@ -67,8 +68,57 @@ const regionalOffices = [
   },
 ]
 
+interface FormErrors {
+  name?: string
+  email?: string
+  subject?: string
+  message?: string
+}
+
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
+
+  // Form field state
+  const [name, setName] = useState('')
+  const [company, setCompany] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [industry, setIndustry] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
+
+  const [errors, setErrors] = useState<FormErrors>({})
+  const [touched, setTouched] = useState(false)
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+  function validate(): FormErrors {
+    const errs: FormErrors = {}
+    if (!name.trim()) errs.name = 'Full name is required.'
+    if (!email.trim()) {
+      errs.email = 'Email address is required.'
+    } else if (!emailRegex.test(email)) {
+      errs.email = 'Please enter a valid email address.'
+    }
+    if (!subject) errs.subject = 'Please select a subject.'
+    if (!message.trim()) errs.message = 'Message is required.'
+    return errs
+  }
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setTouched(true)
+    const errs = validate()
+    setErrors(errs)
+    if (Object.keys(errs).length === 0) {
+      setSubmitted(true)
+    }
+  }
+
+  // Re-validate on field change if user has already attempted submit
+  function revalidate() {
+    if (touched) setErrors(validate())
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -116,16 +166,18 @@ export default function ContactPage() {
                   </p>
                   <button
                     className="btn btn-outline-navy mt-2 text-sm"
-                    onClick={() => setSubmitted(false)}
+                    onClick={() => {
+                      setSubmitted(false)
+                      setName(''); setCompany(''); setEmail(''); setPhone('')
+                      setIndustry(''); setSubject(''); setMessage('')
+                      setErrors({}); setTouched(false)
+                    }}
                   >
                     Send Another Message
                   </button>
                 </div>
               ) : (
-                <form
-                  className="space-y-5"
-                  onSubmit={(e) => { e.preventDefault(); setSubmitted(true) }}
-                >
+                <form className="space-y-5" onSubmit={handleSubmit} noValidate>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
@@ -133,10 +185,12 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="text"
-                        required
+                        value={name}
+                        onChange={(e) => { setName(e.target.value); revalidate() }}
                         placeholder="Jane Smith"
-                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
+                        className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors ${errors.name ? 'border-red-400' : 'border-[#e8edf2]'}`}
                       />
+                      {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
@@ -144,6 +198,8 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="text"
+                        value={company}
+                        onChange={(e) => setCompany(e.target.value)}
                         placeholder="Acme Refining Ltd."
                         className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                       />
@@ -157,10 +213,12 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="email"
-                        required
+                        value={email}
+                        onChange={(e) => { setEmail(e.target.value); revalidate() }}
                         placeholder="jsmith@company.com"
-                        className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
+                        className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors ${errors.email ? 'border-red-400' : 'border-[#e8edf2]'}`}
                       />
+                      {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                     </div>
                     <div>
                       <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
@@ -168,6 +226,8 @@ export default function ContactPage() {
                       </label>
                       <input
                         type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
                         placeholder="+1 (555) 000-0000"
                         className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                       />
@@ -179,6 +239,8 @@ export default function ContactPage() {
                       Industry
                     </label>
                     <select
+                      value={industry}
+                      onChange={(e) => setIndustry(e.target.value)}
                       className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                     >
                       <option value="">Select your industry...</option>
@@ -197,8 +259,9 @@ export default function ContactPage() {
                       Subject <span className="text-[#f4a65d]">*</span>
                     </label>
                     <select
-                      required
-                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
+                      value={subject}
+                      onChange={(e) => { setSubject(e.target.value); revalidate() }}
+                      className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors ${errors.subject ? 'border-red-400' : 'border-[#e8edf2]'}`}
                     >
                       <option value="">Select a subject...</option>
                       <option>Sales Inquiry</option>
@@ -208,6 +271,7 @@ export default function ContactPage() {
                       <option>Partnership / Distribution</option>
                       <option>Other</option>
                     </select>
+                    {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject}</p>}
                   </div>
 
                   <div>
@@ -215,11 +279,13 @@ export default function ContactPage() {
                       Message <span className="text-[#f4a65d]">*</span>
                     </label>
                     <textarea
-                      required
+                      value={message}
+                      onChange={(e) => { setMessage(e.target.value); revalidate() }}
                       rows={5}
                       placeholder="Tell us about your project, application, or question..."
-                      className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors resize-vertical"
+                      className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors resize-vertical ${errors.message ? 'border-red-400' : 'border-[#e8edf2]'}`}
                     />
+                    {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                   </div>
 
                   <button
@@ -285,21 +351,70 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </div>
+
+                  {/* WhatsApp CTA */}
+                  <a
+                    href="https://wa.me/15629490123"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#25D366] text-white rounded-lg px-4 py-2.5 text-sm font-semibold flex items-center gap-2 mt-3 hover:bg-[#1ebe57] transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4 flex-shrink-0" />
+                    Message on WhatsApp
+                  </a>
                 </div>
               </div>
 
-              {/* Map placeholder */}
-              <div className="bg-[#0f2a4a] rounded-xl overflow-hidden flex flex-col items-center justify-center gap-3 h-44">
-                <MapPin className="w-7 h-7 text-[#f4a65d]" />
-                <p className="text-white/60 text-sm">Santa Fe Springs, CA 90670</p>
-                <a
-                  href="https://maps.google.com/?q=11401+Beach+Street+Santa+Fe+Springs+CA+90670"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#f4a65d] text-xs font-semibold underline underline-offset-2 hover:no-underline"
+              {/* Styled mock map */}
+              <div className="bg-[#1a2535] rounded-xl h-56 overflow-hidden relative">
+                {/* SVG grid lines mock map */}
+                <svg
+                  className="absolute inset-0 w-full h-full"
+                  viewBox="0 0 400 224"
+                  preserveAspectRatio="xMidYMid slice"
+                  aria-hidden="true"
                 >
-                  Open in Google Maps
-                </a>
+                  {/* Grid lines */}
+                  {[0, 40, 80, 120, 160, 200, 240, 280, 320, 360, 400].map((x) => (
+                    <line key={`v${x}`} x1={x} y1="0" x2={x} y2="224" stroke="#ffffff08" strokeWidth="1" />
+                  ))}
+                  {[0, 32, 64, 96, 128, 160, 192, 224].map((y) => (
+                    <line key={`h${y}`} x1="0" y1={y} x2="400" y2={y} stroke="#ffffff08" strokeWidth="1" />
+                  ))}
+                  {/* Subtle diagonal accent lines */}
+                  <line x1="0" y1="224" x2="400" y2="0" stroke="#ffffff05" strokeWidth="1" />
+                  <line x1="0" y1="112" x2="400" y2="112" stroke="#f4a65d22" strokeWidth="1" />
+                  <line x1="200" y1="0" x2="200" y2="224" stroke="#f4a65d22" strokeWidth="1" />
+                  {/* Center pin circle glow */}
+                  <circle cx="200" cy="100" r="32" fill="#f4a65d08" />
+                  <circle cx="200" cy="100" r="16" fill="#f4a65d14" />
+                </svg>
+
+                {/* Map pin marker */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[calc(50%+8px)] flex flex-col items-center">
+                  <div className="w-5 h-5 bg-[#f4a65d] rounded-full border-2 border-white shadow-lg" />
+                  <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[8px] border-l-transparent border-r-transparent border-t-[#f4a65d] -mt-px" />
+                </div>
+
+                {/* Location label */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-3 mt-3">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-md px-3 py-1 border border-white/10">
+                    <p className="text-white text-xs font-semibold whitespace-nowrap">Santa Fe Springs, CA</p>
+                  </div>
+                </div>
+
+                {/* Open in Google Maps link */}
+                <div className="absolute bottom-0 left-0 right-0 bg-[#111c2b]/80 px-4 py-2.5 flex items-center justify-between">
+                  <p className="text-[#8ab4d4] text-xs">11401 Beach Street, CA 90670</p>
+                  <a
+                    href="https://maps.google.com/?q=11401+Beach+Street+Santa+Fe+Springs+CA+90670"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#f4a65d] text-xs font-semibold hover:underline"
+                  >
+                    Open in Google Maps
+                  </a>
+                </div>
               </div>
 
               {/* Response time notice */}

@@ -1,3 +1,11 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Corrosion Monitoring Software | Cosasco FieldCom',
+  description: 'FieldCom cloud platform, CorrView desktop, and mobile apps for corrosion data acquisition.',
+}
+
 import { BarChart2, Monitor, Smartphone, CheckCircle2, Cloud, Download } from "lucide-react";
 
 export default function SoftwarePage() {
@@ -86,16 +94,18 @@ export default function SoftwarePage() {
               </p>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-1.5">Email Address</label>
+                  <label htmlFor="fieldcom-email" className="block text-sm font-medium text-[#374151] mb-1.5">Email Address</label>
                   <input
+                    id="fieldcom-email"
                     type="email"
                     placeholder="you@company.com"
                     className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] placeholder-[#6b7280] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-1.5">Password</label>
+                  <label htmlFor="fieldcom-password" className="block text-sm font-medium text-[#374151] mb-1.5">Password</label>
                   <input
+                    id="fieldcom-password"
                     type="password"
                     placeholder="••••••••"
                     className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] placeholder-[#6b7280] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors"
@@ -134,12 +144,12 @@ export default function SoftwarePage() {
                   </li>
                 ))}
               </ul>
-              <a
+              <Link
                 href="/contact"
                 className="inline-block bg-[#f4a65d] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#e8954a] transition-colors"
               >
                 Contact Us to Get Started
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -177,12 +187,12 @@ export default function SoftwarePage() {
                   ))}
                 </ul>
                 <div className="flex gap-3 mt-auto">
-                  <a
+                  <Link
                     href="/contact"
                     className="flex-1 text-center border border-[#0f2a4a] text-[#0f2a4a] px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#0f2a4a] hover:text-white transition-colors"
                   >
                     Learn More
-                  </a>
+                  </Link>
                   <a
                     href="#"
                     className="flex-1 flex items-center justify-center gap-1.5 bg-[#f4a65d] text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#e8954a] transition-colors"

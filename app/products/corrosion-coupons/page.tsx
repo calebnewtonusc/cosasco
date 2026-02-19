@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Corrosion Coupon Systems | Cosasco',
+  description: 'ASTM and NACE standard corrosion coupon holders, racks, and retrieval systems.',
+}
+
 import Link from "next/link";
 import {
   ChevronRight,

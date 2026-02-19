@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'FieldCom Wireless Data Acquisition | Cosasco',
+  description: 'Wireless corrosion monitoring data loggers with cloud connectivity, SCADA integration, and ATEX certification.',
+}
+
 import Link from "next/link";
 import {
   ChevronRight,

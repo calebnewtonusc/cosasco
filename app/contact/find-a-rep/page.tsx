@@ -1,3 +1,11 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Find a Representative | Cosasco',
+  description: 'Connect with a Cosasco application engineer or local distributor in your region.',
+}
+
 import { Phone, Mail, Clock, MapPin } from "lucide-react";
 
 export default function FindARepPage() {
@@ -78,16 +86,18 @@ export default function FindARepPage() {
               <form className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-[#374151] mb-1.5">First Name</label>
+                    <label htmlFor="rep-first-name" className="block text-sm font-medium text-[#374151] mb-1.5">First Name</label>
                     <input
+                      id="rep-first-name"
                       type="text"
                       placeholder="John"
                       className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] placeholder-[#6b7280] focus:outline-none focus:border-[#0f2a4a] transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-[#374151] mb-1.5">Last Name</label>
+                    <label htmlFor="rep-last-name" className="block text-sm font-medium text-[#374151] mb-1.5">Last Name</label>
                     <input
+                      id="rep-last-name"
                       type="text"
                       placeholder="Smith"
                       className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] placeholder-[#6b7280] focus:outline-none focus:border-[#0f2a4a] transition-colors"
@@ -95,16 +105,17 @@ export default function FindARepPage() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-1.5">Company</label>
+                  <label htmlFor="rep-company" className="block text-sm font-medium text-[#374151] mb-1.5">Company</label>
                   <input
+                    id="rep-company"
                     type="text"
                     placeholder="Your company name"
                     className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] placeholder-[#6b7280] focus:outline-none focus:border-[#0f2a4a] transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-1.5">Country / Region</label>
-                  <select className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors">
+                  <label htmlFor="rep-country" className="block text-sm font-medium text-[#374151] mb-1.5">Country / Region</label>
+                  <select id="rep-country" className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors">
                     <option value="">Select your country or region...</option>
                     <optgroup label="Americas">
                       <option>United States</option>
@@ -154,8 +165,8 @@ export default function FindARepPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-1.5">Industry</label>
-                  <select className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors">
+                  <label htmlFor="rep-industry" className="block text-sm font-medium text-[#374151] mb-1.5">Industry</label>
+                  <select id="rep-industry" className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors">
                     <option value="">Select your industry...</option>
                     <option>Oil &amp; Gas — Upstream</option>
                     <option>Oil &amp; Gas — Midstream / Pipelines</option>
@@ -166,8 +177,8 @@ export default function FindARepPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-1.5">What do you need help with?</label>
-                  <select className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors">
+                  <label htmlFor="rep-inquiry" className="block text-sm font-medium text-[#374151] mb-1.5">What do you need help with?</label>
+                  <select id="rep-inquiry" className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors">
                     <option value="">Select an inquiry type...</option>
                     <option>Product Selection</option>
                     <option>Technical Support</option>
@@ -176,8 +187,9 @@ export default function FindARepPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-[#374151] mb-1.5">Additional Details (optional)</label>
+                  <label htmlFor="rep-details" className="block text-sm font-medium text-[#374151] mb-1.5">Additional Details (optional)</label>
                   <textarea
+                    id="rep-details"
                     rows={4}
                     placeholder="Describe your application, current challenges, or any specific products you're interested in..."
                     className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] placeholder-[#6b7280] focus:outline-none focus:border-[#0f2a4a] transition-colors resize-none"
@@ -232,12 +244,12 @@ export default function FindARepPage() {
                   </div>
                 </div>
                 <div className="mt-6 pt-6 border-t border-[#e8edf2]">
-                  <a
+                  <Link
                     href="/contact"
                     className="block text-center bg-[#0f2a4a] text-white px-4 py-3 rounded-lg text-sm font-semibold hover:bg-[#1a3d6b] transition-colors"
                   >
                     Visit Full Contact Page
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

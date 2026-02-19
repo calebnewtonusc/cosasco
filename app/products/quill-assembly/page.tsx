@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Chemical Injection Quill Assemblies | Cosasco',
+  description: 'Precision chemical injection quills for reliable inhibitor delivery into pressurized pipelines.',
+}
+
 import Link from "next/link";
 import {
   ChevronRight,

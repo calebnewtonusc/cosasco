@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useReducer } from 'react'
 import Link from 'next/link'
 import {
   MapPin,
@@ -68,32 +68,63 @@ const regionalOffices = [
   },
 ]
 
-interface FormErrors {
-  name?: string
-  email?: string
-  subject?: string
-  message?: string
+type FormState = {
+  name: string
+  company: string
+  email: string
+  phone: string
+  industry: string
+  subject: string
+  message: string
+  submitted: boolean
+  success: boolean
+  errors: Record<string, string>
+  touched: boolean
 }
 
+const initialState: FormState = {
+  name: '',
+  company: '',
+  email: '',
+  phone: '',
+  industry: '',
+  subject: '',
+  message: '',
+  submitted: false,
+  success: false,
+  errors: {},
+  touched: false,
+}
+
+type FormAction =
+  | { type: 'SET_FIELD'; field: keyof Pick<FormState, 'name' | 'company' | 'email' | 'phone' | 'industry' | 'subject' | 'message'>; value: string }
+  | { type: 'SET_ERRORS'; errors: Record<string, string> }
+  | { type: 'SET_SUCCESS' }
+  | { type: 'RESET' }
+
+function formReducer(state: FormState, action: FormAction): FormState {
+  switch (action.type) {
+    case 'SET_FIELD':
+      return { ...state, [action.field]: action.value }
+    case 'SET_ERRORS':
+      return { ...state, errors: action.errors, touched: true }
+    case 'SET_SUCCESS':
+      return { ...state, submitted: true }
+    case 'RESET':
+      return initialState
+    default:
+      return state
+  }
+}
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false)
+  const [state, dispatch] = useReducer(formReducer, initialState)
+  const { name, company, email, phone, industry, subject, message, submitted, errors, touched } = state
 
-  // Form field state
-  const [name, setName] = useState('')
-  const [company, setCompany] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [industry, setIndustry] = useState('')
-  const [subject, setSubject] = useState('')
-  const [message, setMessage] = useState('')
-
-  const [errors, setErrors] = useState<FormErrors>({})
-  const [touched, setTouched] = useState(false)
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-  function validate(): FormErrors {
-    const errs: FormErrors = {}
+  function validate(): Record<string, string> {
+    const errs: Record<string, string> = {}
     if (!name.trim()) errs.name = 'Full name is required.'
     if (!email.trim()) {
       errs.email = 'Email address is required.'
@@ -107,17 +138,15 @@ export default function ContactPage() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setTouched(true)
     const errs = validate()
-    setErrors(errs)
+    dispatch({ type: 'SET_ERRORS', errors: errs })
     if (Object.keys(errs).length === 0) {
-      setSubmitted(true)
+      dispatch({ type: 'SET_SUCCESS' })
     }
   }
 
-  // Re-validate on field change if user has already attempted submit
   function revalidate() {
-    if (touched) setErrors(validate())
+    if (touched) dispatch({ type: 'SET_ERRORS', errors: validate() })
   }
 
   return (
@@ -166,12 +195,7 @@ export default function ContactPage() {
                   </p>
                   <button
                     className="btn btn-outline-navy mt-2 text-sm"
-                    onClick={() => {
-                      setSubmitted(false)
-                      setName(''); setCompany(''); setEmail(''); setPhone('')
-                      setIndustry(''); setSubject(''); setMessage('')
-                      setErrors({}); setTouched(false)
-                    }}
+                    onClick={() => dispatch({ type: 'RESET' })}
                   >
                     Send Another Message
                   </button>
@@ -180,26 +204,28 @@ export default function ContactPage() {
                 <form className="space-y-5" onSubmit={handleSubmit} noValidate>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                      <label htmlFor="contact-name" className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
                         Full Name <span className="text-[#f4a65d]">*</span>
                       </label>
                       <input
+                        id="contact-name"
                         type="text"
                         value={name}
-                        onChange={(e) => { setName(e.target.value); revalidate() }}
+                        onChange={(e) => { dispatch({ type: 'SET_FIELD', field: 'name', value: e.target.value }); revalidate() }}
                         placeholder="Jane Smith"
                         className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors ${errors.name ? 'border-red-400' : 'border-[#e8edf2]'}`}
                       />
                       {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                      <label htmlFor="contact-company" className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
                         Company
                       </label>
                       <input
+                        id="contact-company"
                         type="text"
                         value={company}
-                        onChange={(e) => setCompany(e.target.value)}
+                        onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'company', value: e.target.value })}
                         placeholder="Acme Refining Ltd."
                         className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                       />
@@ -208,26 +234,28 @@ export default function ContactPage() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                      <label htmlFor="contact-email" className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
                         Email Address <span className="text-[#f4a65d]">*</span>
                       </label>
                       <input
+                        id="contact-email"
                         type="email"
                         value={email}
-                        onChange={(e) => { setEmail(e.target.value); revalidate() }}
+                        onChange={(e) => { dispatch({ type: 'SET_FIELD', field: 'email', value: e.target.value }); revalidate() }}
                         placeholder="jsmith@company.com"
                         className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors ${errors.email ? 'border-red-400' : 'border-[#e8edf2]'}`}
                       />
                       {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                      <label htmlFor="contact-phone" className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
                         Phone Number
                       </label>
                       <input
+                        id="contact-phone"
                         type="tel"
                         value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'phone', value: e.target.value })}
                         placeholder="+1 (555) 000-0000"
                         className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                       />
@@ -235,12 +263,13 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                    <label htmlFor="contact-industry" className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
                       Industry
                     </label>
                     <select
+                      id="contact-industry"
                       value={industry}
-                      onChange={(e) => setIndustry(e.target.value)}
+                      onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'industry', value: e.target.value })}
                       className="w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border border-[#e8edf2] focus:outline-none focus:border-[#f4a65d] transition-colors"
                     >
                       <option value="">Select your industry...</option>
@@ -255,12 +284,13 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                    <label htmlFor="contact-subject" className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
                       Subject <span className="text-[#f4a65d]">*</span>
                     </label>
                     <select
+                      id="contact-subject"
                       value={subject}
-                      onChange={(e) => { setSubject(e.target.value); revalidate() }}
+                      onChange={(e) => { dispatch({ type: 'SET_FIELD', field: 'subject', value: e.target.value }); revalidate() }}
                       className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors ${errors.subject ? 'border-red-400' : 'border-[#e8edf2]'}`}
                     >
                       <option value="">Select a subject...</option>
@@ -275,12 +305,13 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
+                    <label htmlFor="contact-message" className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
                       Message <span className="text-[#f4a65d]">*</span>
                     </label>
                     <textarea
+                      id="contact-message"
                       value={message}
-                      onChange={(e) => { setMessage(e.target.value); revalidate() }}
+                      onChange={(e) => { dispatch({ type: 'SET_FIELD', field: 'message', value: e.target.value }); revalidate() }}
                       rows={5}
                       placeholder="Tell us about your project, application, or question..."
                       className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors resize-vertical ${errors.message ? 'border-red-400' : 'border-[#e8edf2]'}`}

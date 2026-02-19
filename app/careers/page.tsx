@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Careers at Cosasco | Join Our Team',
+  description: 'Build your career at Cosasco, a global leader in corrosion monitoring solutions and a Halma company.',
+}
+
 import { Target, Globe, Cog, TrendingUp, DollarSign, Heart, PiggyBank, Home, BookOpen, Plane } from "lucide-react";
 
 export default function CareersPage() {

@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Retrieval Access Fittings | Cosasco',
+  description: 'Live insertion and retrieval of corrosion monitoring equipment at full operating pressure.',
+}
+
 import Link from "next/link";
 import {
   ChevronRight,

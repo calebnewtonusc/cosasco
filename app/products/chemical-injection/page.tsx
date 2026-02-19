@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Chemical Injection Systems | Cosasco',
+  description: 'Precision chemical injection quills, check valves, and metering systems for corrosion inhibitor and biocide delivery in oil & gas and industrial pipelines.',
+}
+
 import Link from "next/link";
 import {
   ChevronRight,

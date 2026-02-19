@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Erosion Monitoring Systems | Cosasco',
+  description: 'Ultrasonic and intrusive erosion monitoring solutions for pipelines, vessels, and process equipment in high-velocity service.',
+}
+
 import Link from "next/link";
 import {
   ChevronRight,

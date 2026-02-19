@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Cosasco | Corrosion Monitoring & Chemical Injection Solutions',
+  description: 'Global leader in corrosion monitoring, chemical injection, and industrial integrity management systems. Serving oil & gas, petrochemical, water treatment, and more.',
+}
+
 import Link from 'next/link'
 import {
   CheckCircle,

@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'News & Insights | Cosasco',
+  description: 'Latest news, product updates, technical articles, and events from Cosasco.',
+}
+
 export default function NewsPage() {
   const filters = ["All", "Press Releases", "Product Updates", "Technical Articles", "Events"];
 

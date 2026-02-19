@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Products | Cosasco Corrosion Monitoring & Chemical Injection',
+  description: 'ER probes, access fittings, corrosion coupons, chemical injection quills, FieldCom wireless loggers, and UT sensors for industrial corrosion management.',
+}
+
 import Link from "next/link";
 import { Shield, Activity, Droplets, BarChart2, ChevronRight, ArrowRight, Download } from "lucide-react";
 

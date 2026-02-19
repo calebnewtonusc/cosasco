@@ -59,6 +59,272 @@ const companyDropdown = [
 
 type OpenMenu = 'industries' | 'products' | 'company' | null
 
+// ── Sub-components ────────────────────────────────────────────────────────────
+
+function IndustriesDropdown({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2] animate-[fadeInDown_0.15s_ease]">
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-2 gap-x-16 gap-y-3 max-w-xl">
+          {industriesDropdown.map((ind) => (
+            <Link
+              key={ind.name}
+              href={ind.href}
+              onClick={onClose}
+              className="flex items-center gap-2 text-[0.9rem] font-medium text-[#334150] hover:text-[#f4a65d] transition-colors duration-150 py-1"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#f4a65d] shrink-0" />
+              {ind.name}
+            </Link>
+          ))}
+        </div>
+        <div className="mt-6 pt-5 border-t border-[#e8edf2]">
+          <Link
+            href="/solutions"
+            onClick={onClose}
+            className="text-sm font-semibold text-[#f4a65d] hover:text-[#d4892a] transition-colors duration-150"
+          >
+            View all industries →
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function ProductsDropdown({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2] animate-[fadeInDown_0.15s_ease]">
+      <div className="max-w-7xl mx-auto px-6 py-8">
+        <div className="grid grid-cols-4 gap-8">
+          {productsDropdown.map((col) => (
+            <div key={col.heading}>
+              <div className="text-[0.7rem] font-bold uppercase tracking-[0.1em] text-[#8898aa] mb-3">
+                {col.heading}
+              </div>
+              <ul className="space-y-1.5">
+                {col.items.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      onClick={onClose}
+                      className="block text-[0.875rem] font-medium text-[#334150] hover:text-[#f4a65d] transition-colors duration-150 py-0.5"
+                    >
+                      {item.name}
+                      {item.description ? (
+                        <span className="text-[#8898aa] text-xs block mt-0.5">{item.description}</span>
+                      ) : null}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="mt-6 pt-5 border-t border-[#e8edf2]">
+          <Link
+            href="/products"
+            onClick={onClose}
+            className="text-sm font-semibold text-[#f4a65d] hover:text-[#d4892a] transition-colors duration-150"
+          >
+            View all products →
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function CompanyDropdown({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2] animate-[fadeInDown_0.15s_ease]">
+      <div className="max-w-7xl mx-auto px-6 py-6">
+        <div className="grid grid-cols-2 gap-x-12 gap-y-2 max-w-xs">
+          {companyDropdown.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={onClose}
+              className="text-[0.9rem] font-medium text-[#334150] hover:text-[#f4a65d] transition-colors duration-150 py-1.5"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function MobileMenu({
+  onClose,
+  mobileAccordion,
+  setMobileAccordion,
+}: {
+  onClose: () => void
+  mobileAccordion: string | null
+  setMobileAccordion: (val: string | null) => void
+}) {
+  return (
+    <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-[#e8edf2] shadow-xl max-h-[calc(100vh-75px)] overflow-y-auto">
+      <div className="px-4 py-3 space-y-0.5">
+
+        {/* Industries accordion */}
+        <button
+          className="w-full flex items-center justify-between px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
+          onClick={() => setMobileAccordion(mobileAccordion === 'industries' ? null : 'industries')}
+        >
+          Industries
+          <ChevronDown
+            size={15}
+            className={`transition-transform duration-200 ${mobileAccordion === 'industries' ? 'rotate-180' : ''}`}
+          />
+        </button>
+        {mobileAccordion === 'industries' && (
+          <div className="pl-5 pb-2 space-y-1">
+            {industriesDropdown.map((ind) => (
+              <Link
+                key={ind.name}
+                href={ind.href}
+                onClick={onClose}
+                className="block py-2 text-sm text-[#334150] hover:text-[#f4a65d] transition-colors duration-150"
+              >
+                {ind.name}
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {/* Products accordion */}
+        <button
+          className="w-full flex items-center justify-between px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
+          onClick={() => setMobileAccordion(mobileAccordion === 'products' ? null : 'products')}
+        >
+          Products
+          <ChevronDown
+            size={15}
+            className={`transition-transform duration-200 ${mobileAccordion === 'products' ? 'rotate-180' : ''}`}
+          />
+        </button>
+        {mobileAccordion === 'products' && (
+          <div className="pl-5 pb-2 space-y-4">
+            {productsDropdown.map((col) => (
+              <div key={col.heading}>
+                <div className="text-[0.65rem] font-bold uppercase tracking-widest text-[#8898aa] mb-1.5">
+                  {col.heading}
+                </div>
+                {col.items.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    onClick={onClose}
+                    className="block py-1.5 text-sm text-[#334150] hover:text-[#f4a65d] transition-colors duration-150"
+                  >
+                    {item.name}
+                    {item.description ? (
+                      <span className="text-[#8898aa] text-xs block mt-0.5">{item.description}</span>
+                    ) : null}
+                  </Link>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+
+        <Link
+          href="/support"
+          onClick={onClose}
+          className="block px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
+        >
+          Services
+        </Link>
+        <Link
+          href="/resources"
+          onClick={onClose}
+          className="block px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
+        >
+          Resources
+        </Link>
+        <Link
+          href="/resources"
+          onClick={onClose}
+          className="block px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
+        >
+          Innovation
+        </Link>
+
+        {/* Company accordion */}
+        <button
+          className="w-full flex items-center justify-between px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
+          onClick={() => setMobileAccordion(mobileAccordion === 'company' ? null : 'company')}
+        >
+          Company
+          <ChevronDown
+            size={15}
+            className={`transition-transform duration-200 ${mobileAccordion === 'company' ? 'rotate-180' : ''}`}
+          />
+        </button>
+        {mobileAccordion === 'company' && (
+          <div className="pl-5 pb-2 space-y-1">
+            {companyDropdown.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={onClose}
+                className="block py-2 text-sm text-[#334150] hover:text-[#f4a65d] transition-colors duration-150"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {/* CTA */}
+        <div className="pt-4 pb-3 border-t border-[#e8edf2] mt-2">
+          <Link
+            href="/contact"
+            onClick={onClose}
+            className="block w-full text-center bg-[#f4a65d] hover:bg-[#d4892a] text-white font-semibold text-sm py-3 rounded-md transition-colors duration-150"
+          >
+            Request a Quote
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function SearchOverlay({
+  onClose,
+  inputRef,
+}: {
+  onClose: () => void
+  inputRef: React.RefObject<HTMLInputElement | null>
+}) {
+  return (
+    <div className="absolute top-full left-0 right-0 bg-white border-t border-[#e8edf2] shadow-md animate-[fadeInDown_0.15s_ease]">
+      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center gap-3">
+        <Search size={16} className="text-[#8898aa] shrink-0" />
+        <input
+          ref={inputRef}
+          type="text"
+          placeholder="Search products, industries, resources..."
+          className="flex-1 text-[0.9rem] text-[#334150] placeholder-[#aab4bf] outline-none bg-transparent"
+        />
+        <button
+          onClick={onClose}
+          className="p-1 rounded text-[#8898aa] hover:text-[#334150] transition-colors duration-150"
+          aria-label="Close search"
+        >
+          <X size={16} />
+        </button>
+      </div>
+    </div>
+  )
+}
+
+// ── Main Navigation ───────────────────────────────────────────────────────────
+
 export default function Navigation() {
   const [open, setOpen] = useState<OpenMenu>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -138,7 +404,6 @@ export default function Navigation() {
 
         {/* Desktop center nav */}
         <nav className="hidden lg:flex items-center gap-0.5">
-          {/* Industries */}
           <button
             onClick={() => toggle('industries')}
             aria-expanded={open === 'industries'}
@@ -151,7 +416,6 @@ export default function Navigation() {
             />
           </button>
 
-          {/* Products */}
           <button
             onClick={() => toggle('products')}
             aria-expanded={open === 'products'}
@@ -174,7 +438,6 @@ export default function Navigation() {
             Innovation
           </Link>
 
-          {/* Company */}
           <button
             onClick={() => toggle('company')}
             aria-expanded={open === 'company'}
@@ -190,13 +453,11 @@ export default function Navigation() {
 
         {/* Desktop right */}
         <div className="hidden lg:flex items-center gap-3 shrink-0">
-          {/* Region selector */}
           <button className="flex items-center gap-1 text-[0.7rem] text-[#8898aa] hover:text-[#566677] transition-colors duration-150">
             <Globe size={12} />
             <span>Global — EN</span>
           </button>
 
-          {/* Search button */}
           <button
             onClick={() => setSearchOpen(!searchOpen)}
             aria-label="Toggle search"
@@ -205,7 +466,6 @@ export default function Navigation() {
             <Search size={16} />
           </button>
 
-          {/* Quote cart */}
           <Link
             href="/contact?quote=true"
             aria-label="Quote cart"
@@ -244,245 +504,21 @@ export default function Navigation() {
 
       {/* Search overlay */}
       {searchOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white border-t border-[#e8edf2] shadow-md animate-[fadeInDown_0.15s_ease]">
-          <div className="max-w-7xl mx-auto px-6 py-3 flex items-center gap-3">
-            <Search size={16} className="text-[#8898aa] shrink-0" />
-            <input
-              ref={searchInputRef}
-              type="text"
-              placeholder="Search products, industries, resources..."
-              className="flex-1 text-[0.9rem] text-[#334150] placeholder-[#aab4bf] outline-none bg-transparent"
-            />
-            <button
-              onClick={() => setSearchOpen(false)}
-              className="p-1 rounded text-[#8898aa] hover:text-[#334150] transition-colors duration-150"
-              aria-label="Close search"
-            >
-              <X size={16} />
-            </button>
-          </div>
-        </div>
+        <SearchOverlay onClose={() => setSearchOpen(false)} inputRef={searchInputRef} />
       )}
 
-      {/* INDUSTRIES MEGA DROPDOWN */}
-      {open === 'industries' && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2] animate-[fadeInDown_0.15s_ease]">
-          <div className="max-w-7xl mx-auto px-6 py-8">
-            <div className="grid grid-cols-2 gap-x-16 gap-y-3 max-w-xl">
-              {industriesDropdown.map((ind) => (
-                <Link
-                  key={ind.name}
-                  href={ind.href}
-                  onClick={() => setOpen(null)}
-                  className="flex items-center gap-2 text-[0.9rem] font-medium text-[#334150] hover:text-[#f4a65d] transition-colors duration-150 py-1"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#f4a65d] shrink-0" />
-                  {ind.name}
-                </Link>
-              ))}
-            </div>
-            <div className="mt-6 pt-5 border-t border-[#e8edf2]">
-              <Link
-                href="/solutions"
-                onClick={() => setOpen(null)}
-                className="text-sm font-semibold text-[#f4a65d] hover:text-[#d4892a] transition-colors duration-150"
-              >
-                View all industries →
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Desktop dropdowns */}
+      {open === 'industries' && <IndustriesDropdown onClose={() => setOpen(null)} />}
+      {open === 'products' && <ProductsDropdown onClose={() => setOpen(null)} />}
+      {open === 'company' && <CompanyDropdown onClose={() => setOpen(null)} />}
 
-      {/* PRODUCTS MEGA DROPDOWN */}
-      {open === 'products' && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2] animate-[fadeInDown_0.15s_ease]">
-          <div className="max-w-7xl mx-auto px-6 py-8">
-            <div className="grid grid-cols-4 gap-8">
-              {productsDropdown.map((col) => (
-                <div key={col.heading}>
-                  <div className="text-[0.7rem] font-bold uppercase tracking-[0.1em] text-[#8898aa] mb-3">
-                    {col.heading}
-                  </div>
-                  <ul className="space-y-1.5">
-                    {col.items.map((item) => (
-                      <li key={item.name}>
-                        <Link
-                          href={item.href}
-                          onClick={() => setOpen(null)}
-                          className="block text-[0.875rem] font-medium text-[#334150] hover:text-[#f4a65d] transition-colors duration-150 py-0.5"
-                        >
-                          {item.name}
-                          {item.description ? (
-                            <span className="text-[#8898aa] text-xs block mt-0.5">{item.description}</span>
-                          ) : null}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-            <div className="mt-6 pt-5 border-t border-[#e8edf2]">
-              <Link
-                href="/products"
-                onClick={() => setOpen(null)}
-                className="text-sm font-semibold text-[#f4a65d] hover:text-[#d4892a] transition-colors duration-150"
-              >
-                View all products →
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* COMPANY DROPDOWN */}
-      {open === 'company' && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2] animate-[fadeInDown_0.15s_ease]">
-          <div className="max-w-7xl mx-auto px-6 py-6">
-            <div className="grid grid-cols-2 gap-x-12 gap-y-2 max-w-xs">
-              {companyDropdown.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setOpen(null)}
-                  className="text-[0.9rem] font-medium text-[#334150] hover:text-[#f4a65d] transition-colors duration-150 py-1.5"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* MOBILE MENU */}
+      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t border-[#e8edf2] shadow-xl max-h-[calc(100vh-75px)] overflow-y-auto">
-          <div className="px-4 py-3 space-y-0.5">
-
-            {/* Industries accordion */}
-            <button
-              className="w-full flex items-center justify-between px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-              onClick={() => setMobileAccordion(mobileAccordion === 'industries' ? null : 'industries')}
-            >
-              Industries
-              <ChevronDown
-                size={15}
-                className={`transition-transform duration-200 ${mobileAccordion === 'industries' ? 'rotate-180' : ''}`}
-              />
-            </button>
-            {mobileAccordion === 'industries' && (
-              <div className="pl-5 pb-2 space-y-1">
-                {industriesDropdown.map((ind) => (
-                  <Link
-                    key={ind.name}
-                    href={ind.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block py-2 text-sm text-[#334150] hover:text-[#f4a65d] transition-colors duration-150"
-                  >
-                    {ind.name}
-                  </Link>
-                ))}
-              </div>
-            )}
-
-            {/* Products accordion */}
-            <button
-              className="w-full flex items-center justify-between px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-              onClick={() => setMobileAccordion(mobileAccordion === 'products' ? null : 'products')}
-            >
-              Products
-              <ChevronDown
-                size={15}
-                className={`transition-transform duration-200 ${mobileAccordion === 'products' ? 'rotate-180' : ''}`}
-              />
-            </button>
-            {mobileAccordion === 'products' && (
-              <div className="pl-5 pb-2 space-y-4">
-                {productsDropdown.map((col) => (
-                  <div key={col.heading}>
-                    <div className="text-[0.65rem] font-bold uppercase tracking-widest text-[#8898aa] mb-1.5">
-                      {col.heading}
-                    </div>
-                    {col.items.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="block py-1.5 text-sm text-[#334150] hover:text-[#f4a65d] transition-colors duration-150"
-                      >
-                        {item.name}
-                        {item.description ? (
-                          <span className="text-[#8898aa] text-xs block mt-0.5">{item.description}</span>
-                        ) : null}
-                      </Link>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <Link
-              href="/support"
-              onClick={() => setMobileOpen(false)}
-              className="block px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-            >
-              Services
-            </Link>
-            <Link
-              href="/resources"
-              onClick={() => setMobileOpen(false)}
-              className="block px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-            >
-              Resources
-            </Link>
-            <Link
-              href="/resources"
-              onClick={() => setMobileOpen(false)}
-              className="block px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-            >
-              Innovation
-            </Link>
-
-            {/* Company accordion */}
-            <button
-              className="w-full flex items-center justify-between px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-              onClick={() => setMobileAccordion(mobileAccordion === 'company' ? null : 'company')}
-            >
-              Company
-              <ChevronDown
-                size={15}
-                className={`transition-transform duration-200 ${mobileAccordion === 'company' ? 'rotate-180' : ''}`}
-              />
-            </button>
-            {mobileAccordion === 'company' && (
-              <div className="pl-5 pb-2 space-y-1">
-                {companyDropdown.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block py-2 text-sm text-[#334150] hover:text-[#f4a65d] transition-colors duration-150"
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            )}
-
-            {/* CTA */}
-            <div className="pt-4 pb-3 border-t border-[#e8edf2] mt-2">
-              <Link
-                href="/contact"
-                onClick={() => setMobileOpen(false)}
-                className="block w-full text-center bg-[#f4a65d] hover:bg-[#d4892a] text-white font-semibold text-sm py-3 rounded-md transition-colors duration-150"
-              >
-                Request a Quote
-              </Link>
-            </div>
-          </div>
-        </div>
+        <MobileMenu
+          onClose={() => setMobileOpen(false)}
+          mobileAccordion={mobileAccordion}
+          setMobileAccordion={setMobileAccordion}
+        />
       )}
     </header>
   )

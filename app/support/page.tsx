@@ -97,7 +97,7 @@ function highlightText(text: string, query: string): React.ReactNode {
   const parts = text.split(regex)
   return parts.map((part, i) =>
     regex.test(part) ? (
-      <mark key={i} className="bg-[#f4a65d]/30 text-[#0f2a4a] rounded px-0.5">
+      <mark key={`hl-${i}`} className="bg-[#f4a65d]/30 text-[#0f2a4a] rounded px-0.5">
         {part}
       </mark>
     ) : (
@@ -256,7 +256,7 @@ export default function SupportPage() {
             <div>
               {currentFaqs.map((faq, index) => (
                 <div
-                  key={index}
+                  key={faq.question}
                   className="bg-white border border-[#e8edf2] rounded-xl mb-3 overflow-hidden"
                 >
                   <button
@@ -290,7 +290,7 @@ export default function SupportPage() {
               ) : (
                 searchResults.map((faq, index) => (
                   <div
-                    key={index}
+                    key={`${faq.category}-${faq.question}`}
                     className="bg-white border border-[#e8edf2] rounded-xl mb-3 overflow-hidden"
                   >
                     <div className="px-6 py-4">
@@ -372,7 +372,7 @@ export default function SupportPage() {
               },
             ].map((item, i) => (
               <div
-                key={i}
+                key={`download-${item.name}-${item.platform}`}
                 className="bg-white border border-[#e8edf2] rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-all"
               >
                 <div className="w-12 h-12 bg-[#f0f4f8] rounded-lg flex items-center justify-center">
@@ -414,16 +414,18 @@ export default function SupportPage() {
                 {/* Name + Company */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Full Name</label>
+                    <label htmlFor="support-name" className="block text-[#0f2a4a] font-medium text-sm mb-1">Full Name</label>
                     <input
+                      id="support-name"
                       type="text"
                       placeholder="John Smith"
                       className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Company</label>
+                    <label htmlFor="support-company" className="block text-[#0f2a4a] font-medium text-sm mb-1">Company</label>
                     <input
+                      id="support-company"
                       type="text"
                       placeholder="Acme Corp"
                       className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
@@ -434,16 +436,18 @@ export default function SupportPage() {
                 {/* Email + Phone */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Email</label>
+                    <label htmlFor="support-email" className="block text-[#0f2a4a] font-medium text-sm mb-1">Email</label>
                     <input
+                      id="support-email"
                       type="email"
                       placeholder="john@company.com"
                       className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
                     />
                   </div>
                   <div>
-                    <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Phone</label>
+                    <label htmlFor="support-phone" className="block text-[#0f2a4a] font-medium text-sm mb-1">Phone</label>
                     <input
+                      id="support-phone"
                       type="tel"
                       placeholder="+1 (555) 000-0000"
                       className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
@@ -453,8 +457,9 @@ export default function SupportPage() {
 
                 {/* Product / System */}
                 <div>
-                  <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Product / System</label>
+                  <label htmlFor="support-product" className="block text-[#0f2a4a] font-medium text-sm mb-1">Product / System</label>
                   <input
+                    id="support-product"
                     type="text"
                     placeholder="e.g. ER Probe Model 7012, FieldCom 3.0"
                     className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
@@ -463,8 +468,8 @@ export default function SupportPage() {
 
                 {/* Application Type */}
                 <div>
-                  <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Application Type</label>
-                  <select className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] bg-white">
+                  <label htmlFor="support-app-type" className="block text-[#0f2a4a] font-medium text-sm mb-1">Application Type</label>
+                  <select id="support-app-type" className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] bg-white">
                     <option value="">Select application...</option>
                     <option>Oil &amp; Gas — Upstream</option>
                     <option>Oil &amp; Gas — Midstream Pipeline</option>
@@ -479,8 +484,9 @@ export default function SupportPage() {
 
                 {/* Issue Description */}
                 <div>
-                  <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Issue Description</label>
+                  <label htmlFor="support-issue" className="block text-[#0f2a4a] font-medium text-sm mb-1">Issue Description</label>
                   <textarea
+                    id="support-issue"
                     rows={5}
                     placeholder="Describe the issue, symptoms, and any troubleshooting steps already taken..."
                     className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d] resize-none"
@@ -489,8 +495,8 @@ export default function SupportPage() {
 
                 {/* Priority */}
                 <div>
-                  <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Priority</label>
-                  <select className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] bg-white">
+                  <label htmlFor="support-priority" className="block text-[#0f2a4a] font-medium text-sm mb-1">Priority</label>
+                  <select id="support-priority" className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] bg-white">
                     <option value="critical">Critical — System Down</option>
                     <option value="high">High — Degraded Performance</option>
                     <option value="normal">Normal — Planning / Inquiry</option>
@@ -499,8 +505,9 @@ export default function SupportPage() {
 
                 {/* File Upload */}
                 <div>
-                  <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Attachments</label>
+                  <label htmlFor="support-attachments" className="block text-[#0f2a4a] font-medium text-sm mb-1">Attachments</label>
                   <div className="border-2 border-dashed border-[#e8edf2] rounded-xl p-8 text-center hover:border-[#f4a65d] transition-colors cursor-pointer">
+                    <input type="file" id="support-attachments" className="sr-only" multiple accept=".pdf,.png,.jpg,.jpeg" />
                     <Upload className="w-8 h-8 text-[#8898aa] mx-auto mb-3" />
                     <p className="text-[#566677] text-sm font-medium">Drag and drop files here</p>
                     <p className="text-[#8898aa] text-xs mt-1">or <span className="text-[#f4a65d] font-semibold">browse to upload</span></p>

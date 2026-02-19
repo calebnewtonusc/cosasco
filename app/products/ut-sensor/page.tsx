@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Ultrasonic Wall Thickness Sensors | Cosasco',
+  description: 'Non-intrusive UT sensors for continuous pipe wall thickness and erosion monitoring.',
+}
+
 import Link from "next/link";
 import {
   ChevronRight,

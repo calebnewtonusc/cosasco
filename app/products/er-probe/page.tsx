@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'ER Probe Systems | Cosasco Corrosion Monitoring',
+  description: 'Electrical resistance probe systems for continuous corrosion measurement. Rated to 10,000 PSI and 200°C.',
+}
+
 import Link from "next/link";
 import {
   ChevronRight,

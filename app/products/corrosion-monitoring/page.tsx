@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Corrosion Monitoring Products | Cosasco',
+  description: 'ER probes, corrosion coupons, access fittings, and LPR sensors for continuous and periodic corrosion measurement in industrial process systems.',
+}
+
 import Link from "next/link";
 import {
   ChevronRight,

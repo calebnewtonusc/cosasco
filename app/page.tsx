@@ -325,7 +325,7 @@ export default function HomePage() {
 
               {/* Headline */}
               <h1
-                className="font-black text-5xl lg:text-6xl xl:text-7xl leading-[1.05]"
+                className="font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05]"
                 style={{ color: '#ffffff' }}
               >
                 Complete confidence in
@@ -366,7 +366,7 @@ export default function HomePage() {
 
               {/* Stats row */}
               <div
-                className="mt-16 pt-8 border-t grid grid-cols-3 max-w-2xl mx-auto lg:mx-0"
+                className="mt-16 pt-8 border-t grid grid-cols-1 sm:grid-cols-3 max-w-2xl mx-auto lg:mx-0"
                 style={{ borderColor: 'rgba(255,255,255,0.1)' }}
               >
                 <StatCounter end={70} suffix="+" label="Years Experience" />
@@ -504,7 +504,7 @@ export default function HomePage() {
             </div>
 
             {/* Industry cards */}
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
               {industries.map((ind) => {
                 const Icon = ind.icon
                 return (

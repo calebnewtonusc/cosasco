@@ -288,6 +288,83 @@ export default function ResourcesPage() {
         </div>
       </section>
 
+      {/* WEBINARS */}
+      <section className="bg-white py-16 border-b border-[#e8edf2]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Live Events</p>
+            <h2 className="text-[#0f2a4a] font-black text-3xl md:text-4xl mb-3">Upcoming Webinars</h2>
+            <p className="text-[#566677] max-w-xl mx-auto text-base">
+              Free technical webinars from Cosasco corrosion engineers. Register to attend live or receive the recording.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                date: 'Mar 12',
+                year: '2026',
+                time: '10:00 AM PT',
+                duration: '60 min',
+                title: 'Corrosion Monitoring Best Practices for H₂S Environments',
+                presenter: 'Cosasco Applications Engineering Team',
+                badge: 'Registration Open',
+                badgeClass: 'bg-[#d1fae5] text-[#065f46]',
+                open: true,
+              },
+              {
+                date: 'Mar 26',
+                year: '2026',
+                time: '2:00 PM PT',
+                duration: '45 min',
+                title: 'FieldCom Cloud: Live Product Demo & Q&A',
+                presenter: 'Cosasco Software Team',
+                badge: 'Registration Open',
+                badgeClass: 'bg-[#d1fae5] text-[#065f46]',
+                open: true,
+              },
+              {
+                date: 'Apr 9',
+                year: '2026',
+                time: '10:00 AM PT',
+                duration: '90 min',
+                title: 'Corrosion Under Insulation (CUI): Detection Strategies',
+                presenter: 'Cosasco Integrity Engineering',
+                badge: 'Coming Soon',
+                badgeClass: 'bg-[#e8edf2] text-[#566677]',
+                open: false,
+              },
+            ].map((w) => (
+              <div key={w.title} className="bg-white border border-[#e8edf2] rounded-xl overflow-hidden hover:shadow-md transition-all flex flex-col">
+                <div className="bg-[#f4a65d] px-6 py-4 flex items-center justify-between">
+                  <div className="text-white">
+                    <div className="font-black text-2xl leading-none">{w.date}</div>
+                    <div className="text-sm opacity-80 mt-0.5">{w.year} · {w.time}</div>
+                  </div>
+                  <span className={`text-xs font-bold px-3 py-1 rounded-full ${w.badgeClass}`}>
+                    {w.badge}
+                  </span>
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <p className="text-[#8898aa] text-xs font-semibold uppercase tracking-wider mb-2">{w.duration}</p>
+                  <h3 className="text-[#0f2a4a] font-black text-base leading-snug mb-3 flex-1">{w.title}</h3>
+                  <p className="text-[#566677] text-xs mb-5">{w.presenter}</p>
+                  <Link
+                    href="/contact"
+                    className={`block w-full text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${
+                      w.open
+                        ? 'bg-[#0f2a4a] text-white hover:bg-[#1a3d6b]'
+                        : 'bg-[#f0f4f8] text-[#8898aa] cursor-default pointer-events-none'
+                    }`}
+                  >
+                    {w.open ? 'Register Now' : 'Notify Me'}
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FEATURED CASE STUDIES */}
       <section className="bg-[#0f2a4a] py-16">
         <div className="max-w-6xl mx-auto px-6">
@@ -299,33 +376,33 @@ export default function ResourcesPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               {
-                industry: 'Oil & Gas — Midstream',
-                title: 'Gulf Coast Transmission Pipeline Network',
-                href: '/resources/case-studies/pipeline-corrosion',
+                industry: 'Gas Transmission',
+                title: 'Eliminating Unplanned Shutdowns on a 400km North Sea Pipeline',
+                href: '/resources/case-studies/north-sea-pipeline',
                 stats: [
-                  { value: '73%', label: 'Reduction in corrosion incidents' },
-                  { value: '$2.1M', label: 'Annual maintenance savings' },
-                  { value: '847', label: 'Miles of pipeline monitored' },
+                  { value: '0', label: 'Unplanned shutdowns in 36 months' },
+                  { value: '$2.4M', label: 'Daily shutdown exposure eliminated' },
+                  { value: '14', label: 'Active monitoring points' },
                 ],
               },
               {
-                industry: 'Oil & Gas — Offshore',
-                title: 'North Sea Offshore Platform Monitoring Network',
-                href: '/resources/case-studies/offshore-monitoring',
+                industry: 'Downstream / Refining',
+                title: 'Real-Time Corrosion Intelligence at a Gulf Coast CDU',
+                href: '/resources/case-studies/gulf-coast-refinery',
                 stats: [
-                  { value: '68%', label: 'Reduction in unplanned downtime' },
-                  { value: '+8yr', label: 'Extended asset service life' },
-                  { value: '12', label: 'Production platforms monitored' },
+                  { value: '73%', label: 'Reduction in corrosion events' },
+                  { value: '$6.2M', label: 'Annual maintenance savings' },
+                  { value: '8', label: 'Monitoring zones instrumented' },
                 ],
               },
               {
-                industry: 'Petrochemical — Refining',
-                title: 'Integrated Refinery Corrosion Optimization Program',
-                href: '/resources/case-studies/refinery-optimization',
+                industry: 'Upstream Oil & Gas',
+                title: 'Scaling Corrosion Monitoring Across 23 Water Injection Wells',
+                href: '/resources/case-studies/water-injection-platform',
                 stats: [
-                  { value: '81%', label: 'Reduction in corrosion-related losses' },
-                  { value: '14mo', label: 'Time to full program ROI' },
-                  { value: '3', label: 'Refinery units fully instrumented' },
+                  { value: '23', label: 'Wells consistently monitored' },
+                  { value: '40%', label: 'Reduction in inhibitor spend' },
+                  { value: '100%', label: 'Portfolio standardization' },
                 ],
               },
             ].map((cs) => (

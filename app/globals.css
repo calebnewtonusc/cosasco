@@ -24,13 +24,20 @@ body {
 ::selection { background: #fde8d8; color: #d4892a; }
 
 @media print {
-  /* Hide nav, footer, buttons, decorative elements */
+  /* Hide navigation, footer, interactive elements, decorative items */
   header,
   footer,
   nav,
-  button,
+  .no-print,
+  [data-backtotop],
+  [data-cookiebanner],
   [aria-label="Quote cart"],
-  .no-print {
+  [data-print-hide] {
+    display: none !important;
+  }
+
+  /* Hide all buttons except form submit */
+  button:not([type="submit"]) {
     display: none !important;
   }
 
@@ -39,6 +46,18 @@ body {
     color: #000 !important;
     background: #fff !important;
     font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  /* Remove all box shadows */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Make all text black */
+  h1, h2, h3, h4, h5, h6, p, span, li, td, th, label {
+    color: #000 !important;
   }
 
   a {
@@ -46,32 +65,58 @@ body {
     text-decoration: none;
   }
 
-  /* Show full URL after links */
+  /* Show full URL after external links */
   a[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 9pt;
-    color: #666;
+    color: #555;
   }
 
-  /* Spec tables print cleanly */
+  /* Spec tables print cleanly with visible borders */
   table {
-    border-collapse: collapse;
-    width: 100%;
+    border-collapse: collapse !important;
+    width: 100% !important;
     page-break-inside: avoid;
   }
 
   th, td {
-    border: 1px solid #ccc;
-    padding: 6px 10px;
-    text-align: left;
+    border: 1px solid #888 !important;
+    padding: 6px 10px !important;
+    text-align: left !important;
+    color: #000 !important;
+    background: #fff !important;
   }
 
-  /* Avoid page breaks inside cards */
-  .rounded-xl, section {
+  thead tr {
+    background: #ddd !important;
+  }
+
+  /* Page breaks before h2 sections */
+  h2 {
+    page-break-before: always;
+    page-break-after: avoid;
+  }
+
+  h2:first-child,
+  section:first-child h2 {
+    page-break-before: auto;
+  }
+
+  /* Avoid breaking inside key content blocks */
+  .rounded-xl,
+  section,
+  article,
+  figure {
     page-break-inside: avoid;
   }
 
-  /* Page header with Cosasco branding */
+  /* Avoid orphans and widows */
+  p {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Page margins */
   @page {
     margin: 2cm;
   }

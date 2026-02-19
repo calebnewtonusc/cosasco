@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { AlertTriangle, MessageSquare, Phone, FileText, ArrowRight, Download, MessageCircle, Upload } from 'lucide-react'
 import SupportFAQ from '@/components/SupportFAQ'
 
@@ -95,13 +96,23 @@ export default function SupportPage() {
                 </div>
                 <h3 className="font-black text-[#0f2a4a] text-xl mt-5">{card.title}</h3>
                 <p className="text-[#566677] mt-3 text-sm leading-relaxed">{card.description}</p>
-                <button
-                  type="button"
-                  className="text-[#f4a65d] font-semibold text-sm mt-5 flex items-center gap-1 hover:gap-2 transition-all"
-                >
-                  {card.link}
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+                {card.title === 'Submit a Request' ? (
+                  <Link
+                    href="/support/rma"
+                    className="text-[#f4a65d] font-semibold text-sm mt-5 flex items-center gap-1 hover:gap-2 transition-all"
+                  >
+                    {card.link}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    className="text-[#f4a65d] font-semibold text-sm mt-5 flex items-center gap-1 hover:gap-2 transition-all"
+                  >
+                    {card.link}
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                )}
               </div>
             ))}
           </div>

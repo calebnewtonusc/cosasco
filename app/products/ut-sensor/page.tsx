@@ -17,6 +17,7 @@ import {
   ArrowRight,
   ScanLine,
 } from "lucide-react";
+import RecentlyViewed from '@/components/RecentlyViewed';
 
 export default function UTSensorPage() {
   return (
@@ -271,6 +272,7 @@ export default function UTSensorPage() {
           </div>
         </aside>
       </div>
+      <RecentlyViewed currentProduct={{ name: "UT Sensors", href: "/products/ut-sensor", category: "Erosion Monitoring" }} />
     </>
   );
 }

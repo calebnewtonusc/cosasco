@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { Search, FileText, BookOpen, Download } from 'lucide-react'
+import Link from 'next/link'
 
 type ResourceType = 'Datasheet' | 'Installation' | 'White Paper' | 'Case Study' | 'App Note'
 
@@ -300,28 +301,31 @@ export default function ResourcesPage() {
               {
                 industry: 'Oil & Gas — Midstream',
                 title: 'Gulf Coast Transmission Pipeline Network',
+                href: '/resources/case-studies/pipeline-corrosion',
                 stats: [
-                  { value: '94%', label: 'Reduction in corrosion incidents' },
-                  { value: '$4.2M', label: 'Annual maintenance savings' },
-                  { value: '1,200', label: 'Miles of pipeline monitored' },
+                  { value: '73%', label: 'Reduction in corrosion incidents' },
+                  { value: '$2.1M', label: 'Annual maintenance savings' },
+                  { value: '847', label: 'Miles of pipeline monitored' },
+                ],
+              },
+              {
+                industry: 'Oil & Gas — Offshore',
+                title: 'North Sea Offshore Platform Monitoring Network',
+                href: '/resources/case-studies/offshore-monitoring',
+                stats: [
+                  { value: '68%', label: 'Reduction in unplanned downtime' },
+                  { value: '+8yr', label: 'Extended asset service life' },
+                  { value: '12', label: 'Production platforms monitored' },
                 ],
               },
               {
                 industry: 'Petrochemical — Refining',
-                title: 'Integrated Refinery Corrosion Program',
+                title: 'Integrated Refinery Corrosion Optimization Program',
+                href: '/resources/case-studies/refinery-optimization',
                 stats: [
-                  { value: '0', label: 'Unplanned shutdowns over 36 months' },
-                  { value: '18mo', label: 'Extended turnaround interval' },
-                  { value: '340+', label: 'Monitoring points installed' },
-                ],
-              },
-              {
-                industry: 'Water Treatment',
-                title: 'Municipal Water Distribution MIC Control',
-                stats: [
-                  { value: '78%', label: 'Decrease in MIC-related failures' },
-                  { value: '12yr', label: 'Extended asset service life' },
-                  { value: '60+', label: 'Monitoring locations deployed' },
+                  { value: '81%', label: 'Reduction in corrosion-related losses' },
+                  { value: '14mo', label: 'Time to full program ROI' },
+                  { value: '3', label: 'Refinery units fully instrumented' },
                 ],
               },
             ].map((cs) => (
@@ -341,9 +345,12 @@ export default function ResourcesPage() {
                     </div>
                   ))}
                 </div>
-                <button className="mt-6 border border-white/30 text-white rounded-lg px-5 py-2.5 text-sm font-semibold hover:bg-white/10 transition-colors w-full">
+                <Link
+                  href={cs.href}
+                  className="mt-6 border border-white/30 text-white rounded-lg px-5 py-2.5 text-sm font-semibold hover:bg-white/10 transition-colors w-full text-center block"
+                >
                   Read Case Study
-                </button>
+                </Link>
               </div>
             ))}
           </div>

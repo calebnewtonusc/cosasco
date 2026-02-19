@@ -17,6 +17,7 @@ import {
   ArrowRight,
   Wrench,
 } from "lucide-react";
+import RecentlyViewed from '@/components/RecentlyViewed';
 
 export default function AccessFittingsPage() {
   return (
@@ -268,6 +269,7 @@ export default function AccessFittingsPage() {
           </div>
         </aside>
       </div>
+      <RecentlyViewed currentProduct={{ name: "Access Fittings", href: "/products/access-fittings", category: "Corrosion Monitoring" }} />
     </>
   );
 }

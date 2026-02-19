@@ -17,6 +17,7 @@ import {
   ArrowRight,
   Droplets,
 } from "lucide-react";
+import RecentlyViewed from '@/components/RecentlyViewed';
 
 export default function QuillAssemblyPage() {
   return (
@@ -268,6 +269,7 @@ export default function QuillAssemblyPage() {
           </div>
         </aside>
       </div>
+      <RecentlyViewed currentProduct={{ name: "Quill Assembly", href: "/products/quill-assembly", category: "Chemical Injection" }} />
     </>
   );
 }

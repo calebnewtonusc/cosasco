@@ -22,3 +22,57 @@ body {
 :focus-visible { outline: 2px solid #f4a65d; outline-offset: 2px; }
 
 ::selection { background: #fde8d8; color: #d4892a; }
+
+@media print {
+  /* Hide nav, footer, buttons, decorative elements */
+  header,
+  footer,
+  nav,
+  button,
+  [aria-label="Quote cart"],
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    padding-top: 0 !important;
+    color: #000 !important;
+    background: #fff !important;
+    font-size: 11pt;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: none;
+  }
+
+  /* Show full URL after links */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+
+  /* Spec tables print cleanly */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    page-break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: left;
+  }
+
+  /* Avoid page breaks inside cards */
+  .rounded-xl, section {
+    page-break-inside: avoid;
+  }
+
+  /* Page header with Cosasco branding */
+  @page {
+    margin: 2cm;
+  }
+}

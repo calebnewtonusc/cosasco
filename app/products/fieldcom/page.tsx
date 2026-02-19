@@ -17,6 +17,7 @@ import {
   ArrowRight,
   Wifi,
 } from "lucide-react";
+import RecentlyViewed from '@/components/RecentlyViewed';
 
 export default function FieldComPage() {
   return (
@@ -270,6 +271,7 @@ export default function FieldComPage() {
           </div>
         </aside>
       </div>
+      <RecentlyViewed currentProduct={{ name: "FieldCom Systems", href: "/products/fieldcom", category: "Data Acquisition" }} />
     </>
   );
 }

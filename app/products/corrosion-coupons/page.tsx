@@ -17,6 +17,7 @@ import {
   ArrowRight,
   FlaskConical,
 } from "lucide-react";
+import RecentlyViewed from '@/components/RecentlyViewed';
 
 export default function CorrosionCouponsPage() {
   return (
@@ -269,6 +270,7 @@ export default function CorrosionCouponsPage() {
           </div>
         </aside>
       </div>
+      <RecentlyViewed currentProduct={{ name: "Corrosion Coupons", href: "/products/corrosion-coupons", category: "Corrosion Monitoring" }} />
     </>
   );
 }

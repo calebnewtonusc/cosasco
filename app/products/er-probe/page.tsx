@@ -18,6 +18,8 @@ import {
   Thermometer,
   Activity,
 } from "lucide-react";
+import PrintButton from '@/components/PrintButton'
+import RecentlyViewed from '@/components/RecentlyViewed';
 
 export default function ERProbePage() {
   return (
@@ -56,6 +58,10 @@ export default function ERProbePage() {
                 {s.label}
               </span>
             ))}
+          </div>
+
+          <div className="mt-6">
+            <PrintButton />
           </div>
         </div>
       </section>
@@ -276,6 +282,7 @@ export default function ERProbePage() {
           </div>
         </aside>
       </div>
+      <RecentlyViewed currentProduct={{ name: "ER Probes", href: "/products/er-probe", category: "Corrosion Monitoring" }} />
     </>
   );
 }

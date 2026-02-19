@@ -58,10 +58,10 @@ export default function Footer() {
               Contact an Expert
             </Link>
             <Link
-              href="/resources/catalog"
+              href="/resources"
               className="border border-white text-white hover:bg-white hover:text-[#0f2a4a] font-semibold text-sm px-5 py-2.5 rounded-md transition-colors duration-150 whitespace-nowrap"
             >
-              Download Product Catalog
+              View Resources
             </Link>
           </div>
         </div>
@@ -276,10 +276,6 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <Link href="/privacy" className="hover:text-white transition-colors duration-150">
                 Privacy Policy
-              </Link>
-              <span className="text-white/20">·</span>
-              <Link href="/privacy" className="hover:text-white transition-colors duration-150">
-                Privacy
               </Link>
               <span className="text-white/20">·</span>
               <Link href="/accessibility" className="hover:text-white transition-colors duration-150">

@@ -2,7 +2,6 @@
 
 import { useReducer, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { ChevronDown, Menu, X, Phone, Search, ShoppingCart, Globe } from 'lucide-react'
 
 const industriesDropdown = [
@@ -461,14 +460,12 @@ export default function Navigation() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0" aria-label="Cosasco home">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/cosasco-logo.png"
             alt="Cosasco"
-            width={0}
-            height={40}
-            style={{ width: 'auto', height: '40px' }}
+            style={{ width: 'auto', height: '40px', position: 'relative', zIndex: 1 }}
             className="object-contain"
-            priority
           />
         </Link>
 

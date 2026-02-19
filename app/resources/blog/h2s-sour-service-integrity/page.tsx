@@ -92,7 +92,7 @@ export default function H2SSourServicePage() {
                   'Inhibitor response in H₂S is slower than in sweet service. Allow at least 4–6 hours of LPR monitoring after a dosage change before drawing conclusions about inhibitor effectiveness.',
                   'Temperature above 80°C changes the failure mode. At elevated temperatures, SSC risk diminishes but HIC and SOHIC risk increase. Material selection and monitoring strategy must account for this transition.',
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-3 items-start">
+                  <li key={item.slice(0, 30)} className="flex gap-3 items-start">
                     <span className="inline-block w-6 h-6 rounded-full bg-[#0f2a4a] text-white text-xs font-bold flex-shrink-0 flex items-center justify-center mt-0.5">
                       {i + 1}
                     </span>

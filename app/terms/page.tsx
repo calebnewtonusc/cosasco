@@ -186,11 +186,11 @@ export default function TermsPage() {
               <div key={section.id} id={section.id} className="scroll-mt-24">
                 <h2 className="text-[#0f2a4a] font-black text-xl mb-4">{section.title}</h2>
                 <div className="text-[#566677] text-sm leading-relaxed space-y-3">
-                  {section.content.split('\n\n').map((para, i) => {
+                  {section.content.split('\n\n').map((para) => {
                     if (para.startsWith('- ') || para.includes('\n- ')) {
                       const lines = para.split('\n')
                       return (
-                        <div key={i} className="space-y-1">
+                        <div key={para.slice(0, 30)} className="space-y-1">
                           {lines.map((line, j) =>
                             line.startsWith('- ') ? (
                               <div key={j} className="flex items-start gap-2">
@@ -206,12 +206,12 @@ export default function TermsPage() {
                     }
                     if (para === para.toUpperCase() && para.length > 20) {
                       return (
-                        <p key={i} className="text-[#0f2a4a] font-bold text-xs uppercase tracking-wide bg-[#f0f4f8] border border-[#e8edf2] rounded-lg p-4 leading-relaxed">
+                        <p key={para.slice(0, 30)} className="text-[#0f2a4a] font-bold text-xs uppercase tracking-wide bg-[#f0f4f8] border border-[#e8edf2] rounded-lg p-4 leading-relaxed">
                           {para}
                         </p>
                       )
                     }
-                    return <p key={i}>{para}</p>
+                    return <p key={para.slice(0, 30)}>{para}</p>
                   })}
                 </div>
               </div>

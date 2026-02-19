@@ -100,7 +100,7 @@ export default function LegacySoftwarePage() {
                 <tbody>
                   {legacyDownloads.map((row, i) => (
                     <tr
-                      key={i}
+                      key={row.software + row.version}
                       className={i % 2 === 0 ? 'bg-white' : 'bg-[#f7f9fc]'}
                     >
                       <td className="px-5 py-4 font-semibold text-[#0f2a4a]">{row.software}</td>

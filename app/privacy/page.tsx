@@ -232,11 +232,11 @@ export default function PrivacyPage() {
               <div key={section.id} id={section.id} className="scroll-mt-24">
                 <h2 className="text-[#0f2a4a] font-black text-xl mb-4">{section.title}</h2>
                 <div className="text-[#566677] text-sm leading-relaxed space-y-3">
-                  {section.content.split('\n\n').map((para, i) => {
+                  {section.content.split('\n\n').map((para) => {
                     if (para.startsWith('**') && para.includes('**\n')) {
                       const lines = para.split('\n')
                       return (
-                        <div key={i}>
+                        <div key={para.slice(0, 30)}>
                           {lines.map((line, j) => {
                             if (line.startsWith('**') && line.endsWith('**')) {
                               return <p key={j} className="font-bold text-[#0f2a4a] mt-3 mb-1">{line.replace(/\*\*/g, '')}</p>
@@ -249,7 +249,7 @@ export default function PrivacyPage() {
                     if (para.includes('**')) {
                       const parts = para.split(/\*\*(.*?)\*\*/g)
                       return (
-                        <p key={i}>
+                        <p key={para.slice(0, 30)}>
                           {parts.map((part, j) =>
                             j % 2 === 1 ? (
                               <strong key={j} className="font-bold text-[#0f2a4a]">{part}</strong>
@@ -263,14 +263,14 @@ export default function PrivacyPage() {
                     if (para.startsWith('- ')) {
                       const items = para.split('\n').filter((l) => l.startsWith('- '))
                       return (
-                        <ul key={i} className="space-y-1 pl-4">
+                        <ul key={para.slice(0, 30)} className="space-y-1 pl-4">
                           {items.map((item, j) => (
                             <li key={j} className="list-disc list-outside">{item.slice(2)}</li>
                           ))}
                         </ul>
                       )
                     }
-                    return <p key={i}>{para}</p>
+                    return <p key={para.slice(0, 30)}>{para}</p>
                   })}
                 </div>
               </div>

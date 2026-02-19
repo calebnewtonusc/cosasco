@@ -227,11 +227,12 @@ export default function DeviceLengthCalculatorPage() {
                 </div>
                 {position === 'custom' && (
                   <div className="mt-3">
-                    <label className="block text-[#566677] text-sm font-semibold mb-1">
+                    <label htmlFor="custom-depth" className="block text-[#566677] text-sm font-semibold mb-1">
                       Custom insertion depth (from inside pipe wall, in inches)
                     </label>
                     <div className="flex items-center gap-2">
                       <input
+                        id="custom-depth"
                         type="number"
                         min="0"
                         step="0.25"

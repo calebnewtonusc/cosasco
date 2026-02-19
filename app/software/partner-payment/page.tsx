@@ -74,10 +74,11 @@ export default function PartnerPaymentPage() {
                   </div>
                   <div className="space-y-5">
                     <div>
-                      <label className="block text-sm font-medium text-[#374151] mb-1.5">
+                      <label htmlFor="partner-id" className="block text-sm font-medium text-[#374151] mb-1.5">
                         Partner ID
                       </label>
                       <input
+                        id="partner-id"
                         type="text"
                         readOnly
                         placeholder="Partner ID"
@@ -85,10 +86,11 @@ export default function PartnerPaymentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[#374151] mb-1.5">
+                      <label htmlFor="partner-password" className="block text-sm font-medium text-[#374151] mb-1.5">
                         Password
                       </label>
                       <input
+                        id="partner-password"
                         type="password"
                         readOnly
                         placeholder="Password"
@@ -135,7 +137,7 @@ export default function PartnerPaymentPage() {
                 <div className="border border-[#e8edf2] rounded-xl overflow-hidden">
                   {paymentPolicies.map((policy, i) => (
                     <div
-                      key={i}
+                      key={policy.slice(0, 30)}
                       className={`px-6 py-4 text-sm text-[#566677] leading-relaxed ${
                         i < paymentPolicies.length - 1 ? 'border-b border-[#e8edf2]' : ''
                       } ${i % 2 === 0 ? 'bg-white' : 'bg-[#f7f9fc]'}`}

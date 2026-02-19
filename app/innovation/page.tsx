@@ -145,8 +145,8 @@ export default function InnovationPage() {
           <div className="relative">
             <div className="absolute left-[88px] top-0 bottom-0 w-[2px] bg-[#e8edf2] hidden md:block" />
             <div className="space-y-8">
-              {milestones.map((m, i) => (
-                <div key={i} className="md:flex items-start gap-8">
+              {milestones.map((m) => (
+                <div key={m.year} className="md:flex items-start gap-8">
                   <div className="shrink-0 w-[88px] text-right hidden md:block">
                     <span className="text-[#f4a65d] font-black text-sm">{m.year}</span>
                   </div>
@@ -201,8 +201,8 @@ export default function InnovationPage() {
             <BookOpen className="w-8 h-8 text-[#f4a65d] shrink-0 mt-1" />
           </div>
           <div className="space-y-4">
-            {publications.map((pub, i) => (
-              <div key={i} className="border border-[#e8edf2] rounded-xl p-6 flex items-start gap-6">
+            {publications.map((pub) => (
+              <div key={pub.title} className="border border-[#e8edf2] rounded-xl p-6 flex items-start gap-6">
                 <div className="shrink-0 w-12 h-12 bg-[#fef8f0] rounded-xl flex items-center justify-center">
                   <span className="text-[#f4a65d] font-black text-sm">{pub.year}</span>
                 </div>

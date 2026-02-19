@@ -79,7 +79,7 @@ export default function DataKeyPage() {
                 </h2>
                 <ol className="space-y-5">
                   {steps.map((step, i) => (
-                    <li key={i} className="flex items-start gap-4">
+                    <li key={step.slice(0, 30)} className="flex items-start gap-4">
                       <span className="flex-shrink-0 w-8 h-8 rounded-full bg-[#0f2a4a] text-white text-sm font-bold flex items-center justify-center mt-0.5">
                         {i + 1}
                       </span>
@@ -93,9 +93,9 @@ export default function DataKeyPage() {
               <div>
                 <h2 className="text-2xl font-bold text-[#0f2a4a] mb-6">Troubleshooting</h2>
                 <div className="space-y-3">
-                  {faqs.map((faq, i) => (
+                  {faqs.map((faq) => (
                     <details
-                      key={i}
+                      key={faq.q}
                       className="border border-[#e8edf2] rounded-xl overflow-hidden"
                     >
                       <summary className="flex items-center justify-between px-6 py-4 cursor-pointer bg-[#f0f4f8] hover:bg-[#e8edf2] transition-colors list-none">

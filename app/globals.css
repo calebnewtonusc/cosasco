@@ -8,7 +8,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body {
   background: #fff;
@@ -19,9 +19,52 @@ body {
   line-height: 1.65;
 }
 
-:focus-visible { outline: 2px solid #f4a65d; outline-offset: 2px; }
+:focus-visible { outline: 2px solid #f4a65d; outline-offset: 3px; border-radius: 3px; }
 
 ::selection { background: #fde8d8; color: #d4892a; }
+
+/* ── Custom scrollbar ─────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f0f4f8; }
+::-webkit-scrollbar-thumb { background: #c4cdd6; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #94aabb; }
+
+/* ── Animation keyframes ──────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth pop-in easing adapted from WONE: cubic-bezier(0.22, 1, 0.36, 1) */
+.animate-fade-up {
+  animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-fade-in {
+  animation: fade-in 0.4s ease both;
+}
+
+/* Stagger delay utilities — pair with .animate-fade-up on grid children */
+.delay-75  { animation-delay: 75ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ── Scrollbar hide utility (horizontal filter bars) ─────────────────────── */
+.no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
 
 @media print {
   /* Hide navigation, footer, interactive elements, decorative items */

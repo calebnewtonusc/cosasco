@@ -1,6 +1,6 @@
 'use client'
 
-import { useReducer, useEffect, useRef } from 'react'
+import { useReducer, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { ChevronDown, Menu, X, Phone, Search, ShoppingCart, Globe } from 'lucide-react'
 
@@ -296,7 +296,7 @@ function MobileMenu({
         )}
 
         <Link
-          href="/support"
+          href="/services"
           onClick={onClose}
           className="block px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
         >
@@ -394,6 +394,15 @@ export default function Navigation() {
   const { open, mobileOpen, mobileAccordion, searchOpen } = navState
   const searchInputRef = useRef<HTMLInputElement>(null)
   const navRef = useRef<HTMLDivElement>(null)
+  const [scrolled, setScrolled] = useState(false)
+
+  // Glassmorphism: track scroll position to soften nav background when scrolled
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -429,7 +438,11 @@ export default function Navigation() {
   return (
     <header
       ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-[#e8edf2]"
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background,backdrop-filter,box-shadow] duration-300 ${
+        scrolled
+          ? 'bg-white/95 backdrop-blur-sm border-[#e8edf2] shadow-sm'
+          : 'bg-white border-transparent'
+      }`}
     >
       {/* Skip to main content */}
       <a

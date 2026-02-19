@@ -2,6 +2,7 @@
 
 import { useReducer, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ChevronDown, Menu, X, Phone, Search, ShoppingCart, Globe } from 'lucide-react'
 
 const industriesDropdown = [
@@ -459,18 +460,16 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[72px]">
 
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="Cosasco home">
-          <div className="w-[34px] h-[34px] bg-[#0f2a4a] rounded-md flex items-center justify-center shrink-0">
-            <span className="text-white font-black text-sm leading-none">C</span>
-          </div>
-          <div className="leading-none">
-            <div className="font-black text-[#0f2a4a] tracking-tight text-[1.05rem] leading-none">
-              COSASCO<sup className="text-[0.55rem] font-normal align-super ml-[1px]">®</sup>
-            </div>
-            <div className="text-[10px] text-[#8898aa] tracking-wider uppercase mt-0.5 leading-none">
-              A Halma Company
-            </div>
-          </div>
+        <Link href="/" className="flex items-center shrink-0" aria-label="Cosasco home">
+          <Image
+            src="/cosasco-logo.png"
+            alt="Cosasco"
+            width={0}
+            height={40}
+            style={{ width: 'auto', height: '40px' }}
+            className="object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop center nav */}

@@ -206,8 +206,34 @@ export default function SoftwarePage() {
         </div>
       </section>
 
+      {/* QUICK LINKS */}
+      <section className="bg-white py-14 border-t border-[#e8edf2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-xl font-bold text-[#0f2a4a] mb-6">Software Resources</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { href: '/software/data-key', label: 'Data Key Activation', desc: 'Activate your FieldCom hardware license key' },
+              { href: '/software/legacy', label: 'Legacy Software Downloads', desc: 'Previous versions for older hardware compatibility' },
+              { href: '/software/partner-payment', label: 'Partner Payment Portal', desc: 'Authorized distributors: manage invoices & payments' },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex items-start gap-4 border border-[#e8edf2] rounded-xl p-5 hover:border-[#f4a65d] hover:shadow-sm transition-all group"
+              >
+                <div className="flex-1">
+                  <p className="text-[#0f2a4a] font-bold group-hover:text-[#f4a65d] transition-colors">{item.label}</p>
+                  <p className="text-[#566677] text-sm mt-1">{item.desc}</p>
+                </div>
+                <span className="text-[#8898aa] group-hover:text-[#f4a65d] transition-colors text-xl leading-none mt-0.5">›</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SYSTEM REQUIREMENTS */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-16 border-t border-[#e8edf2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-bold text-[#0f2a4a] mb-8">System Requirements</h2>

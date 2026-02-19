@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cosasco Website
 
-## Getting Started
+Next.js 16 website redesign for Cosasco — the global corrosion management leader, a Halma company.
 
-First, run the development server:
+## Tech Stack
+
+- **Framework**: Next.js 16.1.6 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4 (inline arbitrary values only)
+- **Icons**: lucide-react
+- **Font**: Mukta Mahee (@fontsource/mukta-mahee)
+- **Email**: Resend (for form backends)
+
+## Quick Start
 
 ```bash
+npm install
+cp .env.example .env.local
+# Fill in RESEND_API_KEY in .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Variable | Description |
+|----------|-------------|
+| `RESEND_API_KEY` | Resend API key for email delivery. Get one at [resend.com](https://resend.com). |
+| `CONTACT_TO_EMAIL` | Email address that receives form submissions (default: `info@cosasco.com`). |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Form Backends
 
-## Learn More
+All three forms POST to Next.js API routes:
 
-To learn more about Next.js, take a look at the following resources:
+| Form | Route | Destination |
+|------|-------|-------------|
+| Contact | `POST /api/contact` | `CONTACT_TO_EMAIL` |
+| Support Request | `POST /api/support` | `CONTACT_TO_EMAIL` |
+| RMA Request | `POST /api/rma` | `CONTACT_TO_EMAIL` + auto-confirmation to customer |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Without a valid `RESEND_API_KEY`, forms will return a 500 error. Set the env var in Vercel dashboard under **Settings → Environment Variables**.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Route Map
 
-## Deploy on Vercel
+| Section | URL |
+|---------|-----|
+| Home | `/` |
+| Products | `/products`, `/products/er-probe`, `/products/corrosion-coupons`, etc. |
+| Industries | `/solutions`, `/solutions/oil-gas`, `/solutions/petrochemical`, etc. |
+| Resources | `/resources`, `/resources/blog`, `/resources/case-studies` |
+| Case Studies | `/resources/case-studies/north-sea-pipeline`, `/gulf-coast-refinery`, `/water-injection-platform` |
+| Blog | `/resources/blog/corrosion-monitoring-fundamentals`, `/h2s-sour-service-integrity`, etc. |
+| Software | `/software`, `/software/data-key`, `/software/legacy`, `/software/partner-payment` |
+| Support | `/support`, `/support/rma` |
+| Innovation | `/innovation` |
+| Tools | `/tools/device-length-calculator` |
+| Contact | `/contact`, `/contact/find-a-rep` |
+| Company | `/about`, `/careers`, `/news` |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment (Vercel)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push to GitHub (already configured: `github.com/calebnewtonusc/cosasco`)
+2. Import repo in Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy — zero config required
+
+## Brand
+
+| Token | Value |
+|-------|-------|
+| Navy | `#0f2a4a` |
+| Gold | `#f4a65d` |
+| Gold hover | `#d4892a` |
+| Body text | `#566677` |
+| Heading text | `#0f2a4a` |
+| Light bg | `#f0f4f8` |
+| Border | `#e8edf2` |

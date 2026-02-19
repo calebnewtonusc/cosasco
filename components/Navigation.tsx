@@ -281,7 +281,7 @@ function MobileMenu({
           Resources
         </Link>
         <Link
-          href="/resources"
+          href="/innovation"
           onClick={onClose}
           className="block px-3 py-3 text-[0.9rem] font-medium text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
         >
@@ -463,7 +463,7 @@ export default function Navigation() {
           <Link href="/resources" className={`${navLinkBase} ${navLinkIdle}`}>
             Resources
           </Link>
-          <Link href="/resources" className={`${navLinkBase} ${navLinkIdle}`}>
+          <Link href="/innovation" className={`${navLinkBase} ${navLinkIdle}`}>
             Innovation
           </Link>
 

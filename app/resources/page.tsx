@@ -365,6 +365,38 @@ export default function ResourcesPage() {
         </div>
       </section>
 
+      {/* BLOG PREVIEW */}
+      <section className="bg-[#f7f9fc] py-16 border-b border-[#e8edf2]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Technical Insights</p>
+              <h2 className="text-[#0f2a4a] font-black text-3xl md:text-4xl">From the Blog</h2>
+            </div>
+            <Link href="/resources/blog" className="text-[#f4a65d] font-semibold text-sm hover:text-[#d4892a] transition-colors whitespace-nowrap flex items-center gap-1">
+              All Articles →
+            </Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { href: '/resources/blog/corrosion-monitoring-fundamentals', category: 'Technical Guide', title: 'ER Probes vs. LPR vs. Coupons: Which Method Is Right for Your Application?', date: 'Feb 12, 2026', read: '8 min' },
+              { href: '/resources/blog/h2s-sour-service-integrity', category: 'Field Applications', title: 'Managing Corrosion in H₂S Sour Service: A Field Engineer\'s Perspective', date: 'Jan 28, 2026', read: '6 min' },
+              { href: '/resources/blog/chemical-injection-optimization', category: 'Chemical Injection', title: 'How to Right-Size Chemical Injection: Moving Beyond Conservative Dosing', date: 'Jan 15, 2026', read: '5 min' },
+            ].map((post) => (
+              <Link key={post.href} href={post.href} className="bg-white border border-[#e8edf2] rounded-xl p-6 hover:shadow-md hover:border-[#f4a65d] transition-all group flex flex-col">
+                <span className="text-[#f4a65d] text-xs font-bold uppercase tracking-wider mb-3">{post.category}</span>
+                <h3 className="text-[#0f2a4a] font-black text-base leading-snug mb-4 flex-1 group-hover:text-[#f4a65d] transition-colors">{post.title}</h3>
+                <div className="flex items-center gap-3 text-[#8898aa] text-xs">
+                  <span>{post.date}</span>
+                  <span>·</span>
+                  <span>{post.read} read</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FEATURED CASE STUDIES */}
       <section className="bg-[#0f2a4a] py-16">
         <div className="max-w-6xl mx-auto px-6">

@@ -78,6 +78,8 @@ type FormState = {
   message: string
   submitted: boolean
   success: boolean
+  loading: boolean
+  apiError: string | null
   errors: Record<string, string>
   touched: boolean
 }
@@ -92,6 +94,8 @@ const initialState: FormState = {
   message: '',
   submitted: false,
   success: false,
+  loading: false,
+  apiError: null,
   errors: {},
   touched: false,
 }
@@ -99,7 +103,9 @@ const initialState: FormState = {
 type FormAction =
   | { type: 'SET_FIELD'; field: keyof Pick<FormState, 'name' | 'company' | 'email' | 'phone' | 'industry' | 'subject' | 'message'>; value: string }
   | { type: 'SET_ERRORS'; errors: Record<string, string> }
+  | { type: 'SET_LOADING' }
   | { type: 'SET_SUCCESS' }
+  | { type: 'SET_API_ERROR'; message: string }
   | { type: 'RESET' }
 
 function formReducer(state: FormState, action: FormAction): FormState {
@@ -108,8 +114,12 @@ function formReducer(state: FormState, action: FormAction): FormState {
       return { ...state, [action.field]: action.value }
     case 'SET_ERRORS':
       return { ...state, errors: action.errors, touched: true }
+    case 'SET_LOADING':
+      return { ...state, loading: true, apiError: null }
     case 'SET_SUCCESS':
-      return { ...state, submitted: true }
+      return { ...state, submitted: true, loading: false }
+    case 'SET_API_ERROR':
+      return { ...state, loading: false, apiError: action.message }
     case 'RESET':
       return initialState
     default:
@@ -121,7 +131,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export default function ContactPage() {
   const [state, dispatch] = useReducer(formReducer, initialState)
-  const { name, company, email, phone, industry, subject, message, submitted, errors, touched } = state
+  const { name, company, email, phone, industry, subject, message, submitted, loading, apiError, errors, touched } = state
 
   function validate(): Record<string, string> {
     const errs: Record<string, string> = {}
@@ -136,12 +146,23 @@ export default function ContactPage() {
     return errs
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const errs = validate()
     dispatch({ type: 'SET_ERRORS', errors: errs })
-    if (Object.keys(errs).length === 0) {
+    if (Object.keys(errs).length > 0) return
+
+    dispatch({ type: 'SET_LOADING' })
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName: name, company, email, phone, industry, subject, message }),
+      })
+      if (!res.ok) throw new Error('Server error')
       dispatch({ type: 'SET_SUCCESS' })
+    } catch {
+      dispatch({ type: 'SET_API_ERROR', message: 'Failed to send. Please try again or email info@cosasco.com directly.' })
     }
   }
 
@@ -319,12 +340,16 @@ export default function ContactPage() {
                     {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                   </div>
 
+                  {apiError && (
+                    <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-4 py-3">{apiError}</p>
+                  )}
                   <button
                     type="submit"
-                    className="btn btn-primary w-full justify-center text-base"
+                    disabled={loading}
+                    className="btn btn-primary w-full justify-center text-base disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send Message
-                    <ArrowRight className="w-4 h-4" />
+                    {loading ? 'Sending…' : 'Send Message'}
+                    {!loading && <ArrowRight className="w-4 h-4" />}
                   </button>
                 </form>
               )}

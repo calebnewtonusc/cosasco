@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   title: 'Cosasco | Corrosion Management Solutions',
   description:
     'Cosasco is the global leader in corrosion and erosion monitoring solutions, delivering precision instruments, access fittings, and data acquisition systems to oil & gas, petrochemical, and water treatment industries since 1955.',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({

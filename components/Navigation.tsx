@@ -51,13 +51,21 @@ const productsDropdown = [
 
 const companyDropdown = [
   { name: 'About Us', href: '/about' },
+  { name: 'Leadership', href: '/about#leadership' },
   { name: 'Careers', href: '/careers' },
   { name: 'News & Events', href: '/news' },
   { name: 'Contact Us', href: '/contact' },
-  { name: 'Software Login', href: '/software' },
 ]
 
-type OpenMenu = 'industries' | 'products' | 'company' | null
+const softwareDropdown = [
+  { name: 'Data Key Activation', href: '/software/data-key' },
+  { name: 'Device Length Calculator', href: '/tools/device-length-calculator' },
+  { name: 'Legacy Software', href: '/software/legacy' },
+  { name: 'Partner Payment', href: '/software/partner-payment' },
+  { name: 'Software Overview', href: '/software' },
+]
+
+type OpenMenu = 'industries' | 'products' | 'company' | 'software' | null
 
 // ── Nav state management ───────────────────────────────────────────────────────
 
@@ -176,6 +184,27 @@ function CompanyDropdown({ onClose }: { onClose: () => void }) {
       <div className="max-w-7xl mx-auto px-6 py-6">
         <div className="grid grid-cols-2 gap-x-12 gap-y-2 max-w-xs">
           {companyDropdown.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={onClose}
+              className="text-[0.9rem] font-medium text-[#334150] hover:text-[#f4a65d] transition-colors duration-150 py-1.5"
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function SoftwareDropdown({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-[#e8edf2] animate-[fadeInDown_0.15s_ease]">
+      <div className="max-w-7xl mx-auto px-6 py-6">
+        <div className="grid grid-cols-2 gap-x-12 gap-y-2 max-w-sm">
+          {softwareDropdown.map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -457,7 +486,7 @@ export default function Navigation() {
             />
           </button>
 
-          <Link href="/support" className={`${navLinkBase} ${navLinkIdle}`}>
+          <Link href="/services" className={`${navLinkBase} ${navLinkIdle}`}>
             Services
           </Link>
           <Link href="/resources" className={`${navLinkBase} ${navLinkIdle}`}>
@@ -466,6 +495,18 @@ export default function Navigation() {
           <Link href="/innovation" className={`${navLinkBase} ${navLinkIdle}`}>
             Innovation
           </Link>
+
+          <button
+            onClick={() => toggle('software')}
+            aria-expanded={open === 'software'}
+            className={`${navLinkBase} ${open === 'software' ? navLinkActive : navLinkIdle}`}
+          >
+            Software
+            <ChevronDown
+              size={14}
+              className={`transition-transform duration-200 ${open === 'software' ? 'rotate-180' : ''}`}
+            />
+          </button>
 
           <button
             onClick={() => toggle('company')}
@@ -506,6 +547,12 @@ export default function Navigation() {
             </span>
           </Link>
 
+          <Link
+            href="/contact/find-a-rep"
+            className="text-[0.8rem] font-semibold text-[#566677] hover:text-[#0f2a4a] transition-colors duration-150 whitespace-nowrap"
+          >
+            Find A Rep
+          </Link>
           <a
             href="tel:+15629490123"
             className="flex items-center gap-1.5 text-[0.8rem] text-[#566677] hover:text-[#0f2a4a] transition-colors duration-150"
@@ -539,6 +586,7 @@ export default function Navigation() {
       {/* Desktop dropdowns */}
       {open === 'industries' && <IndustriesDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
       {open === 'products' && <ProductsDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
+      {open === 'software' && <SoftwareDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
       {open === 'company' && <CompanyDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
 
       {/* Mobile menu */}

@@ -54,7 +54,7 @@ const regionalOffices = [
     offices: [
       {
         name: 'APAC Regional',
-        city: 'Singapore',
+        city: 'Kuala Lumpur, Malaysia',
         phone: '+65 6555 0143',
         email: 'apac@cosasco.com',
       },

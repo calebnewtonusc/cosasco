@@ -85,12 +85,12 @@ const values = [
   {
     icon: Shield,
     title: 'Mission',
-    body: 'To protect critical industrial infrastructure by engineering the world\'s most reliable corrosion monitoring and chemical injection systems — helping operators reduce risk, extend asset life, and maintain operational continuity.',
+    body: 'We innovate corrosion management solutions to improve production and increase safety.',
   },
   {
     icon: Eye,
     title: 'Vision',
-    body: 'A world where corrosion-related failures are fully preventable — where plant operators have real-time visibility into asset integrity and the tools to act before problems escalate into incidents.',
+    body: 'Protect People and the Environment from the Impacts of Corrosion.',
   },
   {
     icon: Heart,
@@ -106,9 +106,9 @@ const certifications = [
       'Quality Management System certification ensuring consistent design, manufacturing, and testing standards across all product lines.',
   },
   {
-    name: 'NACE Compliant',
+    name: 'AMPP Member',
     description:
-      'Products engineered in accordance with NACE International standards for corrosion control and monitoring in oil, gas, and chemical applications.',
+      'Member of the Association for Materials Performance and Protection (AMPP), the leading authority on corrosion prevention and control standards worldwide.',
   },
   {
     name: 'API Standards',

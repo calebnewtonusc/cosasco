@@ -26,15 +26,15 @@ const companyLinks = [
 ]
 
 const supportLinks = [
-  { label: 'Technical Support', href: '/support/technical' },
-  { label: 'FAQ', href: '/support/faq' },
-  { label: 'Submit Request', href: '/support/submit' },
-  { label: 'Software Login', href: '/software-login' },
+  { label: 'Technical Support', href: '/support' },
+  { label: 'RMA Request', href: '/support/rma' },
+  { label: 'Submit a Request', href: '/support' },
+  { label: 'Software Login', href: '/software/partner-payment' },
 ]
 
 const certBadges = [
   'ISO 9001:2015',
-  'NACE Member',
+  'AMPP Member',
   'API Compliant',
   'ATEX Certified',
   'A Halma Company',
@@ -113,16 +113,25 @@ export default function Footer() {
 
             {/* Address & contact */}
             <address className="not-italic space-y-1.5 text-sm text-[#b8cfe0] mb-5">
-              <p className="font-medium text-white">14492 Sherwood Ave</p>
-              <p className="font-medium text-white">Santa Fe Springs, CA 90670, USA</p>
+              <p className="font-medium text-white">11841 Smith Avenue</p>
+              <p className="font-medium text-white">Santa Fe Springs, CA 90670 USA</p>
               <p className="mt-2">
+                <a
+                  href="tel:+18006356898"
+                  className="hover:text-white transition-colors duration-150"
+                >
+                  Toll Free: +1-800-635-6898
+                </a>
+              </p>
+              <p>
                 <a
                   href="tel:+15629490123"
                   className="hover:text-white transition-colors duration-150"
                 >
-                  +1 (562) 949-0123
+                  +1-562-949-0123
                 </a>
               </p>
+              <p className="text-[#6b8aa0]">Fax: +1-562-949-3065</p>
               <p>
                 <a
                   href="mailto:info@cosasco.com"
@@ -263,7 +272,7 @@ export default function Footer() {
 
           {/* Copyright + legal links */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[#6b8aa0]">
-            <p>&copy; 2025 Cosasco. All rights reserved.</p>
+            <p>&copy; 2026 Cosasco. All rights reserved.</p>
             <div className="flex items-center gap-3">
               <Link href="/privacy" className="hover:text-white transition-colors duration-150">
                 Privacy Policy

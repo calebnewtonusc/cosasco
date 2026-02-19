@@ -35,37 +35,37 @@ const industries = [
     icon: Flame,
     name: 'Oil & Gas',
     desc: 'Upstream, midstream, and downstream asset protection.',
-    href: '/industries/oil-gas',
+    href: '/solutions/oil-gas',
   },
   {
     icon: FlaskConical,
     name: 'Petrochemical',
     desc: 'Precision monitoring in high-temperature process environments.',
-    href: '/industries/petrochemical',
+    href: '/solutions/petrochemical',
   },
   {
     icon: Droplets,
     name: 'Water Treatment',
     desc: 'Corrosion and scale control in distribution and treatment systems.',
-    href: '/industries/water',
+    href: '/solutions/water-treatment',
   },
   {
     icon: TestTube,
     name: 'Chemical Processing',
     desc: 'Aggressive media monitoring for reactors, columns, and transfer lines.',
-    href: '/industries/chemical',
+    href: '/solutions/chemical-processing',
   },
   {
     icon: BookOpen,
     name: 'Pulp & Paper',
     desc: 'Continuous monitoring in high-chloride, acidic digester environments.',
-    href: '/industries/pulp-paper',
+    href: '/solutions/pulp-paper',
   },
   {
     icon: Zap,
     name: 'Utilities',
     desc: 'Corrosion management for power generation and distribution infrastructure.',
-    href: '/industries/utilities',
+    href: '/solutions/utilities',
   },
 ]
 
@@ -105,19 +105,19 @@ const services = [
     icon: FileText,
     title: 'Design & Documentation',
     desc: 'Our application engineers work with your team to design the right monitoring program — from access fitting placement to system-level documentation packages compliant with your standards.',
-    href: '/services/design',
+    href: '/services',
   },
   {
     icon: Settings,
     title: 'Installation & Commissioning',
     desc: 'Certified field teams deploy and commission Cosasco systems to your specification, ensuring safe hot-tap insertion at full operating pressure with minimal disruption.',
-    href: '/services/installation',
+    href: '/services',
   },
   {
     icon: Wrench,
     title: 'Service & Maintenance',
     desc: 'From planned probe retrieval cycles to emergency callouts, our global service network keeps your corrosion monitoring program running continuously and accurately.',
-    href: '/services/maintenance',
+    href: '/services',
   },
 ]
 
@@ -338,9 +338,10 @@ export default function HomePage() {
                 className="text-xl mt-6 max-w-2xl mx-auto lg:mx-0"
                 style={{ color: '#94aabb' }}
               >
-                Cosasco has been the trusted partner for corrosion and erosion
-                monitoring solutions for over 70 years. From access fittings to
-                full FieldCom data systems, we support operators in 110 countries.
+                We exist to be the most complete and precise solution to measure
+                and monitor corrosion. Not only do we improve the safety of people
+                and the environment, we protect assets and enhance the bottom line
+                of our customers.
               </p>
 
               {/* Buttons */}
@@ -763,9 +764,10 @@ export default function HomePage() {
               className="text-xl lg:text-2xl font-light leading-relaxed italic mt-2"
               style={{ color: '#ffffff' }}
             >
-              Cosasco&apos;s monitoring systems have been central to our integrity
-              management program for over 15 years. The data accuracy is
-              unmatched in the field.
+              There are a lot of companies that supply equipment. There aren&apos;t
+              so many companies that are capable of providing the full service of
+              both supply and service, which is one of the reasons why we use
+              Cosasco — because they provide the full servicing.
             </p>
 
             {/* Attribution */}
@@ -773,7 +775,7 @@ export default function HomePage() {
               className="text-sm mt-6"
               style={{ color: '#94aabb' }}
             >
-              — Senior Integrity Engineer, Major North Sea Operator
+              — Cosasco Customer, Corrosion Engineer, Supermajor
             </p>
 
             {/* Operator name band */}

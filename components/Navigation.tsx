@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useReducer, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { ChevronDown, Menu, X, Phone, Search, ShoppingCart, Globe } from 'lucide-react'
 
@@ -58,6 +58,41 @@ const companyDropdown = [
 ]
 
 type OpenMenu = 'industries' | 'products' | 'company' | null
+
+// ── Nav state management ───────────────────────────────────────────────────────
+
+type NavState = {
+  open: OpenMenu
+  mobileOpen: boolean
+  mobileAccordion: string | null
+  searchOpen: boolean
+}
+
+type NavAction =
+  | { type: 'TOGGLE_MENU'; menu: OpenMenu }
+  | { type: 'CLOSE_DROPDOWN' }
+  | { type: 'TOGGLE_MOBILE' }
+  | { type: 'CLOSE_MOBILE' }
+  | { type: 'SET_ACCORDION'; value: string | null }
+  | { type: 'TOGGLE_SEARCH' }
+  | { type: 'CLOSE_SEARCH' }
+  | { type: 'CLOSE_ALL' }
+
+const initNav: NavState = { open: null, mobileOpen: false, mobileAccordion: null, searchOpen: false }
+
+function navReducer(state: NavState, action: NavAction): NavState {
+  switch (action.type) {
+    case 'TOGGLE_MENU': return { ...state, open: state.open === action.menu ? null : action.menu }
+    case 'CLOSE_DROPDOWN': return { ...state, open: null }
+    case 'TOGGLE_MOBILE': return { ...state, mobileOpen: !state.mobileOpen }
+    case 'CLOSE_MOBILE': return { ...state, mobileOpen: false }
+    case 'SET_ACCORDION': return { ...state, mobileAccordion: action.value }
+    case 'TOGGLE_SEARCH': return { ...state, searchOpen: !state.searchOpen }
+    case 'CLOSE_SEARCH': return { ...state, searchOpen: false }
+    case 'CLOSE_ALL': return { ...state, open: null, mobileOpen: false, searchOpen: false }
+    default: return state
+  }
+}
 
 // ── Sub-components ────────────────────────────────────────────────────────────
 
@@ -326,17 +361,15 @@ function SearchOverlay({
 // ── Main Navigation ───────────────────────────────────────────────────────────
 
 export default function Navigation() {
-  const [open, setOpen] = useState<OpenMenu>(null)
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [mobileAccordion, setMobileAccordion] = useState<string | null>(null)
-  const [searchOpen, setSearchOpen] = useState(false)
+  const [navState, dispatch] = useReducer(navReducer, initNav)
+  const { open, mobileOpen, mobileAccordion, searchOpen } = navState
   const searchInputRef = useRef<HTMLInputElement>(null)
   const navRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
-        setOpen(null)
+        dispatch({ type: 'CLOSE_DROPDOWN' })
       }
     }
     document.addEventListener('mousedown', handler)
@@ -345,11 +378,7 @@ export default function Navigation() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setOpen(null)
-        setMobileOpen(false)
-        setSearchOpen(false)
-      }
+      if (e.key === 'Escape') dispatch({ type: 'CLOSE_ALL' })
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
@@ -361,7 +390,7 @@ export default function Navigation() {
     }
   }, [searchOpen])
 
-  const toggle = (menu: OpenMenu) => setOpen(open === menu ? null : menu)
+  const toggle = (menu: OpenMenu) => dispatch({ type: 'TOGGLE_MENU', menu })
 
   const navLinkBase =
     'flex items-center gap-1 px-3 py-2 text-[0.9rem] font-medium rounded-md transition-colors duration-150'
@@ -459,7 +488,7 @@ export default function Navigation() {
           </button>
 
           <button
-            onClick={() => setSearchOpen(!searchOpen)}
+            onClick={() => dispatch({ type: 'TOGGLE_SEARCH' })}
             aria-label="Toggle search"
             className="p-1.5 rounded-md text-[#566677] hover:text-[#0f2a4a] hover:bg-[#f4f6f8] transition-colors duration-150"
           >
@@ -495,7 +524,7 @@ export default function Navigation() {
         {/* Mobile hamburger */}
         <button
           className="lg:hidden p-2 rounded-md text-[#0f2a4a] hover:bg-[#f4f6f8] transition-colors duration-150"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => dispatch({ type: 'TOGGLE_MOBILE' })}
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -504,20 +533,20 @@ export default function Navigation() {
 
       {/* Search overlay */}
       {searchOpen && (
-        <SearchOverlay onClose={() => setSearchOpen(false)} inputRef={searchInputRef} />
+        <SearchOverlay onClose={() => dispatch({ type: 'CLOSE_SEARCH' })} inputRef={searchInputRef} />
       )}
 
       {/* Desktop dropdowns */}
-      {open === 'industries' && <IndustriesDropdown onClose={() => setOpen(null)} />}
-      {open === 'products' && <ProductsDropdown onClose={() => setOpen(null)} />}
-      {open === 'company' && <CompanyDropdown onClose={() => setOpen(null)} />}
+      {open === 'industries' && <IndustriesDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
+      {open === 'products' && <ProductsDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
+      {open === 'company' && <CompanyDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
 
       {/* Mobile menu */}
       {mobileOpen && (
         <MobileMenu
-          onClose={() => setMobileOpen(false)}
+          onClose={() => dispatch({ type: 'CLOSE_MOBILE' })}
           mobileAccordion={mobileAccordion}
-          setMobileAccordion={setMobileAccordion}
+          setMobileAccordion={(val) => dispatch({ type: 'SET_ACCORDION', value: val })}
         />
       )}
     </header>

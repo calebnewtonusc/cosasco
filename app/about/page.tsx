@@ -371,13 +371,13 @@ export default function AboutPage() {
                   <div className="bg-[#0f2a4a] rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-xl">{person.initials}</span>
                   </div>
-                  <a
-                    href="#"
+                  <button
+                    type="button"
                     aria-label={`${person.name} on LinkedIn`}
                     className="text-[#6b7280] hover:text-[#0f2a4a] transition-colors mt-1"
                   >
                     <Linkedin className="w-4 h-4" />
-                  </a>
+                  </button>
                 </div>
                 <h3 className="font-bold text-[#0f2a4a] leading-snug">{person.name}</h3>
                 <p className="text-[#f4a65d] text-sm font-semibold mt-0.5">{person.title}</p>

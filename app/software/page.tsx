@@ -116,9 +116,9 @@ export default function SoftwarePage() {
                 </button>
               </div>
               <p className="mt-4 text-center">
-                <a href="#" className="text-[#f4a65d] text-sm hover:underline">
+                <button type="button" className="text-[#f4a65d] text-sm hover:underline">
                   Forgot your password?
-                </a>
+                </button>
               </p>
               <p className="mt-3 text-[#6b7280] text-xs text-center leading-relaxed">
                 Access is granted to authorized Cosasco customers only. Contact your sales representative to set up or manage account access.
@@ -193,12 +193,12 @@ export default function SoftwarePage() {
                   >
                     Learn More
                   </Link>
-                  <a
-                    href="#"
+                  <button
+                    type="button"
                     className="flex-1 flex items-center justify-center gap-1.5 bg-[#f4a65d] text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#e8954a] transition-colors"
                   >
                     <Download className="w-4 h-4" /> Download
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}

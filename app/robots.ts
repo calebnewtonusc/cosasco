@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://cosasco-redesign.vercel.app/sitemap.xml',
+    sitemap: 'https://www.cosasco.com/sitemap.xml',
   }
 }

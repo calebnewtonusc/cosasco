@@ -45,12 +45,42 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes faq-open {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.95); opacity: 0.6; }
+  70%  { transform: scale(1.1);  opacity: 0; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
 /* Smooth pop-in easing adapted from WONE: cubic-bezier(0.22, 1, 0.36, 1) */
 .animate-fade-up {
   animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .animate-fade-in {
   animation: fade-in 0.4s ease both;
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* FAQ open animation */
+.faq-content-open {
+  animation: faq-open 0.2s ease both;
 }
 
 /* Stagger delay utilities — pair with .animate-fade-up on grid children */
@@ -65,6 +95,30 @@ body {
 /* ── Scrollbar hide utility (horizontal filter bars) ─────────────────────── */
 .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* ── Industry card hover reveal ──────────────────────────────────────────── */
+.industry-card-front {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.industry-card-back {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ── Product finder step transition ─────────────────────────────────────── */
+.wizard-step-enter {
+  animation: fade-up 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Floating chat widget ────────────────────────────────────────────────── */
+@keyframes chatSlideIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Hero section wave svg ───────────────────────────────────────────────── */
+.hero-wave {
+  shape-rendering: geometricPrecision;
+}
 
 @media print {
   /* Hide navigation, footer, interactive elements, decorative items */

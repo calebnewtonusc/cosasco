@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import Link from 'next/link'
 import { ChevronDown, Search, X } from 'lucide-react'
 
 const faqData: Record<string, { question: string; answer: string }[]> = {
@@ -18,7 +19,7 @@ const faqData: Record<string, { question: string; answer: string }[]> = {
     {
       question: 'Are Cosasco products available globally?',
       answer:
-        'Yes. Cosasco distributes products and provides technical support worldwide through a network of authorized distributors and direct regional offices. We ship to over 50 countries and maintain compliance with international trade and export regulations.',
+        'Yes. Cosasco distributes products and provides technical support worldwide through a network of authorized distributors and direct regional offices. We ship to over 110 countries and maintain compliance with international trade and export regulations.',
     },
     {
       question: 'Does Cosasco offer product training?',
@@ -105,6 +106,69 @@ function highlightText(text: string, query: string): React.ReactNode {
   )
 }
 
+/* ── Animated accordion item ───────────────────────────────────────────────── */
+
+function FAQItem({
+  question,
+  answer,
+  isOpen,
+  onToggle,
+  searchQuery,
+}: {
+  question: string
+  answer: string
+  isOpen: boolean
+  onToggle: () => void
+  searchQuery?: string
+}) {
+  const contentRef = useRef<HTMLDivElement>(null)
+  const [maxHeight, setMaxHeight] = useState('0px')
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setMaxHeight(isOpen ? `${contentRef.current.scrollHeight}px` : '0px')
+    }
+  }, [isOpen])
+
+  return (
+    <div
+      className={`bg-white border rounded-xl mb-3 overflow-hidden transition-shadow duration-200 ${
+        isOpen ? 'border-[#f4a65d] shadow-md' : 'border-[#e8edf2] hover:border-[#d1d9e0]'
+      }`}
+    >
+      <button
+        className="w-full px-6 py-4 flex justify-between items-center text-left gap-4"
+        onClick={onToggle}
+        aria-expanded={isOpen}
+      >
+        <span className={`font-semibold transition-colors duration-200 ${isOpen ? 'text-[#f4a65d]' : 'text-[#0f2a4a]'}`}>
+          {searchQuery ? highlightText(question, searchQuery) : question}
+        </span>
+        <ChevronDown
+          className={`w-5 h-5 shrink-0 transition-transform duration-300 ${
+            isOpen ? 'rotate-180 text-[#f4a65d]' : 'text-[#566677]'
+          }`}
+        />
+      </button>
+      <div
+        style={{
+          maxHeight,
+          overflow: 'hidden',
+          transition: 'max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1)',
+        }}
+      >
+        <div ref={contentRef} className="px-6 pb-5 border-t border-[#e8edf2] pt-4">
+          <p className="text-[#566677] text-sm leading-relaxed">
+            {searchQuery ? highlightText(answer, searchQuery) : answer}
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ── Main FAQ component ────────────────────────────────────────────────────── */
+
 export default function SupportFAQ() {
   const [activeCategory, setActiveCategory] = useState<string>('General')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -120,30 +184,44 @@ export default function SupportFAQ() {
     : []
   const currentFaqs = isSearching ? [] : (faqData[activeCategory] ?? [])
 
+  function switchCategory(cat: string) {
+    setActiveCategory(cat)
+    setOpenIndex(null)
+  }
+
   return (
     <section className="bg-[#f7f9fc] py-20">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-[#0f2a4a] font-black text-4xl text-center mb-3">
-          Frequently Asked Questions
-        </h2>
-        <p className="text-[#566677] text-center mb-8">
-          Browse by category to find the answers you need.
-        </p>
+        <div className="text-center mb-10">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#f4a65d]">
+            FAQ
+          </span>
+          <h2 className="text-[#0f2a4a] font-black text-4xl mt-2 mb-3">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-[#566677]">
+            Browse by category or search below. Can&apos;t find what you need?{' '}
+            <Link href="/contact" className="text-[#f4a65d] font-semibold hover:underline">
+              Contact our engineers.
+            </Link>
+          </p>
+        </div>
 
         {/* Search Input */}
         <div className="relative max-w-md mx-auto mb-8">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8898aa]" />
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8898aa]" />
           <input
             type="text"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => { setSearchQuery(e.target.value); setOpenIndex(null) }}
             placeholder="Search FAQs..."
-            className="border border-[#e8edf2] rounded-lg pl-10 pr-10 py-3 text-sm w-full block focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d] bg-white"
+            className="border border-[#e8edf2] rounded-xl pl-10 pr-10 py-3.5 text-sm w-full block focus:outline-none focus:border-[#f4a65d] focus:ring-2 focus:ring-[#f4a65d]/20 bg-white shadow-sm transition-all"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[#8898aa] hover:text-[#566677]"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#8898aa] hover:text-[#566677] transition-colors"
+              aria-label="Clear search"
             >
               <X className="w-4 h-4" />
             </button>
@@ -157,78 +235,72 @@ export default function SupportFAQ() {
           </p>
         )}
 
+        {/* Category tabs */}
         {!isSearching && (
           <div className="flex flex-wrap justify-center gap-2 mb-10">
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => { setActiveCategory(cat); setOpenIndex(null) }}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
+                onClick={() => switchCategory(cat)}
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
                   activeCategory === cat
-                    ? 'bg-[#f4a65d] text-white'
+                    ? 'bg-[#f4a65d] text-white shadow-sm'
                     : 'bg-white border border-[#e8edf2] text-[#566677] hover:border-[#f4a65d] hover:text-[#f4a65d]'
                 }`}
               >
                 {cat}
+                <span
+                  className={`ml-1.5 text-xs font-bold ${
+                    activeCategory === cat ? 'opacity-80' : 'opacity-50'
+                  }`}
+                >
+                  ({faqData[cat]?.length ?? 0})
+                </span>
               </button>
             ))}
           </div>
         )}
 
+        {/* Regular FAQ accordion */}
         {!isSearching && (
           <div>
             {currentFaqs.map((faq, index) => (
-              <div
-                key={faq.question}
-                className="bg-white border border-[#e8edf2] rounded-xl mb-3 overflow-hidden"
-              >
-                <button
-                  className="w-full px-6 py-4 flex justify-between items-center text-left"
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                >
-                  <span className="text-[#0f2a4a] font-semibold pr-4">{faq.question}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-[#566677] flex-shrink-0 transition-transform duration-200 ${
-                      openIndex === index ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                {openIndex === index && (
-                  <div className="px-6 pb-5 border-t border-[#e8edf2] pt-4">
-                    <p className="text-[#566677] text-sm leading-relaxed">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
+              <FAQItem
+                key={`${activeCategory}-${faq.question}`}
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openIndex === index}
+                onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+              />
             ))}
           </div>
         )}
 
+        {/* Search results */}
         {isSearching && (
           <div>
             {searchResults.length === 0 ? (
               <div className="text-center py-12 bg-white border border-[#e8edf2] rounded-xl">
-                <p className="text-[#566677] text-sm">No FAQs matched your search. Try different keywords or contact our support team.</p>
+                <p className="text-[#566677] text-sm mb-3">
+                  No FAQs matched your search. Try different keywords or contact our support team.
+                </p>
+                <Link
+                  href="/contact"
+                  className="text-[#f4a65d] font-semibold text-sm hover:underline"
+                >
+                  Contact an Engineer →
+                </Link>
               </div>
             ) : (
-              searchResults.map((faq) => (
-                <div
-                  key={`${faq.category}-${faq.question}`}
-                  className="bg-white border border-[#e8edf2] rounded-xl mb-3 overflow-hidden"
-                >
-                  <div className="px-6 py-4">
-                    <span className="inline-block text-xs font-semibold text-[#f4a65d] uppercase tracking-wider mb-2">
-                      {faq.category}
-                    </span>
-                    <p className="text-[#0f2a4a] font-semibold mb-3">
-                      {highlightText(faq.question, searchQuery)}
-                    </p>
-                    <div className="border-t border-[#e8edf2] pt-3">
-                      <p className="text-[#566677] text-sm leading-relaxed">
-                        {highlightText(faq.answer, searchQuery)}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              searchResults.map((faq, index) => (
+                <FAQItem
+                  key={`search-${faq.category}-${faq.question}`}
+                  question={faq.question}
+                  answer={faq.answer}
+                  isOpen={openIndex === index}
+                  onToggle={() => setOpenIndex(openIndex === index ? null : index)}
+                  searchQuery={searchQuery}
+                />
               ))
             )}
           </div>

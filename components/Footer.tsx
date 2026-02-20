@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Linkedin, Twitter, Youtube, CheckCircle } from 'lucide-react'
+import { Linkedin, Twitter, Youtube, CheckCircle, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 
 const industryLinks = [
   { label: 'Oil & Gas', href: '/solutions/oil-gas' },
@@ -11,25 +11,29 @@ const industryLinks = [
 ]
 
 const productLinks = [
-  { label: 'ER Probes', href: '/products/corrosion-monitoring' },
-  { label: 'Access Fittings', href: '/products/corrosion-monitoring' },
+  { label: 'ER Probes', href: '/products/er-probe' },
+  { label: 'Access Fittings', href: '/products/access-fittings' },
+  { label: 'Corrosion Coupons', href: '/products/corrosion-coupons' },
   { label: 'Erosion Monitoring', href: '/products/erosion-monitoring' },
   { label: 'Chemical Injection', href: '/products/chemical-injection' },
-  { label: 'FieldCom Systems', href: '/products/data-acquisition' },
+  { label: 'FieldCom Systems', href: '/products/fieldcom' },
   { label: 'View All Products', href: '/products' },
 ]
 
 const companyLinks = [
-  { label: 'About', href: '/about' },
+  { label: 'About Cosasco', href: '/about' },
+  { label: 'Innovation', href: '/innovation' },
   { label: 'Careers', href: '/careers' },
   { label: 'News & Events', href: '/news' },
+  { label: 'Resources', href: '/resources' },
 ]
 
 const supportLinks = [
   { label: 'Technical Support', href: '/support' },
   { label: 'RMA Request', href: '/support/rma' },
-  { label: 'Submit a Request', href: '/support' },
+  { label: 'Find a Rep', href: '/contact/find-a-rep' },
   { label: 'Software Login', href: '/software/partner-payment' },
+  { label: 'Device Calculator', href: '/tools/device-length-calculator' },
 ]
 
 const certBadges = [
@@ -37,6 +41,7 @@ const certBadges = [
   'AMPP Member',
   'API Compliant',
   'ATEX Certified',
+  'IECEx Compliant',
   'A Halma Company',
 ]
 
@@ -44,13 +49,54 @@ export default function Footer() {
   return (
     <footer className="bg-[#0f2a4a] text-white">
 
-      {/* Top CTA band */}
+      {/* ── Newsletter band ── */}
+      <div style={{ backgroundColor: '#0a1f38' }}>
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            {/* Left */}
+            <div className="max-w-md">
+              <h3 className="text-white font-bold text-lg leading-snug">
+                Stay ahead of corrosion.
+              </h3>
+              <p className="text-[#8ab4d4] text-sm mt-1 leading-relaxed">
+                Get technical articles, application notes, and product updates from Cosasco engineers — no marketing fluff.
+              </p>
+            </div>
+
+            {/* Newsletter form */}
+            <div className="flex-1 max-w-lg w-full">
+              <form className="flex gap-2">
+                <div className="relative flex-1">
+                  <Mail size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8ab4d4]" />
+                  <input
+                    type="email"
+                    placeholder="Your work email"
+                    className="w-full bg-white/10 border border-white/20 text-white placeholder-[#8ab4d4] text-sm rounded-lg pl-9 pr-4 py-3 outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30 transition-all"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="bg-[#f4a65d] hover:bg-[#d4892a] text-white text-sm font-semibold px-5 py-3 rounded-lg transition-colors shrink-0 whitespace-nowrap flex items-center gap-2"
+                >
+                  Subscribe
+                  <ArrowRight size={14} />
+                </button>
+              </form>
+              <p className="text-[#5a7a94] text-[0.68rem] mt-2">
+                No spam. Unsubscribe at any time. We respect your privacy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Top CTA band ── */}
       <div className="bg-[#1a3a5c]">
-        <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-          <p className="text-white font-bold text-xl leading-snug">
+        <div className="max-w-7xl mx-auto px-6 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+          <p className="text-white font-bold text-lg leading-snug">
             Ready to solve your corrosion challenge?
           </p>
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 shrink-0 flex-wrap">
             <Link
               href="/contact"
               className="bg-[#f4a65d] hover:bg-[#d4892a] text-white font-semibold text-sm px-5 py-2.5 rounded-md transition-colors duration-150 whitespace-nowrap"
@@ -59,7 +105,7 @@ export default function Footer() {
             </Link>
             <Link
               href="/resources"
-              className="border border-white text-white hover:bg-white hover:text-[#0f2a4a] font-semibold text-sm px-5 py-2.5 rounded-md transition-colors duration-150 whitespace-nowrap"
+              className="border border-white/30 text-white hover:bg-white/10 font-semibold text-sm px-5 py-2.5 rounded-md transition-colors duration-150 whitespace-nowrap"
             >
               View Resources
             </Link>
@@ -67,7 +113,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Certification badges strip */}
+      {/* ── Certification badges strip ── */}
       <div className="bg-[#1a3a5c] border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center gap-3">
           <span className="text-[#8ab4d4] text-xs font-semibold tracking-wider shrink-0">
@@ -76,23 +122,23 @@ export default function Footer() {
           {certBadges.map((badge) => (
             <span
               key={badge}
-              className="bg-white/5 border border-white/10 text-[#b8cfe0] text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5"
+              className="bg-white/5 border border-white/10 text-[#b8cfe0] text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 hover:bg-white/10 transition-colors"
             >
-              <CheckCircle size={12} className="text-[#f4a65d] shrink-0" />
+              <CheckCircle size={11} className="text-[#f4a65d] shrink-0" />
               {badge}
             </span>
           ))}
         </div>
       </div>
 
-      {/* Main footer grid */}
+      {/* ── Main footer grid ── */}
       <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-10 lg:gap-12">
 
-          {/* Col 1 — Brand */}
-          <div className="md:col-span-1">
+          {/* Col 1 — Brand (2 cols wide) */}
+          <div className="md:col-span-2">
             {/* Logo */}
-            <div className="flex items-center gap-2.5 mb-4">
+            <div className="flex items-center gap-2.5 mb-5">
               <div className="w-[34px] h-[34px] bg-white rounded-md flex items-center justify-center shrink-0">
                 <span className="text-[#0f2a4a] font-black text-sm leading-none">C</span>
               </div>
@@ -106,64 +152,84 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-[#b8cfe0] text-sm leading-relaxed mb-5">
+            <p className="text-[#b8cfe0] text-sm leading-relaxed mb-6 max-w-xs">
               Industry-leading corrosion and erosion monitoring solutions for
-              critical infrastructure worldwide since 1955.
+              critical infrastructure worldwide since 1955. Trusted by the world&apos;s
+              leading oil &amp; gas, petrochemical, and water treatment operators.
             </p>
 
             {/* Address & contact */}
-            <address className="not-italic space-y-1.5 text-sm text-[#b8cfe0] mb-5">
-              <p className="font-medium text-white">11841 Smith Avenue</p>
-              <p className="font-medium text-white">Santa Fe Springs, CA 90670 USA</p>
-              <p className="mt-2">
-                <a
-                  href="tel:+18006356898"
-                  className="hover:text-white transition-colors duration-150"
-                >
-                  Toll Free: +1-800-635-6898
-                </a>
-              </p>
-              <p>
-                <a
-                  href="tel:+15629490123"
-                  className="hover:text-white transition-colors duration-150"
-                >
-                  +1-562-949-0123
-                </a>
-              </p>
-              <p className="text-[#6b8aa0]">Fax: +1-562-949-3065</p>
-              <p>
+            <address className="not-italic space-y-2.5 text-sm text-[#b8cfe0] mb-6">
+              <div className="flex items-start gap-2">
+                <MapPin size={14} className="text-[#f4a65d] shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-white font-medium leading-snug">11841 Smith Avenue</p>
+                  <p className="text-white font-medium leading-snug">Santa Fe Springs, CA 90670 USA</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone size={13} className="text-[#f4a65d] shrink-0" />
+                <div className="space-y-0.5">
+                  <a
+                    href="tel:+18006356898"
+                    className="block hover:text-white transition-colors duration-150 font-medium"
+                  >
+                    +1-800-635-6898 (Toll Free)
+                  </a>
+                  <a
+                    href="tel:+15629490123"
+                    className="block hover:text-white transition-colors duration-150"
+                  >
+                    +1-562-949-0123
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail size={13} className="text-[#f4a65d] shrink-0" />
                 <a
                   href="mailto:info@cosasco.com"
                   className="hover:text-white transition-colors duration-150"
                 >
                   info@cosasco.com
                 </a>
-              </p>
+              </div>
             </address>
 
-            {/* Newsletter signup */}
-            <p className="text-[#8ab4d4] text-xs font-bold uppercase tracking-wider mt-6 mb-3">
-              Stay Updated
-            </p>
-            <form className="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="bg-white/10 border border-white/20 text-white placeholder-[#8ab4d4] text-sm rounded-l-md px-3 py-2 flex-1 min-w-0 outline-none focus:border-[#f4a65d]"
-              />
-              <button
-                type="submit"
-                className="bg-[#f4a65d] hover:bg-[#d4892a] text-white text-sm font-semibold px-4 py-2 rounded-r-md transition-colors shrink-0"
+            {/* Social icons */}
+            <div className="flex items-center gap-4">
+              <a
+                href="https://www.linkedin.com/company/cosasco"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cosasco on LinkedIn"
+                className="w-8 h-8 rounded-md bg-white/10 hover:bg-[#f4a65d] flex items-center justify-center text-[#8ab4d4] hover:text-white transition-all duration-150"
               >
-                Subscribe
-              </button>
-            </form>
+                <Linkedin size={15} />
+              </a>
+              <a
+                href="https://twitter.com/cosasco"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cosasco on Twitter"
+                className="w-8 h-8 rounded-md bg-white/10 hover:bg-[#f4a65d] flex items-center justify-center text-[#8ab4d4] hover:text-white transition-all duration-150"
+              >
+                <Twitter size={15} />
+              </a>
+              <a
+                href="https://www.youtube.com/@cosasco"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Cosasco on YouTube"
+                className="w-8 h-8 rounded-md bg-white/10 hover:bg-[#f4a65d] flex items-center justify-center text-[#8ab4d4] hover:text-white transition-all duration-150"
+              >
+                <Youtube size={15} />
+              </a>
+            </div>
           </div>
 
           {/* Col 2 — Industries */}
           <div>
-            <h4 className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
               Industries
             </h4>
             <ul className="space-y-2.5">
@@ -171,8 +237,9 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150"
+                    className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150 flex items-center gap-1.5 group"
                   >
+                    <span className="w-1 h-1 rounded-full bg-[#f4a65d] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.label}
                   </Link>
                 </li>
@@ -182,7 +249,7 @@ export default function Footer() {
 
           {/* Col 3 — Products */}
           <div>
-            <h4 className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
               Products
             </h4>
             <ul className="space-y-2.5">
@@ -190,8 +257,13 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150"
+                    className={`text-sm transition-colors duration-150 flex items-center gap-1.5 group ${
+                      link.label === 'View All Products'
+                        ? 'text-[#f4a65d] font-semibold hover:text-white'
+                        : 'text-[#b8cfe0] hover:text-white'
+                    }`}
                   >
+                    {link.label === 'View All Products' && <ArrowRight size={12} className="shrink-0" />}
                     {link.label}
                   </Link>
                 </li>
@@ -201,7 +273,7 @@ export default function Footer() {
 
           {/* Col 4 — Company + Support */}
           <div>
-            <h4 className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
               Company
             </h4>
             <ul className="space-y-2.5 mb-7">
@@ -217,7 +289,7 @@ export default function Footer() {
               ))}
             </ul>
 
-            <h4 className="text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
               Support
             </h4>
             <ul className="space-y-2.5">
@@ -235,45 +307,11 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
+        {/* ── Bottom bar ── */}
         <div className="mt-10 pt-6 border-t border-white/10">
-          {/* Social icons row */}
-          <div className="flex items-center justify-between gap-4 mb-4">
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.linkedin.com/company/cosasco"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Cosasco on LinkedIn"
-                className="text-[#8ab4d4] hover:text-white transition-colors duration-150"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                href="https://twitter.com/cosasco"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Cosasco on Twitter"
-                className="text-[#8ab4d4] hover:text-white transition-colors duration-150"
-              >
-                <Twitter size={18} />
-              </a>
-              <a
-                href="https://www.youtube.com/@cosasco"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Cosasco on YouTube"
-                className="text-[#8ab4d4] hover:text-white transition-colors duration-150"
-              >
-                <Youtube size={18} />
-              </a>
-            </div>
-          </div>
-
-          {/* Copyright + legal links */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[#6b8aa0]">
-            <p>&copy; 2026 Cosasco. All rights reserved.</p>
-            <div className="flex items-center gap-3">
+            <p>&copy; 2026 Cosasco Systems, Inc. All rights reserved.</p>
+            <div className="flex items-center gap-3 flex-wrap justify-center">
               <Link href="/privacy" className="hover:text-white transition-colors duration-150">
                 Privacy Policy
               </Link>
@@ -284,6 +322,10 @@ export default function Footer() {
               <span className="text-white/20">·</span>
               <Link href="/terms" className="hover:text-white transition-colors duration-150">
                 Terms of Use
+              </Link>
+              <span className="text-white/20">·</span>
+              <Link href="/sitemap.xml" className="hover:text-white transition-colors duration-150">
+                Sitemap
               </Link>
             </div>
           </div>

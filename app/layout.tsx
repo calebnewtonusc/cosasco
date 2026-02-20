@@ -9,6 +9,7 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import CookieBanner from '@/components/CookieBanner'
+import FloatingChat from '@/components/FloatingChat'
 
 export const metadata: Metadata = {
   title: 'Cosasco | Corrosion Management Solutions',
@@ -29,6 +30,7 @@ export default function RootLayout({
         <Footer />
         <BackToTop />
         <CookieBanner />
+        <FloatingChat />
       </body>
     </html>
   )

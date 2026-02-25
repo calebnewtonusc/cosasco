@@ -50,7 +50,7 @@ export default function ContactCTASection() {
 
   return (
     <AnimateOnScroll delay={100}>
-      <section className="bg-white py-20 px-4" style={{ backgroundColor: '#f7f9fc' }}>
+      <section className="py-20 px-4" style={{ backgroundColor: '#f7f9fc' }}>
         <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
 
           {/* Left column */}

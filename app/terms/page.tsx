@@ -139,7 +139,7 @@ export default function TermsPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* HERO */}
-      <section className="bg-[#0f2a4a] pt-[72px] pb-16">
+      <section className="bg-[#0f2a4a] pb-16 pt-10">
         <div className="max-w-4xl mx-auto px-6">
           <p className="text-[#f4a65d] text-xs font-bold uppercase tracking-[0.1em] mb-4">Legal</p>
           <h1 className="text-white font-black text-4xl md:text-5xl leading-tight mb-4">

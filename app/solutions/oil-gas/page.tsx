@@ -167,7 +167,6 @@ export default function OilGasPage() {
                 </p>
               </div>
             </section>
-          </div>
 
 
             {/* Upstream */}
@@ -241,6 +240,7 @@ export default function OilGasPage() {
                 </ul>
               </div>
             </section>
+          </div>
 
           {/* ── SIDEBAR (col-span-1) ── */}
           <aside className="lg:col-span-1 mt-12 lg:mt-0 space-y-6">

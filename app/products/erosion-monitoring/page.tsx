@@ -104,7 +104,7 @@ export default function ErosionMonitoringPage() {
   return (
     <>
       {/* HERO */}
-      <section className="bg-[#0f2a4a] pt-[72px] pb-16 px-6 md:px-10 xl:px-16">
+      <section className="bg-[#0f2a4a] pb-16 pt-10 px-6 md:px-10 xl:px-16">
         <div className="max-w-7xl mx-auto">
           <nav className="flex items-center gap-1.5 text-sm text-[#8ab4d4] mb-6" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>

@@ -24,7 +24,7 @@ export default function GulfCoastRefineryPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* HERO */}
-      <section className="bg-[#0f2a4a] pt-[72px] pb-16">
+      <section className="bg-[#0f2a4a] pb-16 pt-10">
         <div className="max-w-6xl mx-auto px-6">
           <nav className="text-[#5a7a94] text-sm mb-6 flex flex-wrap gap-1 items-center">
             <Link href="/resources" className="hover:text-[#f4a65d] transition-colors">Resources</Link>

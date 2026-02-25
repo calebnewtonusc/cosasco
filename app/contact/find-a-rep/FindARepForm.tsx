@@ -256,7 +256,7 @@ export default function FindARepForm() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="bg-[#0f2a4a] pt-[72px] pb-16">
+      <section className="bg-[#0f2a4a] pb-16 pt-16">
         <div className="max-w-6xl mx-auto px-6">
           <nav className="flex items-center gap-2 text-sm text-[#8ab4d4] mb-6" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -280,7 +280,7 @@ export default function FindARepForm() {
       </section>
 
       {/* ── Region Tab Strip ── */}
-      <section className="bg-white border-b border-[#e8edf2] sticky top-0 z-10 shadow-sm">
+      <section className="bg-white border-b border-[#e8edf2] sticky top-[75px] z-10 shadow-sm">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
             {/* "All" tab */}

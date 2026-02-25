@@ -118,7 +118,7 @@ function AnimatedPipeline() {
 export default function HeroSection() {
   return (
     <section
-      className="pt-[75px] relative overflow-hidden"
+      className="relative overflow-hidden"
       style={{ backgroundColor: '#0f2a4a' }}
     >
       {/* Background particle SVG layer */}
@@ -165,7 +165,7 @@ export default function HeroSection() {
         </svg>
       </div>
 
-      <div className="py-24 lg:py-32 px-4 relative z-10">
+      <div className="pt-12 pb-24 lg:pt-16 lg:pb-32 px-4 relative z-10">
         <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
 
           {/* Left: headline + buttons + stats */}
@@ -212,7 +212,7 @@ export default function HeroSection() {
               className="mt-16 pt-8 border-t grid grid-cols-1 sm:grid-cols-3 max-w-2xl mx-auto lg:mx-0"
               style={{ borderColor: 'rgba(255,255,255,0.1)' }}
             >
-              <StatCounter end={70} suffix="+" label="Years Experience" />
+              <StatCounter end={75} suffix="+" label="Years Experience" />
               <StatCounter end={110} suffix="" label="Countries Served" />
               <StatCounter end={1} suffix="M+" label="Monitoring Locations" />
             </div>

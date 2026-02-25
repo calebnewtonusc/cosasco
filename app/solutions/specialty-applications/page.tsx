@@ -104,8 +104,7 @@ export default function SpecialtyApplicationsPage() {
                 </h3>
                 <p className="text-[#8ab4d4] text-sm leading-relaxed mb-8">
                   Real-time air quality monitoring through hypersensitive ER technology. The AirIQ
-                  system continuously measures airborne corrosion caused by SO₂, H₂S, and Cl₂ gases
-                  : the invisible threats that silently degrade copper and silver contacts in electronics
+                  system continuously measures airborne corrosion caused by SO₂, H₂S, and Cl₂ gases—the invisible threats that silently degrade copper and silver contacts in electronics
                   long before visual signs appear. Detects corrosive gases that damage electronics before
                   they cause failures, giving operators time to act.
                 </p>

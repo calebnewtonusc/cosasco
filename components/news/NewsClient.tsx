@@ -146,7 +146,7 @@ export default function NewsClient() {
   return (
     <>
       {/* FILTER BAR */}
-      <div className="sticky top-[75px] z-30 bg-white border-b border-[#e8edf2] shadow-sm">
+      <div className="sticky top-[72px] z-30 bg-white border-b border-[#e8edf2] shadow-sm">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex gap-2 overflow-x-auto py-3 no-scrollbar">
             {filters.map((f) => (

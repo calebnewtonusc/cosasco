@@ -103,7 +103,7 @@ export default function DeviceLengthCalculatorPage() {
     <div className="bg-white min-h-screen">
 
       {/* HERO */}
-      <section className="bg-[#0f2a4a] pt-[72px] pb-14">
+      <section className="bg-[#0f2a4a] pb-14 pt-10">
         <div className="max-w-6xl mx-auto px-6">
           <nav className="text-[#5a7a94] text-sm mb-6 flex flex-wrap gap-1 items-center">
             <Link href="/innovation" className="hover:text-[#f4a65d] transition-colors">Innovation</Link>

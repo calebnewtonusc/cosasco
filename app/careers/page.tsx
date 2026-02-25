@@ -11,7 +11,7 @@ export default function CareersPage() {
   return (
     <div>
       {/* HERO */}
-      <section className="bg-[#0f2a4a] pt-[72px] pb-24">
+      <section className="bg-[#0f2a4a] pb-24 pt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center">
           <p className="text-[#f4a65d] text-sm font-semibold tracking-widest uppercase mb-4">
             Halma Company · Cosasco · 110+ Countries

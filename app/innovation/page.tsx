@@ -82,10 +82,10 @@ export default function InnovationPage() {
       </div>
 
       {/* ── Hero ── */}
-      <section className="relative bg-[#0f2a4a] text-white overflow-hidden pt-[72px]">
+      <section className="relative bg-[#0f2a4a] text-white overflow-hidden">
         <div className="grid-bg absolute inset-0" aria-hidden="true" />
         <div className="absolute top-0 left-0 right-0 h-1 bg-[#f4a65d]" aria-hidden="true" />
-        <div className="cx relative py-20 md:py-28">
+        <div className="cx relative pb-20 md:pb-28 pt-10 md:pt-14">
           <div className="max-w-3xl">
             <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-4">What We&apos;re Building</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">

@@ -209,7 +209,7 @@ export default function ResourcesPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* HERO */}
-      <section className="bg-[#0f2a4a] pt-[72px] pb-16">
+      <section className="bg-[#0f2a4a] pb-16 pt-10">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <p className="text-[#94aabb] text-sm font-semibold uppercase tracking-widest mb-4">Resource Library</p>
           <h1 className="text-white font-black text-5xl md:text-6xl leading-tight mb-5">

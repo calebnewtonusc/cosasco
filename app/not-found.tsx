@@ -18,7 +18,7 @@ const popularLinks = [
 export default function NotFound() {
   return (
     <div
-      className="min-h-screen bg-[#0f2a4a] flex flex-col items-center justify-center px-6 pt-[72px]"
+      className="min-h-screen bg-[#0f2a4a] flex flex-col items-center justify-center px-6"
     >
       <div className="max-w-3xl w-full text-center">
 

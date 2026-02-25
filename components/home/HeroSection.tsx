@@ -181,7 +181,8 @@ export default function HeroSection() {
               className="font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05]"
               style={{ color: '#ffffff' }}
             >
-              Real-Time Corrosion Intelligence
+              Complete confidence in
+              corrosion management
               <br />
               <span style={{ color: '#f4a65d' }}>for Critical Infrastructure.</span>
             </h1>
@@ -212,7 +213,7 @@ export default function HeroSection() {
               className="mt-16 pt-8 border-t grid grid-cols-1 sm:grid-cols-3 max-w-2xl mx-auto lg:mx-0"
               style={{ borderColor: 'rgba(255,255,255,0.1)' }}
             >
-              <StatCounter end={75} suffix="+" label="Years Experience" />
+              <StatCounter end={70} suffix="+" label="Years Experience" />
               <StatCounter end={110} suffix="" label="Countries Served" />
               <StatCounter end={1} suffix="M+" label="Monitoring Locations" />
             </div>

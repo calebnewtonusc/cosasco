@@ -20,13 +20,13 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Cosasco | 75+ Years of Corrosion Monitoring Excellence',
+  title: 'About Cosasco | 70+ Years of Corrosion Monitoring Excellence',
   description:
     'Cosasco has protected critical industrial infrastructure for over 70 years. ISO 9001-certified manufacturer of corrosion monitoring instruments and chemical injection systems. A Halma company.',
 }
 
 const stats = [
-  { value: '75+', label: 'Years in Service', sub: 'Founded 1950, California' },
+  { value: '70+', label: 'Years in Service', sub: 'Founded 1950, California' },
   { value: '110', label: 'Countries Served', sub: 'Global distribution network' },
   { value: '1M+', label: 'Monitoring Locations', sub: 'Worldwide deployments' },
   { value: 'ISO 9001', label: 'Quality Certified', sub: 'Rigorous QMS since 1990s' },
@@ -229,7 +229,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">About Cosasco</p>
             <p className="text-[#8ab4d4] text-sm font-medium mb-4">A Halma Company</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
-              75+ Years Protecting<br />
+              70+ Years Protecting<br />
               <span className="text-[#f4a65d]">Critical Infrastructure</span>
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl mb-10">

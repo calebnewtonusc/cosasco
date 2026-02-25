@@ -141,7 +141,7 @@ export default function SupportPage() {
     <div className="bg-white min-h-screen">
       {/* HERO */}
       <section className="bg-[#0f2a4a] pb-16 pt-10">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 text-center">
           <p className="text-[#94aabb] text-sm font-semibold uppercase tracking-widest mb-4">Support Center</p>
           <h1 className="text-white font-black text-5xl md:text-6xl leading-tight mb-5">
             Customer Support
@@ -160,7 +160,7 @@ export default function SupportPage() {
 
       {/* PATHWAY CARDS */}
       <section className="bg-white py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {pathwayCards.map((card) => (
               <div
@@ -211,7 +211,7 @@ export default function SupportPage() {
 
       {/* SOFTWARE DOWNLOADS */}
       <section className="bg-[#f7f9fc] py-16 border-t border-[#e8edf2]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="text-center mb-10">
             <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Resources</p>
             <h2 className="text-[#0f2a4a] font-black text-3xl md:text-4xl mb-3">Software Downloads</h2>
@@ -272,7 +272,7 @@ export default function SupportPage() {
 
       {/* FORM SECTION */}
       <section className="bg-white py-20">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="grid lg:grid-cols-5 gap-12">
             <div className="lg:col-span-3">
               <h2 className="text-[#0f2a4a] font-black text-4xl mb-2">Technical Support Request</h2>
@@ -527,7 +527,7 @@ export default function SupportPage() {
 
       {/* CHAT CTA STRIP */}
       <section className="bg-[#0f2a4a] py-10">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center flex-shrink-0">
               <MessageCircle className="w-6 h-6 text-[#f4a65d]" />

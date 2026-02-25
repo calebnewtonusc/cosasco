@@ -67,7 +67,7 @@ export default function Footer() {
 
       {/* ── Newsletter band ── */}
       <div className="bg-[#0a1f38]">
-        <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 py-10">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="max-w-md">
               <h3 className="text-white font-bold text-lg leading-snug">
@@ -119,7 +119,7 @@ export default function Footer() {
 
       {/* ── Top CTA band ── */}
       <div className="bg-[#1a3a5c]">
-        <div className="max-w-7xl mx-auto px-6 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
           <p className="text-white font-bold text-lg leading-snug">
             Ready to solve your corrosion challenge?
           </p>
@@ -142,7 +142,7 @@ export default function Footer() {
 
       {/* ── Certification badges strip ── */}
       <div className="bg-[#1a3a5c] border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-wrap items-center gap-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 py-4 flex flex-wrap items-center gap-3">
           <span className="text-[#8ab4d4] text-xs font-semibold tracking-wider shrink-0">
             Certified &amp; Compliant:
           </span>
@@ -159,7 +159,7 @@ export default function Footer() {
       </div>
 
       {/* ── Main footer grid ── */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 py-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 lg:gap-12">
 
           {/* Col 1 - Brand (2 cols wide) */}

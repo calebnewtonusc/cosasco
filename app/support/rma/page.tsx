@@ -426,7 +426,7 @@ export default function RMAPage() {
       </section>
 
       {/* Body */}
-      <div className="max-w-6xl mx-auto px-6 md:px-10 py-12 lg:grid lg:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 md:px-10 py-12 lg:grid lg:grid-cols-3 gap-10">
         {/* Main */}
         <div className="lg:col-span-2">
           <div className="bg-white border border-[#e8edf2] rounded-2xl p-8 md:p-10 shadow-sm">

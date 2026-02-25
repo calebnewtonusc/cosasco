@@ -61,7 +61,7 @@ export default function AccessFittingsPage() {
       </section>
 
       {/* ── BODY GRID ────────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-16 py-12 lg:grid lg:grid-cols-3 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 md:px-10 xl:px-16 py-12 lg:grid lg:grid-cols-3 gap-12">
         {/* ── MAIN ── col-span-2 ──────────────────────────────────────── */}
         <div className="lg:col-span-2 space-y-0">
 

@@ -257,7 +257,7 @@ export default function FindARepForm() {
     <>
       {/* ── Hero ── */}
       <section className="bg-[#0f2a4a] pb-16 pt-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <nav className="flex items-center gap-2 text-sm text-[#8ab4d4] mb-6" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <ChevronRight className="w-3.5 h-3.5" />
@@ -281,7 +281,7 @@ export default function FindARepForm() {
 
       {/* ── Region Tab Strip ── */}
       <section className="bg-white border-b border-[#e8edf2] sticky top-[75px] z-10 shadow-sm">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
             {/* "All" tab */}
             <button
@@ -319,7 +319,7 @@ export default function FindARepForm() {
 
       {/* ── Directory ── */}
       <section className="bg-[#f7f9fc] py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
 
           {/* Controls row */}
           <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
@@ -365,7 +365,7 @@ export default function FindARepForm() {
 
       {/* ── Bottom CTA ── */}
       <section className="bg-[#0f2a4a] py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-[#f4a65d] text-xs font-bold uppercase tracking-[0.1em] mb-4">
               Global Coverage

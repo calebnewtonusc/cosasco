@@ -201,7 +201,7 @@ export default function SupportFAQ() {
 
   return (
     <section id="faq" className="bg-[#f7f9fc] py-20">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
         <div className="text-center mb-10">
           <span className="text-xs font-bold uppercase tracking-widest text-[#f4a65d]">
             FAQ

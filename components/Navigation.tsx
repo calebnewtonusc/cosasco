@@ -145,7 +145,7 @@ function navReducer(state: NavState, action: NavAction): NavState {
 function IndustriesDropdown({ onClose }: { onClose: () => void }) {
   return (
     <div className="absolute top-full left-0 right-0 bg-white shadow-2xl border-t-2 border-[#f4a65d] animate-[fadeInDown_0.15s_ease]">
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 py-8">
         <div className="grid grid-cols-4 gap-x-6 gap-y-2">
           {industriesDropdown.map((ind) => {
             const Icon = ind.icon
@@ -188,7 +188,7 @@ function IndustriesDropdown({ onClose }: { onClose: () => void }) {
 function ProductsDropdown({ onClose }: { onClose: () => void }) {
   return (
     <div className="absolute top-full left-0 right-0 bg-white shadow-2xl border-t-2 border-[#f4a65d] animate-[fadeInDown_0.15s_ease]">
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 py-8">
         <div className="grid grid-cols-4 gap-8">
           {productsDropdown.map((col) => {
             const Icon = col.icon
@@ -267,7 +267,7 @@ function ProductsDropdown({ onClose }: { onClose: () => void }) {
 function CompanyDropdown({ onClose }: { onClose: () => void }) {
   return (
     <div className="absolute top-full left-0 right-0 bg-white shadow-2xl border-t-2 border-[#f4a65d] animate-[fadeInDown_0.15s_ease]">
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 py-8">
         <div className="grid grid-cols-3 gap-x-6 gap-y-2 max-w-2xl">
           {companyDropdown.map((item) => (
             <Link
@@ -291,7 +291,7 @@ function CompanyDropdown({ onClose }: { onClose: () => void }) {
 function SoftwareDropdown({ onClose }: { onClose: () => void }) {
   return (
     <div className="absolute top-full left-0 right-0 bg-white shadow-2xl border-t-2 border-[#f4a65d] animate-[fadeInDown_0.15s_ease]">
-      <div className="max-w-7xl mx-auto px-6 py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 py-6">
         <div className="grid grid-cols-3 gap-x-8 gap-y-2 max-w-xl">
           {softwareDropdown.map((item) => (
             <Link
@@ -513,7 +513,7 @@ function SearchOverlay({
 }) {
   return (
     <div className="absolute top-full left-0 right-0 bg-white border-t border-[#e8edf2] shadow-lg animate-[fadeInDown_0.15s_ease]">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 py-4 flex items-center gap-3">
         <Search size={16} className="text-[#8898aa] shrink-0" />
         <input
           ref={inputRef}
@@ -603,7 +603,7 @@ export default function Navigation() {
       <div className="h-[3px] bg-gradient-to-r from-[#f4a65d] via-[#d4892a] to-[#f4a65d] w-full" />
 
       {/* Main nav bar */}
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-[72px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 flex items-center justify-between h-[72px]">
 
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0" aria-label="Cosasco home">

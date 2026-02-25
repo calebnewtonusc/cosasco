@@ -39,7 +39,7 @@ export default function CaseStudiesPage() {
     <div className="bg-white min-h-screen">
       {/* HERO */}
       <section className="bg-[#0f2a4a] pb-16 pt-10">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <nav className="text-[#5a7a94] text-sm mb-6">
             <Link href="/resources" className="hover:text-[#f4a65d] transition-colors">Resources</Link>
             <span className="mx-2">/</span>
@@ -54,7 +54,7 @@ export default function CaseStudiesPage() {
 
       {/* CASE STUDY CARDS */}
       <section className="py-16 bg-[#f7f9fc]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="grid gap-8 md:grid-cols-3">
             {caseStudies.map((cs) => (
               <Link
@@ -93,7 +93,7 @@ export default function CaseStudiesPage() {
 
       {/* CTA */}
       <section className="bg-[#0f2a4a] py-16">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 text-center">
           <h2 className="text-white font-black text-3xl mb-4">Ready to write your own success story?</h2>
           <p className="text-[#94aabb] mb-8 max-w-xl mx-auto">
             Talk to a Cosasco engineer about your corrosion challenge.

@@ -210,7 +210,7 @@ export default function ResourcesPage() {
     <div className="bg-white min-h-screen">
       {/* HERO */}
       <section className="bg-[#0f2a4a] pb-16 pt-10">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 text-center">
           <p className="text-[#94aabb] text-sm font-semibold uppercase tracking-widest mb-4">Resource Library</p>
           <h1 className="text-white font-black text-5xl md:text-6xl leading-tight mb-5">
             Technical Resources & Document Requests
@@ -275,7 +275,7 @@ export default function ResourcesPage() {
 
       {/* RESOURCE GRID */}
       <section className="bg-[#f7f9fc] py-12">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           {filtered.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-[#0f2a4a] font-bold text-xl mb-2">No resources found</p>
@@ -342,7 +342,7 @@ export default function ResourcesPage() {
 
       {/* WEBINARS */}
       <section className="bg-white py-16 border-b border-[#e8edf2]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="text-center mb-10">
             <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Live Events</p>
             <h2 className="text-[#0f2a4a] font-black text-3xl md:text-4xl mb-3">Upcoming Webinars</h2>
@@ -421,7 +421,7 @@ export default function ResourcesPage() {
 
       {/* BLOG PREVIEW */}
       <section className="bg-[#f7f9fc] py-16 border-b border-[#e8edf2]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="flex items-end justify-between mb-10">
             <div>
               <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Technical Insights</p>
@@ -492,7 +492,7 @@ export default function ResourcesPage() {
 
       {/* FEATURED CASE STUDIES */}
       <section className="bg-[#0f2a4a] py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <h2 className="text-white font-black text-4xl text-center mb-3">Featured Case Studies</h2>
           <p className="text-[#94aabb] text-center mb-12">
             Real-world results from Cosasco corrosion monitoring deployments.

@@ -45,7 +45,7 @@ export default function RecentlyViewed({ currentProduct }: RecentlyViewedProps) 
   if (others.length === 0) return null
 
   return (
-    <section className="max-w-7xl mx-auto px-6 md:px-10 xl:px-16 py-10 border-t border-[#e8edf2]">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 md:px-10 xl:px-16 py-10 border-t border-[#e8edf2]">
       <h2 className="text-[#0f2a4a] font-bold text-xl mb-6">Recently Viewed</h2>
       <div className="flex gap-4 overflow-x-auto pb-2">
         {others.map((product) => (

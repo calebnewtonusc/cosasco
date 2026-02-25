@@ -104,7 +104,7 @@ export default function DeviceLengthCalculatorPage() {
 
       {/* HERO */}
       <section className="bg-[#0f2a4a] pb-14 pt-10">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <nav className="text-[#5a7a94] text-sm mb-6 flex flex-wrap gap-1 items-center">
             <Link href="/innovation" className="hover:text-[#f4a65d] transition-colors">Innovation</Link>
             <span className="mx-1">/</span>
@@ -121,7 +121,7 @@ export default function DeviceLengthCalculatorPage() {
 
       {/* CALCULATOR */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="grid lg:grid-cols-3 gap-12">
 
             {/* Inputs */}
@@ -353,7 +353,7 @@ export default function DeviceLengthCalculatorPage() {
 
       {/* Usage notes */}
       <section className="py-12 bg-[#f7f9fc]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <h2 className="text-[#0f2a4a] font-black text-xl mb-6">How to Use This Calculator</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[

@@ -140,7 +140,7 @@ export default function TermsPage() {
     <div className="bg-white min-h-screen">
       {/* HERO */}
       <section className="bg-[#0f2a4a] pb-16 pt-10">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <p className="text-[#f4a65d] text-xs font-bold uppercase tracking-[0.1em] mb-4">Legal</p>
           <h1 className="text-white font-black text-4xl md:text-5xl leading-tight mb-4">
             Terms of Use
@@ -153,7 +153,7 @@ export default function TermsPage() {
 
       {/* CONTENT */}
       <section className="py-16">
-        <div className="max-w-4xl mx-auto px-6 lg:grid lg:grid-cols-4 lg:gap-12">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 lg:grid lg:grid-cols-4 lg:gap-12">
           {/* Sticky TOC */}
           <aside className="hidden lg:block lg:col-span-1">
             <div className="sticky top-24 bg-[#f0f4f8] border border-[#e8edf2] rounded-xl p-5">

@@ -12,7 +12,7 @@ export default function NewsPage() {
     <div>
       {/* HERO */}
       <section className="bg-[#0f2a4a] pb-16 pt-10">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 text-center">
           <p className="text-[#f4a65d] text-xs font-bold uppercase tracking-[0.1em] mb-4">
             Stay Informed
           </p>

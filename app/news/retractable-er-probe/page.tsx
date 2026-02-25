@@ -13,7 +13,7 @@ export default function RetractableERProbePage() {
     <div className="bg-white min-h-screen">
       {/* HERO */}
       <section className="bg-[#0f2a4a] pb-16 pt-10">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <nav className="text-[#5a7a94] text-sm mb-6 flex flex-wrap gap-1 items-center">
             <Link href="/news" className="hover:text-[#f4a65d] transition-colors">
               News &amp; Insights
@@ -39,7 +39,7 @@ export default function RetractableERProbePage() {
 
       {/* CONTENT */}
       <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-3 gap-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 grid lg:grid-cols-3 gap-12">
           <article className="lg:col-span-2">
             <div className="text-[#566677] leading-relaxed space-y-6 text-[1.05rem]">
               <p className="text-xl text-[#0f2a4a] font-semibold leading-snug">
@@ -300,7 +300,7 @@ export default function RetractableERProbePage() {
 
       {/* BACK NAV */}
       <section className="bg-[#f0f4f8] border-t border-[#e8edf2] py-8">
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between flex-wrap gap-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 flex items-center justify-between flex-wrap gap-4">
           <Link
             href="/news"
             className="text-[#0f2a4a] font-semibold flex items-center gap-2 hover:text-[#f4a65d] transition-colors text-sm"

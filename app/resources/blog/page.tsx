@@ -65,7 +65,7 @@ export default function BlogIndexPage() {
     <div className="bg-white min-h-screen">
       {/* HERO */}
       <section className="bg-[#0f2a4a] pb-16 pt-10">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <nav className="text-[#5a7a94] text-sm mb-6 flex flex-wrap gap-1 items-center">
             <Link href="/resources" className="hover:text-[#f4a65d] transition-colors">
               Resources
@@ -88,7 +88,7 @@ export default function BlogIndexPage() {
 
       {/* FEATURED ARTICLE */}
       <section className="py-14 bg-[#f0f4f8]">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#566677] mb-6">
             Featured Article
           </p>
@@ -132,7 +132,7 @@ export default function BlogIndexPage() {
 
       {/* ARTICLE GRID */}
       <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#566677] mb-8">
             More Articles
           </p>
@@ -178,7 +178,7 @@ export default function BlogIndexPage() {
 
       {/* CTA */}
       <section className="bg-[#0f2a4a] py-16">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 text-center">
           <p className="text-[#f4a65d] text-xs font-bold uppercase tracking-[0.1em] mb-4">
             Stay Informed
           </p>

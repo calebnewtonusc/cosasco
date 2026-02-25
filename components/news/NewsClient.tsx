@@ -147,7 +147,7 @@ export default function NewsClient() {
     <>
       {/* FILTER BAR */}
       <div className="sticky top-[72px] z-30 bg-white border-b border-[#e8edf2] shadow-sm">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           <div className="flex gap-2 overflow-x-auto py-3 no-scrollbar">
             {filters.map((f) => (
               <button
@@ -169,7 +169,7 @@ export default function NewsClient() {
 
       {/* ARTICLES GRID */}
       <section className="bg-[#f7f9fc] py-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14">
           {visible.length === 0 ? (
             <p className="text-[#566677] text-center py-12">No articles in this category yet.</p>
           ) : (
@@ -233,7 +233,7 @@ export default function NewsClient() {
 
       {/* NEWSLETTER CTA */}
       <section className="bg-[#0f2a4a] py-16">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 text-center">
           <h2 className="text-white font-black text-3xl mb-3">Stay Up to Date</h2>
           <p className="text-[#94aabb] mb-8 max-w-md mx-auto leading-relaxed text-sm">
             Subscribe to receive the latest Cosasco product news, technical articles, and event

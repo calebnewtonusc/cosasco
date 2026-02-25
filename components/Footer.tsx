@@ -1,5 +1,9 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
-import { Linkedin, Twitter, Youtube, CheckCircle, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import { Linkedin, Youtube, CheckCircle, Mail, Phone, MapPin, ArrowRight, X } from 'lucide-react'
 
 const industryLinks = [
   { label: 'Oil & Gas', href: '/solutions/oil-gas' },
@@ -32,7 +36,7 @@ const supportLinks = [
   { label: 'Technical Support', href: '/support' },
   { label: 'RMA Request', href: '/support/rma' },
   { label: 'Find a Rep', href: '/contact/find-a-rep' },
-  { label: 'Software Login', href: '/software/partner-payment' },
+  { label: 'Software Login', href: '/software' },
   { label: 'Device Calculator', href: '/tools/device-length-calculator' },
 ]
 
@@ -42,18 +46,30 @@ const certBadges = [
   'API Compliant',
   'ATEX Certified',
   'IECEx Compliant',
-  'A Halma Company',
 ]
 
+type NewsletterStatus = 'idle' | 'loading' | 'success'
+
 export default function Footer() {
+  const [email, setEmail] = useState('')
+  const [nlStatus, setNlStatus] = useState<NewsletterStatus>('idle')
+
+  async function handleNewsletter(e: React.FormEvent) {
+    e.preventDefault()
+    if (!email.trim() || nlStatus === 'loading') return
+    setNlStatus('loading')
+    await new Promise((r) => setTimeout(r, 700))
+    setNlStatus('success')
+    setEmail('')
+  }
+
   return (
     <footer className="bg-[#0f2a4a] text-white">
 
       {/* ── Newsletter band ── */}
-      <div style={{ backgroundColor: '#0a1f38' }}>
+      <div className="bg-[#0a1f38]">
         <div className="max-w-7xl mx-auto px-6 py-10">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-            {/* Left */}
             <div className="max-w-md">
               <h3 className="text-white font-bold text-lg leading-snug">
                 Stay ahead of corrosion.
@@ -63,25 +79,37 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Newsletter form */}
             <div className="flex-1 max-w-lg w-full">
-              <form className="flex gap-2">
-                <div className="relative flex-1">
-                  <Mail size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8ab4d4]" />
-                  <input
-                    type="email"
-                    placeholder="Your work email"
-                    className="w-full bg-white/10 border border-white/20 text-white placeholder-[#8ab4d4] text-sm rounded-lg pl-9 pr-4 py-3 outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30 transition-all"
-                  />
+              {nlStatus === 'success' ? (
+                <div className="flex items-center gap-3 text-sm text-green-300 bg-white/10 rounded-lg px-5 py-3.5">
+                  <CheckCircle size={16} className="text-green-400 shrink-0" />
+                  <span>You&apos;re subscribed! Watch your inbox for Cosasco updates.</span>
                 </div>
-                <button
-                  type="submit"
-                  className="bg-[#f4a65d] hover:bg-[#d4892a] text-white text-sm font-semibold px-5 py-3 rounded-lg transition-colors shrink-0 whitespace-nowrap flex items-center gap-2"
-                >
-                  Subscribe
-                  <ArrowRight size={14} />
-                </button>
-              </form>
+              ) : (
+                <form onSubmit={handleNewsletter} className="flex gap-2">
+                  <div className="relative flex-1">
+                    <label htmlFor="footer-nl-email" className="sr-only">Work email address</label>
+                    <Mail size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8ab4d4]" />
+                    <input
+                      id="footer-nl-email"
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Your work email"
+                      aria-label="Work email for newsletter"
+                      className="w-full bg-white/10 border border-white/20 text-white placeholder-[#8ab4d4] text-sm rounded-lg pl-9 pr-4 py-3 outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30 transition-all"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={nlStatus === 'loading'}
+                    className="bg-[#f4a65d] hover:bg-[#d4892a] disabled:opacity-60 text-white text-sm font-semibold px-5 py-3 rounded-lg transition-colors shrink-0 whitespace-nowrap flex items-center gap-2"
+                  >
+                    {nlStatus === 'loading' ? 'Subscribing…' : (<>Subscribe <ArrowRight size={14} /></>)}
+                  </button>
+                </form>
+              )}
               <p className="text-[#5a7a94] text-[0.68rem] mt-2">
                 No spam. Unsubscribe at any time. We respect your privacy.
               </p>
@@ -137,65 +165,50 @@ export default function Footer() {
 
           {/* Col 1 — Brand (2 cols wide) */}
           <div className="md:col-span-2">
-            {/* Logo */}
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-[34px] h-[34px] bg-white rounded-md flex items-center justify-center shrink-0">
-                <span className="text-[#0f2a4a] font-black text-sm leading-none">C</span>
-              </div>
-              <div className="leading-none">
-                <div className="font-black text-white tracking-tight text-[1.05rem] leading-none">
-                  COSASCO
-                </div>
-                <div className="text-[10px] text-[#8ab4d4] tracking-wider uppercase mt-0.5 leading-none">
-                  A Halma Company
-                </div>
-              </div>
+            <div className="mb-5">
+              <Image
+                src="/cosasco-logo.png"
+                alt="Cosasco"
+                width={160}
+                height={40}
+                style={{ width: 'auto', height: '36px', filter: 'brightness(0) invert(1)' }}
+                className="object-contain"
+              />
             </div>
 
             <p className="text-[#b8cfe0] text-sm leading-relaxed mb-6 max-w-xs">
               Industry-leading corrosion and erosion monitoring solutions for
               critical infrastructure worldwide since 1955. Trusted by the world&apos;s
               leading oil &amp; gas, petrochemical, and water treatment operators.
+              A Halma Company.
             </p>
 
-            {/* Address & contact */}
             <address className="not-italic space-y-2.5 text-sm text-[#b8cfe0] mb-6">
               <div className="flex items-start gap-2">
                 <MapPin size={14} className="text-[#f4a65d] shrink-0 mt-0.5" />
-                <div>
-                  <p className="text-white font-medium leading-snug">11841 Smith Avenue</p>
-                  <p className="text-white font-medium leading-snug">Santa Fe Springs, CA 90670 USA</p>
-                </div>
+                <p className="text-white font-medium leading-snug">
+                  11841 Smith Avenue, Santa Fe Springs, CA 90670 USA
+                </p>
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={13} className="text-[#f4a65d] shrink-0" />
                 <div className="space-y-0.5">
-                  <a
-                    href="tel:+18006356898"
-                    className="block hover:text-white transition-colors duration-150 font-medium"
-                  >
+                  <a href="tel:+18006356898" className="block hover:text-white transition-colors duration-150 font-medium">
                     +1-800-635-6898 (Toll Free)
                   </a>
-                  <a
-                    href="tel:+15629490123"
-                    className="block hover:text-white transition-colors duration-150"
-                  >
+                  <a href="tel:+15629490123" className="block hover:text-white transition-colors duration-150">
                     +1-562-949-0123
                   </a>
                 </div>
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={13} className="text-[#f4a65d] shrink-0" />
-                <a
-                  href="mailto:info@cosasco.com"
-                  className="hover:text-white transition-colors duration-150"
-                >
+                <a href="mailto:info@cosasco.com" className="hover:text-white transition-colors duration-150">
                   info@cosasco.com
                 </a>
               </div>
             </address>
 
-            {/* Social icons */}
             <div className="flex items-center gap-4">
               <a
                 href="https://www.linkedin.com/company/cosasco"
@@ -207,13 +220,13 @@ export default function Footer() {
                 <Linkedin size={15} />
               </a>
               <a
-                href="https://twitter.com/cosasco"
+                href="https://x.com/cosasco"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Cosasco on Twitter"
+                aria-label="Cosasco on X (formerly Twitter)"
                 className="w-8 h-8 rounded-md bg-white/10 hover:bg-[#f4a65d] flex items-center justify-center text-[#8ab4d4] hover:text-white transition-all duration-150"
               >
-                <Twitter size={15} />
+                <X size={15} />
               </a>
               <a
                 href="https://www.youtube.com/@cosasco"
@@ -229,16 +242,11 @@ export default function Footer() {
 
           {/* Col 2 — Industries */}
           <div>
-            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
-              Industries
-            </h4>
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">Industries</h4>
             <ul className="space-y-2.5">
               {industryLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150 flex items-center gap-1.5 group"
-                  >
+                  <Link href={link.href} className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150 flex items-center gap-1.5 group">
                     <span className="w-1 h-1 rounded-full bg-[#f4a65d] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.label}
                   </Link>
@@ -249,15 +257,13 @@ export default function Footer() {
 
           {/* Col 3 — Products */}
           <div>
-            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
-              Products
-            </h4>
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">Products</h4>
             <ul className="space-y-2.5">
               {productLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className={`text-sm transition-colors duration-150 flex items-center gap-1.5 group ${
+                    className={`text-sm transition-colors duration-150 flex items-center gap-1.5 ${
                       link.label === 'View All Products'
                         ? 'text-[#f4a65d] font-semibold hover:text-white'
                         : 'text-[#b8cfe0] hover:text-white'
@@ -273,32 +279,22 @@ export default function Footer() {
 
           {/* Col 4 — Company + Support */}
           <div>
-            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
-              Company
-            </h4>
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">Company</h4>
             <ul className="space-y-2.5 mb-7">
               {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150"
-                  >
+                  <Link href={link.href} className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150">
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
 
-            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">
-              Support
-            </h4>
+            <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">Support</h4>
             <ul className="space-y-2.5">
               {supportLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150"
-                  >
+                  <Link href={link.href} className="text-sm text-[#b8cfe0] hover:text-white transition-colors duration-150">
                     {link.label}
                   </Link>
                 </li>
@@ -310,23 +306,13 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="mt-10 pt-6 border-t border-white/10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[#6b8aa0]">
-            <p>&copy; 2026 Cosasco Systems, Inc. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Cosasco Systems, Inc. All rights reserved.</p>
             <div className="flex items-center gap-3 flex-wrap justify-center">
-              <Link href="/privacy" className="hover:text-white transition-colors duration-150">
-                Privacy Policy
-              </Link>
+              <Link href="/privacy" className="hover:text-white transition-colors duration-150">Privacy Policy</Link>
               <span className="text-white/20">·</span>
-              <Link href="/accessibility" className="hover:text-white transition-colors duration-150">
-                Accessibility
-              </Link>
+              <Link href="/accessibility" className="hover:text-white transition-colors duration-150">Accessibility</Link>
               <span className="text-white/20">·</span>
-              <Link href="/terms" className="hover:text-white transition-colors duration-150">
-                Terms of Use
-              </Link>
-              <span className="text-white/20">·</span>
-              <Link href="/sitemap.xml" className="hover:text-white transition-colors duration-150">
-                Sitemap
-              </Link>
+              <Link href="/terms" className="hover:text-white transition-colors duration-150">Terms of Use</Link>
             </div>
           </div>
         </div>

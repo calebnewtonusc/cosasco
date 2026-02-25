@@ -215,6 +215,7 @@ export default function SupportFAQ() {
             value={searchQuery}
             onChange={(e) => { setSearchQuery(e.target.value); setOpenIndex(null) }}
             placeholder="Search FAQs..."
+            aria-label="Search frequently asked questions"
             className="border border-[#e8edf2] rounded-xl pl-10 pr-10 py-3.5 text-sm w-full block focus:outline-none focus:border-[#f4a65d] focus:ring-2 focus:ring-[#f4a65d]/20 bg-white shadow-sm transition-all"
           />
           {searchQuery && (

@@ -292,7 +292,7 @@ export default function FloatingChat() {
               </button>
             </div>
             <p className="mt-1.5 text-[10px] text-[#aab5c2] text-center">
-              Powered by Ollama · gemma3:4b
+              AI Assistant · Powered by Cosasco
             </p>
           </div>
         </div>

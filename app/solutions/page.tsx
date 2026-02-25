@@ -81,22 +81,35 @@ const industries = [
       'Atmospheric and submerged structural steel corrosion compliance',
     ],
   },
+  {
+    num: '07',
+    slug: 'mining',
+    name: 'Mining & Minerals',
+    description:
+      'Mining and mineral processing operations expose equipment to highly aggressive slurries, acidic leach solutions, and abrasive particulates. Cosasco erosion-corrosion monitoring and wear-resistant probe materials provide continuous asset integrity data in the industry\'s harshest wet-process environments.',
+    challenges: [
+      'Erosion-corrosion from abrasive ore slurry in pipelines and pumps',
+      'Acid mine drainage attack on structural and process equipment',
+      'Inhibitor dosing optimization for complex multi-chemistry leach circuits',
+    ],
+  },
+  {
+    num: '08',
+    slug: 'gas-transmission',
+    name: 'Gas Transmission',
+    description:
+      'Natural gas transmission pipelines face internal corrosion from water dropout, CO₂, H₂S, and organic acids in rich gas streams. Cosasco inline ER probe networks, chemical injection quills, and corrosion coupon bypass assemblies provide continuous monitoring without interrupting pipeline operations.',
+    challenges: [
+      'CO₂ and H₂S sweet-sour corrosion at water dropout points',
+      'Under-deposit corrosion from glycol, amine, and condensate carryover',
+      'Chemical inhibitor delivery optimization in high-velocity gas streams',
+    ],
+  },
 ]
 
 export default function SolutionsPage() {
   return (
     <div className="min-h-screen bg-white">
-
-      {/* ── Breadcrumb ── */}
-      <div className="bg-[#f7f9fc] border-b border-[#e8edf2]">
-        <div className="cx py-3">
-          <nav className="flex items-center gap-2 text-sm text-[#566677]">
-            <Link href="/" className="hover:text-[#0f2a4a] transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-[#1e2b3a] font-medium">Solutions</span>
-          </nav>
-        </div>
-      </div>
 
       {/* ── Hero ── */}
       <section className="relative bg-[#0f2a4a] text-white overflow-hidden">

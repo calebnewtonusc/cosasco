@@ -72,7 +72,7 @@ export default function SupportPage() {
     product: '',
     appType: '',
     issue: '',
-    priority: 'critical',
+    priority: 'normal',
   })
   const [files, setFiles] = useState<File[]>([])
   const [status, setStatus] = useState<FormStatus>('idle')
@@ -270,7 +270,7 @@ export default function SupportPage() {
                     Your support ticket has been logged. Our engineering team will respond within the SLA window for your selected priority.
                   </p>
                   <button
-                    onClick={() => { setStatus('idle'); setForm({ name: '', company: '', email: '', phone: '', product: '', appType: '', issue: '', priority: 'critical' }); setFiles([]) }}
+                    onClick={() => { setStatus('idle'); setForm({ name: '', company: '', email: '', phone: '', product: '', appType: '', issue: '', priority: 'normal' }); setFiles([]) }}
                     className="mt-3 text-sm font-semibold text-[#f4a65d] hover:underline"
                   >
                     Submit another request
@@ -441,7 +441,7 @@ export default function SupportPage() {
                   </div>
 
                   {errorMsg && (
-                    <p className="text-red-500 text-sm">{errorMsg}</p>
+                    <p role="alert" className="text-red-500 text-sm">{errorMsg}</p>
                   )}
 
                   <button

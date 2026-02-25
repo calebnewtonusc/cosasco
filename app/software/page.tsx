@@ -65,12 +65,12 @@ export default function SoftwarePage() {
   return (
     <main>
       {/* HERO */}
-      <section className="bg-[#0f2a4a] pt-[75px] pb-24">
+      <section className="bg-[#0f2a4a] pt-[72px] pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-[#f4a65d] text-sm font-semibold tracking-widest uppercase mb-4">
             Software & Tools
           </p>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">
             Corrosion Monitoring Software
           </h1>
           <p className="text-lg text-[#8ab4d4] max-w-2xl mx-auto">
@@ -111,17 +111,20 @@ export default function SoftwarePage() {
                     className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] placeholder-[#6b7280] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors"
                   />
                 </div>
-                <button className="w-full bg-[#0f2a4a] text-white py-3 rounded-lg font-semibold hover:bg-[#1a3d6b] transition-colors">
-                  Login to FieldCom
-                </button>
+                <Link
+                  href="/contact"
+                  className="block w-full text-center bg-[#0f2a4a] text-white py-3 rounded-lg font-semibold hover:bg-[#1a3d6b] transition-colors"
+                >
+                  Contact Us to Set Up Access
+                </Link>
               </div>
               <p className="mt-4 text-center">
-                <button type="button" className="text-[#f4a65d] text-sm hover:underline">
-                  Forgot your password?
-                </button>
+                <Link href="/support" className="text-[#f4a65d] text-sm hover:underline">
+                  Having trouble? Contact support →
+                </Link>
               </p>
               <p className="mt-3 text-[#6b7280] text-xs text-center leading-relaxed">
-                Access is granted to authorized Cosasco customers only. Contact your sales representative to set up or manage account access.
+                FieldCom Cloud access is provisioned by your Cosasco sales representative. <Link href="/contact" className="text-[#f4a65d] hover:underline">Contact us</Link> to set up or manage your account.
               </p>
             </div>
 
@@ -193,12 +196,12 @@ export default function SoftwarePage() {
                   >
                     Learn More
                   </Link>
-                  <button
-                    type="button"
+                  <Link
+                    href="/contact"
                     className="flex-1 flex items-center justify-center gap-1.5 bg-[#f4a65d] text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#e8954a] transition-colors"
                   >
-                    <Download className="w-4 h-4" /> Download
-                  </button>
+                    <Download className="w-4 h-4" /> Get Access
+                  </Link>
                 </div>
               </div>
             ))}
@@ -239,6 +242,7 @@ export default function SoftwarePage() {
             <h2 className="text-2xl font-bold text-[#0f2a4a] mb-8">System Requirements</h2>
             <div className="border border-[#e8edf2] rounded-xl overflow-hidden">
               <table className="w-full text-sm">
+                <caption className="sr-only">System requirements for Cosasco software products</caption>
                 <thead>
                   <tr className="bg-[#0f2a4a] text-white">
                     <th className="text-left px-6 py-4 font-semibold">Requirement</th>

@@ -18,7 +18,7 @@ export default function IndustriesSection() {
             </h2>
             <p className="mt-3 max-w-xl mx-auto" style={{ color: '#6b7280' }}>
               Cosasco solutions are engineered for the specific corrosion
-              challenges of each sector. Hover a card to learn more.
+              challenges of each sector. Select a card to explore solutions.
             </p>
           </div>
 

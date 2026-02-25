@@ -384,7 +384,7 @@ export default function RMAPage() {
   return (
     <div className="bg-[#f7f9fc] min-h-screen">
       {/* Hero */}
-      <section className="bg-[#0f2a4a] pt-[75px] pb-14 px-6">
+      <section className="bg-[#0f2a4a] pt-[72px] pb-14 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-[#f4a65d] text-xs font-bold uppercase tracking-widest mb-3">Returns &amp; Repairs</p>
           <h1 className="text-white font-black text-4xl md:text-5xl leading-tight mb-4">

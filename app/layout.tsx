@@ -15,6 +15,22 @@ export const metadata: Metadata = {
   title: 'Cosasco | Corrosion Management Solutions',
   description:
     'Cosasco is the global leader in corrosion and erosion monitoring solutions, delivering precision instruments, access fittings, and data acquisition systems to oil & gas, petrochemical, and water treatment industries since 1955.',
+  openGraph: {
+    type: 'website',
+    siteName: 'Cosasco',
+    title: 'Cosasco | Corrosion Management Solutions',
+    description:
+      'Global leader in corrosion and erosion monitoring — ER probes, access fittings, FieldCom data acquisition, and chemical injection systems for oil & gas, petrochemical, and water treatment.',
+    url: 'https://cosasco.com',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Cosasco Corrosion Monitoring Solutions' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@cosasco',
+    title: 'Cosasco | Corrosion Management Solutions',
+    description: 'Global leader in corrosion and erosion monitoring since 1955.',
+    images: ['/og-image.png'],
+  },
 }
 
 export default function RootLayout({
@@ -26,7 +42,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="pt-[75px]">
         <Navigation />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
         <BackToTop />
         <CookieBanner />

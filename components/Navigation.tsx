@@ -10,7 +10,6 @@ import {
   Phone,
   Search,
   ShoppingCart,
-  Globe,
   Shield,
   Activity,
   Droplet,
@@ -22,13 +21,15 @@ import {
   BookOpen,
   Zap,
   ArrowRight,
+  Route,
+  Atom,
 } from 'lucide-react'
 
 const industriesDropdown = [
   { name: 'Upstream Oil & Gas', href: '/solutions/oil-gas', icon: Flame, desc: 'Production, injection & wellhead' },
-  { name: 'Midstream / Pipelines', href: '/solutions/oil-gas', icon: Zap, desc: 'Transmission & gas compression' },
-  { name: 'Downstream / Refining', href: '/solutions/petrochemical', icon: FlaskConical, desc: 'Process units & storage tanks' },
-  { name: 'Petrochemical', href: '/solutions/petrochemical', icon: TestTube, desc: 'Reactors, columns & transfer lines' },
+  { name: 'Midstream / Pipelines', href: '/solutions/oil-gas', icon: Route, desc: 'Transmission & gas compression' },
+  { name: 'Downstream / Refining', href: '/solutions/oil-gas', icon: FlaskConical, desc: 'Process units & storage tanks' },
+  { name: 'Petrochemical', href: '/solutions/petrochemical', icon: Atom, desc: 'Reactors, columns & transfer lines' },
   { name: 'Water Treatment', href: '/solutions/water-treatment', icon: Droplets, desc: 'Distribution & treatment systems' },
   { name: 'Chemical Processing', href: '/solutions/chemical-processing', icon: TestTube, desc: 'Aggressive media environments' },
   { name: 'Pulp & Paper', href: '/solutions/pulp-paper', icon: BookOpen, desc: 'Digesters & bleach plant' },
@@ -313,7 +314,7 @@ function MobileMenu({
   setMobileAccordion: (val: string | null) => void
 }) {
   return (
-    <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t-2 border-[#f4a65d] shadow-2xl max-h-[calc(100vh-75px)] overflow-y-auto">
+    <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t-2 border-[#f4a65d] shadow-2xl max-h-[calc(100vh-75px)] overflow-y-auto" role="dialog" aria-modal="true" aria-label="Navigation menu">
       <div className="px-4 py-3 space-y-0.5">
 
         {/* Industries accordion */}
@@ -630,6 +631,7 @@ export default function Navigation() {
           <button
             onClick={() => toggle('industries')}
             aria-expanded={open === 'industries'}
+            aria-haspopup="true"
             className={`${navLinkBase} ${open === 'industries' ? navLinkActive : navLinkIdle}`}
           >
             Industries
@@ -642,6 +644,7 @@ export default function Navigation() {
           <button
             onClick={() => toggle('products')}
             aria-expanded={open === 'products'}
+            aria-haspopup="true"
             className={`${navLinkBase} ${open === 'products' ? navLinkActive : navLinkIdle}`}
           >
             Products
@@ -661,6 +664,7 @@ export default function Navigation() {
           <button
             onClick={() => toggle('software')}
             aria-expanded={open === 'software'}
+            aria-haspopup="true"
             className={`${navLinkBase} ${open === 'software' ? navLinkActive : navLinkIdle}`}
           >
             Software
@@ -673,6 +677,7 @@ export default function Navigation() {
           <button
             onClick={() => toggle('company')}
             aria-expanded={open === 'company'}
+            aria-haspopup="true"
             className={`${navLinkBase} ${open === 'company' ? navLinkActive : navLinkIdle}`}
           >
             Company
@@ -689,11 +694,6 @@ export default function Navigation() {
 
         {/* Desktop right */}
         <div className="hidden lg:flex items-center gap-2 shrink-0">
-          <button className="flex items-center gap-1 text-[0.7rem] text-[#8898aa] hover:text-[#566677] transition-colors duration-150 px-2 py-1.5 rounded-md hover:bg-[#f4f6f8]">
-            <Globe size={12} />
-            <span>EN</span>
-          </button>
-
           <button
             onClick={() => dispatch({ type: 'TOGGLE_SEARCH' })}
             aria-label="Toggle search"
@@ -708,9 +708,6 @@ export default function Navigation() {
             className="relative inline-flex p-1.5 rounded-md text-[#566677] hover:text-[#0f2a4a] hover:bg-[#f4f6f8] transition-colors duration-150"
           >
             <ShoppingCart size={16} />
-            <span className="absolute -top-1 -right-1 bg-[#f4a65d] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-semibold leading-none">
-              0
-            </span>
           </Link>
 
           <a

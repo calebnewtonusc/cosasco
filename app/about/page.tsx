@@ -229,7 +229,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">About Cosasco</p>
             <p className="text-[#8ab4d4] text-sm font-medium mb-4">A Halma Company</p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
-              70 Years Protecting<br />
+              75+ Years Protecting<br />
               <span className="text-[#f4a65d]">Critical Infrastructure</span>
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl mb-10">

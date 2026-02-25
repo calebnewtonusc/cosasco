@@ -12,7 +12,7 @@ const articles = [
     category: 'Product Update',
     date: 'Jan 15, 2026',
     excerpt:
-      "Cosasco introduces the SafeGuard Service Valve \u2014 a fire-rated, PED-certified double isolation valve made with NACE-compliant 4130 or Duplex stainless steel. The lightest available service valve that meets the highest safety standards.",
+      "Cosasco introduces the SafeGuard Service Valve, a fire-rated, PED-certified double isolation valve made with NACE-compliant 4130 or Duplex stainless steel. The lightest available service valve that meets the highest safety standards.",
     href: null,
   },
   {
@@ -21,7 +21,7 @@ const articles = [
     date: 'Jan 8, 2026',
     excerpt:
       'Cosasco introduces a fully retractable electrical resistance probe rated for pressures up to 3,000 PSI, enabling safe in-service retrieval without process shutdown.',
-    href: null,
+    href: '/news/retractable-er-probe',
   },
   {
     title: 'Cosasco Recognized as Leading Corrosion Monitor Supplier',
@@ -29,14 +29,14 @@ const articles = [
     date: 'Dec 20, 2025',
     excerpt:
       'Independent industry analysts ranked Cosasco among the top global suppliers of corrosion monitoring equipment for the fourth consecutive year.',
-    href: null,
+    href: '/news/industry-recognition-2025',
   },
   {
     title: 'Optimizing Chemical Dosage and Reducing Waste',
     category: 'Technical Article',
     date: 'Dec 12, 2025',
     excerpt:
-      'Real-time LPR and ER monitoring data enables operators to optimize chemical inhibitor dosing \u2014 reducing waste, cutting costs, and improving corrosion protection simultaneously.',
+      'Real-time LPR and ER monitoring data enables operators to optimize chemical inhibitor dosing, reducing waste, cutting costs, and improving corrosion protection simultaneously.',
     href: null,
   },
   {
@@ -84,8 +84,8 @@ const articles = [
     category: 'Technical Article',
     date: 'Oct 22, 2025',
     excerpt:
-      'A deep-dive comparison of electrical resistance and linear polarization resistance probe technologies \u2014 helping engineers select the right sensor for their specific process conditions.',
-    href: '/resources',
+      'A deep-dive comparison of electrical resistance and linear polarization resistance probe technologies, helping engineers select the right sensor for their specific process conditions.',
+    href: '/resources/blog/corrosion-monitoring-fundamentals',
   },
   {
     title: 'Q3 2025 Product Catalog Now Available',
@@ -100,8 +100,8 @@ const articles = [
     category: 'Technical Article',
     date: 'Sep 25, 2025',
     excerpt:
-      "Cosasco's Director of Engineering reflects on seven decades of corrosion monitoring innovation \u2014 from early mechanical coupons to today's wireless sensor networks and cloud-based analytics.",
-    href: null,
+      "Cosasco's Director of Engineering reflects on seven decades of corrosion monitoring innovation, from early mechanical coupons to today's wireless sensor networks and cloud-based analytics.",
+    href: '/news/fieldcom-5-launch',
   },
 ]
 

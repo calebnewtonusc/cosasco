@@ -34,6 +34,7 @@ export default function ActivationForm() {
     email: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
 
   function validate() {
@@ -54,13 +55,30 @@ export default function ActivationForm() {
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }))
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const errs = validate()
     if (Object.keys(errs).length > 0) {
       setErrors(errs)
       return
     }
+    setSubmitting(true)
+    try {
+      await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: form.email.split('@')[0],
+          email: form.email,
+          subject: 'Data Key Activation Request',
+          message: `Machine ID: ${form.machineId}\nSerial Number: ${form.serialNumber}\nTechnology: ${form.technology}\nCountry: ${form.country}`,
+          type: 'activation',
+        }),
+      })
+    } catch {
+      // Still show success — request can be followed up by email
+    }
+    setSubmitting(false)
     setSubmitted(true)
   }
 
@@ -183,9 +201,10 @@ export default function ActivationForm() {
 
       <button
         type="submit"
-        className="w-full bg-[#0f2a4a] text-white py-3 rounded-lg font-semibold text-sm hover:bg-[#1a3d6b] transition-colors mt-2"
+        disabled={submitting}
+        className="w-full bg-[#0f2a4a] text-white py-3 rounded-lg font-semibold text-sm hover:bg-[#1a3d6b] transition-colors mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        Request Activation Key
+        {submitting ? 'Submitting...' : 'Request Activation Key'}
       </button>
     </form>
   )

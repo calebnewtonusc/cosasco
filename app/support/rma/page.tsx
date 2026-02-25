@@ -322,7 +322,7 @@ function SuccessState({ rmaNumber }: { rmaNumber: string }) {
       </div>
       <h2 className="text-[#0f2a4a] font-black text-3xl mb-2">RMA Request Submitted</h2>
       <p className="text-[#566677] text-base mb-8 max-w-md mx-auto leading-relaxed">
-        Your request has been received. You will get a confirmation email within one business day.
+        Your request has been sent to our support team. You will receive a confirmation email within one business day.
       </p>
       <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-6 max-w-sm mx-auto mb-8">
         <p className="text-[#8898aa] text-xs font-bold uppercase tracking-widest mb-1">Your RMA Number</p>
@@ -372,13 +372,41 @@ export default function RMAPage() {
       ? !!(state.productName && state.quantity && state.reasonForReturn)
       : !!(state.issueDescription && state.hazardousExposure)
 
-  function handleFormAction(e: React.FormEvent) {
+  async function handleFormAction(e: React.FormEvent) {
     e.preventDefault()
     if (state.currentStep < 3) {
       dispatch({ type: 'NEXT_STEP' })
     } else {
       const suffix = Math.floor(1000 + Math.random() * 9000)
-      dispatch({ type: 'SUBMIT', rmaNumber: `RMA-2026-${suffix}` })
+      const rmaNumber = `RMA-2026-${suffix}`
+
+      // Submit to API
+      try {
+        await fetch('/api/rma', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fullName: state.fullName,
+            company: state.company,
+            email: state.email,
+            phone: state.phone,
+            originalPONumber: state.originalPONumber,
+            orderDate: state.orderDate,
+            productName: state.productName,
+            serialNumber: state.serialNumber,
+            quantity: state.quantity,
+            reasonForReturn: state.reasonForReturn,
+            issueDescription: state.issueDescription,
+            hazardousExposure: state.hazardousExposure,
+            additionalNotes: state.additionalNotes,
+            rmaNumber,
+          }),
+        })
+      } catch {
+        // continue to show confirmation even on network error
+      }
+
+      dispatch({ type: 'SUBMIT', rmaNumber })
     }
   }
 

@@ -46,8 +46,8 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'Cosasco',
-              url: 'https://cosasco.vercel.app',
-              logo: 'https://cosasco.vercel.app/cosasco-logo.png',
+              url: 'https://cosasco.com',
+              logo: 'https://cosasco.com/cosasco-logo.png',
               description: 'Cosasco is a global leader in corrosion and erosion monitoring equipment, chemical injection systems, and related engineering services.',
               address: {
                 '@type': 'PostalAddress',

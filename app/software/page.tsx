@@ -174,7 +174,7 @@ export default function SoftwarePage() {
             <p className="text-amber-800 text-sm leading-relaxed">
               <strong>Legacy software is provided as-is for older instruments. No support is available.</strong>{' '}
               For current instruments, use{' '}
-              <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} className="underline underline-offset-2 hover:text-amber-900">
+              <a href="#data-key-activation" className="underline underline-offset-2 hover:text-amber-900">
                 Cosasco Data Online (CDO)
               </a>.
             </p>

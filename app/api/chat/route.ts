@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const OLLAMA_API = process.env.OLLAMA_BASE_URL ?? 'https://api.ollama.com'
-const OLLAMA_KEY = process.env.OLLAMA_API_KEY  ?? 'ae97380dc55b4e2cb0271cee4acecbbb.Ck3m2HBt-SRGr4meEZtrKkzN'
+const OLLAMA_KEY = process.env.OLLAMA_API_KEY ?? ''
 const MODEL      = 'gemma3:4b'
 
 const SYSTEM_PROMPT = `You are CosascoBot — the official AI assistant embedded on Cosasco's website. Your job is to help visitors find the right products, understand Cosasco's solutions, and connect with the right team.
@@ -20,7 +20,7 @@ PRODUCTS:
 - **ER (Electrical Resistance) Probes**: Measure real-time metal loss in pipelines and vessels. The industry gold standard for online corrosion monitoring
 - **Corrosion Coupons**: Physical metal specimens inserted into the process stream for weight-loss corrosion analysis over time
 - **UT (Ultrasonic) Sensors**: Non-intrusive sensors that measure wall thickness from the outside of the pipe — no process penetration required
-- **CORRDATA / Data Acquisition Systems**: Hardware and software for real-time remote monitoring, data logging, and trend analysis
+- **CorrView Desktop / Data Acquisition Systems**: Hardware and software for real-time remote monitoring, data logging, and trend analysis
 - **FieldCom 5**: Cosasco's latest cloud-based monitoring platform with remote access, automated alerts, and reporting dashboards
 - **Chemical Injection Systems**: Controlled, precise dosing of corrosion inhibitors directly into process streams
 - **Access Fittings (Stopples)**: Pressure-tight fittings that allow safe insertion and retrieval of monitoring devices under live pipeline pressure

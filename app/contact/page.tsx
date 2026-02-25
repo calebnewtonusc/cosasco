@@ -27,7 +27,7 @@ const regionalOffices = [
       {
         name: 'Gulf Coast Office',
         city: 'Houston, TX',
-        phone: '+1 (713) 555-0182',
+        phone: '+1 (562) 949-0123',
         email: 'houston@cosasco.com',
       },
     ],
@@ -38,13 +38,13 @@ const regionalOffices = [
       {
         name: 'European Operations',
         city: 'Aberdeen, Scotland',
-        phone: '+44 1224 555 0191',
+        phone: '—',
         email: 'europe@cosasco.com',
       },
       {
         name: 'Middle East Office',
         city: 'Dubai, UAE',
-        phone: '+971 4 555 0175',
+        phone: '—',
         email: 'me@cosasco.com',
       },
     ],
@@ -55,13 +55,13 @@ const regionalOffices = [
       {
         name: 'APAC Regional',
         city: 'Kuala Lumpur, Malaysia',
-        phone: '+65 6555 0143',
+        phone: '—',
         email: 'apac@cosasco.com',
       },
       {
         name: 'Australia Office',
         city: 'Perth, WA',
-        phone: '+61 8 5550 0167',
+        phone: '—',
         email: 'australia@cosasco.com',
       },
     ],
@@ -236,7 +236,7 @@ export default function ContactPage() {
                         placeholder="Jane Smith"
                         className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors ${errors.name ? 'border-red-400' : 'border-[#e8edf2]'}`}
                       />
-                      {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                      {errors.name && <p role="alert" className="text-red-500 text-xs mt-1">{errors.name}</p>}
                     </div>
                     <div>
                       <label htmlFor="contact-company" className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
@@ -266,7 +266,7 @@ export default function ContactPage() {
                         placeholder="jsmith@company.com"
                         className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors ${errors.email ? 'border-red-400' : 'border-[#e8edf2]'}`}
                       />
-                      {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+                      {errors.email && <p role="alert" className="text-red-500 text-xs mt-1">{errors.email}</p>}
                     </div>
                     <div>
                       <label htmlFor="contact-phone" className="block text-sm font-semibold text-[#1e2b3a] mb-1.5">
@@ -300,6 +300,8 @@ export default function ContactPage() {
                       <option>Chemical Processing</option>
                       <option>Pulp &amp; Paper</option>
                       <option>Utilities</option>
+                      <option>Mining &amp; Minerals</option>
+                      <option>Gas Transmission</option>
                       <option>Other</option>
                     </select>
                   </div>
@@ -322,7 +324,7 @@ export default function ContactPage() {
                       <option>Partnership / Distribution</option>
                       <option>Other</option>
                     </select>
-                    {errors.subject && <p className="text-red-500 text-xs mt-1">{errors.subject}</p>}
+                    {errors.subject && <p role="alert" className="text-red-500 text-xs mt-1">{errors.subject}</p>}
                   </div>
 
                   <div>
@@ -337,11 +339,11 @@ export default function ContactPage() {
                       placeholder="Tell us about your project, application, or question..."
                       className={`w-full rounded-lg px-4 py-3 text-sm text-[#1e2b3a] bg-[#f7f9fc] border focus:outline-none focus:border-[#f4a65d] transition-colors resize-vertical ${errors.message ? 'border-red-400' : 'border-[#e8edf2]'}`}
                     />
-                    {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
+                    {errors.message && <p role="alert" className="text-red-500 text-xs mt-1">{errors.message}</p>}
                   </div>
 
                   {apiError && (
-                    <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-4 py-3">{apiError}</p>
+                    <p role="alert" className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-4 py-3">{apiError}</p>
                   )}
                   <button
                     type="submit"
@@ -367,7 +369,7 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Address</p>
                       <p className="text-sm font-semibold text-[#0f2a4a] leading-snug">
-                        11401 Beach Street<br />
+                        11841 Smith Avenue<br />
                         Santa Fe Springs, CA 90670<br />
                         United States
                       </p>
@@ -461,9 +463,9 @@ export default function ContactPage() {
 
                 {/* Open in Google Maps link */}
                 <div className="absolute bottom-0 left-0 right-0 bg-[#111c2b]/80 px-4 py-2.5 flex items-center justify-between">
-                  <p className="text-[#8ab4d4] text-xs">11401 Beach Street, CA 90670</p>
+                  <p className="text-[#8ab4d4] text-xs">11841 Smith Avenue, CA 90670</p>
                   <a
-                    href="https://maps.google.com/?q=11401+Beach+Street+Santa+Fe+Springs+CA+90670"
+                    href="https://maps.google.com/?q=11841+Smith+Avenue+Santa+Fe+Springs+CA+90670"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#f4a65d] text-xs font-semibold hover:underline"

@@ -42,15 +42,16 @@ export default function ComparisonTableSection() {
 
           <div className="overflow-x-auto rounded-xl border border-[#e8edf2] shadow-sm">
             <table className="w-full bg-white text-sm min-w-[600px]">
+              <caption className="sr-only">Corrosion monitoring technology comparison</caption>
               <thead>
                 <tr style={{ backgroundColor: '#0f2a4a' }}>
-                  <th className="py-4 px-4 text-left text-xs font-bold uppercase tracking-wider text-[#8ab4d4] w-[40%]">
+                  <th scope="col" className="py-4 px-4 text-left text-xs font-bold uppercase tracking-wider text-[#8ab4d4] w-[40%]">
                     Capability
                   </th>
-                  <th className="py-4 px-4 text-center text-xs font-bold uppercase tracking-wider text-white">ER Probe</th>
-                  <th className="py-4 px-4 text-center text-xs font-bold uppercase tracking-wider text-white">Coupon</th>
-                  <th className="py-4 px-4 text-center text-xs font-bold uppercase tracking-wider text-white">UT Sensor</th>
-                  <th className="py-4 px-4 text-center text-xs font-bold uppercase tracking-wider text-white">LPR Probe</th>
+                  <th scope="col" className="py-4 px-4 text-center text-xs font-bold uppercase tracking-wider text-white">ER Probe</th>
+                  <th scope="col" className="py-4 px-4 text-center text-xs font-bold uppercase tracking-wider text-white">Coupon</th>
+                  <th scope="col" className="py-4 px-4 text-center text-xs font-bold uppercase tracking-wider text-white">UT Sensor</th>
+                  <th scope="col" className="py-4 px-4 text-center text-xs font-bold uppercase tracking-wider text-white">LPR Probe</th>
                 </tr>
               </thead>
               <tbody>

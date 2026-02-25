@@ -16,6 +16,8 @@ import {
   Globe,
   Users,
   TrendingDown,
+  Pickaxe,
+  Fuel,
 } from 'lucide-react'
 
 export const industries = [
@@ -72,6 +74,24 @@ export const industries = [
     detail: 'Cooling water systems, steam generators, and condensate return lines all require corrosion monitoring programs. Cosasco supports utility operators with ER, LPR, and coupon-based monitoring solutions.',
     color: 'from-cyan-500/10 to-cyan-500/5',
     accent: '#0891b2',
+  },
+  {
+    icon: Pickaxe,
+    name: 'Mining & Minerals',
+    desc: 'Erosion-corrosion monitoring in aggressive ore slurry environments.',
+    href: '/solutions/mining',
+    detail: 'Abrasive ore slurries, acid mine drainage, and aggressive leach circuits demand wear-resistant probe materials and continuous erosion monitoring. Cosasco delivers purpose-built solutions for the mining sector.',
+    color: 'from-stone-500/10 to-stone-500/5',
+    accent: '#78716c',
+  },
+  {
+    icon: Fuel,
+    name: 'Gas Transmission',
+    desc: 'Internal corrosion monitoring for high-pressure natural gas pipelines.',
+    href: '/solutions/gas-transmission',
+    detail: 'CO₂, H₂S, and water dropout in transmission pipelines drive internal corrosion at vulnerable low points. Cosasco ER probe networks and chemical injection systems provide continuous integrity management without shutdowns.',
+    color: 'from-slate-500/10 to-slate-500/5',
+    accent: '#64748b',
   },
 ]
 
@@ -172,7 +192,7 @@ export const certifications = [
   { name: 'IECEx Compliant', desc: 'International Standard' },
   { name: 'API Compliant', desc: 'Petroleum Institute' },
   { name: 'NACE / AMPP Member', desc: 'Corrosion Society' },
-  { name: 'A Halma Company', desc: 'Global Safety Group' },
+  { name: 'Halma Group', desc: 'Safety Technology Portfolio' },
 ]
 
 export const valueMetrics = [

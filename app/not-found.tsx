@@ -1,4 +1,10 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: '404 — Page Not Found | Cosasco',
+  description: 'The page you are looking for could not be found.',
+}
 
 const popularLinks = [
   { label: 'Products', desc: 'Browse our monitoring portfolio', href: '/products' },
@@ -12,7 +18,7 @@ const popularLinks = [
 export default function NotFound() {
   return (
     <div
-      className="min-h-screen bg-[#0f2a4a] flex flex-col items-center justify-center px-6 pt-[75px]"
+      className="min-h-screen bg-[#0f2a4a] flex flex-col items-center justify-center px-6 pt-[72px]"
     >
       <div className="max-w-3xl w-full text-center">
 
@@ -22,7 +28,7 @@ export default function NotFound() {
         </p>
 
         {/* Heading */}
-        <h1 className="text-white font-bold text-3xl mt-4">
+        <h1 className="text-white font-black text-3xl mt-4">
           Page not found
         </h1>
 

@@ -15,6 +15,7 @@ import {
   CheckCircle,
   Linkedin,
   Leaf,
+  Scale,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -192,7 +193,7 @@ const esgPillars = [
     body: 'We invest in people — from operator training programs and safe working procedures to community engagement in our California headquarters. Our products directly contribute to safer workplaces by preventing corrosion failures before they become incidents.',
   },
   {
-    icon: Shield,
+    icon: Scale,
     title: 'Governance',
     body: 'Operating under Halma\'s governance framework, Cosasco maintains the highest standards of ethics, transparency, and compliance. Our ISO 9001 quality system and rigorous traceability practices reflect a commitment to accountability at every level.',
   },
@@ -371,13 +372,15 @@ export default function AboutPage() {
                   <div className="bg-[#0f2a4a] rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
                     <span className="text-white font-bold text-xl">{person.initials}</span>
                   </div>
-                  <button
-                    type="button"
+                  <a
+                    href="https://www.linkedin.com/company/cosasco"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={`${person.name} on LinkedIn`}
                     className="text-[#6b7280] hover:text-[#0f2a4a] transition-colors mt-1"
                   >
                     <Linkedin className="w-4 h-4" />
-                  </button>
+                  </a>
                 </div>
                 <h3 className="font-bold text-[#0f2a4a] leading-snug">{person.name}</h3>
                 <p className="text-[#f4a65d] text-sm font-semibold mt-0.5">{person.title}</p>
@@ -489,7 +492,7 @@ export default function AboutPage() {
               <address className="not-italic text-[#8ab4d4] text-sm space-y-3 mb-8">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-[#f4a65d] flex-shrink-0" />
-                  <span>11401 Beach Street, Santa Fe Springs, CA 90670, USA</span>
+                  <span>11841 Smith Avenue, Santa Fe Springs, CA 90670, USA</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-[#f4a65d] flex-shrink-0" />
@@ -503,7 +506,7 @@ export default function AboutPage() {
                   <Phone className="w-4 h-4" />
                   Contact Our Team
                 </Link>
-                <Link href="/contact" className="btn btn-outline-white">
+                <Link href="/careers" className="btn btn-outline-white">
                   <Users className="w-4 h-4" />
                   Careers
                 </Link>
@@ -549,6 +552,23 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Bottom CTA ── */}
+      <section className="bg-[#f7f9fc] py-16 border-t border-[#e8edf2]">
+        <div className="cx text-center">
+          <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-4">
+            See What Cosasco Can Do for Your Operation
+          </h2>
+          <p className="text-[#566677] text-base max-w-xl mx-auto mb-8 leading-relaxed">
+            Talk to one of our application engineers about your corrosion challenge — no obligation.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link href="/contact" className="btn btn-primary">Contact an Engineer <ArrowRight className="w-4 h-4" /></Link>
+            <Link href="/careers" className="btn btn-outline-navy">Join Our Team</Link>
+            <Link href="/products" className="btn btn-outline-navy">Explore Products</Link>
           </div>
         </div>
       </section>

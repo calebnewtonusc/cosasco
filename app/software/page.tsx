@@ -93,39 +93,29 @@ export default function SoftwarePage() {
                 Access your FieldCom cloud dashboard. Sign in with your Cosasco account credentials.
               </p>
               <div className="space-y-4">
-                <div>
-                  <label htmlFor="fieldcom-email" className="block text-sm font-medium text-[#374151] mb-1.5">Email Address</label>
-                  <input
-                    id="fieldcom-email"
-                    type="email"
-                    placeholder="you@company.com"
-                    className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] placeholder-[#6b7280] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors"
-                  />
+                <div className="bg-[#f0f4f8] rounded-xl p-6 text-center">
+                  <p className="text-[#0f2a4a] font-semibold text-sm mb-2">
+                    Access is provisioned by your Cosasco representative.
+                  </p>
+                  <p className="text-[#566677] text-sm mb-5 leading-relaxed">
+                    FieldCom Cloud accounts are set up by your Cosasco sales contact after hardware purchase. If you already have credentials, visit the FieldCom portal directly.
+                  </p>
+                  <a
+                    href="https://fieldcom.cosasco.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center bg-[#0f2a4a] text-white py-3 rounded-lg font-semibold hover:bg-[#1a3d6b] transition-colors mb-3"
+                  >
+                    Go to FieldCom Portal ↗
+                  </a>
+                  <Link
+                    href="/contact"
+                    className="block w-full text-center border border-[#0f2a4a] text-[#0f2a4a] py-3 rounded-lg font-semibold hover:bg-[#0f2a4a] hover:text-white transition-colors"
+                  >
+                    Contact Us to Set Up Access
+                  </Link>
                 </div>
-                <div>
-                  <label htmlFor="fieldcom-password" className="block text-sm font-medium text-[#374151] mb-1.5">Password</label>
-                  <input
-                    id="fieldcom-password"
-                    type="password"
-                    placeholder="••••••••"
-                    className="w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] placeholder-[#6b7280] bg-white focus:outline-none focus:border-[#0f2a4a] transition-colors"
-                  />
-                </div>
-                <Link
-                  href="/contact"
-                  className="block w-full text-center bg-[#0f2a4a] text-white py-3 rounded-lg font-semibold hover:bg-[#1a3d6b] transition-colors"
-                >
-                  Contact Us to Set Up Access
-                </Link>
               </div>
-              <p className="mt-4 text-center">
-                <Link href="/support" className="text-[#f4a65d] text-sm hover:underline">
-                  Having trouble? Contact support →
-                </Link>
-              </p>
-              <p className="mt-3 text-[#6b7280] text-xs text-center leading-relaxed">
-                FieldCom Cloud access is provisioned by your Cosasco sales representative. <Link href="/contact" className="text-[#f4a65d] hover:underline">Contact us</Link> to set up or manage your account.
-              </p>
             </div>
 
             {/* No account card */}

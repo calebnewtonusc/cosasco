@@ -15,7 +15,7 @@ const downloads = [
     buttonClass: 'bg-[#0f2a4a] text-white hover:bg-[#1a3d66]',
   },
   {
-    name: 'CorrView Analysis',
+    name: 'CorrView Desktop',
     version: '',
     platform: 'Windows 10/11',
     size: '128 MB',
@@ -238,12 +238,32 @@ export default function SupportPage() {
                     <p className="text-[#8898aa] text-xs mt-0.5">{item.size}</p>
                   )}
                 </div>
-                <button
-                  type="button"
-                  className={`w-full rounded-lg px-4 py-2.5 text-xs font-semibold transition-colors ${item.buttonClass}`}
-                >
-                  {item.buttonLabel}
-                </button>
+                {item.platform.includes('App Store') ? (
+                  <a
+                    href="https://apps.apple.com/search?term=fieldcom+cosasco"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block w-full text-center rounded-lg px-4 py-2.5 text-xs font-semibold transition-colors ${item.buttonClass}`}
+                  >
+                    {item.buttonLabel}
+                  </a>
+                ) : item.platform.includes('Play Store') ? (
+                  <a
+                    href="https://play.google.com/store/search?q=fieldcom+cosasco"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`block w-full text-center rounded-lg px-4 py-2.5 text-xs font-semibold transition-colors ${item.buttonClass}`}
+                  >
+                    {item.buttonLabel}
+                  </a>
+                ) : (
+                  <Link
+                    href="/software"
+                    className={`block w-full text-center rounded-lg px-4 py-2.5 text-xs font-semibold transition-colors ${item.buttonClass}`}
+                  >
+                    {item.buttonLabel}
+                  </Link>
+                )}
               </div>
             ))}
           </div>

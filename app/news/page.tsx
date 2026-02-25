@@ -128,14 +128,23 @@ const filterToCategory: Record<string, string> = {
 
 export default function NewsPage() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const [nlEmail, setNlEmail] = useState('')
+  const [nlSuccess, setNlSuccess] = useState(false)
 
   const visible =
     activeFilter === 'All'
       ? articles
       : articles.filter((a) => a.category === filterToCategory[activeFilter])
 
+  function handleSubscribe() {
+    if (!nlEmail) return
+    setTimeout(() => {
+      setNlSuccess(true)
+    }, 700)
+  }
+
   return (
-    <main>
+    <div>
       {/* HERO */}
       <section className="bg-[#0f2a4a] pt-[72px] pb-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
@@ -152,13 +161,14 @@ export default function NewsPage() {
       </section>
 
       {/* FILTER BAR */}
-      <div className="sticky top-0 z-30 bg-white border-b border-[#e8edf2] shadow-sm">
+      <div className="sticky top-[75px] z-30 bg-white border-b border-[#e8edf2] shadow-sm">
         <div className="max-w-6xl mx-auto px-6">
           <div className="flex gap-2 overflow-x-auto py-3 no-scrollbar">
             {filters.map((f) => (
               <button
                 key={f}
                 onClick={() => setActiveFilter(f)}
+                aria-pressed={f === activeFilter}
                 className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-semibold border transition-all ${
                   f === activeFilter
                     ? 'bg-[#0f2a4a] text-white border-[#0f2a4a]'
@@ -173,7 +183,7 @@ export default function NewsPage() {
       </div>
 
       {/* ARTICLES GRID */}
-      <section className="bg-[#f0f4f8] py-16">
+      <section className="bg-[#f7f9fc] py-16">
         <div className="max-w-6xl mx-auto px-6">
           {visible.length === 0 ? (
             <p className="text-[#566677] text-center py-12">No articles in this category yet.</p>
@@ -244,18 +254,29 @@ export default function NewsPage() {
             Subscribe to receive the latest Cosasco product news, technical articles, and event
             announcements directly in your inbox.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-[#8ab4d4] focus:outline-none focus:border-[#f4a65d] text-sm"
-            />
-            <button className="bg-[#f4a65d] hover:bg-[#d4892a] text-white font-bold px-6 py-3 rounded-lg transition-colors whitespace-nowrap text-sm">
-              Subscribe
-            </button>
-          </div>
+          {nlSuccess ? (
+            <p className="text-[#f4a65d] font-semibold text-base">
+              You&apos;re subscribed! Thanks for signing up.
+            </p>
+          ) : (
+            <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Your email address"
+                value={nlEmail}
+                onChange={(e) => setNlEmail(e.target.value)}
+                className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-[#8ab4d4] focus:outline-none focus:border-[#f4a65d] text-sm"
+              />
+              <button
+                onClick={handleSubscribe}
+                className="bg-[#f4a65d] hover:bg-[#d4892a] text-white font-bold px-6 py-3 rounded-lg transition-colors whitespace-nowrap text-sm"
+              >
+                Subscribe
+              </button>
+            </div>
+          )}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

@@ -1,316 +1,198 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, FlaskConical, Cpu, Satellite, ShieldCheck, Layers, Zap, Globe2, BookOpen } from 'lucide-react'
+import { ChevronRight, ArrowRight, Phone, Mail } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Innovation | Cosasco Corrosion Technology',
-  description: 'Seventy years of engineering leadership. Cosasco drives advances in corrosion monitoring, chemical injection, and digital integrity management.',
+  title: 'Innovation | Cosasco',
+  description:
+    "Cosasco's latest corrosion monitoring technologies — Echo Point, Microcor\u00ae, and the SafeGuard Service Valve.",
 }
 
-const pillars = [
+const featuredProducts = [
   {
-    icon: <FlaskConical className="w-7 h-7 text-[#f4a65d]" />,
-    title: 'Materials Science',
-    body: 'Our metallurgy team continuously evaluates new alloy compositions and surface treatments for probes and coupons operating in H₂S, CO₂, and high-chloride environments. Every Cosasco sensor material is validated against NACE/ISO standards before release.',
+    name: 'Echo Point',
+    tagline: 'Next-generation wireless ultrasonic monitoring',
+    desc: 'Certified for the most hazardous of environments. Three transducer choices with up to 3x sensitivity, thru-coating measurements, or ultra-high temperature monitoring @ 932°F (500°C). 5-year battery life. WirelessHART 7 compliant. HART Registered.',
+    href: '/products/erosion-monitoring',
+    highlights: [
+      '3× sensitivity options',
+      'Ultra-high temp: 932°F (500°C)',
+      '5-year battery life',
+      'WirelessHART 7 & HART Registered',
+    ],
   },
   {
-    icon: <Cpu className="w-7 h-7 text-[#f4a65d]" />,
-    title: 'Digital Intelligence',
-    body: 'FieldCom Cloud processes millions of corrosion data points daily. We are developing AI-assisted anomaly detection that alerts integrity teams to emerging corrosion events before they are visible in trended data.',
+    name: 'Microcor\u00ae',
+    tagline: 'Highest-sensitivity intrusive ER probe',
+    desc: 'The highest-sensitivity intrusive probe with the fastest response time in the industry. The Microcor® Wireless Transmitter (MWT) delivers 18-bit resolution with WirelessHART 7 connectivity. 50× faster than standard ER monitoring. Compatible with Yokogawa and Emerson DCS platforms.',
+    href: '/products/corrosion-monitoring',
+    highlights: [
+      '50× faster than standard ER',
+      '18-bit resolution',
+      'WirelessHART 7 connectivity',
+      'Yokogawa & Emerson DCS compatible',
+    ],
   },
   {
-    icon: <Satellite className="w-7 h-7 text-[#f4a65d]" />,
-    title: 'Remote Sensing',
-    body: 'Our HPHT wireless transmission systems bring real-time corrosion data from subsea and remote installations where wired infrastructure is impossible. The latest generation achieves 15-minute update cycles via satellite backhaul.',
-  },
-  {
-    icon: <ShieldCheck className="w-7 h-7 text-[#f4a65d]" />,
-    title: 'Integrity by Design',
-    body: 'Every Cosasco product is engineered from the design phase with process safety as a primary constraint — not an afterthought. Our access fitting and retrieval tool designs eliminate live-line exposure risk for field technicians.',
-  },
-]
-
-const milestones = [
-  { year: '1953', label: 'Founded in Los Angeles', detail: 'Cosasco is established as a corrosion monitoring specialist serving Southern California refineries.' },
-  { year: '1971', label: 'First ER probe commercialized', detail: 'Cosasco introduces the first commercially available electrical resistance probe for live pipeline monitoring.' },
-  { year: '1988', label: 'HPHT access fittings', detail: 'Cosasco launches retrievable access fittings rated for high-pressure, high-temperature sour gas service.' },
-  { year: '2002', label: 'CorrView software platform', detail: 'The first integrated software platform for corrosion data management and compliance reporting.' },
-  { year: '2012', label: 'Acquired by Halma plc', detail: 'Cosasco joins the Halma family of safety, health, and environmental technology companies.' },
-  { year: '2018', label: 'FieldCom Cloud launches', detail: 'Real-time cloud-connected corrosion monitoring goes live. First deployments across 14 North Sea platforms.' },
-  { year: '2023', label: 'AI corrosion analytics (beta)', detail: 'Machine-learning anomaly detection enters beta with 12 operator partners across three continents.' },
-  { year: '2025', label: 'FieldCom Mobile v3', detail: 'Offline-capable field data capture with GPS probe location and QR code probe identification.' },
-]
-
-const researchAreas = [
-  {
-    title: 'Predictive Corrosion Modeling',
-    status: 'Active R&D',
-    statusColor: 'bg-green-100 text-green-700',
-    body: 'Combining real-time ER and LPR probe data with process variables (temperature, flow rate, pH, H₂S partial pressure) to generate forward-looking corrosion rate predictions — not just historical trending.',
-    partners: 'University of Manchester, TWI Ltd',
-  },
-  {
-    title: 'Subsea Wireless Probe Networks',
-    status: 'Prototype Phase',
-    statusColor: 'bg-sky-100 text-sky-700',
-    body: 'Battery-powered probe nodes communicating via acoustic modem to surface control systems. Targeting 400m water depth with 30-minute data cycles and 5-year battery life.',
-    partners: 'SINTEF Ocean, Equinor Technology Ventures',
-  },
-  {
-    title: 'Digital Twin Integration',
-    status: 'Pilot Deployment',
-    statusColor: 'bg-purple-100 text-purple-700',
-    body: 'FieldCom Cloud API integrations with AVEVA, AspenTech, and Honeywell digital twin platforms. Operators can overlay live corrosion data onto 3D pipeline models for visualized integrity management.',
-    partners: 'Multiple operator partners (undisclosed)',
-  },
-  {
-    title: 'Biogenic Corrosion Early Warning',
-    status: 'Active R&D',
-    statusColor: 'bg-green-100 text-green-700',
-    body: 'Detecting SRB and IOB microbial activity signatures in real-time corrosion data patterns — potentially enabling biocide injection to be triggered by biological activity rather than by fixed schedules.',
-    partners: 'University of Houston, Cosasco Microbiology Lab',
+    name: 'SafeGuard Service Valve',
+    tagline: 'Fire-rated, PED-certified, double-isolation',
+    desc: 'Fire-rated and PED-certified service valve with double isolation valve technology. Made with NACE-compliant 4130 or Duplex stainless steel — the lightest available service valve that meets the highest safety standards.',
+    href: '/products/corrosion-monitoring',
+    highlights: [
+      'Fire-rated & PED-certified',
+      'Double isolation valve technology',
+      'NACE-compliant 4130 or Duplex SS',
+      'Lightest available at this safety rating',
+    ],
   },
 ]
 
-const publications = [
+const focusAreas = [
   {
-    title: 'Evaluation of HPHT ER Probe Performance in High H₂S Sour Gas Service',
-    venue: 'CORROSION 2024 — NACE International',
-    authors: 'Whitfield, J.; Okafor, C.; Nakamura, S.',
-    year: '2024',
+    title: 'Design great user experiences',
+    body: "Data that's difficult to interpret is difficult to trust. We build monitoring systems where the data is clear, actionable, and immediately useful.",
   },
   {
-    title: 'Machine Learning Approaches to Anomaly Detection in Continuous Corrosion Rate Data Streams',
-    venue: 'Corrosion Science, Vol. 218',
-    authors: 'Al-Rashid, F.; Whitfield, J.; Cosasco Data Science Team',
-    year: '2024',
+    title: 'Enable the quickest decision making',
+    body: 'The future of corrosion management is proactive. Our systems deliver real-time alerts that enable operators to act before failures occur.',
   },
   {
-    title: 'Standardized Coupon Program Design for Multi-Well Offshore Monitoring: Lessons from 23-Well Deployment',
-    venue: 'Offshore Technology Conference 2023',
-    authors: 'Okafor, C.; Nakamura, S.',
-    year: '2023',
+    title: 'Deliver results you can trust',
+    body: 'The consequences of corrosion are significant — for safety, the environment, and the bottom line. Our technology is certified and proven.',
   },
   {
-    title: 'Quantifying Chemical Injection Optimization Benefit Through Integrated ER/LPR Monitoring',
-    venue: 'International Corrosion Congress 2023',
-    authors: 'Whitfield, J.; Al-Rashid, F.',
-    year: '2023',
+    title: 'Find and solve the most complex problems',
+    body: 'Our local experts work on the frontlines of the most challenging corrosive environments in the world.',
   },
 ]
 
 export default function InnovationPage() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="min-h-screen bg-white">
 
-      {/* HERO */}
-      <section className="bg-[#0f2a4a] pt-[72px] pb-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-4xl">
-            <p className="text-[#f4a65d] text-sm font-bold uppercase tracking-widest mb-4">Innovation at Cosasco</p>
-            <h1 className="text-white font-black text-5xl md:text-6xl leading-tight mb-6">
-              70 Years of Pushing Corrosion Science Forward
+      {/* ── Breadcrumb ── */}
+      <div className="bg-[#f7f9fc] border-b border-[#e8edf2]">
+        <div className="cx py-3">
+          <nav className="flex items-center gap-2 text-sm text-[#566677]">
+            <Link href="/" className="hover:text-[#0f2a4a] transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <span className="text-[#1e2b3a] font-medium">Innovation</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* ── Hero ── */}
+      <section className="relative bg-[#0f2a4a] text-white overflow-hidden pt-[72px]">
+        <div className="grid-bg absolute inset-0" aria-hidden="true" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#f4a65d]" aria-hidden="true" />
+        <div className="cx relative py-20 md:py-28">
+          <div className="max-w-3xl">
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-4">What We&apos;re Building</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
+              Innovation
             </h1>
-            <p className="text-[#94aabb] text-lg leading-relaxed max-w-3xl">
-              From the first commercial ER probe to cloud-connected real-time monitoring to AI-assisted anomaly detection — Cosasco has led the technical evolution of corrosion management for seven decades. This is what we&apos;re working on next.
+            <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
+              Our latest technologies, available today. Innovation is core to who we are — because
+              we&apos;re closer to customers, we&apos;re building what the industry needs most.
             </p>
           </div>
         </div>
       </section>
 
-      {/* FOUR PILLARS */}
-      <section className="py-20 bg-[#f7f9fc]">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-[#0f2a4a] font-black text-3xl mb-3">Our Innovation Pillars</h2>
-          <p className="text-[#566677] mb-12 max-w-2xl">Four areas where Cosasco engineering investment drives the industry forward.</p>
-          <div className="grid md:grid-cols-2 gap-8">
-            {pillars.map((p) => (
-              <div key={p.title} className="bg-white rounded-xl p-8 border border-[#e8edf2]">
-                <div className="w-12 h-12 bg-[#fef8f0] rounded-xl flex items-center justify-center mb-5">
-                  {p.icon}
-                </div>
-                <h3 className="text-[#0f2a4a] font-black text-xl mb-3">{p.title}</h3>
-                <p className="text-[#566677] leading-relaxed">{p.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── Featured Products ── */}
+      <div className="cx py-16 md:py-20">
+        <div className="space-y-16">
 
-      {/* TIMELINE */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-[#0f2a4a] font-black text-3xl mb-3">Seven Decades of Firsts</h2>
-          <p className="text-[#566677] mb-12 max-w-2xl">Key milestones in Cosasco&apos;s engineering history.</p>
-          <div className="relative">
-            <div className="absolute left-[88px] top-0 bottom-0 w-[2px] bg-[#e8edf2] hidden md:block" />
-            <div className="space-y-8">
-              {milestones.map((m) => (
-                <div key={m.year} className="md:flex items-start gap-8">
-                  <div className="shrink-0 w-[88px] text-right hidden md:block">
-                    <span className="text-[#f4a65d] font-black text-sm">{m.year}</span>
+          {/* Featured products section */}
+          <section>
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Latest Technologies</p>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-8">Featured Products</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {featuredProducts.map((product) => (
+                <div
+                  key={product.name}
+                  className="bg-white border border-[#e8edf2] rounded-xl p-7 hover:shadow-xl hover:border-[#f4a65d] transition-all group flex flex-col"
+                >
+                  <div className="mb-5">
+                    <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-1">
+                      {product.tagline}
+                    </p>
+                    <h3 className="text-2xl font-black text-[#0f2a4a] group-hover:text-[#f4a65d] transition-colors">
+                      {product.name}
+                    </h3>
                   </div>
-                  <div className="hidden md:flex shrink-0 items-center justify-center w-5 h-5 rounded-full bg-[#f4a65d] relative z-10 mt-0.5" />
-                  <div className="flex-1 pb-2">
-                    <div className="flex items-center gap-3 mb-1">
-                      <span className="md:hidden text-[#f4a65d] font-black text-sm">{m.year}</span>
-                      <p className="text-[#0f2a4a] font-bold text-base">{m.label}</p>
-                    </div>
-                    <p className="text-[#566677] text-sm leading-relaxed">{m.detail}</p>
-                  </div>
+                  <p className="text-[#566677] text-sm leading-relaxed mb-6 flex-1">{product.desc}</p>
+                  <ul className="space-y-2 mb-6">
+                    {product.highlights.map((h) => (
+                      <li key={h} className="flex items-start gap-2 text-sm text-[#1e2b3a]">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#f4a65d] mt-1.5 flex-shrink-0" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    href={product.href}
+                    className="text-[#f4a65d] text-sm font-semibold flex items-center gap-1 mt-auto hover:gap-2 transition-all"
+                  >
+                    Learn More <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* CURRENT R&D */}
-      <section className="py-20 bg-[#f7f9fc]">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-[#0f2a4a] font-black text-3xl mb-3">Current Research Programs</h2>
-          <p className="text-[#566677] mb-12 max-w-2xl">Active R&D initiatives across Cosasco&apos;s engineering and data science teams.</p>
-          <div className="grid md:grid-cols-2 gap-8">
-            {researchAreas.map((r) => (
-              <div key={r.title} className="bg-white rounded-xl p-8 border border-[#e8edf2]">
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <h3 className="text-[#0f2a4a] font-black text-lg leading-snug">{r.title}</h3>
-                  <span className={`shrink-0 text-xs font-bold px-2.5 py-1 rounded-full ${r.statusColor}`}>
-                    {r.status}
-                  </span>
+          {/* Strategic focus areas */}
+          <section>
+            <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Our Philosophy</p>
+            <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-8">What Drives Our Innovation</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {focusAreas.map((area, i) => (
+                <div key={area.title} className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-7">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-xs font-black text-[#f4a65d] bg-[#0f2a4a] rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">
+                      {i + 1}
+                    </span>
+                    <h3 className="font-black text-[#0f2a4a] text-base">{area.title}</h3>
+                  </div>
+                  <p className="text-[#566677] text-sm leading-relaxed">{area.body}</p>
                 </div>
-                <p className="text-[#566677] leading-relaxed mb-4 text-sm">{r.body}</p>
-                <p className="text-[#8898aa] text-xs">
-                  <span className="font-semibold text-[#566677]">Research Partners: </span>
-                  {r.partners}
+              ))}
+            </div>
+          </section>
+
+          {/* CTA Banner */}
+          <section>
+            <div className="bg-[#0f2a4a] rounded-xl p-8 md:p-12 text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div>
+                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Get in Touch</p>
+                <h3 className="text-2xl md:text-3xl font-black text-white mb-3">
+                  Talk to an Application Engineer
+                </h3>
+                <p className="text-[#8ab4d4] text-sm leading-relaxed max-w-xl">
+                  Our engineers work directly with customers to match the right technology to the
+                  right problem. Reach out to discuss Echo Point, Microcor®, or any other Cosasco
+                  technology for your application.
                 </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PUBLICATIONS */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex items-start justify-between gap-4 mb-12">
-            <div>
-              <h2 className="text-[#0f2a4a] font-black text-3xl mb-3">Technical Publications</h2>
-              <p className="text-[#566677] max-w-2xl">Cosasco engineers publish findings at leading industry conferences and in peer-reviewed journals.</p>
-            </div>
-            <BookOpen className="w-8 h-8 text-[#f4a65d] shrink-0 mt-1" />
-          </div>
-          <div className="space-y-4">
-            {publications.map((pub) => (
-              <div key={pub.title} className="border border-[#e8edf2] rounded-xl p-6 flex items-start gap-6">
-                <div className="shrink-0 w-12 h-12 bg-[#fef8f0] rounded-xl flex items-center justify-center">
-                  <span className="text-[#f4a65d] font-black text-sm">{pub.year}</span>
-                </div>
-                <div>
-                  <p className="text-[#0f2a4a] font-bold mb-1 leading-snug">{pub.title}</p>
-                  <p className="text-[#f4a65d] text-sm font-semibold mb-1">{pub.venue}</p>
-                  <p className="text-[#8898aa] text-sm">{pub.authors}</p>
+                <div className="flex flex-col sm:flex-row gap-4 mt-5">
+                  <a href="tel:+15629490123" className="flex items-center gap-2 text-[#8ab4d4] text-sm hover:text-white transition-colors">
+                    <Phone className="w-4 h-4 text-[#f4a65d] flex-shrink-0" />
+                    +1 (562) 949-0123
+                  </a>
+                  <a href="mailto:info@cosasco.com" className="flex items-center gap-2 text-[#8ab4d4] text-sm hover:text-white transition-colors">
+                    <Mail className="w-4 h-4 text-[#f4a65d] flex-shrink-0" />
+                    info@cosasco.com
+                  </a>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* HALMA PARTNERSHIP */}
-      <section className="py-20 bg-[#f7f9fc]">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Globe2 className="w-6 h-6 text-[#f4a65d]" />
-                <span className="text-[#f4a65d] text-sm font-bold uppercase tracking-widest">Halma Partnership</span>
-              </div>
-              <h2 className="text-[#0f2a4a] font-black text-3xl mb-6">
-                Part of a Global Safety Technology Network
-              </h2>
-              <p className="text-[#566677] leading-relaxed mb-6">
-                Since 2012, Cosasco has operated as part of Halma plc — a FTSE 100 group of life-saving technology companies. Halma&apos;s R&D investment framework gives Cosasco access to cross-sector research capabilities, shared testing infrastructure, and innovation funding beyond what standalone companies can sustain.
-              </p>
-              <p className="text-[#566677] leading-relaxed mb-8">
-                Halma companies collectively invest over £100M annually in R&D. For Cosasco, this means faster development cycles, access to advanced sensing technologies from sister companies, and shared regulatory expertise across 40+ markets.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                {['Annual R&D investment fund', 'Cross-company IP sharing', 'Global regulatory expertise', 'Shared test infrastructure'].map((item) => (
-                  <span key={item} className="flex items-center gap-2 text-sm text-[#566677]">
-                    <Layers className="w-4 h-4 text-[#f4a65d] shrink-0" />
-                    {item}
-                  </span>
-                ))}
-              </div>
+              <Link href="/contact" className="btn btn-primary whitespace-nowrap flex-shrink-0">
+                Contact an Engineer
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { stat: '70+', label: 'Years of corrosion expertise' },
-                { stat: '40+', label: 'Countries with active deployments' },
-                { stat: '£100M+', label: 'Halma annual group R&D spend' },
-                { stat: '200+', label: 'Technical patents in portfolio' },
-              ].map((s) => (
-                <div key={s.label} className="bg-white rounded-xl p-6 text-center border border-[#e8edf2]">
-                  <div className="text-[#f4a65d] font-black text-3xl mb-2">{s.stat}</div>
-                  <div className="text-[#566677] text-sm leading-snug">{s.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* TECH TOOLS CTA */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-[#0f2a4a] font-black text-2xl mb-6">Engineering Tools</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Link
-              href="/tools/device-length-calculator"
-              className="flex items-start gap-5 border border-[#e8edf2] rounded-xl p-6 hover:border-[#f4a65d] hover:shadow-sm transition-all group"
-            >
-              <div className="w-12 h-12 bg-[#fef8f0] rounded-xl flex items-center justify-center shrink-0">
-                <Zap className="w-6 h-6 text-[#f4a65d]" />
-              </div>
-              <div className="flex-1">
-                <p className="text-[#0f2a4a] font-bold group-hover:text-[#f4a65d] transition-colors">Device Length Calculator</p>
-                <p className="text-[#566677] text-sm mt-1">Calculate the correct probe or coupon insertion length for any pipe size and schedule.</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#8898aa] group-hover:text-[#f4a65d] transition-colors mt-1 shrink-0" />
-            </Link>
-            <Link
-              href="/resources/case-studies"
-              className="flex items-start gap-5 border border-[#e8edf2] rounded-xl p-6 hover:border-[#f4a65d] hover:shadow-sm transition-all group"
-            >
-              <div className="w-12 h-12 bg-[#fef8f0] rounded-xl flex items-center justify-center shrink-0">
-                <BookOpen className="w-6 h-6 text-[#f4a65d]" />
-              </div>
-              <div className="flex-1">
-                <p className="text-[#0f2a4a] font-bold group-hover:text-[#f4a65d] transition-colors">Case Studies</p>
-                <p className="text-[#566677] text-sm mt-1">See how these innovations perform in real operator deployments across the globe.</p>
-              </div>
-              <ArrowRight className="w-4 h-4 text-[#8898aa] group-hover:text-[#f4a65d] transition-colors mt-1 shrink-0" />
-            </Link>
-          </div>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-[#0f2a4a] py-16">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-white font-black text-3xl mb-4">Interested in Cosasco R&D partnerships?</h2>
-          <p className="text-[#94aabb] mb-8 max-w-xl mx-auto">
-            We collaborate with operators, universities, and technology partners on corrosion science research. Get in touch to discuss opportunities.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-[#f4a65d] hover:bg-[#d4892a] text-white font-bold px-8 py-4 rounded-lg transition-colors"
-          >
-            Contact Our Engineering Team
-          </Link>
-        </div>
-      </section>
+      </div>
     </div>
   )
 }

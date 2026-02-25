@@ -5,87 +5,97 @@ import Link from 'next/link'
 import { ChevronDown, Search, X } from 'lucide-react'
 
 const faqData: Record<string, { question: string; answer: string }[]> = {
-  General: [
+  Orders: [
     {
-      question: 'What industries does Cosasco serve?',
+      question: 'What forms of payment do you accept?',
       answer:
-        'Cosasco serves a broad range of industries including oil and gas, petrochemical, refining, chemical processing, water treatment, utilities, and pipeline operations. Our corrosion monitoring and chemical injection solutions are engineered to meet the demanding requirements of each sector.',
+        'We accept Visa, MasterCard, and American Express credit cards. For distributor and partner payments, please visit our Partner Payment portal or contact ccpayments@cosasco.com.',
     },
     {
-      question: 'What is the typical lead time for standard products?',
+      question: 'How can I place an order?',
       answer:
-        'Standard catalog products typically ship within 2–4 weeks from receipt of order. Custom-engineered or specialty-configured systems may require 6–12 weeks depending on complexity and material requirements. Contact our sales team for specific lead time estimates.',
+        'Orders can be placed by email to sales@cosasco.com, by fax to +1-562-949-3065, or by phone at +1-562-949-0123 or toll-free at +1-800-635-6898. A Cosasco sales representative will confirm your order and provide a delivery estimate.',
     },
     {
-      question: 'Are Cosasco products available globally?',
+      question: 'How do I check the status of an existing order?',
       answer:
-        'Yes. Cosasco distributes products and provides technical support worldwide through a network of authorized distributors and direct regional offices. We ship to over 110 countries and maintain compliance with international trade and export regulations.',
+        'Contact our sales team at sales@cosasco.com or call +1-562-949-0123. Please have your purchase order or sales order number ready.',
     },
     {
-      question: 'Does Cosasco offer product training?',
+      question: 'How do I request a quote?',
       answer:
-        'Cosasco provides comprehensive training programs including on-site operator training, factory training at our California facility, and web-based seminars. Training covers installation, operation, data interpretation, and maintenance for all major product lines.',
-    },
-  ],
-  Technical: [
-    {
-      question: 'What is the difference between ER and LPR probes?',
-      answer:
-        'Electrical Resistance (ER) probes measure cumulative metal loss over time by tracking changes in the electrical resistance of a sensor element — they work in any fluid, conductive or not. Linear Polarization Resistance (LPR) probes provide real-time instantaneous corrosion rate measurements but require an electrically conductive (aqueous) environment. ER is preferred for hydrocarbon and gas service; LPR is ideal for water-based systems.',
+        'Submit your quote request through our Contact page at /contact, or email sales@cosasco.com with your requirements including product model, quantity, and delivery location. We aim to respond within one business day.',
     },
     {
-      question: 'Can existing access fittings be retrofitted with new probe elements?',
+      question: 'How do I set up a Cosasco customer account?',
       answer:
-        'In most cases, yes. Cosasco access fittings are designed with a standardized thread interface that accommodates current and legacy probe elements. Our engineering team can assess compatibility based on the fitting model, pressure rating, and process conditions. Retrofit kits are available for many older installations.',
-    },
-    {
-      question: 'What certifications do Cosasco products carry?',
-      answer:
-        'Cosasco products are certified to multiple industry standards including ATEX, IECEx, FM, and CSA for hazardous area use. Pressure-containing components are designed and tested in accordance with ASME, ANSI, and NACE standards. Certificates of conformance and material test reports are available upon request.',
-    },
-    {
-      question: 'What are maximum operating temperature and pressure ratings?',
-      answer:
-        'Ratings vary by product line and material selection. Standard access fittings are rated to 6,000 PSI at 400°F (204°C). High-pressure/high-temperature (HPHT) configurations are available up to 15,000 PSI and 650°F (343°C). Always consult the product datasheet and verify with our engineering team for your specific application.',
+        'Contact our sales team at sales@cosasco.com to establish a customer account. For distributor accounts, please reach out to your regional Cosasco representative.',
     },
   ],
-  Installation: [
+  'Sales & Support': [
     {
-      question: 'Does Cosasco offer field installation services?',
+      question: 'How do I find a local representative or distributor?',
       answer:
-        'Yes. Cosasco field service engineers are available for on-site installation, commissioning, and startup support globally. Services include hot-tap installation of access fittings, system integration, and operator handover training. Contact our service team to schedule field support.',
+        'Visit our Find a Rep page at /contact/find-a-rep to locate your nearest Cosasco representative. We have sales representatives and distributors in 110+ countries. You can also email sales@cosasco.com.',
     },
     {
-      question: 'What documentation is provided with each product?',
+      question: 'Does Cosasco offer global technical support?',
       answer:
-        'Every Cosasco shipment includes an installation and operation manual, bill of materials, dimensional drawings, and a certificate of conformance. Products with pressure-containing components also include material test reports and, where applicable, third-party inspection certificates.',
+        'Yes, Cosasco provides technical support worldwide through our global network of representatives and our in-house support team. Contact support@cosasco.com or call +1-562-949-0123. Our team supports customers in 110+ countries.',
     },
     {
-      question: 'How do I safely insert a probe into a live system?',
+      question: 'How do I submit an RMA (Return Merchandise Authorization) request?',
       answer:
-        'Probe insertion into live (pressurized) systems must be performed using an approved retrieval tool and following the Cosasco Safe Working Procedure (SWP) for the applicable pressure class. Always verify isolation valve operation, confirm line pressure against the tool and fitting pressure ratings, and use appropriate PPE. Never exceed the rated working pressure of the retrieval tool or access fitting. Refer to the product installation manual or contact Cosasco for detailed procedures.',
+        'Email RMA@cosasco.com with your product model, serial number, purchase date, and a description of the issue. Our technical team will review your request and provide an RMA number along with return shipping instructions.',
     },
   ],
-  'Service & Warranty': [
+  Resources: [
     {
-      question: 'What is the standard product warranty period?',
+      question: 'Where can I find product specifications and datasheets?',
       answer:
-        'Cosasco products carry a standard one-year limited warranty against defects in materials and workmanship from the date of shipment. Extended warranty programs are available for select product lines. Warranty claims must be submitted in writing with supporting documentation.',
+        'Product datasheets and technical documents are available in our Technical Library at /resources. You can also contact info@cosasco.com to request specific documents for any Cosasco product.',
     },
     {
-      question: 'How do I return a product for repair or calibration?',
+      question: 'Where can I find product manuals and instruction sheets?',
       answer:
-        'To return a product, contact Cosasco Customer Service to obtain a Return Merchandise Authorization (RMA) number. Ship the product prepaid with the RMA number clearly marked on the outside of the package. Include a description of the issue and your contact information. Evaluation and repair turnaround is typically 2–3 weeks from receipt.',
+        'Instruction sheets and user manuals are available in our Technical Library at /resources. If you cannot find the document you need, contact support@cosasco.com with your product model number.',
     },
     {
-      question: 'How do I obtain a certificate of conformance?',
+      question: 'How do I configure my Cosasco instrument?',
       answer:
-        'Certificates of conformance (CoC) are issued at the time of shipment and included with the product documentation. If you need a replacement CoC or additional documentation for a prior order, contact our Customer Service team with your original purchase order number and order date.',
+        'Configuration instructions are included in the product user manual available at /resources. For instrument-specific configuration questions, contact support@cosasco.com with your model number and a description of your configuration requirements.',
+    },
+  ],
+  Software: [
+    {
+      question: 'What version of Microcor® Tools software is current?',
+      answer:
+        'The current version of Microcor® Tools is 4.4.5. However, we recommend upgrading to Cosasco Data Online (CDO), which replaces Microcor® Tools and all legacy Corrdata software. Download CDO at /software.',
+    },
+    {
+      question: 'What version of Corrdata software is current?',
+      answer:
+        'Corrdata Plus v3.3.0 is the latest legacy version. We recommend upgrading to Cosasco Data Online (CDO) which replaces Corrdata Plus, Corrdata II, and Microcor® Tools with a unified modern platform. Download at /software.',
+    },
+    {
+      question: 'Is Cosasco software compatible with Windows Vista?',
+      answer:
+        'Legacy software (Corrdata Plus, Corrdata II) was designed for Windows XP/Vista. Cosasco Data Online (CDO) supports Windows 10 and 11 (64-bit). For older systems, legacy versions are available for download at /software.',
+    },
+    {
+      question: 'How do I uninstall Cosasco software?',
+      answer:
+        'To uninstall Cosasco Data Online (CDO) or legacy software, go to Control Panel > Programs > Uninstall a Program, select the Cosasco software, and follow the prompts. Contact support@cosasco.com if you encounter any issues.',
+    },
+    {
+      question: 'How can I activate my Cosasco Data Online (CDO) software?',
+      answer:
+        'CDO software requires a unique activation key tied to your Machine ID. Visit /software and complete the Data Key Activation form with your Machine ID, Serial Number, Country, and Technology type. Cosasco will email your activation key within one business day.',
     },
   ],
 }
 
-const categories = ['General', 'Technical', 'Installation', 'Service & Warranty'] as const
+const categories = ['Orders', 'Sales & Support', 'Resources', 'Software'] as const
 
 const allFaqs = Object.entries(faqData).flatMap(([category, faqs]) =>
   faqs.map((faq) => ({ ...faq, category }))
@@ -170,7 +180,7 @@ function FAQItem({
 /* ── Main FAQ component ────────────────────────────────────────────────────── */
 
 export default function SupportFAQ() {
-  const [activeCategory, setActiveCategory] = useState<string>('General')
+  const [activeCategory, setActiveCategory] = useState<string>('Orders')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -190,7 +200,7 @@ export default function SupportFAQ() {
   }
 
   return (
-    <section className="bg-[#f7f9fc] py-20">
+    <section id="faq" className="bg-[#f7f9fc] py-20">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-10">
           <span className="text-xs font-bold uppercase tracking-widest text-[#f4a65d]">
@@ -306,6 +316,16 @@ export default function SupportFAQ() {
             )}
           </div>
         )}
+
+        {/* View all FAQs link */}
+        <div className="text-center mt-10">
+          <Link
+            href="/support#faq"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#f4a65d] hover:underline"
+          >
+            View all FAQs →
+          </Link>
+        </div>
       </div>
     </section>
   )

@@ -16,6 +16,7 @@ import {
   Linkedin,
   Leaf,
   Scale,
+  TrendingUp,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 }
 
 const stats = [
-  { value: '70+', label: 'Years in Service', sub: 'Founded 1955, California' },
+  { value: '70+', label: 'Years in Service', sub: 'Founded 1950, California' },
   { value: '110', label: 'Countries Served', sub: 'Global distribution network' },
   { value: '1M+', label: 'Monitoring Locations', sub: 'Worldwide deployments' },
   { value: 'ISO 9001', label: 'Quality Certified', sub: 'Rigorous QMS since 1990s' },
@@ -33,10 +34,10 @@ const stats = [
 
 const timeline = [
   {
-    year: '1955',
+    year: '1950',
     title: 'Founded in California',
     description:
-      'Cosasco was established in Southern California with a singular mission: to design and manufacture reliable instrumentation for corrosion monitoring in the emerging oil and gas industry.',
+      'Rohrback Cosasco Systems, Inc. was established in Southern California with a singular mission: to design and manufacture reliable instrumentation for corrosion monitoring in the emerging oil and gas industry.',
   },
   {
     year: '1960s',
@@ -78,25 +79,30 @@ const timeline = [
     year: 'Today',
     title: 'A Halma Company — Global Leader',
     description:
-      'As a Halma company, Cosasco operates within a global portfolio of safety, health, and environmental technology businesses. With over 1 million monitoring locations across 110 countries, Cosasco remains the world\'s most trusted name in corrosion management.',
+      'As a Halma company, Rohrback Cosasco Systems, Inc. operates within a global portfolio of safety, health, and environmental technology businesses. With over 1 million monitoring locations across 110 countries, Cosasco remains the world\'s most trusted name in corrosion management.',
   },
 ]
 
-const values = [
-  {
-    icon: Shield,
-    title: 'Mission',
-    body: 'We innovate corrosion management solutions to improve production and increase safety.',
-  },
-  {
-    icon: Eye,
-    title: 'Vision',
-    body: 'Protect People and the Environment from the Impacts of Corrosion.',
-  },
+const coreValues = [
   {
     icon: Heart,
-    title: 'Values',
-    body: 'Engineering excellence, uncompromising quality, customer partnership, and continuous innovation. Every Cosasco product is built to perform reliably in the most demanding industrial environments on earth.',
+    title: 'We Serve',
+    body: 'Our customers, team members, communities, and the environment are at the center of every decision we make.',
+  },
+  {
+    icon: Shield,
+    title: 'We Do the Right Thing',
+    body: 'Our integrity is everything, and when faced with difficult decisions, we act with honesty and fairness.',
+  },
+  {
+    icon: Users,
+    title: 'We Value Each Other',
+    body: 'We are a team above all else, embracing our differences and fostering an inclusive environment.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'We Strive for Excellence',
+    body: 'We overcome obstacles, find bold solutions, and deliver results through continuous improvement.',
   },
 ]
 
@@ -135,40 +141,40 @@ const certifications = [
 
 const leadership = [
   {
-    initials: 'JM',
-    name: 'James Morrison',
-    title: 'President & CEO',
-    bio: `Drives global strategy and growth as part of the Halma group, aligning Cosasco's long-term vision with Halma's safety and environmental technology portfolio.`,
+    initials: 'PB',
+    name: 'Philip Borup',
+    title: 'President',
+    bio: 'As President of Rohrback Cosasco Systems, Philip leads global strategy, customer relationships, and the company\'s mission to deliver confidence in corrosion management.',
   },
   {
-    initials: 'SR',
-    name: 'Sarah Reynolds',
-    title: 'VP Engineering',
-    bio: 'Leads R&D and application engineering across all product lines, steering 70 years of product evolution toward next-generation corrosion monitoring solutions.',
-  },
-  {
-    initials: 'MT',
-    name: 'Michael Torres',
-    title: 'VP Sales & Marketing',
-    bio: `Oversees worldwide commercial operations and channel development, managing Cosasco's 110+ country distribution network across six global regions.`,
-  },
-  {
-    initials: 'AL',
-    name: 'Amanda Liu',
+    initials: 'DJ',
+    name: 'Dustin Jennings',
     title: 'VP Operations',
-    bio: 'Directs ISO 9001-certified manufacturing and supply chain operations in Santa Fe Springs, ensuring product quality and on-time delivery to customers worldwide.',
+    bio: 'Dustin oversees manufacturing operations, supply chain, and quality management across Cosasco\'s production facilities, maintaining ISO standards.',
   },
   {
-    initials: 'DP',
-    name: 'David Park',
-    title: 'Chief Technology Officer',
-    bio: `Leads technology innovation and digital transformation, advancing Cosasco's sensor, wireless, and data acquisition platforms for the next era of corrosion management.`,
+    initials: 'SM',
+    name: 'Shriom "Om" Mourya',
+    title: 'VP Sales',
+    bio: 'Om drives global sales across 110+ countries, building relationships with operators, distributors, and EPC partners in every major industrial region.',
   },
   {
-    initials: 'EC',
-    name: 'Emma Clarke',
-    title: 'CFO',
-    bio: `Manages financial strategy and performance reporting within Halma's governance framework, supporting disciplined investment in growth and innovation.`,
+    initials: 'AS',
+    name: 'Anupam Sangal',
+    title: 'Director of Engineering',
+    bio: 'Anupam leads Cosasco\'s engineering team, directing product development and technical support for corrosion monitoring solutions across all industries.',
+  },
+  {
+    initials: 'SU',
+    name: 'Sabrina Uyehara',
+    title: 'Finance Director',
+    bio: 'Sabrina manages financial operations and reporting within the Halma plc group framework, ensuring disciplined capital allocation.',
+  },
+  {
+    initials: 'NI',
+    name: 'Naomi Ikeda',
+    title: 'HR Director',
+    bio: 'Naomi leads HR, talent acquisition, and people programs — including Cosasco\'s industry-leading 14-week paid parental leave benefit.',
   },
 ]
 
@@ -268,11 +274,11 @@ export default function AboutPage() {
             <div>
               <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Our Story</p>
               <h2 className="text-3xl md:text-4xl font-black text-[#0f2a4a] mb-6">
-                Founded in 1955.<br />Still Leading the Industry.
+                Founded in 1950.<br />Still Leading the Industry.
               </h2>
               <div className="space-y-4 text-[#566677] leading-relaxed">
                 <p>
-                  Cosasco was founded in 1955 in Southern California by engineers who
+                  Rohrback Cosasco Systems, Inc. was founded in 1950 in Southern California by engineers who
                   recognized that the oil industry needed a better way to monitor and
                   manage internal pipeline corrosion. The company's early work on
                   electrical resistance (ER) probe methodology laid the scientific
@@ -287,7 +293,7 @@ export default function AboutPage() {
                   pipelines, refineries, and water systems in more than 50 countries.
                 </p>
                 <p>
-                  Today, as a Halma company, Cosasco operates within a global portfolio of
+                  Today, as a Halma company, Rohrback Cosasco Systems, Inc. operates within a global portfolio of
                   safety, health, and environmental technology businesses. With over
                   1 million monitoring locations deployed across 110 countries, Cosasco
                   remains the world's most trusted name in corrosion and erosion monitoring.
@@ -320,31 +326,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Mission / Vision / Values ── */}
+      {/* ── Vision, Mission & Core Values ── */}
       <section className="bg-[#f7f9fc] py-20 md:py-24">
         <div className="cx">
           <div className="text-center mb-14">
             <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Who We Are</p>
             <h2 className="text-3xl md:text-4xl font-black text-[#0f2a4a] mb-4">
-              Mission, Vision &amp; Values
+              Vision, Mission &amp; Core Values
             </h2>
             <p className="text-[#566677] text-lg max-w-2xl mx-auto leading-relaxed">
-              The principles that have guided Cosasco since 1955 — and that define how we
+              The principles that have guided Cosasco since 1950 — and that define how we
               design, build, and support every product we manufacture today.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {values.map((v) => {
+
+          {/* Vision & Mission — navy contrast cards */}
+          <div className="grid md:grid-cols-2 gap-6 mb-10">
+            <div className="bg-[#0f2a4a] rounded-xl p-8 text-white">
+              <div className="border-l-4 border-[#f4a65d] pl-5 mb-5">
+                <p className="text-[#f4a65d] text-xs font-bold tracking-[0.1em] uppercase mb-1">Vision</p>
+                <h3 className="font-black text-white text-xl leading-snug">
+                  Protect People and the Environment from the Impacts of Corrosion.
+                </h3>
+              </div>
+              <div className="w-10 h-10 bg-[#f4a65d]/20 rounded-xl flex items-center justify-center">
+                <Eye className="w-5 h-5 text-[#f4a65d]" />
+              </div>
+            </div>
+            <div className="bg-[#0f2a4a] rounded-xl p-8 text-white">
+              <div className="border-l-4 border-[#f4a65d] pl-5 mb-5">
+                <p className="text-[#f4a65d] text-xs font-bold tracking-[0.1em] uppercase mb-1">Mission</p>
+                <h3 className="font-black text-white text-xl leading-snug">
+                  We innovate corrosion management solutions to improve production and increase safety for people and our environment.
+                </h3>
+              </div>
+              <div className="w-10 h-10 bg-[#f4a65d]/20 rounded-xl flex items-center justify-center">
+                <Shield className="w-5 h-5 text-[#f4a65d]" />
+              </div>
+            </div>
+          </div>
+
+          {/* Core Values — 4 white cards */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {coreValues.map((v) => {
               const Icon = v.icon
               return (
-                <div key={v.title} className="bg-white border border-[#e8edf2] rounded-xl p-8">
-                  <div className="border-l-4 border-[#f4a65d] pl-5 mb-6">
-                    <h3 className="font-black text-[#0f2a4a] text-xl">{v.title}</h3>
-                  </div>
+                <div key={v.title} className="bg-white border border-[#e8edf2] rounded-xl p-6 hover:shadow-md hover:border-[#f4a65d] transition-all">
                   <div className="w-10 h-10 bg-[#f4a65d]/10 rounded-xl flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-[#f4a65d]" />
                   </div>
-                  <p className="text-[#566677] text-sm leading-relaxed">{v.body}</p>
+                  <h3 className="font-black text-[#0f2a4a] text-sm mb-2">{v.title}</h3>
+                  <p className="text-[#566677] text-xs leading-relaxed">{v.body}</p>
                 </div>
               )
             })}
@@ -376,15 +408,16 @@ export default function AboutPage() {
                     href="https://www.linkedin.com/company/cosasco"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${person.name} on LinkedIn`}
-                    className="text-[#6b7280] hover:text-[#0f2a4a] transition-colors mt-1"
+                    aria-label={`Connect with ${person.name} on LinkedIn`}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0f2a4a] border border-[#e8edf2] rounded-lg px-2.5 py-1.5 hover:bg-[#0f2a4a] hover:text-white hover:border-[#0f2a4a] transition-all mt-1"
                   >
-                    <Linkedin className="w-4 h-4" />
+                    <Linkedin className="w-3.5 h-3.5" />
+                    Connect on LinkedIn
                   </a>
                 </div>
                 <h3 className="font-bold text-[#0f2a4a] leading-snug">{person.name}</h3>
                 <p className="text-[#f4a65d] text-sm font-semibold mt-0.5">{person.title}</p>
-                <p className="text-[#6b7280] text-sm mt-2 leading-relaxed">{person.bio}</p>
+                <p className="text-[#566677] text-sm mt-2 leading-relaxed">{person.bio}</p>
               </div>
             ))}
           </div>
@@ -409,7 +442,7 @@ export default function AboutPage() {
               >
                 <p className="font-bold text-[#0f2a4a] text-sm leading-snug mb-3">{region.name}</p>
                 <p className="text-[#f4a65d] font-black text-3xl leading-none">{region.countries}</p>
-                <p className="text-[#6b7280] text-xs mt-1">countries</p>
+                <p className="text-[#566677] text-xs mt-1">countries</p>
               </div>
             ))}
           </div>

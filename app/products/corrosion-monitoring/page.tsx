@@ -16,26 +16,54 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const products = [
+const featuredProducts = [
   {
-    name: "ER Probes (Electrical Resistance)",
-    desc: "Continuous, real-time cumulative metal loss measurement without process shutdown. Available in straight, flush mount, and retractable configurations for threaded or flanged access fittings.",
-    spec: "Max Temp: 200°C · Max Pressure: 10,000 PSI",
+    name: "Fixed Process ER Probe 2500/2520",
+    desc: "Standard and high-temperature variants for permanent installation in pipelines and vessels. Continuous cumulative metal loss measurement independent of process fluid conductivity.",
+    spec: "Max Temp: 200°C (2500) · 260°C (2520)",
   },
   {
-    name: "LPR Electrochemical Probes",
+    name: "Retractable ER Probe 3500/3700",
+    desc: "Safe in-service retrieval under full operating pressure without process shutdown. Available with hydraulic or mechanical retrieval tools for pressures to 10,000 PSI.",
+    spec: "Max Pressure: 10,000 PSI · Rating: 400°F",
+  },
+  {
+    name: "Microcor® High-Speed ER Probes",
+    desc: "Cosasco&rsquo;s Microcor® technology delivers up to 50× faster response than standard ER probes, enabling near-real-time corrosion rate monitoring in dynamic process environments.",
+    spec: "Response Speed: 50× standard ER",
+  },
+  {
+    name: "LPR Probe 6112/7012",
     desc: "Linear polarization resistance probes deliver instantaneous corrosion rate readings in conductive aqueous environments. Ideal for water injection, produced water, and cooling water systems.",
-    spec: "Sensitivity: 0.001 mpy",
+    spec: "Sensitivity: 0.001 mpy · Conductive fluids",
   },
+  {
+    name: "AquaMate® Portable LPR Instrument",
+    desc: "Handheld portable LPR instrument for spot measurements and field surveys in aqueous systems. No dedicated data logger required — ideal for periodic inspection programs.",
+    spec: "Type: Portable · Application: Spot measurement",
+  },
+  {
+    name: "Corrosion Coupons CI",
+    desc: "Precision-manufactured weight-loss coupons for baseline and regulatory measurement programs. Flat, cylindrical, and disc geometries with optional laboratory analysis and certified reporting.",
+    spec: "Standard: NACE TM-0169",
+  },
+  {
+    name: "Hydrogen Probes 6400",
+    desc: "Monitor hydrogen permeation activity and hydrogen-induced cracking (HIC) risk in sour service environments. Critical for H2S-containing streams in refineries and upstream production.",
+    spec: "Application: Sour service · HIC risk monitoring",
+  },
+  {
+    name: "AirIQ — Airborne Corrosion Monitor",
+    desc: "Real-time airborne corrosion monitoring for specialty applications including control rooms, electrical switchgear, and storage environments. Detects H2S, Cl2, and mixed corrosive gases.",
+    spec: "Application: Atmospheric / indoor environments",
+  },
+];
+
+const products = [
   {
     name: "Retractable Access Fittings",
     desc: "Cosasco access fittings are the industry standard for safe, live insertion and retrieval of monitoring instruments at full operating pressure. Hydraulic and mechanical retrieval tool variants available.",
     spec: "Rating: 10,000 PSI / 400°F",
-  },
-  {
-    name: "Corrosion Coupons",
-    desc: "Precision-manufactured weight-loss coupons provide baseline general and localized corrosion data. Flat, cylindrical, and disc geometries with optional paired laboratory analysis and certified reporting.",
-    spec: "Standard: NACE TM-0169",
   },
   {
     name: "Coupon Racks & Holders",
@@ -157,12 +185,66 @@ export default function CorrosionMonitoringPage() {
         </div>
       </section>
 
-      {/* PRODUCT GRID */}
+      {/* FEATURED PRODUCTS GRID */}
       <section className="bg-[#f7f9fc] py-16 px-6 md:px-10 xl:px-16">
         <div className="max-w-7xl mx-auto">
-          <h2 className="font-black text-[#0f2a4a] text-3xl mb-2">Products</h2>
+          <h2 className="font-black text-[#0f2a4a] text-3xl mb-2">Featured Products</h2>
           <p className="text-[#566677] mb-10">
             Select a product for full specifications, drawings, and ordering information.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredProducts.map((prod) => (
+              <article
+                key={prod.name}
+                className="bg-white border border-[#e8edf2] rounded-xl p-6 hover:shadow-md transition-all flex flex-col"
+              >
+                <h3 className="font-bold text-[#0f2a4a] text-base leading-snug">{prod.name}</h3>
+                <p
+                  className="text-[#566677] text-sm mt-2 leading-relaxed flex-1"
+                  dangerouslySetInnerHTML={{ __html: prod.desc }}
+                />
+                <div className="bg-[#f0f4f8] rounded-md px-3 py-1.5 text-xs font-mono mt-3 inline-block text-[#1e2b3a]">
+                  {prod.spec}
+                </div>
+                <Link
+                  href={`/contact?product=${encodeURIComponent(prod.name)}`}
+                  className="inline-flex items-center gap-1.5 text-[#f4a65d] text-sm font-semibold mt-4 hover:text-[#d4892a] transition-colors"
+                >
+                  Request Information
+                  <ArrowRight size={14} />
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          {/* Catalog note */}
+          <div className="mt-10 bg-[#0f2a4a] rounded-xl px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="flex-1">
+              <p className="text-white font-bold text-sm">
+                Cosasco offers 90+ corrosion monitoring products.
+              </p>
+              <p className="text-[#8ab4d4] text-sm mt-0.5">
+                Contact us for the full product catalog including specialty probes, coupon holders, and custom configurations.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="flex-shrink-0 inline-flex items-center gap-2 bg-[#f4a65d] text-white rounded-md px-5 py-2.5 text-sm font-semibold hover:bg-[#d4892a] transition-colors"
+            >
+              Request Full Catalog
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ADDITIONAL PRODUCTS GRID */}
+      <section className="bg-white py-16 px-6 md:px-10 xl:px-16 border-t border-[#e8edf2]">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="font-black text-[#0f2a4a] text-3xl mb-2">Access Hardware & Fittings</h2>
+          <p className="text-[#566677] mb-10">
+            Complete your monitoring system with Cosasco&rsquo;s industry-standard access hardware.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -190,7 +272,7 @@ export default function CorrosionMonitoringPage() {
       </section>
 
       {/* SIDEBAR + CTA SECTION */}
-      <section className="bg-white py-16 px-6 md:px-10 xl:px-16 border-t border-[#e8edf2]">
+      <section className="bg-[#f7f9fc] py-16 px-6 md:px-10 xl:px-16 border-t border-[#e8edf2]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Main CTA left */}
           <div className="lg:col-span-8 flex flex-col justify-center">
@@ -228,11 +310,11 @@ export default function CorrosionMonitoringPage() {
               <ul className="space-y-2.5 mb-5">
                 <li className="flex items-center gap-3 text-sm text-[#94aabb]">
                   <Phone size={15} className="text-[#f4a65d] flex-shrink-0" />
-                  +1 (714) 538-2902
+                  +1 (562) 949-0123
                 </li>
                 <li className="flex items-center gap-3 text-sm text-[#94aabb]">
                   <Mail size={15} className="text-[#f4a65d] flex-shrink-0" />
-                  sales@cosasco.com
+                  info@cosasco.com
                 </li>
               </ul>
               <Link

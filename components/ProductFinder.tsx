@@ -58,7 +58,7 @@ const steps = [
       { id: 'weight-loss', label: 'Periodic Weight-Loss Analysis', icon: Shield, desc: 'Coupon retrieval & lab analysis' },
       { id: 'erosion', label: 'Erosion / Sand Detection', icon: Activity, desc: 'UT sensors & erosion probes' },
       { id: 'chemical-injection', label: 'Chemical Injection / Dosing', icon: Droplet, desc: 'Quills, valves & skids' },
-      { id: 'data-remote', label: 'Remote Data & Analytics', icon: BarChart2, desc: 'FieldCom wireless + cloud dashboards' },
+      { id: 'data-remote', label: 'Remote Data & Analytics', icon: BarChart2, desc: 'Microcor® Wireless + CDO cloud dashboards' },
     ],
   },
 ]
@@ -84,10 +84,10 @@ function getRecommendation(answers: Answers): Recommendation {
 
   if (need === 'corrosion-rate') {
     return {
-      title: 'ER Probe System with FieldCom Data Logger',
+      title: 'ER Probe System with Microcor® Wireless Logger',
       description:
-        'For continuous, real-time corrosion rate data we recommend an Electrical Resistance (ER) probe installed in a Cosasco access fitting, paired with a FieldCom wireless logger. ER probes operate in any fluid — conductive or non-conductive — making them ideal for hydrocarbon and gas service.',
-      products: ['ER Probe (flush-mount or retractable)', 'Standard Access Fitting (1" or 2")', 'FieldCom Wireless Logger', 'CorrView Analysis Software'],
+        'For continuous, real-time corrosion rate data we recommend an Electrical Resistance (ER) probe installed in a Cosasco access fitting, paired with a Microcor® Wireless logger. ER probes operate in any fluid — conductive or non-conductive — making them ideal for hydrocarbon and gas service.',
+      products: ['ER Probe (flush-mount or retractable)', 'Standard Access Fitting (1" or 2")', 'Microcor® Wireless Logger', 'CDO (Cosasco Data Online) Software'],
       href: '/products/corrosion-monitoring',
       secondaryHref: '/products/data-acquisition',
       secondaryLabel: 'View Data Acquisition',
@@ -128,13 +128,13 @@ function getRecommendation(answers: Answers): Recommendation {
   }
   if (need === 'data-remote') {
     return {
-      title: 'FieldCom Wireless Data Acquisition System',
+      title: 'Microcor® Wireless Data Acquisition System',
       description:
-        'FieldCom is Cosasco\'s flagship wireless data acquisition platform. Loggers connect to existing ER probes and sensors, transmitting corrosion data over licensed radio or cellular to a central dashboard — no wiring required in hazardous areas.',
-      products: ['FieldCom Wireless Logger (IS-rated)', 'FieldCom Cloud Dashboard', 'SCADA Integration Module', 'CorrView Analysis Software'],
+        'Microcor® Wireless is Cosasco\'s flagship wireless data acquisition platform. Loggers connect to existing ER probes and sensors, transmitting corrosion data over licensed radio or cellular to CDO (Cosasco Data Online) — no wiring required in hazardous areas.',
+      products: ['Microcor® Wireless Logger (IS-rated)', 'CDO (Cosasco Data Online) Cloud Dashboard', 'SCADA Integration Module', 'CDO Analysis Software'],
       href: '/products/data-acquisition',
-      secondaryHref: '/products/fieldcom',
-      secondaryLabel: 'View FieldCom Details',
+      secondaryHref: '/software',
+      secondaryLabel: 'View CDO Software',
     }
   }
 
@@ -143,8 +143,8 @@ function getRecommendation(answers: Answers): Recommendation {
     return {
       title: 'Complete Corrosion Monitoring Package',
       description:
-        'Based on your operating environment, we recommend a complete monitoring package including ER probes, access fittings, corrosion coupons, and a FieldCom data logger for continuous, automated data collection.',
-      products: ['ER Probe System', 'Access Fittings', 'Corrosion Coupons', 'FieldCom Data Logger'],
+        'Based on your operating environment, we recommend a complete monitoring package including ER probes, access fittings, corrosion coupons, and a Microcor® Wireless data logger for continuous, automated data collection.',
+      products: ['ER Probe System', 'Access Fittings', 'Corrosion Coupons', 'Microcor® Wireless Data Logger'],
       href: '/products/corrosion-monitoring',
       secondaryHref: '/contact',
       secondaryLabel: 'Talk to an Engineer',

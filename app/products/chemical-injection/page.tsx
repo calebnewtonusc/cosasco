@@ -225,11 +225,11 @@ export default function ChemicalInjectionPage() {
               <ul className="space-y-2.5 mb-5">
                 <li className="flex items-center gap-3 text-sm text-[#94aabb]">
                   <Phone size={15} className="text-[#f4a65d] flex-shrink-0" />
-                  +1 (714) 538-2902
+                  +1 (562) 949-0123
                 </li>
                 <li className="flex items-center gap-3 text-sm text-[#94aabb]">
                   <Mail size={15} className="text-[#f4a65d] flex-shrink-0" />
-                  sales@cosasco.com
+                  info@cosasco.com
                 </li>
               </ul>
               <Link

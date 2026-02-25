@@ -22,7 +22,7 @@ PRODUCTS:
 - **Corrosion Coupons**: Physical metal specimens inserted into the process stream for weight-loss corrosion analysis over time
 - **UT (Ultrasonic) Sensors**: Non-intrusive sensors that measure wall thickness from the outside of the pipe — no process penetration required
 - **CorrView Desktop / Data Acquisition Systems**: Hardware and software for real-time remote monitoring, data logging, and trend analysis
-- **FieldCom 5**: Cosasco's latest cloud-based monitoring platform with remote access, automated alerts, and reporting dashboards
+- **Microcor® Wireless Transmitter (MWT)**: WirelessHART 7 wireless transmitter with 18-bit resolution and 50× faster data rates than standard ER
 - **Chemical Injection Systems**: Controlled, precise dosing of corrosion inhibitors directly into process streams
 - **Access Fittings (Stopples)**: Pressure-tight fittings that allow safe insertion and retrieval of monitoring devices under live pipeline pressure
 - **LPR (Linear Polarization Resistance) Sensors**: Electrochemical sensors that measure instantaneous corrosion rates in conductive liquids
@@ -54,9 +54,9 @@ SERVICES:
 - On-site corrosion surveys and audits
 
 SOFTWARE PRODUCTS:
-- **FieldCom 5**: Cloud-connected monitoring, remote data access, automated reporting, alert management
-- **CORRDATA**: Desktop data acquisition and corrosion trend analysis platform
-- **Legacy software**: Available for download on the support page for older systems
+- **Cosasco Data Online (CDO)**: Current unified data platform replacing all legacy software. Cloud-connected monitoring, remote data access, automated reporting.
+- **Microcor® Wireless Transmitter (MWT)**: WirelessHART 7 wireless system, 18-bit resolution, 50× faster than standard ER
+- **Legacy software**: Corrdata Plus, Corrdata II, Microcor Tools — available for download on /software for older systems
 
 CONTACT & NAVIGATION:
 - Phone: 562-949-0123

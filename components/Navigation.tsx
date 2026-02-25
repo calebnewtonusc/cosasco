@@ -23,6 +23,10 @@ import {
   ArrowRight,
   Route,
   Atom,
+  Pickaxe,
+  Gauge,
+  Settings2,
+  MapPin,
 } from 'lucide-react'
 
 const industriesDropdown = [
@@ -34,6 +38,9 @@ const industriesDropdown = [
   { name: 'Chemical Processing', href: '/solutions/chemical-processing', icon: TestTube, desc: 'Aggressive media environments' },
   { name: 'Pulp & Paper', href: '/solutions/pulp-paper', icon: BookOpen, desc: 'Digesters & bleach plant' },
   { name: 'Utilities / Power', href: '/solutions/utilities', icon: Zap, desc: 'Generation & cooling water' },
+  { name: 'Mining & Minerals', href: '/solutions/mining', icon: Pickaxe, desc: 'Mineral processing & extraction' },
+  { name: 'Gas Transmission', href: '/solutions/gas-transmission', icon: Gauge, desc: 'High-pressure pipeline networks' },
+  { name: 'Specialty Applications', href: '/solutions/specialty-applications', icon: Settings2, desc: 'Custom & niche environments' },
 ]
 
 const productsDropdown = [
@@ -85,7 +92,6 @@ const companyDropdown = [
   { name: 'Leadership', href: '/about#leadership', desc: 'Meet our team' },
   { name: 'Careers', href: '/careers', desc: 'Join our global team' },
   { name: 'News & Events', href: '/news', desc: 'Latest updates' },
-  { name: 'Innovation', href: '/innovation', desc: 'R&D and technology' },
   { name: 'Contact Us', href: '/contact', desc: 'Get in touch' },
 ]
 
@@ -483,6 +489,16 @@ function MobileMenu({
           Support
         </Link>
 
+        {/* Find A Rep */}
+        <Link
+          href="/contact/find-a-rep"
+          onClick={onClose}
+          className="flex items-center gap-2 px-3 py-3.5 text-[0.9rem] font-semibold text-[#f4a65d] rounded-md hover:bg-[#fef8f0] transition-colors duration-150"
+        >
+          <MapPin size={15} />
+          Find A Rep
+        </Link>
+
         {/* CTA */}
         <div className="pt-4 pb-3 border-t border-[#e8edf2] mt-2 space-y-2">
           <Link
@@ -660,6 +676,9 @@ export default function Navigation() {
           <Link href="/resources" className={`${navLinkBase} ${navLinkIdle}`}>
             Resources
           </Link>
+          <Link href="/innovation" className={`${navLinkBase} ${navLinkIdle}`}>
+            Innovation
+          </Link>
 
           <button
             onClick={() => toggle('software')}
@@ -689,6 +708,14 @@ export default function Navigation() {
 
           <Link href="/support" className={`${navLinkBase} ${navLinkIdle}`}>
             Support
+          </Link>
+
+          <Link
+            href="/contact/find-a-rep"
+            className={`${navLinkBase} text-[#f4a65d] hover:text-[#d4892a] hover:bg-[#fef8f0]`}
+          >
+            <MapPin size={14} />
+            Find A Rep
           </Link>
         </nav>
 

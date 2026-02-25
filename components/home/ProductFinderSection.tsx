@@ -4,7 +4,7 @@ import AnimateOnScroll from '@/components/AnimateOnScroll'
 import ProductFinder from '@/components/ProductFinder'
 
 const finderPoints = [
-  'Instant recommendation — no email required',
+  'Find the right solution for your application',
   'Covers all major Cosasco product families',
   'Link directly to technical datasheets',
 ]

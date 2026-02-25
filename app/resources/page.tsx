@@ -1,10 +1,21 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Search, FileText, BookOpen, Download } from 'lucide-react'
+import { Search, FileText, BookOpen, Mail } from 'lucide-react'
 import Link from 'next/link'
 
-type ResourceType = 'Datasheet' | 'Installation' | 'White Paper' | 'Case Study' | 'App Note'
+type ResourceType =
+  | 'Datasheet'
+  | 'Instruction Sheet'
+  | 'White Paper'
+  | 'Case Study'
+  | 'Brochure'
+  | 'Technical Paper'
+  | 'User Manual'
+  | 'Product Selection Guide'
+  | 'Article'
+  | 'Agency Certificate'
+  | 'Supplier Form'
 
 interface Resource {
   id: number
@@ -19,137 +30,162 @@ interface Resource {
 const resources: Resource[] = [
   {
     id: 1,
-    title: 'ER Probe Selection Guide',
-    description: 'Comprehensive guide for selecting the correct electrical resistance probe element type, material, and geometry for your corrosion monitoring application.',
+    title: 'Echo Point UT Sensor Datasheet',
+    description: 'Technical specifications and performance data for the Echo Point non-intrusive ultrasonic thickness sensor, including installation dimensions, measurement range, and environmental ratings.',
     type: 'Datasheet',
     industries: ['Oil & Gas', 'Petrochemical'],
-    pages: 24,
-    size: '2.1MB',
+    pages: 4,
+    size: '0.8MB',
   },
   {
     id: 2,
-    title: 'Chemical Injection System Specification',
-    description: 'Full technical specification for Cosasco chemical injection quill and packer systems, including materials of construction, pressure ratings, and connection standards.',
-    type: 'Datasheet',
+    title: 'Microcor® Wireless Transmitter Installation Guide',
+    description: 'Step-by-step installation and commissioning instructions for the Microcor Wireless Transmitter, including wiring diagrams, mounting requirements, and network configuration.',
+    type: 'Instruction Sheet',
     industries: ['All Industries'],
-    pages: 18,
+    pages: 16,
     size: '1.4MB',
   },
   {
     id: 3,
-    title: 'Access Fitting Catalog 2025',
-    description: 'Complete product catalog for Cosasco retrieval-type access fittings, plug valves, and hot-tap equipment with dimensional drawings and pressure-temperature ratings.',
+    title: 'Fixed Process ER Probe 2500/2520 Datasheet',
+    description: 'Full technical datasheet for the 2500 and 2520 series fixed process electrical resistance probes, including element types, pressure ratings, and connection standards.',
     type: 'Datasheet',
-    industries: ['All Industries'],
-    pages: 48,
-    size: '5.8MB',
+    industries: ['Oil & Gas', 'Chemical'],
+    pages: 6,
+    size: '1.0MB',
   },
   {
     id: 4,
-    title: 'FieldCom Installation & User Guide',
-    description: 'Step-by-step installation, wiring, configuration, and operation manual for the FieldCom wireless data acquisition unit for corrosion monitoring networks.',
-    type: 'Installation',
-    industries: ['All'],
-    pages: 62,
-    size: '4.3MB',
+    title: 'Retractable ER Probe 3500/3700 User Manual',
+    description: 'Comprehensive user manual for 3500 and 3700 series retractable ER probes, covering safe insertion and retrieval procedures, maintenance schedules, and troubleshooting.',
+    type: 'User Manual',
+    industries: ['Oil & Gas', 'Petrochemical'],
+    pages: 48,
+    size: '4.2MB',
   },
   {
     id: 5,
-    title: 'Corrosion Monitoring Best Practices for O&G',
-    description: 'Industry white paper covering probe placement strategy, data acquisition frequency, alarm thresholds, and program management for oil and gas facilities.',
-    type: 'White Paper',
-    industries: ['Oil & Gas'],
-    pages: 32,
-    size: '3.2MB',
+    title: 'ICMS™ Integrated Corrosion Monitoring System Brochure',
+    description: 'Product overview brochure for the ICMS Integrated Corrosion Monitoring System, highlighting multi-technique measurement, cloud connectivity, and remote diagnostics capabilities.',
+    type: 'Brochure',
+    industries: ['All Industries'],
+    pages: 8,
+    size: '2.1MB',
   },
   {
     id: 6,
-    title: 'Pipeline Corrosion Monitoring ROI Study',
-    description: 'Quantitative analysis of corrosion monitoring program return on investment, including failure prevention costs, inspection savings, and regulatory compliance benefits.',
-    type: 'White Paper',
-    industries: ['Oil & Gas', 'Utilities'],
-    pages: 28,
-    size: '2.7MB',
+    title: 'Access Fitting Selection Guide',
+    description: 'Comprehensive guide for selecting the correct Cosasco retrieval-type access fitting based on operating pressure, temperature, pipe diameter, and fluid service conditions.',
+    type: 'Product Selection Guide',
+    industries: ['All Industries'],
+    pages: 24,
+    size: '2.4MB',
   },
   {
     id: 7,
-    title: 'Gulf Coast Pipeline Case Study',
-    description: 'How a major Gulf Coast pipeline operator deployed Cosasco ER probes to reduce corrosion-related incidents by 94% across 1,200 miles of transmission infrastructure.',
+    title: 'Corrosion Monitoring in Gas Transmission Pipelines',
+    description: 'Technical paper covering probe placement strategy, data acquisition frequency, alarm threshold design, and program management for natural gas transmission infrastructure.',
+    type: 'Technical Paper',
+    industries: ['Oil & Gas'],
+    pages: 18,
+    size: '2.0MB',
+  },
+  {
+    id: 8,
+    title: 'Pipeline Integrity Case Study: Midstream Operator',
+    description: 'How a major midstream operator deployed Cosasco ER probes and FieldCom wireless systems to reduce corrosion-related incidents by 94% across 1,200 miles of transmission pipeline.',
     type: 'Case Study',
     industries: ['Oil & Gas'],
     pages: 8,
     size: '1.1MB',
   },
   {
-    id: 8,
-    title: 'Refinery Monitoring Program Success',
-    description: 'Implementation of an integrated corrosion monitoring program at a 180,000 BPD refinery, resulting in extended turnaround intervals and zero unplanned shutdowns over 36 months.',
-    type: 'Case Study',
-    industries: ['Petrochemical'],
-    pages: 6,
-    size: '0.9MB',
-  },
-  {
     id: 9,
-    title: 'Chemical Injection for H2S Service',
-    description: 'Application note covering chemical inhibitor injection system design and material selection for sour service environments with elevated hydrogen sulfide concentrations.',
-    type: 'App Note',
-    industries: ['Oil & Gas', 'Chemical'],
-    pages: 12,
-    size: '1.0MB',
+    title: 'AirIQ Airborne Corrosion Monitor Datasheet',
+    description: 'Technical specifications for the AirIQ airborne corrosion monitor, including sensitivity levels, supported gas environments, output options, and data center deployment guidance.',
+    type: 'Datasheet',
+    industries: ['Data Centers', 'Electronics'],
+    pages: 4,
+    size: '0.7MB',
   },
   {
     id: 10,
-    title: 'Non-Intrusive UT for High-Erosion Zones',
-    description: 'Technical guidance on deploying non-intrusive ultrasonic thickness monitoring in high-velocity, high-erosion pipeline elbows and tees where intrusive monitoring is impractical.',
-    type: 'App Note',
+    title: 'SafeGuard Service Valve Datasheet',
+    description: 'Product datasheet for the Cosasco SafeGuard Service Valve, detailing pressure-temperature ratings, body materials, locking mechanism operation, and safety certifications.',
+    type: 'Datasheet',
     industries: ['Oil & Gas', 'Petrochemical'],
-    pages: 10,
-    size: '0.8MB',
+    pages: 4,
+    size: '0.9MB',
   },
   {
     id: 11,
-    title: 'Cosasco Corporate Overview',
-    description: 'Company overview covering Cosasco history, global capabilities, manufacturing facilities, quality management systems, and key product and service offerings.',
+    title: 'Downhole Corrosion Monitoring System (DCMS™) Datasheet',
+    description: 'Technical overview of the DCMS downhole corrosion monitoring system, covering tool string configuration, downhole electronics, data telemetry, and wellbore compatibility.',
     type: 'Datasheet',
-    industries: ['All'],
-    pages: 16,
-    size: '3.5MB',
+    industries: ['Oil & Gas'],
+    pages: 6,
+    size: '1.3MB',
   },
   {
     id: 12,
-    title: 'MIC Detection in Water Systems',
-    description: 'Application note on detecting and mitigating microbiologically influenced corrosion (MIC) in potable and industrial water systems using electrochemical monitoring techniques.',
-    type: 'App Note',
-    industries: ['Water Treatment'],
-    pages: 14,
-    size: '1.2MB',
+    title: 'LPR Probe 6080/6112 Installation Sheet',
+    description: 'Installation and connection instructions for 6080 and 6112 series linear polarization resistance probes, including torque specifications and material compatibility tables.',
+    type: 'Instruction Sheet',
+    industries: ['Oil & Gas', 'Water Treatment'],
+    pages: 8,
+    size: '0.9MB',
   },
 ]
 
 const typeBadgeStyle: Record<ResourceType, string> = {
   Datasheet: 'bg-[#dbeafe] text-[#1d4ed8]',
-  Installation: 'bg-[#d1fae5] text-[#065f46]',
+  'Instruction Sheet': 'bg-[#d1fae5] text-[#065f46]',
   'White Paper': 'bg-[#fef3c7] text-[#92400e]',
   'Case Study': 'bg-[#fce7f3] text-[#9d174d]',
-  'App Note': 'bg-[#ede9fe] text-[#5b21b6]',
+  Brochure: 'bg-[#ede9fe] text-[#5b21b6]',
+  'Technical Paper': 'bg-[#fef9c3] text-[#854d0e]',
+  'User Manual': 'bg-[#e0f2fe] text-[#0369a1]',
+  'Product Selection Guide': 'bg-[#dcfce7] text-[#166534]',
+  Article: 'bg-[#fef3c7] text-[#92400e]',
+  'Agency Certificate': 'bg-[#f0fdf4] text-[#15803d]',
+  'Supplier Form': 'bg-[#f1f5f9] text-[#475569]',
 }
 
-const typeFilters = ['All', 'Datasheets', 'Installation', 'White Papers', 'Case Studies', 'App Notes'] as const
+const typeFilters = [
+  'All',
+  'Agency Certificates',
+  'Articles',
+  'Brochures',
+  'Case Studies',
+  'Datasheets',
+  'Instruction Sheets',
+  'Product Selection Guides',
+  'Supplier Forms',
+  'Technical Papers',
+  'User Manuals',
+  'White Papers',
+] as const
 type FilterLabel = (typeof typeFilters)[number]
 
 const filterToType: Record<FilterLabel, ResourceType | null> = {
   All: null,
-  Datasheets: 'Datasheet',
-  Installation: 'Installation',
-  'White Papers': 'White Paper',
+  'Agency Certificates': 'Agency Certificate',
+  Articles: 'Article',
+  Brochures: 'Brochure',
   'Case Studies': 'Case Study',
-  'App Notes': 'App Note',
+  Datasheets: 'Datasheet',
+  'Instruction Sheets': 'Instruction Sheet',
+  'Product Selection Guides': 'Product Selection Guide',
+  'Supplier Forms': 'Supplier Form',
+  'Technical Papers': 'Technical Paper',
+  'User Manuals': 'User Manual',
+  'White Papers': 'White Paper',
 }
 
 function ResourceIcon({ type }: { type: ResourceType }) {
-  if (type === 'Installation') return <BookOpen className="w-5 h-5 text-[#0f2a4a]" />
-  if (type === 'Case Study' || type === 'White Paper') return <BookOpen className="w-5 h-5 text-[#0f2a4a]" />
+  if (type === 'Instruction Sheet' || type === 'User Manual') return <BookOpen className="w-5 h-5 text-[#0f2a4a]" />
+  if (type === 'Case Study' || type === 'White Paper' || type === 'Technical Paper') return <BookOpen className="w-5 h-5 text-[#0f2a4a]" />
   return <FileText className="w-5 h-5 text-[#0f2a4a]" />
 }
 
@@ -184,6 +220,19 @@ export default function ResourcesPage() {
           </p>
         </div>
       </section>
+
+      {/* TECHNICAL LIBRARY NOTE */}
+      <div className="bg-[#f0f4f8] border-b border-[#e8edf2] py-5 px-6">
+        <div className="max-w-6xl mx-auto flex items-start gap-3">
+          <Mail className="w-5 h-5 text-[#f4a65d] flex-shrink-0 mt-0.5" />
+          <p className="text-[#566677] text-sm leading-relaxed">
+            <span className="font-bold text-[#0f2a4a]">Full Technical Library:</span> Our complete library contains 400+ documents including datasheets, installation guides, white papers, and case studies. To request specific documents, contact{' '}
+            <a href="mailto:info@cosasco.com?subject=Document Request" className="text-[#f4a65d] font-semibold hover:text-[#d4892a] transition-colors underline">
+              info@cosasco.com
+            </a>.
+          </p>
+        </div>
+      </div>
 
       {/* FILTER BAR */}
       <div className="sticky top-[72px] z-40 bg-white border-b border-[#e8edf2] py-4 px-6">
@@ -276,10 +325,13 @@ export default function ResourcesPage() {
                     <span className="text-[#8898aa] text-xs">
                       PDF &middot; {resource.pages} pages &middot; {resource.size}
                     </span>
-                    <button className="bg-[#f4a65d] text-white text-xs px-3 py-1.5 rounded-md font-semibold flex items-center gap-1 hover:bg-[#d4892a] transition-colors">
-                      <Download className="w-3 h-3" />
-                      Download
-                    </button>
+                    <a
+                      href={`mailto:info@cosasco.com?subject=Document Request: ${encodeURIComponent(resource.title)}`}
+                      className="bg-[#f4a65d] text-white text-xs px-3 py-1.5 rounded-md font-semibold flex items-center gap-1 hover:bg-[#d4892a] transition-colors"
+                    >
+                      <Mail className="w-3 h-3" />
+                      Request
+                    </a>
                   </div>
                 </div>
               ))}
@@ -338,7 +390,7 @@ export default function ResourcesPage() {
                 <div className="bg-[#f4a65d] px-6 py-4 flex items-center justify-between">
                   <div className="text-white">
                     <div className="font-black text-2xl leading-none">{w.date}</div>
-                    <div className="text-sm opacity-80 mt-0.5">{w.year} · {w.time}</div>
+                    <div className="text-sm opacity-80 mt-0.5">{w.year} &middot; {w.time}</div>
                   </div>
                   <span className={`text-xs font-bold px-3 py-1 rounded-full ${w.badgeClass}`}>
                     {w.badge}
@@ -348,16 +400,18 @@ export default function ResourcesPage() {
                   <p className="text-[#8898aa] text-xs font-semibold uppercase tracking-wider mb-2">{w.duration}</p>
                   <h3 className="text-[#0f2a4a] font-black text-base leading-snug mb-3 flex-1">{w.title}</h3>
                   <p className="text-[#566677] text-xs mb-5">{w.presenter}</p>
-                  <Link
-                    href="/contact"
-                    className={`block w-full text-center py-2.5 rounded-lg text-sm font-semibold transition-colors ${
-                      w.open
-                        ? 'bg-[#0f2a4a] text-white hover:bg-[#1a3d6b]'
-                        : 'bg-[#f0f4f8] text-[#8898aa] cursor-default pointer-events-none'
-                    }`}
-                  >
-                    {w.open ? 'Register Now' : 'Notify Me'}
-                  </Link>
+                  {w.open ? (
+                    <a
+                      href="mailto:info@cosasco.com?subject=Webinar Registration"
+                      className="block w-full text-center py-2.5 rounded-lg text-sm font-semibold transition-colors bg-[#0f2a4a] text-white hover:bg-[#1a3d6b]"
+                    >
+                      Register via Email
+                    </a>
+                  ) : (
+                    <span className="block w-full text-center py-2.5 rounded-lg text-sm font-semibold bg-[#f0f4f8] text-[#8898aa] cursor-default">
+                      Notify Me
+                    </span>
+                  )}
                 </div>
               </div>
             ))}
@@ -373,15 +427,54 @@ export default function ResourcesPage() {
               <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Technical Insights</p>
               <h2 className="text-[#0f2a4a] font-black text-3xl md:text-4xl">From the Blog</h2>
             </div>
-            <Link href="/resources/blog" className="text-[#f4a65d] font-semibold text-sm hover:text-[#d4892a] transition-colors whitespace-nowrap flex items-center gap-1">
-              All Articles →
+            <Link href="/news" className="text-[#f4a65d] font-semibold text-sm hover:text-[#d4892a] transition-colors whitespace-nowrap flex items-center gap-1">
+              View All Articles →
             </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { href: '/resources/blog/corrosion-monitoring-fundamentals', category: 'Technical Guide', title: 'ER Probes vs. LPR vs. Coupons: Which Method Is Right for Your Application?', date: 'Feb 12, 2026', read: '8 min' },
-              { href: '/resources/blog/h2s-sour-service-integrity', category: 'Field Applications', title: 'Managing Corrosion in H₂S Sour Service: A Field Engineer\'s Perspective', date: 'Jan 28, 2026', read: '6 min' },
-              { href: '/resources/blog/chemical-injection-optimization', category: 'Chemical Injection', title: 'How to Right-Size Chemical Injection: Moving Beyond Conservative Dosing', date: 'Jan 15, 2026', read: '5 min' },
+              {
+                href: '/news/safeguard-service-valve',
+                category: 'Product Innovation',
+                title: 'The SafeGuard Service Valve: Cosasco\'s Latest Innovation',
+                date: 'Feb 18, 2026',
+                read: '5 min',
+              },
+              {
+                href: '/news/airborne-corrosion-data-centers',
+                category: 'Data Centers',
+                title: 'How Can Data Centers Go Green? The Role of Airborne Corrosion Monitoring',
+                date: 'Feb 5, 2026',
+                read: '6 min',
+              },
+              {
+                href: '/news/chemical-dosage-optimization',
+                category: 'Chemical Injection',
+                title: 'Optimizing Chemical Dosage and Reducing Waste',
+                date: 'Jan 22, 2026',
+                read: '5 min',
+              },
+              {
+                href: '/news/africa-oil-gas-corrosion',
+                category: 'Field Applications',
+                title: 'Corrosion Monitoring in African Oil & Gas Markets',
+                date: 'Jan 10, 2026',
+                read: '7 min',
+              },
+              {
+                href: '/news/er-vs-lpr-probe-technology',
+                category: 'Technical Guide',
+                title: 'Understanding ER vs LPR Probe Technology',
+                date: 'Dec 18, 2025',
+                read: '8 min',
+              },
+              {
+                href: '/news/phmsa-mega-rules-pipeline',
+                category: 'Regulatory',
+                title: 'Pipeline Integrity in the Era of PHMSA Mega-Rules',
+                date: 'Dec 4, 2025',
+                read: '6 min',
+              },
             ].map((post) => (
               <Link key={post.href} href={post.href} className="bg-white border border-[#e8edf2] rounded-xl p-6 hover:shadow-md hover:border-[#f4a65d] transition-all group flex flex-col">
                 <span className="text-[#f4a65d] text-xs font-bold uppercase tracking-wider mb-3">{post.category}</span>

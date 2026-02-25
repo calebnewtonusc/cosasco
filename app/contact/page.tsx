@@ -12,6 +12,7 @@ import {
   ChevronRight,
   ArrowRight,
   MessageCircle,
+  Printer,
 } from 'lucide-react'
 
 const regionalOffices = [
@@ -23,12 +24,14 @@ const regionalOffices = [
         city: 'Santa Fe Springs, CA',
         phone: '+1 (562) 949-0123',
         email: 'info@cosasco.com',
+        fallback: false,
       },
       {
         name: 'Gulf Coast Office',
         city: 'Houston, TX',
         phone: '+1 (562) 949-0123',
-        email: 'houston@cosasco.com',
+        email: 'info@cosasco.com',
+        fallback: true,
       },
     ],
   },
@@ -38,14 +41,16 @@ const regionalOffices = [
       {
         name: 'European Operations',
         city: 'Aberdeen, Scotland',
-        phone: '—',
-        email: 'europe@cosasco.com',
+        phone: '+1 (562) 949-0123',
+        email: 'info@cosasco.com',
+        fallback: true,
       },
       {
         name: 'Middle East Office',
         city: 'Dubai, UAE',
-        phone: '—',
-        email: 'me@cosasco.com',
+        phone: '+1 (562) 949-0123',
+        email: 'info@cosasco.com',
+        fallback: true,
       },
     ],
   },
@@ -55,17 +60,27 @@ const regionalOffices = [
       {
         name: 'APAC Regional',
         city: 'Kuala Lumpur, Malaysia',
-        phone: '—',
-        email: 'apac@cosasco.com',
+        phone: '+1 (562) 949-0123',
+        email: 'info@cosasco.com',
+        fallback: true,
       },
       {
         name: 'Australia Office',
         city: 'Perth, WA',
-        phone: '—',
-        email: 'australia@cosasco.com',
+        phone: '+1 (562) 949-0123',
+        email: 'info@cosasco.com',
+        fallback: true,
       },
     ],
   },
+]
+
+const departmentContacts = [
+  { label: 'General Inquiries', email: 'info@cosasco.com' },
+  { label: 'Technical Support', email: 'support@cosasco.com' },
+  { label: 'Sales & Quotes', email: 'sales@cosasco.com' },
+  { label: 'RMA Requests', email: 'RMA@cosasco.com' },
+  { label: 'Distributor Payments', email: 'ccpayments@cosasco.com' },
 ]
 
 type FormState = {
@@ -306,6 +321,7 @@ export default function ContactPage() {
                       <option>Utilities</option>
                       <option>Mining &amp; Minerals</option>
                       <option>Gas Transmission</option>
+                      <option>Specialty Applications</option>
                       <option>Other</option>
                     </select>
                   </div>
@@ -366,7 +382,8 @@ export default function ContactPage() {
 
               {/* HQ address card */}
               <div className="bg-white border border-[#e8edf2] rounded-xl p-6">
-                <h3 className="font-black text-[#0f2a4a] text-base mb-5">Global Headquarters</h3>
+                <h3 className="font-black text-[#0f2a4a] text-base mb-1">Global Headquarters</h3>
+                <p className="text-xs text-[#566677] mb-5">Rohrback Cosasco Systems, Inc.</p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-4 h-4 text-[#f4a65d] mt-0.5 flex-shrink-0" />
@@ -389,6 +406,25 @@ export default function ContactPage() {
                       >
                         +1 (562) 949-0123
                       </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-4 h-4 text-[#f4a65d] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Toll Free</p>
+                      <a
+                        href="tel:+18006356898"
+                        className="text-sm font-semibold text-[#0f2a4a] hover:text-[#f4a65d] transition-colors"
+                      >
+                        +1-800-635-6898
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Printer className="w-4 h-4 text-[#f4a65d] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-xs text-[#566677] font-semibold uppercase tracking-wide mb-1">Fax</p>
+                      <span className="text-sm font-semibold text-[#0f2a4a]">+1-562-949-3065</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -424,6 +460,24 @@ export default function ContactPage() {
                     <MessageCircle className="w-4 h-4 flex-shrink-0" />
                     Message on WhatsApp
                   </a>
+                </div>
+              </div>
+
+              {/* Contact by Department card */}
+              <div className="bg-white border border-[#e8edf2] rounded-xl p-6">
+                <h3 className="font-black text-[#0f2a4a] text-base mb-5">Contact by Department</h3>
+                <div className="space-y-3">
+                  {departmentContacts.map((dept) => (
+                    <div key={dept.email} className="flex items-center justify-between gap-3">
+                      <span className="text-xs font-semibold text-[#566677] uppercase tracking-wide whitespace-nowrap">{dept.label}</span>
+                      <a
+                        href={`mailto:${dept.email}`}
+                        className="text-xs font-semibold text-[#0f2a4a] hover:text-[#f4a65d] transition-colors truncate"
+                      >
+                        {dept.email}
+                      </a>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -469,7 +523,7 @@ export default function ContactPage() {
                 <div className="absolute bottom-0 left-0 right-0 bg-[#111c2b]/80 px-4 py-2.5 flex items-center justify-between">
                   <p className="text-[#8ab4d4] text-xs">11841 Smith Avenue, CA 90670</p>
                   <a
-                    href="https://maps.google.com/?q=11841+Smith+Avenue+Santa+Fe+Springs+CA+90670"
+                    href="https://maps.google.com/?q=11841+Smith+Avenue,+Santa+Fe+Springs,+CA+90670"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#f4a65d] text-xs font-semibold hover:underline"
@@ -524,14 +578,26 @@ export default function ContactPage() {
                         <MapPin className="w-3 h-3 text-[#566677]" />
                         <span className="text-[#566677] text-xs">{office.city}</span>
                       </div>
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <Phone className="w-3 h-3 text-[#566677]" />
-                        <a
-                          href={`tel:${office.phone.replace(/[\s()+-]/g, '')}`}
-                          className="text-[#566677] text-xs hover:text-[#f4a65d] transition-colors"
-                        >
-                          {office.phone}
-                        </a>
+                      <div className="flex items-start gap-1.5 mb-1">
+                        <Phone className="w-3 h-3 text-[#566677] mt-0.5 flex-shrink-0" />
+                        {office.fallback ? (
+                          <span className="text-[#566677] text-xs leading-snug">
+                            Contact via HQ:{' '}
+                            <a
+                              href="tel:+15629490123"
+                              className="hover:text-[#f4a65d] transition-colors"
+                            >
+                              {office.phone}
+                            </a>
+                          </span>
+                        ) : (
+                          <a
+                            href={`tel:${office.phone.replace(/[\s()+-]/g, '')}`}
+                            className="text-[#566677] text-xs hover:text-[#f4a65d] transition-colors"
+                          >
+                            {office.phone}
+                          </a>
+                        )}
                       </div>
                       <div className="flex items-center gap-1.5">
                         <Mail className="w-3 h-3 text-[#566677]" />

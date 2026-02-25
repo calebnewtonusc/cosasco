@@ -6,7 +6,7 @@ export default function ValueMetricsSection() {
     <AnimateOnScroll delay={0}>
       <section className="bg-white py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
             {valueMetrics.map((metric) => {
               const Icon = metric.icon
               return (
@@ -20,14 +20,11 @@ export default function ValueMetricsSection() {
                   >
                     <Icon size={22} style={{ color: '#f4a65d' }} />
                   </div>
-                  <div className="font-black text-3xl leading-none" style={{ color: '#0f2a4a' }}>
+                  <div className="font-black text-2xl leading-none" style={{ color: '#0f2a4a' }}>
                     {metric.value}
                   </div>
-                  <div className="text-sm font-semibold mt-1" style={{ color: '#0f2a4a' }}>
+                  <div className="text-sm font-medium mt-2 leading-snug" style={{ color: '#566677' }}>
                     {metric.label}
-                  </div>
-                  <div className="text-xs mt-1 leading-snug" style={{ color: '#8898aa' }}>
-                    {metric.desc}
                   </div>
                 </div>
               )

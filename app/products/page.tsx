@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Products | Cosasco Corrosion Monitoring & Chemical Injection',
-  description: 'ER probes, access fittings, corrosion coupons, chemical injection quills, FieldCom wireless loggers, and UT sensors for industrial corrosion management.',
+  description: 'ER probes, access fittings, corrosion coupons, chemical injection quills, Microcor wireless transmitters, and UT sensors for industrial corrosion management.',
 }
 
 import Link from "next/link";
@@ -13,9 +13,11 @@ const industries = [
   { label: "Oil & Gas", href: "/products?industry=oil-gas" },
   { label: "Petrochemical", href: "/products?industry=petrochemical" },
   { label: "Water Treatment", href: "/products?industry=water-treatment" },
-  { label: "Chemical", href: "/products?industry=chemical" },
+  { label: "Chemical Processing", href: "/products?industry=chemical" },
   { label: "Pulp & Paper", href: "/products?industry=pulp-paper" },
   { label: "Utilities", href: "/products?industry=utilities" },
+  { label: "Mining", href: "/products?industry=mining" },
+  { label: "Gas Transmission", href: "/products?industry=gas-transmission" },
 ];
 
 const categories = [
@@ -25,24 +27,24 @@ const categories = [
     href: "/products/corrosion-monitoring",
     desc: "Industry-proven electrical resistance and electrochemical monitoring systems for continuous and periodic corrosion measurement across all process environments.",
     products: [
-      "ER Probes (Straight, Flush Mount, Retractable)",
-      "LPR Electrochemical Probes",
+      "ER Probes — Fixed Process 2500/2520 & Retractable 3500/3700",
+      "Microcor® High-Speed ER Probes (50× faster response)",
+      "LPR Probe 6112/7012 — Real-time corrosion rate",
+      "Corrosion Coupons CI — NACE TM-0169 compliant",
       "Access Fittings (1\" to 3\")",
-      "Corrosion Coupons & Racks",
-      "Pipe Penetration Fittings",
     ],
   },
   {
     icon: Activity,
-    title: "Erosion Monitoring",
+    title: "Erosion & Non-Intrusive Monitoring",
     href: "/products/erosion-monitoring",
-    desc: "Sand and particle detection systems, ultrasonic wall thickness monitoring, and intrusive erosion probes for high-velocity flow protection.",
+    desc: "Echo Point UT sensors, sand and particle detection probes, and non-intrusive ultrasonic wall thickness monitoring for high-velocity flow protection and pipeline integrity.",
     products: [
-      "Sand & Erosion Probes",
-      "UT Transducers (Permanent and Temp)",
-      "Intrusive ER Erosion Systems",
-      "Pipe Wall Mapping",
-      "Erosion Data Loggers",
+      "Echo Point UT Sensor — WirelessHART 7, ATEX/IECEx, 5-yr battery",
+      "Microcor® High-Sensitivity Erosion Probes",
+      "Sand Probe Erosion Detection System",
+      "Non-Intrusive Underground Pipe Thickness Monitor",
+      "Intrusive ER Erosion Systems (Flush, Exposed, Fin)",
     ],
   },
   {
@@ -62,12 +64,12 @@ const categories = [
     icon: BarChart2,
     title: "Data Acquisition",
     href: "/products/data-acquisition",
-    desc: "FieldCom wireless loggers, Ethernet-based data systems, and cloud-connected dashboards for centralized corrosion monitoring and reporting.",
+    desc: "Microcor® Wireless Transmitters, Ethernet-based data systems, and the Cosasco Data Online (CDO) cloud platform for centralized corrosion monitoring and reporting.",
     products: [
-      "FieldCom Wireless Systems",
+      "Microcor® Wireless Transmitter (MWT)",
       "ER Data Loggers",
       "Multiplexer Systems",
-      "Cloud Analytics Platform",
+      "Cosasco Data Online (CDO) Platform",
       "SCADA Integration",
     ],
   },

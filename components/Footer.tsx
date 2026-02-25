@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Linkedin, Youtube, CheckCircle, Mail, Phone, MapPin, ArrowRight, X } from 'lucide-react'
+import { Linkedin, CheckCircle, Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
 
 const industryLinks = [
   { label: 'Oil & Gas', href: '/solutions/oil-gas' },
@@ -12,6 +12,8 @@ const industryLinks = [
   { label: 'Chemical Processing', href: '/solutions/chemical-processing' },
   { label: 'Pulp & Paper', href: '/solutions/pulp-paper' },
   { label: 'Utilities', href: '/solutions/utilities' },
+  { label: 'Mining & Minerals', href: '/solutions/mining' },
+  { label: 'Gas Transmission', href: '/solutions/gas-transmission' },
 ]
 
 const productLinks = [
@@ -41,11 +43,8 @@ const supportLinks = [
 ]
 
 const certBadges = [
-  'ISO 9001:2015',
   'AMPP Member',
-  'API Compliant',
-  'ATEX Certified',
-  'IECEx Compliant',
+  'Halma Group',
 ]
 
 type NewsletterStatus = 'idle' | 'loading' | 'success'
@@ -178,7 +177,7 @@ export default function Footer() {
 
             <p className="text-[#b8cfe0] text-sm leading-relaxed mb-6 max-w-xs">
               Industry-leading corrosion and erosion monitoring solutions for
-              critical infrastructure worldwide since 1955. Trusted by the world&apos;s
+              critical infrastructure worldwide since 1950. Trusted by the world&apos;s
               leading oil &amp; gas, petrochemical, and water treatment operators.
               A Halma Company.
             </p>
@@ -194,11 +193,14 @@ export default function Footer() {
                 <Phone size={13} className="text-[#f4a65d] shrink-0" />
                 <div className="space-y-0.5">
                   <a href="tel:+18006356898" className="block hover:text-white transition-colors duration-150 font-medium">
-                    +1-800-635-6898 (Toll Free)
+                    Toll Free: +1-800-635-6898
                   </a>
                   <a href="tel:+15629490123" className="block hover:text-white transition-colors duration-150">
                     +1-562-949-0123
                   </a>
+                  <span className="block text-[#b8cfe0]">
+                    Fax: +1-562-949-3065
+                  </span>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -218,24 +220,6 @@ export default function Footer() {
                 className="w-8 h-8 rounded-md bg-white/10 hover:bg-[#f4a65d] flex items-center justify-center text-[#8ab4d4] hover:text-white transition-all duration-150"
               >
                 <Linkedin size={15} />
-              </a>
-              <a
-                href="https://x.com/cosasco"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Cosasco on X (formerly Twitter)"
-                className="w-8 h-8 rounded-md bg-white/10 hover:bg-[#f4a65d] flex items-center justify-center text-[#8ab4d4] hover:text-white transition-all duration-150"
-              >
-                <X size={15} />
-              </a>
-              <a
-                href="https://www.youtube.com/@cosasco"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Cosasco on YouTube"
-                className="w-8 h-8 rounded-md bg-white/10 hover:bg-[#f4a65d] flex items-center justify-center text-[#8ab4d4] hover:text-white transition-all duration-150"
-              >
-                <Youtube size={15} />
               </a>
             </div>
           </div>
@@ -306,7 +290,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="mt-10 pt-6 border-t border-white/10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[#6b8aa0]">
-            <p>&copy; {new Date().getFullYear()} Cosasco Systems, Inc. All rights reserved.</p>
+            <p>&copy; 2025 Rohrback Cosasco Systems, Inc. All rights reserved.</p>
             <div className="flex items-center gap-3 flex-wrap justify-center">
               <Link href="/privacy" className="hover:text-white transition-colors duration-150">Privacy Policy</Link>
               <span className="text-white/20">·</span>

@@ -8,12 +8,12 @@ const filters = ['All', 'Press Releases', 'Product Updates', 'Technical Articles
 
 const articles = [
   {
-    title: 'Cosasco Launches Next-Gen FieldCom 5.0 Wireless System',
+    title: "The SafeGuard Service Valve: Cosasco's Latest Innovation",
     category: 'Product Update',
     date: 'Jan 15, 2026',
     excerpt:
-      'The new FieldCom 5.0 delivers enhanced wireless range, sub-second data refresh rates, and an overhauled cloud dashboard — redefining real-time corrosion monitoring at scale.',
-    href: '/news/fieldcom-5-launch',
+      "Cosasco introduces the SafeGuard Service Valve \u2014 a fire-rated, PED-certified double isolation valve made with NACE-compliant 4130 or Duplex stainless steel. The lightest available service valve that meets the highest safety standards.",
+    href: null,
   },
   {
     title: 'New Retractable ER Probe for High-Pressure Applications',
@@ -21,58 +21,58 @@ const articles = [
     date: 'Jan 8, 2026',
     excerpt:
       'Cosasco introduces a fully retractable electrical resistance probe rated for pressures up to 3,000 PSI, enabling safe in-service retrieval without process shutdown.',
-    href: '/news/retractable-er-probe',
+    href: null,
   },
   {
     title: 'Cosasco Recognized as Leading Corrosion Monitor Supplier',
     category: 'Press Release',
     date: 'Dec 20, 2025',
     excerpt:
-      'Independent industry analysts ranked Cosasco among the top three global suppliers of corrosion monitoring equipment for the fourth consecutive year.',
-    href: '/news/industry-recognition-2025',
+      'Independent industry analysts ranked Cosasco among the top global suppliers of corrosion monitoring equipment for the fourth consecutive year.',
+    href: null,
   },
   {
-    title: 'Best Practices for Chemical Injection System Maintenance',
+    title: 'Optimizing Chemical Dosage and Reducing Waste',
     category: 'Technical Article',
     date: 'Dec 12, 2025',
     excerpt:
-      'Our corrosion engineers outline a comprehensive maintenance framework for chemical injection systems, covering inspection intervals, seal selection, and data-driven dosing strategies.',
+      'Real-time LPR and ER monitoring data enables operators to optimize chemical inhibitor dosing \u2014 reducing waste, cutting costs, and improving corrosion protection simultaneously.',
     href: null,
   },
   {
-    title: 'Cosasco at NACE Corrosion 2026 — Booth #1247',
+    title: 'Cosasco at NACE Corrosion 2026 \u2014 Booth #1247',
     category: 'Events',
     date: 'Dec 5, 2025',
     excerpt:
-      "Visit us at the world's largest corrosion conference. Live product demonstrations of FieldCom 5.0, retractable probes, and our new chemical injection lineup will be on display.",
+      "Visit us at the world's largest corrosion conference. Live product demonstrations of the Microcor\u00ae Wireless Transmitter, SafeGuard Service Valve, and Echo Point UT sensor will be on display.",
     href: null,
   },
   {
-    title: 'Case Study: 63% Reduction in Pipeline Failures with ER Monitoring',
+    title: 'Pipeline Integrity in the Era of PHMSA Mega-Rules',
     category: 'Technical Article',
     date: 'Nov 28, 2025',
     excerpt:
-      'A major North American midstream operator achieved a 63% reduction in unplanned pipeline failures after deploying a network of Cosasco electrical resistance probes across 400 miles of infrastructure.',
+      'New PHMSA regulations are driving gas transmission operators to implement comprehensive internal corrosion monitoring programs. We outline the key requirements and how ER probe networks and chemical injection systems help achieve compliance.',
     href: null,
   },
   {
-    title: 'New Distribution Partnership in Southeast Asia',
+    title: 'Cosasco Appoints New Nigerian Distributor',
     category: 'Press Release',
     date: 'Nov 15, 2025',
     excerpt:
-      'Cosasco announces a strategic distribution agreement with PT Corrotech Solutions, expanding direct product access and technical support across Indonesia, Malaysia, Thailand, and Vietnam.',
+      "Cosasco announces a new distribution partnership in Nigeria, expanding direct product access and technical support across West Africa's growing oil and gas sector.",
     href: null,
   },
   {
-    title: 'Webinar Recap: Corrosion Management in Sour Gas Systems',
-    category: 'Events',
+    title: 'How Can Data Centers Go Green? The Role of Airborne Corrosion Monitoring',
+    category: 'Technical Article',
     date: 'Nov 8, 2025',
     excerpt:
-      'Over 1,200 engineers attended our live webinar on corrosion management in H₂S-rich environments. A full recording and slide deck are now available for download.',
+      "As data centers move to free-air cooling, airborne corrosive gases become a serious threat to electronics. Cosasco's AirIQ system provides continuous monitoring to protect critical infrastructure while enabling sustainable operations.",
     href: null,
   },
   {
-    title: 'ISO 9001:2015 Recertification Achieved',
+    title: 'ISO 9001:2015 Surveillance Audit Passed with Zero Nonconformances',
     category: 'Press Release',
     date: 'Oct 30, 2025',
     excerpt:
@@ -84,23 +84,23 @@ const articles = [
     category: 'Technical Article',
     date: 'Oct 22, 2025',
     excerpt:
-      'A deep-dive comparison of electrical resistance and linear polarization resistance probe technologies — helping engineers select the right sensor for their specific process conditions.',
-    href: '/resources/blog/corrosion-monitoring-fundamentals',
+      'A deep-dive comparison of electrical resistance and linear polarization resistance probe technologies \u2014 helping engineers select the right sensor for their specific process conditions.',
+    href: '/resources',
   },
   {
-    title: 'Cosasco Q3 2025 Product Catalog Now Available',
+    title: 'Q3 2025 Product Catalog Now Available',
     category: 'Product Update',
     date: 'Oct 10, 2025',
     excerpt:
-      'The updated Q3 catalog includes 14 new SKUs across our probe, chemical injection, and access fitting product lines, along with revised technical specifications for legacy products.',
+      'The updated catalog includes new SKUs across our probe, chemical injection, and access fitting product lines, along with revised technical specifications for legacy products.',
     href: null,
   },
   {
-    title: 'Interview: 70 Years of Corrosion Innovation',
+    title: 'Interview: 70+ Years of Corrosion Innovation',
     category: 'Technical Article',
     date: 'Sep 25, 2025',
     excerpt:
-      "Cosasco's Chief Technology Officer reflects on seven decades of corrosion monitoring innovation — from early mechanical coupons to today's cloud-connected wireless sensor networks.",
+      "Cosasco's Director of Engineering reflects on seven decades of corrosion monitoring innovation \u2014 from early mechanical coupons to today's wireless sensor networks and cloud-based analytics.",
     href: null,
   },
 ]

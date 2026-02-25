@@ -1,260 +1,229 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Download, Key, Ruler, AlertTriangle, HelpCircle } from 'lucide-react'
+import ActivationForm from './ActivationForm'
 
 export const metadata: Metadata = {
-  title: 'Corrosion Monitoring Software | Cosasco FieldCom',
-  description: 'FieldCom cloud platform, CorrView desktop, and mobile apps for corrosion data acquisition.',
+  title: 'Software & Downloads | Cosasco',
+  description:
+    'Official Cosasco software for data acquisition, analysis, and device configuration. Download Cosasco Data Online (CDO), Device Length Calculator, and legacy tools.',
 }
 
-import { BarChart2, Monitor, Smartphone, CheckCircle2, Cloud, Download } from "lucide-react";
+const legacySoftware = [
+  {
+    title: 'Corrdata\u00ae Plus',
+    version: 'v3.3.0',
+    os: 'Windows XP / Vista',
+    href: '/downloads/corrdata-plus-3.3.0.zip',
+  },
+  {
+    title: 'Microcor\u00ae Tools Software',
+    version: 'v4.4.5',
+    os: 'Windows 7 / XP / Vista',
+    href: '/downloads/microcor-tools-4.4.5.zip',
+  },
+  {
+    title: 'Corrdata II',
+    version: 'v1.0.4.7',
+    os: 'Windows 7 / XP / Vista',
+    href: '/downloads/corrdata-ii-1.0.4.7.zip',
+  },
+]
 
 export default function SoftwarePage() {
-  const products = [
-    {
-      icon: <BarChart2 className="w-10 h-10 text-[#f4a65d]" />,
-      badge: "Cloud-based",
-      badgeColor: "bg-sky-100 text-sky-700",
-      title: "FieldCom Cloud Platform",
-      desc: "A real-time corrosion monitoring dashboard accessible from any browser. Connect your FieldCom wireless transmitters and view live data, trends, and alerts from anywhere in the world.",
-      features: [
-        "Real-time sensor data from all connected devices",
-        "Configurable alarm thresholds and email/SMS alerts",
-        "Multi-site dashboards with role-based access control",
-        "Automated reporting and data export (CSV, PDF)",
-      ],
-    },
-    {
-      icon: <Monitor className="w-10 h-10 text-[#f4a65d]" />,
-      badge: "Desktop App",
-      badgeColor: "bg-purple-100 text-purple-700",
-      title: "CorrView Desktop",
-      desc: "A powerful offline data analysis application for Windows. Import logged data from FieldCom data loggers, perform corrosion rate calculations, and generate detailed compliance reports.",
-      features: [
-        "Offline data import from FieldCom hardware",
-        "Advanced corrosion rate trend analysis tools",
-        "Customizable report templates for compliance",
-        "Batch data processing for large deployments",
-      ],
-    },
-    {
-      icon: <Smartphone className="w-10 h-10 text-[#f4a65d]" />,
-      badge: "Mobile",
-      badgeColor: "bg-green-100 text-green-700",
-      title: "FieldCom Mobile",
-      desc: "Monitor your corrosion data on the go with the FieldCom Mobile app for iOS and Android. Perfect for field technicians conducting inspections or engineers who need instant access to site data.",
-      features: [
-        "Live sensor readings and historical trends",
-        "Push notifications for critical alarm conditions",
-        "Offline mode for areas with limited connectivity",
-        "QR code scanning for rapid probe identification",
-      ],
-    },
-  ];
-
-  const sysReqs = [
-    { label: "Operating System", value: "Windows 10 / 11 (64-bit)" },
-    { label: "Processor", value: "Intel Core i5 or AMD equivalent (2.0 GHz+)" },
-    { label: "Memory", value: "8 GB RAM minimum; 16 GB recommended" },
-    { label: "Storage", value: "2 GB available disk space" },
-    { label: "Display", value: "1280 × 800 minimum resolution" },
-    { label: "Browser (Cloud)", value: "Chrome 100+, Firefox 100+, Edge 100+, Safari 16+" },
-    { label: "Mobile OS", value: "iOS 15+ or Android 11+" },
-    { label: ".NET Runtime", value: ".NET 6.0 or later (CorrView Desktop)" },
-  ];
-
   return (
     <main>
-      {/* HERO */}
+      {/* ── HERO ── */}
       <section className="bg-[#0f2a4a] pt-[72px] pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-[#f4a65d] text-sm font-semibold tracking-widest uppercase mb-4">
-            Software & Tools
+            Software & Downloads
           </p>
           <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">
-            Corrosion Monitoring Software
+            Software &amp; Downloads
           </h1>
           <p className="text-lg text-[#8ab4d4] max-w-2xl mx-auto">
-            From real-time cloud dashboards to offline desktop analysis, Cosasco software keeps your corrosion data working for you.
+            Official Cosasco software for data acquisition, analysis, and device configuration.
           </p>
         </div>
       </section>
 
-      {/* LOGIN CTA */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-            {/* Login card */}
-            <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-2xl p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <Cloud className="w-6 h-6 text-[#f4a65d]" />
-                <h2 className="text-xl font-bold text-[#0f2a4a]">FieldCom Software Login</h2>
-              </div>
-              <p className="text-[#6b7280] text-sm mb-6">
-                Access your FieldCom cloud dashboard. Sign in with your Cosasco account credentials.
-              </p>
-              <div className="space-y-4">
-                <div className="bg-[#f0f4f8] rounded-xl p-6 text-center">
-                  <p className="text-[#0f2a4a] font-semibold text-sm mb-2">
-                    Access is provisioned by your Cosasco representative.
-                  </p>
-                  <p className="text-[#566677] text-sm mb-5 leading-relaxed">
-                    FieldCom Cloud accounts are set up by your Cosasco sales contact after hardware purchase. If you already have credentials, visit the FieldCom portal directly.
-                  </p>
-                  <a
-                    href="https://fieldcom.cosasco.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full text-center bg-[#0f2a4a] text-white py-3 rounded-lg font-semibold hover:bg-[#1a3d6b] transition-colors mb-3"
-                  >
-                    Go to FieldCom Portal ↗
-                  </a>
-                  <Link
-                    href="/contact"
-                    className="block w-full text-center border border-[#0f2a4a] text-[#0f2a4a] py-3 rounded-lg font-semibold hover:bg-[#0f2a4a] hover:text-white transition-colors"
-                  >
-                    Contact Us to Set Up Access
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* No account card */}
-            <div className="bg-[#0f2a4a] rounded-2xl p-8 text-white">
-              <h2 className="text-xl font-bold mb-4">Don&apos;t have an account?</h2>
-              <p className="text-[#8ab4d4] text-sm mb-6 leading-relaxed">
-                FieldCom Cloud access is included with qualifying FieldCom hardware purchases. Contact our team to set up your cloud account, request a software trial, or get help with an existing login.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Free account setup with hardware purchase",
-                  "Dedicated onboarding from Cosasco support",
-                  "Multi-user access for your entire team",
-                  "14-day trial available for evaluations",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm text-[#8ab4d4]">
-                    <CheckCircle2 className="w-4 h-4 text-[#f4a65d] mt-0.5 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/contact"
-                className="inline-block bg-[#f4a65d] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#e8954a] transition-colors"
-              >
-                Contact Us to Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PRODUCT SECTIONS */}
+      {/* ── SECTION 1: Cosasco Data Online ── */}
       <section className="bg-[#f7f9fc] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl font-bold text-[#0f2a4a]">Our Software Suite</h2>
-            <p className="text-[#6b7280] mt-3 max-w-xl mx-auto">
-              Three purpose-built tools that cover every stage of the corrosion monitoring workflow.
+          <div className="max-w-3xl mx-auto">
+            {/* Card */}
+            <div className="rounded-2xl overflow-hidden border border-[#e8edf2] shadow-sm">
+              {/* Dark navy header */}
+              <div className="bg-[#0f2a4a] px-8 py-6 flex items-center gap-4">
+                <div className="w-10 h-10 rounded-lg bg-[#f4a65d]/20 flex items-center justify-center flex-shrink-0">
+                  <Download className="w-5 h-5 text-[#f4a65d]" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold tracking-widest uppercase text-[#f4a65d] block mb-0.5">
+                    Current Platform
+                  </span>
+                  <h2 className="text-xl font-bold text-white">Cosasco Data Online (CDO)</h2>
+                </div>
+              </div>
+
+              {/* Body */}
+              <div className="bg-white px-8 py-7">
+                <p className="text-[#374151] text-sm leading-relaxed mb-6">
+                  The current Cosasco data platform. Replaces Corrdata Plus, Corrdata II, and Microcor Tools. Compatible with all offline corrosion monitoring instruments including the Bluetooth Transfer Unit.
+                </p>
+
+                {/* System requirements */}
+                <div className="bg-[#f7f9fc] rounded-lg border border-[#e8edf2] px-5 py-4 mb-6">
+                  <p className="text-xs font-semibold text-[#0f2a4a] uppercase tracking-wide mb-2">
+                    System Requirements
+                  </p>
+                  <p className="text-sm text-[#6b7280]">Windows 10 / 11, 64-bit</p>
+                </div>
+
+                <a
+                  href="/downloads/CosascoDataSetup.exe.zip"
+                  className="inline-flex items-center gap-2 bg-[#0f2a4a] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1a3d6b] transition-colors mb-4"
+                >
+                  <Download className="w-4 h-4" />
+                  Download CDO Software
+                </a>
+
+                <p className="text-[#6b7280] text-xs leading-relaxed">
+                  Requires an activation key.{' '}
+                  <a href="#data-key-activation" className="text-[#0f2a4a] underline underline-offset-2 hover:text-[#f4a65d]">
+                    See Data Key Activation below.
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 2: Data Key Activation ── */}
+      <section id="data-key-activation" className="bg-white py-20 border-t border-[#e8edf2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex items-center gap-3 mb-3">
+              <Key className="w-6 h-6 text-[#f4a65d]" />
+              <h2 className="text-2xl font-bold text-[#0f2a4a]">Data Key Activation</h2>
+            </div>
+            <p className="text-[#6b7280] text-sm mb-8 leading-relaxed">
+              Each CDO installation requires a unique activation key tied to your Machine ID. Complete the form below to request your key. Cosasco provides only one activation key per eligible device. Keys purchased through third-party vendors are not eligible.
+            </p>
+
+            <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-2xl p-8">
+              <ActivationForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 3: Device Length Calculator ── */}
+      <section className="bg-[#f7f9fc] py-20 border-t border-[#e8edf2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white border border-[#e8edf2] rounded-2xl p-8 shadow-sm">
+              <div className="flex items-start gap-4 mb-5">
+                <div className="w-10 h-10 rounded-lg bg-[#f4a65d]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Ruler className="w-5 h-5 text-[#f4a65d]" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold tracking-widest uppercase text-[#566677] block mb-1">
+                    Utility Tool
+                  </span>
+                  <h2 className="text-xl font-bold text-[#0f2a4a]">Device Length Calculator v1.0.7</h2>
+                </div>
+              </div>
+
+              <p className="text-[#374151] text-sm leading-relaxed mb-6">
+                Calculate the correct mechanical probe or device length based on your pipeline specifications. Supports 20+ probe and coupon holder models.
+              </p>
+
+              <a
+                href="/downloads/device-length-calculator.zip"
+                className="inline-flex items-center gap-2 bg-[#0f2a4a] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1a3d6b] transition-colors mb-4"
+              >
+                <Download className="w-4 h-4" />
+                Download Device Length Calculator
+              </a>
+
+              <div className="flex items-start gap-2 mt-1">
+                <AlertTriangle className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                <p className="text-[#6b7280] text-xs leading-relaxed">
+                  Requires 32-bit Java Runtime Environment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 4: Legacy Software ── */}
+      <section className="bg-white py-20 border-t border-[#e8edf2]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-[#0f2a4a] mb-3">Legacy Software</h2>
+          <p className="text-[#6b7280] text-sm mb-6 max-w-2xl">
+            For customers with older instruments that are not compatible with CDO.
+          </p>
+
+          {/* Warning banner */}
+          <div className="flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 mb-8">
+            <AlertTriangle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
+            <p className="text-amber-800 text-sm leading-relaxed">
+              <strong>Legacy software is provided as-is for older instruments. No support is available.</strong>{' '}
+              For current instruments, use{' '}
+              <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }} className="underline underline-offset-2 hover:text-amber-900">
+                Cosasco Data Online (CDO)
+              </a>.
             </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {legacySoftware.map((sw) => (
               <div
-                key={product.title}
-                className="bg-white border border-[#e8edf2] rounded-xl p-8 flex flex-col"
+                key={sw.title}
+                className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-6 flex flex-col"
               >
-                <div className="flex items-start justify-between mb-5">
-                  {product.icon}
-                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${product.badgeColor}`}>
-                    {product.badge}
-                  </span>
+                <div className="flex-1 mb-5">
+                  <h3 className="font-bold text-[#0f2a4a] text-base mb-1">{sw.title}</h3>
+                  <p className="text-sm text-[#f4a65d] font-semibold mb-1">{sw.version}</p>
+                  <p className="text-xs text-[#6b7280]">{sw.os}</p>
                 </div>
-                <h3 className="font-bold text-[#0f2a4a] text-lg mb-3">{product.title}</h3>
-                <p className="text-[#6b7280] text-sm leading-relaxed mb-5">{product.desc}</p>
-                <ul className="space-y-2.5 mb-8 flex-1">
-                  {product.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-[#374151]">
-                      <CheckCircle2 className="w-4 h-4 text-[#f4a65d] mt-0.5 flex-shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex gap-3 mt-auto">
-                  <Link
-                    href="/contact"
-                    className="flex-1 text-center border border-[#0f2a4a] text-[#0f2a4a] px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#0f2a4a] hover:text-white transition-colors"
-                  >
-                    Learn More
-                  </Link>
-                  <Link
-                    href="/contact"
-                    className="flex-1 flex items-center justify-center gap-1.5 bg-[#f4a65d] text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#e8954a] transition-colors"
-                  >
-                    <Download className="w-4 h-4" /> Get Access
-                  </Link>
-                </div>
+                <a
+                  href={sw.href}
+                  className="inline-flex items-center justify-center gap-2 border border-[#0f2a4a] text-[#0f2a4a] px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#0f2a4a] hover:text-white transition-colors"
+                >
+                  <Download className="w-4 h-4" />
+                  Download
+                </a>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* QUICK LINKS */}
-      <section className="bg-white py-14 border-t border-[#e8edf2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-xl font-bold text-[#0f2a4a] mb-6">Software Resources</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { href: '/software/data-key', label: 'Data Key Activation', desc: 'Activate your FieldCom hardware license key' },
-              { href: '/software/legacy', label: 'Legacy Software Downloads', desc: 'Previous versions for older hardware compatibility' },
-              { href: '/software/partner-payment', label: 'Partner Payment Portal', desc: 'Authorized distributors: manage invoices & payments' },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="flex items-start gap-4 border border-[#e8edf2] rounded-xl p-5 hover:border-[#f4a65d] hover:shadow-sm transition-all group"
-              >
-                <div className="flex-1">
-                  <p className="text-[#0f2a4a] font-bold group-hover:text-[#f4a65d] transition-colors">{item.label}</p>
-                  <p className="text-[#566677] text-sm mt-1">{item.desc}</p>
-                </div>
-                <span className="text-[#8898aa] group-hover:text-[#f4a65d] transition-colors text-xl leading-none mt-0.5">›</span>
-              </Link>
-            ))}
+      {/* ── SECTION 5: Support CTA ── */}
+      <section className="bg-[#0f2a4a] py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="w-12 h-12 rounded-full bg-[#f4a65d]/20 flex items-center justify-center mx-auto mb-4">
+            <HelpCircle className="w-6 h-6 text-[#f4a65d]" />
           </div>
-        </div>
-      </section>
-
-      {/* SYSTEM REQUIREMENTS */}
-      <section className="bg-white py-16 border-t border-[#e8edf2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-[#0f2a4a] mb-8">System Requirements</h2>
-            <div className="border border-[#e8edf2] rounded-xl overflow-hidden">
-              <table className="w-full text-sm">
-                <caption className="sr-only">System requirements for Cosasco software products</caption>
-                <thead>
-                  <tr className="bg-[#0f2a4a] text-white">
-                    <th className="text-left px-6 py-4 font-semibold">Requirement</th>
-                    <th className="text-left px-6 py-4 font-semibold">Specification</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sysReqs.map((req, i) => (
-                    <tr key={req.label} className={i % 2 === 0 ? "bg-white" : "bg-[#f7f9fc]"}>
-                      <td className="px-6 py-4 font-medium text-[#374151]">{req.label}</td>
-                      <td className="px-6 py-4 text-[#6b7280]">{req.value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="text-[#6b7280] text-xs mt-4">
-              * Requirements apply to CorrView Desktop. FieldCom Cloud runs in-browser; FieldCom Mobile requires iOS 15+ or Android 11+. Specifications subject to change with software updates.
-            </p>
-          </div>
+          <h2 className="text-2xl font-bold text-white mb-3">
+            Need help with software activation or installation?
+          </h2>
+          <p className="text-[#8ab4d4] text-sm mb-6 max-w-md mx-auto">
+            Our support team is available to assist with CDO setup, activation keys, and legacy software compatibility questions.
+          </p>
+          <Link
+            href="/support"
+            className="inline-flex items-center gap-2 bg-[#f4a65d] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#e8954a] transition-colors"
+          >
+            Visit Support
+          </Link>
         </div>
       </section>
     </main>
-  );
+  )
 }

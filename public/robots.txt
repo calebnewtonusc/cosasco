@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cosasco.com/sitemap.xml
+Sitemap: https://cosasco.vercel.app/sitemap.xml

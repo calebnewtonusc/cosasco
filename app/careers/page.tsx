@@ -14,11 +14,14 @@ export default function CareersPage() {
       <section className="bg-[#0f2a4a] pt-[72px] pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center">
           <p className="text-[#f4a65d] text-sm font-semibold tracking-widest uppercase mb-4">
-            Halma Company · Cosasco
+            Halma Company · Cosasco · 110+ Countries
           </p>
-          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6">Join Our Team</h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-white mb-6 max-w-3xl mx-auto leading-tight">
+            Cosasco is on a mission to deliver confidence in corrosion management.
+          </h1>
           <p className="text-lg text-[#8ab4d4] max-w-2xl mx-auto">
-            Build your career at a global leader in industrial technology.
+            We&apos;re looking for passionate, hard-working people to join our growing team in a
+            fun, fast-paced environment.
           </p>
         </div>
       </section>

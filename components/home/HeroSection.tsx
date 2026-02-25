@@ -84,7 +84,7 @@ function AnimatedPipeline() {
       {/* Data readout box */}
       <rect x="260" y="73" width="120" height="80" rx="6" fill="rgba(15,42,74,0.90)" stroke="rgba(244,166,93,0.5)" strokeWidth="1.5" />
       <rect x="260" y="73" width="120" height="18" rx="6" fill="rgba(244,166,93,0.25)" />
-      <text x="268" y="85.5" fill="rgba(244,166,93,0.9)" fontSize="8" fontFamily="monospace" fontWeight="bold">FIELDCOM · LIVE</text>
+      <text x="268" y="85.5" fill="rgba(244,166,93,0.9)" fontSize="7" fontFamily="monospace" fontWeight="bold">MICROCOR® · LIVE</text>
       <circle cx="366" cy="82" r="2.5" fill="#4ade80">
         <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite" />
       </circle>
@@ -174,7 +174,7 @@ export default function HeroSection() {
               className="text-xs font-semibold px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: 'rgba(244,166,93,0.2)', color: '#f4a65d' }}
             >
-              Trusted in 110 Countries · Since 1955
+              Trusted in 110 Countries · Since 1950
             </span>
 
             <h1
@@ -187,9 +187,9 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-xl mt-6 max-w-2xl mx-auto lg:mx-0" style={{ color: '#94aabb' }}>
-              From the probe on the pipe wall to the dashboard in the control room,
-              Cosasco delivers the most complete corrosion monitoring, erosion measurement,
-              and chemical injection portfolio in the industry.
+              We exist to be the most complete and precise solution to measure and monitor
+              corrosion — improving the safety of people and the environment while protecting
+              assets and enhancing our customers&apos; bottom line.
             </p>
 
             <div className="mt-10 flex justify-center lg:justify-start gap-4 flex-wrap">

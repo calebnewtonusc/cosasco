@@ -14,7 +14,7 @@ import FloatingChat from '@/components/FloatingChat'
 export const metadata: Metadata = {
   title: 'Cosasco | Corrosion Management Solutions',
   description:
-    'Cosasco is the global leader in corrosion and erosion monitoring solutions, delivering precision instruments, access fittings, and data acquisition systems to oil & gas, petrochemical, and water treatment industries since 1955.',
+    'Cosasco is the global leader in corrosion and erosion monitoring solutions, delivering precision instruments, access fittings, and data acquisition systems to oil & gas, petrochemical, and water treatment industries since 1950.',
   openGraph: {
     type: 'website',
     siteName: 'Cosasco',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@cosasco',
     title: 'Cosasco | Corrosion Management Solutions',
-    description: 'Global leader in corrosion and erosion monitoring since 1955.',
+    description: 'Global leader in corrosion and erosion monitoring since 1950.',
     images: ['/og-image.png'],
   },
 }
@@ -48,8 +48,8 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'Cosasco',
-              url: 'https://www.cosasco.com',
-              logo: 'https://www.cosasco.com/cosasco-logo.png',
+              url: 'https://cosasco.vercel.app',
+              logo: 'https://cosasco.vercel.app/cosasco-logo.png',
               description: 'Cosasco is a global leader in corrosion and erosion monitoring equipment, chemical injection systems, and related engineering services.',
               address: {
                 '@type': 'PostalAddress',

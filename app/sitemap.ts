@@ -38,6 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/solutions/utilities`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/solutions/mining`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/solutions/gas-transmission`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/solutions/specialty-applications`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     // Software sub-pages
     { url: `${BASE_URL}/software/data-key`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/software/legacy`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },

@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Data Acquisition Systems | Cosasco FieldCom',
-  description: 'Wired and wireless data acquisition systems for corrosion monitoring, SCADA integration, and remote industrial sensing.',
+  title: 'Data Acquisition & Wireless Monitoring | Cosasco',
+  description: 'Microcor® Wireless Transmitters, wired data acquisition systems, and Cosasco Data Online (CDO) cloud platform for corrosion monitoring, SCADA integration, and remote industrial sensing.',
 }
 
 import Link from "next/link";
@@ -18,9 +18,9 @@ import {
 
 const products = [
   {
-    name: "FieldCom Wireless System",
-    desc: "Intrinsically safe wireless data logger with 900 MHz mesh radio for probe readout and transmission across large process facilities. Eliminates cable runs and enables rapid deployment on brownfield sites.",
-    spec: "Range: Up to 1,000 m (LOS)",
+    name: "Microcor® Wireless Transmitter (MWT)",
+    desc: "Intrinsically safe WirelessHART 7 compliant transmitter for probe readout and transmission across large process facilities. 18-bit resolution, Class I Zone 1 certified. Eliminates cable runs and enables rapid deployment on brownfield sites.",
+    spec: "Resolution: 18-bit · WirelessHART 7",
   },
   {
     name: "ER Data Loggers",
@@ -33,8 +33,8 @@ const products = [
     spec: "Channels: Up to 32 per unit",
   },
   {
-    name: "Cloud Analytics Platform",
-    desc: "Cosasco Connect cloud dashboard aggregates data from all FieldCom nodes and wired loggers into a unified view with configurable trend charts, alarm thresholds, and automated exception reports.",
+    name: "Cosasco Data Online (CDO)",
+    desc: "CDO cloud dashboard aggregates data from all Microcor® wireless nodes and wired loggers into a unified view with configurable trend charts, alarm thresholds, and automated exception reports. Compatible with Yokogawa and Emerson DCS platforms.",
     spec: "Uptime SLA: 99.9%",
   },
   {
@@ -50,12 +50,14 @@ const products = [
 ];
 
 const features = [
-  "Intrinsically safe (IS) to ATEX Zone 1",
-  "Mesh networking — self-healing topology",
+  "Intrinsically safe (IS) to ATEX Zone 1 / Class I Zone 1",
+  "WirelessHART 7 compliant mesh networking",
   "OPC-UA and Modbus SCADA integration",
   "Encrypted 128-bit AES data transmission",
-  "Cloud or on-premise deployment options",
+  "Cloud (CDO) or on-premise deployment options",
   "Compatible with all Cosasco probe families",
+  "18-bit measurement resolution",
+  "Compatible with Yokogawa and Emerson DCS",
 ];
 
 const relatedSolutions = [
@@ -67,12 +69,12 @@ const relatedSolutions = [
 
 const downloads = [
   {
-    title: "FieldCom Wireless System Datasheet",
-    desc: "Technical specifications and radio configuration guide",
+    title: "Microcor® Wireless Transmitter Datasheet",
+    desc: "Technical specifications, radio configuration, and certification details",
     size: "2.8 MB PDF",
   },
   {
-    title: "Cosasco Connect Cloud Platform Overview",
+    title: "Cosasco Data Online (CDO) Platform Overview",
     desc: "Dashboard features, API access, and onboarding guide",
     size: "1.5 MB PDF",
   },
@@ -95,9 +97,9 @@ export default function DataAcquisitionPage() {
             Wireless Loggers, SCADA Integration &amp; Cloud Analytics
           </h1>
           <p className="text-[#94aabb] text-lg max-w-2xl leading-relaxed">
-            FieldCom mesh wireless networks, Ethernet-based data systems, and the Cosasco Connect
-            cloud platform centralize corrosion monitoring data from distributed probe networks
-            into actionable, real-time asset integrity intelligence.
+            Microcor® Wireless mesh networks, Ethernet-based data systems, and the Cosasco Data
+            Online (CDO) cloud platform centralize corrosion monitoring data from distributed probe
+            networks into actionable, real-time asset integrity intelligence.
           </p>
         </div>
       </section>
@@ -110,30 +112,31 @@ export default function DataAcquisitionPage() {
             <div className="lg:col-span-2">
               <h2 className="font-black text-[#0f2a4a] text-3xl mb-4">About Data Acquisition</h2>
               <p className="text-[#566677] leading-relaxed mb-4">
-                Cosasco&rsquo;s FieldCom wireless system transforms distributed probe networks into a
-                unified, real-time monitoring infrastructure. Self-forming mesh nodes eliminate the
-                cost and complexity of cable routing across large process plants, while the 900 MHz
-                radio frequency ensures reliable communication in challenging RF environments
-                including large metal structures and offshore topsides.
+                Cosasco&rsquo;s Microcor® wireless system transforms distributed probe networks into a
+                unified, real-time monitoring infrastructure. WirelessHART 7 compliant nodes with
+                18-bit resolution eliminate the cost and complexity of cable routing across large
+                process plants, while the Class I Zone 1 certification ensures safe deployment in
+                the most demanding hazardous area classifications — including large metal structures
+                and offshore topsides.
               </p>
               <p className="text-[#566677] leading-relaxed mb-8">
-                For operators seeking deeper integration, the Cosasco Connect cloud analytics
-                platform provides trend visualization, configurable alarm management, and automated
-                exception reporting — accessible from any device via secure web browser. Native
-                Modbus TCP/RTU and OPC-UA drivers ensure seamless integration with existing plant
-                DCS and SCADA infrastructure across our 1M+ global monitoring locations in over
-                110 countries.
+                For operators seeking deeper integration, the Cosasco Data Online (CDO) cloud
+                analytics platform provides trend visualization, configurable alarm management, and
+                automated exception reporting — accessible from any device via secure web browser.
+                Native Modbus TCP/RTU and OPC-UA drivers ensure seamless integration with existing
+                plant DCS and SCADA infrastructure, including pre-configured templates for Yokogawa
+                and Emerson platforms, across our 1M+ global monitoring locations in over 110 countries.
               </p>
 
               {/* Stat callouts */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="border-l-4 border-[#f4a65d] bg-[#f7f9fc] rounded-r-xl px-5 py-4">
-                  <div className="text-[#f4a65d] font-black text-4xl leading-none">1K</div>
-                  <p className="text-[#566677] text-sm mt-1 font-medium">m line-of-sight range per FieldCom node</p>
+                  <div className="text-[#f4a65d] font-black text-4xl leading-none">18-bit</div>
+                  <p className="text-[#566677] text-sm mt-1 font-medium">Microcor® wireless measurement resolution</p>
                 </div>
                 <div className="border-l-4 border-[#f4a65d] bg-[#f7f9fc] rounded-r-xl px-5 py-4">
                   <div className="text-[#f4a65d] font-black text-4xl leading-none">99.9%</div>
-                  <p className="text-[#566677] text-sm mt-1 font-medium">Cloud platform uptime SLA</p>
+                  <p className="text-[#566677] text-sm mt-1 font-medium">CDO cloud platform uptime SLA</p>
                 </div>
               </div>
             </div>
@@ -198,7 +201,7 @@ export default function DataAcquisitionPage() {
               Ready to connect your monitoring network?
             </h2>
             <p className="text-[#566677] mb-6">
-              Request a quote or schedule a FieldCom network design consultation with our data systems team.
+              Request a quote or schedule a Microcor® wireless network design consultation with our data systems team.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -225,11 +228,11 @@ export default function DataAcquisitionPage() {
               <ul className="space-y-2.5 mb-5">
                 <li className="flex items-center gap-3 text-sm text-[#94aabb]">
                   <Phone size={15} className="text-[#f4a65d] flex-shrink-0" />
-                  +1 (714) 538-2902
+                  +1 (562) 949-0123
                 </li>
                 <li className="flex items-center gap-3 text-sm text-[#94aabb]">
                   <Mail size={15} className="text-[#f4a65d] flex-shrink-0" />
-                  sales@cosasco.com
+                  info@cosasco.com
                 </li>
               </ul>
               <Link

@@ -2,557 +2,404 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Phone, Mail, Clock, MapPin, CheckCircle, User } from 'lucide-react'
+import { ChevronDown, ChevronRight, Mail, Phone, MapPin, Globe } from 'lucide-react'
 
-type FormState = {
-  firstName: string
-  lastName: string
-  company: string
-  email: string
+// ─── Data ───────────────────────────────────────────────────────────────────
+
+interface Office {
   country: string
-  industry: string
-  inquiry: string
-  details: string
+  city?: string
+  phone?: string
+  email: string
+  note?: string
+  isHQ?: boolean
 }
 
-const regions = [
+interface Region {
+  id: string
+  label: string
+  offices: Office[]
+}
+
+const regions: Region[] = [
   {
-    name: 'Americas',
-    contact: 'David Reyes',
-    email: 'd.reyes@cosasco.com',
-    phone: '+1 (562) 949-0123',
-    flag: '🌎',
-    countries: 'USA, Canada, Mexico, Brazil, Colombia',
+    id: 'north-america',
+    label: 'North America',
+    offices: [
+      {
+        country: 'United States (HQ)',
+        city: 'Santa Fe Springs, CA',
+        phone: '+1 (562) 949-0123',
+        email: 'info@cosasco.com',
+        isHQ: true,
+      },
+      {
+        country: 'United States (Gulf Coast)',
+        city: 'Houston, TX',
+        phone: '+1 (562) 949-0123',
+        email: 'info@cosasco.com',
+      },
+      {
+        country: 'Canada',
+        city: 'Markham, Ontario',
+        email: 'info@cosasco.com',
+      },
+    ],
   },
   {
-    name: 'Europe',
-    contact: 'Sophie Müller',
-    email: 's.muller@cosasco.com',
-    phone: '+44 20 7123 4567',
-    flag: '🌍',
-    countries: 'UK, Germany, France, Netherlands, Nordics',
+    id: 'south-america',
+    label: 'South America',
+    offices: [
+      { country: 'Brazil', email: 'info@cosasco.com' },
+      { country: 'Colombia', email: 'info@cosasco.com' },
+      { country: 'Ecuador', email: 'info@cosasco.com' },
+      { country: 'Mexico', email: 'info@cosasco.com' },
+      { country: 'Peru', email: 'info@cosasco.com' },
+      { country: 'Trinidad & Tobago', email: 'info@cosasco.com' },
+      { country: 'Venezuela', email: 'info@cosasco.com' },
+    ],
   },
   {
-    name: 'Middle East',
-    contact: 'Omar Al-Rashid',
-    email: 'o.alrashid@cosasco.com',
-    phone: '+971 4 234 5678',
-    flag: '🌏',
-    countries: 'UAE, Saudi Arabia, Kuwait, Qatar, Oman',
+    id: 'europe',
+    label: 'Europe',
+    offices: [
+      { country: 'United Kingdom', city: 'Aberdeen, Scotland', email: 'info@cosasco.com' },
+      { country: 'France', email: 'info@cosasco.com' },
+      { country: 'Germany', email: 'info@cosasco.com' },
+      { country: 'Italy', email: 'info@cosasco.com' },
+      { country: 'Poland', email: 'info@cosasco.com' },
+      { country: 'Portugal', email: 'info@cosasco.com' },
+      { country: 'Spain', email: 'info@cosasco.com' },
+      { country: 'Israel', email: 'info@cosasco.com' },
+    ],
   },
   {
-    name: 'Africa',
-    contact: 'Amara Diallo',
-    email: 'a.diallo@cosasco.com',
-    phone: '+27 11 345 6789',
-    flag: '🌍',
-    countries: 'South Africa, Nigeria, Egypt, Angola, Algeria',
+    id: 'middle-east',
+    label: 'Middle East',
+    offices: [
+      { country: 'United Arab Emirates', city: 'Dubai', email: 'info@cosasco.com' },
+      { country: 'Saudi Arabia', note: '2 offices', email: 'info@cosasco.com' },
+      { country: 'Qatar', email: 'info@cosasco.com' },
+      { country: 'Kuwait', email: 'info@cosasco.com' },
+      { country: 'Bahrain', email: 'info@cosasco.com' },
+      { country: 'Sultanate of Oman', email: 'info@cosasco.com' },
+      { country: 'Pakistan', email: 'info@cosasco.com' },
+    ],
   },
   {
-    name: 'Asia Pacific',
-    contact: 'Lin Wei',
-    email: 'l.wei@cosasco.com',
-    phone: '+60 3 5555 0143',
-    flag: '🌏',
-    countries: 'Malaysia, China, Japan, South Korea, India, Indonesia',
+    id: 'asia-pacific',
+    label: 'Asia Pacific',
+    offices: [
+      { country: 'Malaysia', city: 'Kuala Lumpur', email: 'info@cosasco.com' },
+      { country: 'Singapore', email: 'info@cosasco.com' },
+      { country: 'Indonesia', email: 'info@cosasco.com' },
+      { country: 'India', email: 'info@cosasco.com' },
+      { country: 'Japan', email: 'info@cosasco.com' },
+      { country: 'China (P.R.)', email: 'info@cosasco.com' },
+      { country: 'South Korea', email: 'info@cosasco.com' },
+      { country: 'Taiwan', email: 'info@cosasco.com' },
+      { country: 'Thailand', email: 'info@cosasco.com' },
+      { country: 'Vietnam', email: 'info@cosasco.com' },
+      { country: 'Brunei', email: 'info@cosasco.com' },
+    ],
   },
   {
-    name: 'Oceania',
-    contact: 'James Hartley',
-    email: 'j.hartley@cosasco.com',
-    phone: '+61 2 8765 4321',
-    flag: '🌏',
-    countries: 'Australia, New Zealand, Papua New Guinea',
+    id: 'africa',
+    label: 'Africa',
+    offices: [
+      { country: 'Nigeria', email: 'info@cosasco.com' },
+      { country: 'South Africa', email: 'info@cosasco.com' },
+      { country: 'Egypt', email: 'info@cosasco.com' },
+      { country: 'Libya', email: 'info@cosasco.com' },
+    ],
+  },
+  {
+    id: 'australia',
+    label: 'Australia',
+    offices: [
+      { country: 'Australia', city: 'Perth', email: 'info@cosasco.com' },
+    ],
   },
 ]
 
-const countryToRegion: Record<string, string> = {
-  'United States': 'Americas',
-  'Canada': 'Americas',
-  'Mexico': 'Americas',
-  'Brazil': 'Americas',
-  'Colombia': 'Americas',
-  'Other — Americas': 'Americas',
-  'United Kingdom': 'Europe',
-  'Germany': 'Europe',
-  'France': 'Europe',
-  'Netherlands': 'Europe',
-  'Norway / Sweden / Denmark': 'Europe',
-  'Other — Europe': 'Europe',
-  'United Arab Emirates': 'Middle East',
-  'Saudi Arabia': 'Middle East',
-  'Kuwait': 'Middle East',
-  'Qatar': 'Middle East',
-  'Oman': 'Middle East',
-  'Other — Middle East': 'Middle East',
-  'South Africa': 'Africa',
-  'Nigeria': 'Africa',
-  'Egypt': 'Africa',
-  'Other — Africa': 'Africa',
-  'Malaysia': 'Asia Pacific',
-  'China': 'Asia Pacific',
-  'Japan': 'Asia Pacific',
-  'South Korea': 'Asia Pacific',
-  'India': 'Asia Pacific',
-  'Indonesia': 'Asia Pacific',
-  'Singapore': 'Asia Pacific',
-  'Other — Asia Pacific': 'Asia Pacific',
-  'Australia': 'Oceania',
-  'New Zealand': 'Oceania',
-  'Other — Oceania': 'Oceania',
+// ─── Sub-components ──────────────────────────────────────────────────────────
+
+function OfficeCard({ office }: { office: Office }) {
+  return (
+    <div className="bg-white border border-[#e8edf2] rounded-xl p-5 flex flex-col gap-3 hover:shadow-md hover:border-[#c8d8e8] transition-all">
+      <div className="flex items-start justify-between gap-2">
+        <div>
+          <p className="text-[#0f2a4a] font-bold text-sm leading-snug">{office.country}</p>
+          {office.isHQ && (
+            <span className="inline-block text-[10px] font-bold uppercase tracking-[0.1em] text-[#f4a65d] bg-[#fef3e2] border border-[#f4a65d]/30 rounded-full px-2 py-0.5 mt-1">
+              HQ
+            </span>
+          )}
+        </div>
+        {office.note && (
+          <span className="text-[10px] font-semibold text-[#566677] bg-[#f0f4f8] rounded-full px-2 py-0.5 whitespace-nowrap mt-0.5">
+            {office.note}
+          </span>
+        )}
+      </div>
+
+      <div className="space-y-1.5 text-xs text-[#566677]">
+        {office.city && (
+          <div className="flex items-center gap-1.5">
+            <MapPin className="w-3 h-3 text-[#94aabb] shrink-0" />
+            <span>{office.city}</span>
+          </div>
+        )}
+        {office.phone && (
+          <div className="flex items-center gap-1.5">
+            <Phone className="w-3 h-3 text-[#94aabb] shrink-0" />
+            <a
+              href={`tel:${office.phone.replace(/[\s()+-]/g, '')}`}
+              className="hover:text-[#0f2a4a] transition-colors"
+            >
+              {office.phone}
+            </a>
+          </div>
+        )}
+        {!office.phone && (
+          <p className="text-[#94aabb] italic leading-snug">
+            For local support, contact your regional HQ at info@cosasco.com
+          </p>
+        )}
+      </div>
+
+      <a
+        href={`mailto:${office.email}`}
+        className="mt-auto inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#0f2a4a] hover:bg-[#1a3a5c] rounded-lg px-3 py-2 transition-colors w-fit"
+      >
+        <Mail className="w-3 h-3" />
+        Email Rep
+      </a>
+    </div>
+  )
 }
 
+interface AccordionSectionProps {
+  region: Region
+  isOpen: boolean
+  onToggle: () => void
+}
+
+function AccordionSection({ region, isOpen, onToggle }: AccordionSectionProps) {
+  return (
+    <div className="border border-[#e8edf2] rounded-xl overflow-hidden bg-white">
+      <button
+        onClick={onToggle}
+        className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-[#f7f9fc] transition-colors group"
+        aria-expanded={isOpen}
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 bg-[#0f2a4a] rounded-lg flex items-center justify-center shrink-0">
+            <Globe className="w-4 h-4 text-[#f4a65d]" />
+          </div>
+          <div>
+            <p className="text-[#0f2a4a] font-black text-base leading-tight">{region.label}</p>
+            <p className="text-[#566677] text-xs mt-0.5">
+              {region.offices.length} {region.offices.length === 1 ? 'location' : 'locations'}
+            </p>
+          </div>
+        </div>
+        <ChevronDown
+          className={`w-5 h-5 text-[#566677] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+        />
+      </button>
+
+      {isOpen && (
+        <div className="px-6 pb-6 border-t border-[#e8edf2] pt-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {region.offices.map((office) => (
+              <OfficeCard key={`${office.country}-${office.city ?? ''}`} office={office} />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ─── Main component ──────────────────────────────────────────────────────────
+
 export default function FindARepForm() {
-  const [form, setForm] = useState<FormState>({
-    firstName: '',
-    lastName: '',
-    company: '',
-    email: '',
-    country: '',
-    industry: '',
-    inquiry: '',
-    details: '',
-  })
-  const [submitting, setSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
-  const [error, setError] = useState('')
+  const [activeTab, setActiveTab] = useState<string>('all')
+  const [openAccordions, setOpenAccordions] = useState<Set<string>>(
+    new Set(['north-america'])
+  )
 
-  // Derive matched rep from selected country — live, reactive
-  const matchedRegionName = form.country ? countryToRegion[form.country] : null
-  const matchedRep = matchedRegionName ? regions.find(r => r.name === matchedRegionName) : null
-
-  function update(field: keyof FormState, value: string) {
-    setForm((prev) => ({ ...prev, [field]: value }))
-    if (error) setError('')
+  function toggleAccordion(id: string) {
+    setOpenAccordions((prev) => {
+      const next = new Set(prev)
+      if (next.has(id)) {
+        next.delete(id)
+      } else {
+        next.add(id)
+      }
+      return next
+    })
   }
 
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (!form.firstName || !form.country) {
-      setError('Please fill in your name and country/region.')
-      return
-    }
-    setSubmitting(true)
-    try {
-      const res = await fetch('/api/find-a-rep', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...form,
-          region: matchedRegionName ?? 'General',
-          routedTo: matchedRep?.email ?? 'info@cosasco.com',
-          repName: matchedRep?.contact ?? '',
-        }),
-      })
-      if (!res.ok) throw new Error('server error')
-      setSubmitted(true)
-    } catch {
-      setError('Something went wrong. Please try again or contact us directly.')
-    } finally {
-      setSubmitting(false)
-    }
+  function expandAll() {
+    setOpenAccordions(new Set(regions.map((r) => r.id)))
   }
 
-  const inputCls =
-    'w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] placeholder-[#94aabb] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d] transition-colors text-sm'
-  const selectCls =
-    'w-full px-4 py-3 border border-[#e8edf2] rounded-lg text-[#374151] bg-white focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d] transition-colors text-sm'
+  function collapseAll() {
+    setOpenAccordions(new Set())
+  }
+
+  const filteredRegions =
+    activeTab === 'all' ? regions : regions.filter((r) => r.id === activeTab)
 
   return (
     <>
-      {/* HERO */}
+      {/* ── Hero ── */}
       <section className="bg-[#0f2a4a] pt-[72px] pb-16">
-        <div className="max-w-6xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-6">
+          <nav className="flex items-center gap-2 text-sm text-[#8ab4d4] mb-6" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <span className="text-white font-medium">Find a Rep</span>
+          </nav>
           <p className="text-[#f4a65d] text-xs font-bold uppercase tracking-[0.1em] mb-4">Global Network</p>
           <h1 className="text-white font-black text-4xl md:text-5xl leading-tight mb-4">
-            Find Your Local Representative
+            Find a Representative
           </h1>
-          <p className="text-[#94aabb] text-lg max-w-xl mx-auto leading-relaxed">
-            Connect with a Cosasco expert in your region for product selection, technical support,
-            and custom quotes.
+          <p className="text-[#8ab4d4] text-lg max-w-2xl leading-relaxed">
+            Not sure who to contact? Our global network of sales representatives and
+            distributors can help. Email us at{' '}
+            <a href="mailto:sales@cosasco.com" className="text-[#f4a65d] hover:underline font-medium">
+              sales@cosasco.com
+            </a>
           </p>
         </div>
       </section>
 
-      {/* FORM */}
-      <section className="bg-white py-20">
+      {/* ── Region Tab Strip ── */}
+      <section className="bg-white border-b border-[#e8edf2] sticky top-0 z-10 shadow-sm">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-3 gap-10">
-
-            {/* Form */}
-            <div className="lg:col-span-2">
-              {submitted ? (
-                <div className="bg-white border border-[#e8edf2] rounded-2xl p-12 text-center">
-                  <div className="w-16 h-16 rounded-full bg-[#fef3e2] flex items-center justify-center mx-auto mb-5">
-                    <CheckCircle className="w-8 h-8 text-[#f4a65d]" />
-                  </div>
-                  <h2 className="text-[#0f2a4a] font-black text-2xl mb-3">Request Received</h2>
-                  <p className="text-[#566677] text-sm leading-relaxed max-w-md mx-auto mb-2">
-                    Thank you, <strong className="text-[#0f2a4a]">{form.firstName}</strong>. Your inquiry has been routed to:
-                  </p>
-                  {matchedRep && (
-                    <div className="inline-flex items-center gap-3 bg-[#f7f9fc] border border-[#e8edf2] rounded-xl px-5 py-3 mb-8">
-                      <div className="w-9 h-9 rounded-full bg-[#0f2a4a] flex items-center justify-center text-white font-black text-sm shrink-0">
-                        {matchedRep.contact.charAt(0)}
-                      </div>
-                      <div className="text-left">
-                        <p className="text-[#0f2a4a] font-bold text-sm">{matchedRep.contact}</p>
-                        <p className="text-[#566677] text-xs">{matchedRep.name} Representative</p>
-                      </div>
-                    </div>
-                  )}
-                  <p className="text-[#566677] text-sm mb-8">You&apos;ll hear back within one business day.</p>
-                  <Link
-                    href="/"
-                    className="inline-block bg-[#f4a65d] hover:bg-[#d4892a] text-white font-bold px-8 py-3 rounded-lg transition-colors text-sm"
-                  >
-                    Back to Home
-                  </Link>
-                </div>
-              ) : (
-                <>
-                  <h2 className="text-[#0f2a4a] font-black text-2xl mb-2">
-                    Connect with a Cosasco Expert Near You
-                  </h2>
-                  <p className="text-[#566677] text-sm mb-8 leading-relaxed">
-                    Select your country and we&apos;ll instantly match you with the right regional contact.
-                  </p>
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <div>
-                        <label htmlFor="rep-first-name" className="block text-xs font-bold uppercase tracking-[0.08em] text-[#566677] mb-1.5">
-                          First Name <span className="text-[#f4a65d]">*</span>
-                        </label>
-                        <input
-                          id="rep-first-name"
-                          type="text"
-                          value={form.firstName}
-                          onChange={(e) => update('firstName', e.target.value)}
-                          placeholder="John"
-                          className={inputCls}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="rep-last-name" className="block text-xs font-bold uppercase tracking-[0.08em] text-[#566677] mb-1.5">
-                          Last Name
-                        </label>
-                        <input
-                          id="rep-last-name"
-                          type="text"
-                          value={form.lastName}
-                          onChange={(e) => update('lastName', e.target.value)}
-                          placeholder="Smith"
-                          className={inputCls}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <div>
-                        <label htmlFor="rep-company" className="block text-xs font-bold uppercase tracking-[0.08em] text-[#566677] mb-1.5">
-                          Company
-                        </label>
-                        <input
-                          id="rep-company"
-                          type="text"
-                          value={form.company}
-                          onChange={(e) => update('company', e.target.value)}
-                          placeholder="Your company name"
-                          className={inputCls}
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="rep-email" className="block text-xs font-bold uppercase tracking-[0.08em] text-[#566677] mb-1.5">
-                          Business Email
-                        </label>
-                        <input
-                          id="rep-email"
-                          type="email"
-                          value={form.email}
-                          onChange={(e) => update('email', e.target.value)}
-                          placeholder="you@company.com"
-                          className={inputCls}
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="rep-country" className="block text-xs font-bold uppercase tracking-[0.08em] text-[#566677] mb-1.5">
-                        Country / Region <span className="text-[#f4a65d]">*</span>
-                      </label>
-                      <select
-                        id="rep-country"
-                        value={form.country}
-                        onChange={(e) => update('country', e.target.value)}
-                        className={selectCls}
-                      >
-                        <option value="">Select your country or region...</option>
-                        <optgroup label="Americas">
-                          <option>United States</option>
-                          <option>Canada</option>
-                          <option>Mexico</option>
-                          <option>Brazil</option>
-                          <option>Colombia</option>
-                          <option>Other — Americas</option>
-                        </optgroup>
-                        <optgroup label="Europe">
-                          <option>United Kingdom</option>
-                          <option>Germany</option>
-                          <option>France</option>
-                          <option>Netherlands</option>
-                          <option>Norway / Sweden / Denmark</option>
-                          <option>Other — Europe</option>
-                        </optgroup>
-                        <optgroup label="Middle East">
-                          <option>United Arab Emirates</option>
-                          <option>Saudi Arabia</option>
-                          <option>Kuwait</option>
-                          <option>Qatar</option>
-                          <option>Oman</option>
-                          <option>Other — Middle East</option>
-                        </optgroup>
-                        <optgroup label="Africa">
-                          <option>South Africa</option>
-                          <option>Nigeria</option>
-                          <option>Egypt</option>
-                          <option>Other — Africa</option>
-                        </optgroup>
-                        <optgroup label="Asia Pacific">
-                          <option>Malaysia</option>
-                          <option>China</option>
-                          <option>Japan</option>
-                          <option>South Korea</option>
-                          <option>India</option>
-                          <option>Indonesia</option>
-                          <option>Singapore</option>
-                          <option>Other — Asia Pacific</option>
-                        </optgroup>
-                        <optgroup label="Oceania">
-                          <option>Australia</option>
-                          <option>New Zealand</option>
-                          <option>Other — Oceania</option>
-                        </optgroup>
-                      </select>
-
-                      {/* ── Live rep match — appears instantly on country select ── */}
-                      {matchedRep && (
-                        <div className="mt-3 bg-[#fef3e2] border border-[#f4a65d]/40 rounded-xl p-4 animate-fade-up">
-                          <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#d4892a] mb-3 flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#f4a65d] inline-block" />
-                            Your Regional Contact
-                          </p>
-                          <div className="flex items-center gap-3 mb-3">
-                            <div className="w-10 h-10 rounded-full bg-[#0f2a4a] flex items-center justify-center text-white font-black text-sm shrink-0">
-                              {matchedRep.contact.charAt(0)}
-                            </div>
-                            <div>
-                              <p className="text-[#0f2a4a] font-black text-base leading-tight">{matchedRep.contact}</p>
-                              <p className="text-[#566677] text-xs">{matchedRep.name} Region · {matchedRep.countries}</p>
-                            </div>
-                          </div>
-                          <div className="space-y-1.5">
-                            <a href={`mailto:${matchedRep.email}`} className="flex items-center gap-2 text-sm text-[#f4a65d] hover:underline font-medium">
-                              <Mail className="w-3.5 h-3.5 shrink-0" />
-                              {matchedRep.email}
-                            </a>
-                            <a href={`tel:${matchedRep.phone.replace(/[\s()]/g, '')}`} className="flex items-center gap-2 text-sm text-[#566677] hover:text-[#0f2a4a] transition-colors">
-                              <Phone className="w-3.5 h-3.5 shrink-0" />
-                              {matchedRep.phone}
-                            </a>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <div>
-                        <label htmlFor="rep-industry" className="block text-xs font-bold uppercase tracking-[0.08em] text-[#566677] mb-1.5">
-                          Industry
-                        </label>
-                        <select
-                          id="rep-industry"
-                          value={form.industry}
-                          onChange={(e) => update('industry', e.target.value)}
-                          className={selectCls}
-                        >
-                          <option value="">Select your industry...</option>
-                          <option>Oil &amp; Gas — Upstream</option>
-                          <option>Oil &amp; Gas — Midstream / Pipelines</option>
-                          <option>Oil &amp; Gas — Downstream / Refining</option>
-                          <option>Petrochemical &amp; Chemical Processing</option>
-                          <option>Power Generation</option>
-                          <option>Water &amp; Wastewater</option>
-                          <option>Pulp &amp; Paper</option>
-                          <option>Other</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label htmlFor="rep-inquiry" className="block text-xs font-bold uppercase tracking-[0.08em] text-[#566677] mb-1.5">
-                          What do you need help with?
-                        </label>
-                        <select
-                          id="rep-inquiry"
-                          value={form.inquiry}
-                          onChange={(e) => update('inquiry', e.target.value)}
-                          className={selectCls}
-                        >
-                          <option value="">Select an inquiry type...</option>
-                          <option>Product Selection</option>
-                          <option>Technical Support</option>
-                          <option>Quote Request</option>
-                          <option>General Inquiry</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label htmlFor="rep-details" className="block text-xs font-bold uppercase tracking-[0.08em] text-[#566677] mb-1.5">
-                        Additional Details (optional)
-                      </label>
-                      <textarea
-                        id="rep-details"
-                        rows={4}
-                        value={form.details}
-                        onChange={(e) => update('details', e.target.value)}
-                        placeholder="Describe your application, current challenges, or any specific products you're interested in..."
-                        className={`${inputCls} resize-none`}
-                      />
-                    </div>
-
-                    {error && (
-                      <p className="text-red-600 text-sm bg-red-50 border border-red-200 rounded-lg px-4 py-3">{error}</p>
-                    )}
-
-                    <button
-                      type="submit"
-                      disabled={submitting}
-                      className="bg-[#f4a65d] hover:bg-[#d4892a] disabled:opacity-60 text-white font-bold px-8 py-4 rounded-lg transition-colors text-sm w-full sm:w-auto"
-                    >
-                      {submitting ? 'Submitting…' : matchedRep ? `Connect with ${matchedRep.contact}` : 'Find My Representative'}
-                    </button>
-                  </form>
-                </>
-              )}
-            </div>
-
-            {/* Sidebar */}
-            <div className="lg:col-span-1 space-y-5">
-              {/* Rep directory teaser */}
-              <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-6">
-                <div className="flex items-center gap-2 mb-4">
-                  <User className="w-4 h-4 text-[#f4a65d]" />
-                  <h3 className="text-[#0f2a4a] font-black text-sm uppercase tracking-[0.08em]">Global Coverage</h3>
-                </div>
-                <div className="space-y-2.5">
-                  {regions.map((r) => (
-                    <div
-                      key={r.name}
-                      className={`flex items-center gap-2.5 rounded-lg px-3 py-2 transition-all text-sm ${
-                        matchedRep?.name === r.name
-                          ? 'bg-[#fef3e2] border border-[#f4a65d]/40 text-[#0f2a4a] font-semibold'
-                          : 'text-[#566677]'
-                      }`}
-                    >
-                      <span className="text-base">{r.flag}</span>
-                      <span>{r.name}</span>
-                      {matchedRep?.name === r.name && (
-                        <span className="ml-auto text-[10px] font-bold text-[#f4a65d] uppercase tracking-wider">Your rep</span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Direct contact */}
-              <div className="bg-[#f0f4f8] border border-[#e8edf2] rounded-xl p-6 sticky top-24">
-                <h3 className="text-[#0f2a4a] font-black text-base mb-4">Or contact us directly</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <Phone className="w-4 h-4 text-[#f4a65d] mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#566677] mb-0.5">Toll Free</p>
-                      <a href="tel:+18006356898" className="text-[#0f2a4a] text-sm font-medium hover:text-[#f4a65d] transition-colors">+1-800-635-6898</a>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Mail className="w-4 h-4 text-[#f4a65d] mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#566677] mb-0.5">Email</p>
-                      <a href="mailto:info@cosasco.com" className="text-[#0f2a4a] text-sm font-medium hover:text-[#f4a65d] transition-colors">info@cosasco.com</a>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <Clock className="w-4 h-4 text-[#f4a65d] mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#566677] mb-0.5">Office Hours</p>
-                      <p className="text-[#0f2a4a] text-sm">Mon–Fri, 7:30 AM–5:00 PM PT</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-[#f4a65d] mt-0.5 shrink-0" />
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#566677] mb-0.5">Headquarters</p>
-                      <p className="text-[#0f2a4a] text-sm leading-relaxed">11841 Smith Avenue<br />Santa Fe Springs, CA 90670</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-5 pt-5 border-t border-[#e8edf2]">
-                  <Link
-                    href="/contact"
-                    className="block text-center bg-[#0f2a4a] hover:bg-[#1a3a5c] text-white font-semibold px-4 py-3 rounded-lg text-sm transition-colors"
-                  >
-                    Visit Full Contact Page
-                  </Link>
-                </div>
-              </div>
-            </div>
+          <div className="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
+            {/* "All" tab */}
+            <button
+              onClick={() => {
+                setActiveTab('all')
+                expandAll()
+              }}
+              className={`shrink-0 px-4 py-2 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap ${
+                activeTab === 'all'
+                  ? 'bg-[#0f2a4a] text-white'
+                  : 'text-[#566677] hover:bg-[#f0f4f8] hover:text-[#0f2a4a]'
+              }`}
+            >
+              All Regions
+            </button>
+            {regions.map((region) => (
+              <button
+                key={region.id}
+                onClick={() => {
+                  setActiveTab(region.id)
+                  setOpenAccordions(new Set([region.id]))
+                }}
+                className={`shrink-0 px-4 py-2 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap ${
+                  activeTab === region.id
+                    ? 'bg-[#0f2a4a] text-white'
+                    : 'text-[#566677] hover:bg-[#f0f4f8] hover:text-[#0f2a4a]'
+                }`}
+              >
+                {region.label}
+              </button>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* REGIONAL CONTACTS */}
-      <section className="bg-[#f0f4f8] py-16">
+      {/* ── Directory ── */}
+      <section className="bg-[#f7f9fc] py-16">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <p className="text-[#f4a65d] text-xs font-bold uppercase tracking-[0.1em] mb-3">Our Global Team</p>
-            <h2 className="text-[#0f2a4a] font-black text-3xl">Regional Contacts</h2>
-            <p className="text-[#566677] text-sm mt-2">Our global team is ready to support you wherever you operate.</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {regions.map((region) => (
-              <div
-                key={region.name}
-                className={`bg-white border rounded-xl p-6 transition-all ${
-                  matchedRep?.name === region.name
-                    ? 'border-[#f4a65d] shadow-md ring-1 ring-[#f4a65d]/20'
-                    : 'border-[#e8edf2] hover:shadow-md'
-                }`}
-              >
-                {matchedRep?.name === region.name && (
-                  <div className="mb-3">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#f4a65d] bg-[#fef3e2] px-2.5 py-1 rounded-full">
-                      Your Rep
-                    </span>
-                  </div>
-                )}
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl" role="img" aria-label={region.name}>{region.flag}</span>
-                  <div>
-                    <h3 className="text-[#0f2a4a] font-black text-base">{region.name}</h3>
-                    <p className="text-[#94aabb] text-xs leading-snug">{region.countries}</p>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <p className="text-[#0f2a4a] text-sm font-semibold">{region.contact}</p>
-                  <a href={`mailto:${region.email}`} className="flex items-center gap-2 text-sm text-[#f4a65d] hover:underline">
-                    <Mail className="w-4 h-4 shrink-0" />{region.email}
-                  </a>
-                  <a href={`tel:${region.phone.replace(/[\s()]/g, '')}`} className="flex items-center gap-2 text-sm text-[#566677] hover:text-[#0f2a4a] transition-colors">
-                    <Phone className="w-4 h-4 shrink-0" />{region.phone}
-                  </a>
-                </div>
+
+          {/* Controls row */}
+          <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#f4a65d] mb-1">
+                {activeTab === 'all' ? 'All Regions' : regions.find((r) => r.id === activeTab)?.label}
+              </p>
+              <h2 className="text-[#0f2a4a] font-black text-2xl">
+                Representative Directory
+              </h2>
+            </div>
+            {activeTab === 'all' && (
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={expandAll}
+                  className="text-xs font-semibold text-[#566677] hover:text-[#0f2a4a] border border-[#e8edf2] bg-white rounded-lg px-3 py-2 transition-colors"
+                >
+                  Expand All
+                </button>
+                <button
+                  onClick={collapseAll}
+                  className="text-xs font-semibold text-[#566677] hover:text-[#0f2a4a] border border-[#e8edf2] bg-white rounded-lg px-3 py-2 transition-colors"
+                >
+                  Collapse All
+                </button>
               </div>
+            )}
+          </div>
+
+          {/* Accordion list */}
+          <div className="space-y-3">
+            {filteredRegions.map((region) => (
+              <AccordionSection
+                key={region.id}
+                region={region}
+                isOpen={openAccordions.has(region.id)}
+                onToggle={() => toggleAccordion(region.id)}
+              />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Bottom CTA ── */}
+      <section className="bg-[#0f2a4a] py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <p className="text-[#f4a65d] text-xs font-bold uppercase tracking-[0.1em] mb-4">
+              Global Coverage
+            </p>
+            <h2 className="text-white font-black text-3xl md:text-4xl mb-4 leading-tight">
+              Don&apos;t see your country?
+            </h2>
+            <p className="text-[#8ab4d4] text-base leading-relaxed mb-8">
+              We serve customers in 110+ countries worldwide. Contact us directly and we will
+              connect you with the right representative for your region.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+              <a
+                href="mailto:info@cosasco.com"
+                className="inline-flex items-center gap-2 bg-[#f4a65d] hover:bg-[#d4892a] text-white font-bold px-7 py-3.5 rounded-lg transition-colors text-sm"
+              >
+                <Mail className="w-4 h-4" />
+                info@cosasco.com
+              </a>
+              <a
+                href="tel:+15629490123"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold px-7 py-3.5 rounded-lg transition-colors text-sm border border-white/20"
+              >
+                <Phone className="w-4 h-4" />
+                +1 (562) 949-0123
+              </a>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-[#8ab4d4] hover:text-white text-sm font-semibold transition-colors"
+            >
+              Visit the full Contact page
+              <ChevronRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

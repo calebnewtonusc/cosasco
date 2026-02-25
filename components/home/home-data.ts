@@ -124,9 +124,9 @@ export const productFamilies = [
     icon: BarChart2,
     category: 'Intelligence',
     name: 'Data Acquisition',
-    desc: 'FieldCom wireless systems, SCADA integration, and cloud-based analytics that turn field data into actionable insight.',
+    desc: 'Microcor® wireless transmitters, CDO (Cosasco Data Online) software, SCADA integration, and cloud-based analytics that turn field data into actionable insight.',
     href: '/products/data-acquisition',
-    keyProducts: ['FieldCom Wireless', 'SCADA Integration', 'Cloud Analytics', 'Data Loggers'],
+    keyProducts: ['Microcor® Wireless', 'CDO Software', 'SCADA Integration', 'Data Loggers'],
   },
 ]
 
@@ -134,19 +134,19 @@ export const services = [
   {
     icon: FileText,
     title: 'Design & Documentation',
-    desc: 'Our application engineers work with your team to design the right monitoring program — from access fitting placement to system-level documentation packages compliant with your standards.',
+    desc: 'Cosasco technicians partner with EPCs, Design Engineers, and Corrosion Engineers to identify the optimal probe placement and monitoring devices based on the system and operator needs.',
     href: '/services',
   },
   {
     icon: Settings,
-    title: 'Installation & Commissioning',
-    desc: 'Certified field teams deploy and commission Cosasco systems to your specification, ensuring safe hot-tap insertion at full operating pressure with minimal disruption.',
+    title: 'Installation',
+    desc: "Cosasco's factory-trained team installs and configures corrosion monitoring and chemical injection systems to ensure they're correctly set up and providing the quality data needed.",
     href: '/services',
   },
   {
     icon: Wrench,
     title: 'Service & Maintenance',
-    desc: 'From planned probe retrieval cycles to emergency callouts, our global service network keeps your corrosion monitoring program running continuously and accurately.',
+    desc: 'Routine system maintenance and servicing performed by the best-trained technicians in the industry. Our global service network supports your program in 110+ countries.',
     href: '/services',
   },
 ]
@@ -170,34 +170,31 @@ export const comparisonData = [
 
 export const testimonials = [
   {
-    quote: "There are a lot of companies that supply equipment. There aren't so many companies that are capable of providing the full service of both supply and service, which is one of the reasons why we use Cosasco.",
+    quote: "There are a lot of companies that supply equipment. There aren't so many companies that are capable of providing the full service of both supply and service, which is one of the reasons why we use Cosasco – because they provide the full servicing.",
     role: 'Corrosion Engineer',
     company: 'International Supermajor',
   },
   {
-    quote: "Cosasco's FieldCom system allowed us to consolidate 120 monitoring points across our facility into a single dashboard. We saw a 40% reduction in manual data collection labor in the first year.",
-    role: 'Integrity Manager',
-    company: 'Gulf Coast Refinery',
-  },
-  {
-    quote: "The application engineering support is exceptional. When we had an unusual H2S environment, they helped us spec the exact alloy and element geometry needed rather than just selling us a standard product.",
+    quote: "Cosasco's application engineering support is second to none. When we face unusual process conditions, their team helps us specify exactly the right solution rather than just selling a standard product.",
     role: 'Process Engineer',
     company: 'North Sea Operator',
+  },
+  {
+    quote: "The quality of data we get from Cosasco monitoring systems has transformed how we manage corrosion inhibitor programs. We make better decisions, faster.",
+    role: 'Integrity Manager',
+    company: 'Gulf Coast Refinery',
   },
 ]
 
 export const certifications = [
   { name: 'ISO 9001:2015', desc: 'Quality Management' },
-  { name: 'ATEX Certified', desc: 'Hazardous Area' },
-  { name: 'IECEx Compliant', desc: 'International Standard' },
-  { name: 'API Compliant', desc: 'Petroleum Institute' },
-  { name: 'NACE / AMPP Member', desc: 'Corrosion Society' },
+  { name: 'AMPP Member', desc: 'Corrosion Society' },
   { name: 'Halma Group', desc: 'Safety Technology Portfolio' },
+  { name: 'ATEX Certified', desc: 'Hazardous Area Equipment' },
 ]
 
 export const valueMetrics = [
-  { icon: TrendingDown, value: '40%', label: 'Avg. labor reduction', desc: 'from switching to FieldCom wireless' },
-  { icon: Globe, value: '110', label: 'Countries served', desc: 'with local distribution & support' },
-  { icon: Users, value: '1M+', label: 'Monitoring locations', desc: 'active worldwide' },
-  { icon: Award, value: '70+', label: 'Years of innovation', desc: 'since 1955' },
+  { icon: TrendingDown, value: '70+ Years', label: 'Pioneering corrosion management since 1950', desc: '' },
+  { icon: Globe, value: '110 Countries', label: 'Where Cosasco is trusted', desc: '' },
+  { icon: Users, value: '1 Million+', label: 'Monitoring locations worldwide', desc: '' },
 ]

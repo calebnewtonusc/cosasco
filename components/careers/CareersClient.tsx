@@ -7,12 +7,14 @@ import {
   Globe,
   Cog,
   TrendingUp,
-  DollarSign,
   Heart,
   PiggyBank,
-  Home,
   BookOpen,
-  Plane,
+  Baby,
+  Stethoscope,
+  Eye,
+  Smile,
+  BriefcaseBusiness,
 } from 'lucide-react'
 
 const cultureCards = [
@@ -29,7 +31,7 @@ const cultureCards = [
   {
     icon: <Cog className="w-8 h-8 text-[#f4a65d]" />,
     title: 'Engineering Excellence',
-    desc: "Join a team with 70+ years of corrosion monitoring expertise. We invest in R&D, precision manufacturing, and continuous technical innovation.",
+    desc: 'Join a team with 70+ years of corrosion monitoring expertise. We invest in R&D, precision manufacturing, and continuous technical innovation.',
   },
   {
     icon: <TrendingUp className="w-8 h-8 text-[#f4a65d]" />,
@@ -38,54 +40,81 @@ const cultureCards = [
   },
 ]
 
+const ULTIPRO_URL =
+  'https://recruiting2.ultipro.com/HAL1008HALMA/JobBoard/0e7d537d-b1af-425a-86ed-f2668deaf540/'
+
+const DEPT_FILTERS = ['All', 'Engineering', 'Sales', 'Operations', 'Finance', 'HR', 'Field Services']
+
 const jobs = [
   { title: 'Corrosion Application Engineer', dept: 'Engineering', location: 'Santa Fe Springs, CA' },
   { title: 'Sales Engineer — EMEA', dept: 'Sales', location: 'London, UK' },
-  { title: 'Field Service Technician', dept: 'Operations', location: 'Houston, TX' },
+  { title: 'Field Service Technician', dept: 'Field Services', location: 'Houston, TX' },
   { title: 'Product Manager — Corrosion Monitoring', dept: 'Engineering', location: 'Santa Fe Springs, CA' },
   { title: 'Regional Sales Manager — Asia Pacific', dept: 'Sales', location: 'Singapore' },
-  { title: 'Software Developer — FieldCom Platform', dept: 'IT', location: 'Santa Fe Springs, CA' },
-  { title: 'Quality Assurance Engineer', dept: 'Operations', location: 'Santa Fe Springs, CA' },
+  { title: 'Quality Assurance Engineer', dept: 'Engineering', location: 'Santa Fe Springs, CA' },
   { title: 'Account Manager — Oil & Gas', dept: 'Sales', location: 'Calgary, Canada' },
+  { title: 'Operations Coordinator', dept: 'Operations', location: 'Santa Fe Springs, CA' },
+  { title: 'Financial Analyst', dept: 'Finance', location: 'Santa Fe Springs, CA' },
+  { title: 'HR Business Partner', dept: 'HR', location: 'Santa Fe Springs, CA' },
 ]
 
 const deptColors: Record<string, string> = {
   Engineering: 'bg-blue-100 text-blue-700',
   Sales: 'bg-green-100 text-green-700',
   Operations: 'bg-purple-100 text-purple-700',
-  IT: 'bg-orange-100 text-orange-700',
+  Finance: 'bg-yellow-100 text-yellow-700',
+  HR: 'bg-pink-100 text-pink-700',
+  'Field Services': 'bg-orange-100 text-orange-700',
 }
 
 const benefits = [
   {
-    icon: <DollarSign className="w-6 h-6 text-[#f4a65d]" />,
-    title: 'Competitive Compensation',
-    desc: 'Market-leading salaries benchmarked across the industry, plus performance-based bonuses.',
+    icon: <Stethoscope className="w-6 h-6 text-[#f4a65d]" />,
+    title: 'Medical Insurance',
+    desc: 'Comprehensive medical coverage for you and your dependents, starting from day one.',
+    featured: false,
   },
   {
-    icon: <Heart className="w-6 h-6 text-[#f4a65d]" />,
-    title: 'Comprehensive Healthcare',
-    desc: 'Full medical, dental, and vision coverage for you and your dependents from day one.',
+    icon: <Smile className="w-6 h-6 text-[#f4a65d]" />,
+    title: 'Dental Insurance',
+    desc: 'Full dental benefits including preventive, basic, and major restorative care.',
+    featured: false,
+  },
+  {
+    icon: <Eye className="w-6 h-6 text-[#f4a65d]" />,
+    title: 'Vision Insurance',
+    desc: 'Vision plan covering eye exams, glasses, and contact lenses.',
+    featured: false,
   },
   {
     icon: <PiggyBank className="w-6 h-6 text-[#f4a65d]" />,
-    title: '401(k) with Match',
-    desc: 'Generous employer matching to help you build long-term financial security.',
+    title: '401(k) Retirement Plan',
+    desc: 'Employer-matched 401(k) to help you build lasting financial security for retirement.',
+    featured: false,
   },
   {
-    icon: <Home className="w-6 h-6 text-[#f4a65d]" />,
-    title: 'Remote Work Options',
-    desc: 'Flexible hybrid and remote arrangements available for eligible roles.',
+    icon: <Heart className="w-6 h-6 text-[#f4a65d]" />,
+    title: 'Generous PTO',
+    desc: 'Ample paid time off, plus paid holidays, so you can recharge and show up at your best.',
+    featured: false,
+  },
+  {
+    icon: <Baby className="w-6 h-6 text-white" />,
+    title: '14 Weeks Paid Parental Leave',
+    desc: 'Cosasco offers 14 weeks of fully paid maternity and paternity leave — one of the most generous parental leave policies in the industry.',
+    featured: true,
   },
   {
     icon: <BookOpen className="w-6 h-6 text-[#f4a65d]" />,
     title: 'Professional Development',
     desc: 'Annual learning budget, certification reimbursement, and internal mentorship programs.',
+    featured: false,
   },
   {
-    icon: <Plane className="w-6 h-6 text-[#f4a65d]" />,
-    title: 'International Exposure',
-    desc: "Collaborate across Halma's global network and participate in international projects.",
+    icon: <BriefcaseBusiness className="w-6 h-6 text-[#f4a65d]" />,
+    title: 'Global Career Opportunities',
+    desc: "As part of the Halma Group — 45+ companies worldwide — your career path extends far beyond Cosasco.",
+    featured: false,
   },
 ]
 
@@ -147,7 +176,7 @@ export default function CareersClient() {
 
           {/* Filter pills */}
           <div className="flex flex-wrap gap-3 justify-center mb-10">
-            {['All', 'Engineering', 'Sales', 'Operations', 'IT'].map((filter) => (
+            {DEPT_FILTERS.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
@@ -165,30 +194,45 @@ export default function CareersClient() {
 
           {/* Job cards */}
           <div className="flex flex-col gap-4">
-            {filteredJobs.map((job) => (
-              <div
-                key={job.title}
-                className="bg-white border border-[#e8edf2] rounded-xl p-6 flex items-center justify-between hover:shadow-md transition-shadow"
-              >
-                <div>
-                  <p className="font-bold text-[#0f2a4a] text-base">{job.title}</p>
-                  <div className="flex items-center gap-3 mt-1">
-                    <span
-                      className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${deptColors[job.dept]}`}
-                    >
-                      {job.dept}
-                    </span>
-                    <span className="text-[#566677] text-sm">{job.location}</span>
-                  </div>
-                </div>
+            {filteredJobs.length === 0 ? (
+              <p className="text-center text-[#566677] py-10">
+                No open roles in this department right now.{' '}
                 <a
-                  href={`mailto:careers@cosasco.com?subject=Application: ${job.title}`}
-                  className="bg-[#f4a65d] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#e8954a] transition-colors whitespace-nowrap ml-4"
+                  href="mailto:careers@cosasco.com?subject=Job Alert Request"
+                  className="text-[#f4a65d] underline hover:text-[#e8954a]"
                 >
-                  Apply Now →
-                </a>
-              </div>
-            ))}
+                  Set up a job alert
+                </a>{' '}
+                to be notified when one opens.
+              </p>
+            ) : (
+              filteredJobs.map((job) => (
+                <div
+                  key={job.title}
+                  className="bg-white border border-[#e8edf2] rounded-xl p-6 flex items-center justify-between hover:shadow-md transition-shadow"
+                >
+                  <div>
+                    <p className="font-bold text-[#0f2a4a] text-base">{job.title}</p>
+                    <div className="flex items-center gap-3 mt-1">
+                      <span
+                        className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${deptColors[job.dept] ?? 'bg-gray-100 text-gray-700'}`}
+                      >
+                        {job.dept}
+                      </span>
+                      <span className="text-[#566677] text-sm">{job.location}</span>
+                    </div>
+                  </div>
+                  <a
+                    href={ULTIPRO_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#f4a65d] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#e8954a] transition-colors whitespace-nowrap ml-4"
+                  >
+                    Apply Now →
+                  </a>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>
@@ -202,20 +246,63 @@ export default function CareersClient() {
               We take care of our people so they can focus on doing their best work.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {benefits.map((b) => (
+
+          {/* Featured parental leave card — full width, gold accent */}
+          {benefits
+            .filter((b) => b.featured)
+            .map((b) => (
               <div
                 key={b.title}
-                className="flex items-start gap-4 p-6 bg-[#f7f9fc] border border-[#e8edf2] rounded-xl"
+                className="mb-8 flex items-start gap-5 p-6 bg-[#0f2a4a] border border-[#1a3d66] rounded-2xl relative overflow-hidden"
               >
-                <div className="mt-0.5 flex-shrink-0">{b.icon}</div>
+                {/* Gold badge */}
+                <span className="absolute top-4 right-4 bg-[#f4a65d] text-white text-xs font-bold px-3 py-1 rounded-full tracking-wide uppercase">
+                  Standout Benefit
+                </span>
+                <div className="mt-0.5 flex-shrink-0 w-11 h-11 rounded-full bg-[#f4a65d] flex items-center justify-center">
+                  {b.icon}
+                </div>
                 <div>
-                  <h3 className="font-bold text-[#0f2a4a] text-sm mb-1">{b.title}</h3>
-                  <p className="text-[#566677] text-sm leading-relaxed">{b.desc}</p>
+                  <h3 className="font-extrabold text-white text-lg mb-1">{b.title}</h3>
+                  <p className="text-[#8ab4d4] text-sm leading-relaxed max-w-2xl">{b.desc}</p>
                 </div>
               </div>
             ))}
+
+          {/* Standard benefits grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {benefits
+              .filter((b) => !b.featured)
+              .map((b) => (
+                <div
+                  key={b.title}
+                  className="flex items-start gap-4 p-6 bg-[#f7f9fc] border border-[#e8edf2] rounded-xl"
+                >
+                  <div className="mt-0.5 flex-shrink-0">{b.icon}</div>
+                  <div>
+                    <h3 className="font-bold text-[#0f2a4a] text-sm mb-1">{b.title}</h3>
+                    <p className="text-[#566677] text-sm leading-relaxed">{b.desc}</p>
+                  </div>
+                </div>
+              ))}
           </div>
+        </div>
+      </section>
+
+      {/* JOB ALERT CTA */}
+      <section className="bg-[#f7f9fc] border-t border-[#e8edf2] py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 text-center">
+          <h2 className="text-xl font-black text-[#0f2a4a] mb-2">Never miss an opening</h2>
+          <p className="text-[#566677] mb-6 max-w-lg mx-auto">
+            Send us a quick email and we&apos;ll notify you when a role matching your background
+            becomes available.
+          </p>
+          <a
+            href="mailto:careers@cosasco.com?subject=Job Alert Request"
+            className="inline-block bg-[#0f2a4a] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#1a3d66] transition-colors"
+          >
+            Set Up a Job Alert
+          </a>
         </div>
       </section>
 

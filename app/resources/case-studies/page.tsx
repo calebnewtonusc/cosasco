@@ -14,7 +14,7 @@ const caseStudies = [
     title: 'Eliminating Unplanned Shutdowns on a 400km North Sea Gas Transmission Pipeline',
     client: 'Major North Sea Operator',
     stat: '0 unplanned shutdowns in 36 months',
-    tags: ['ER Probes', 'FieldCom'],
+    tags: ['ER Probes', 'Microcor® Wireless'],
   },
   {
     href: '/resources/case-studies/gulf-coast-refinery',

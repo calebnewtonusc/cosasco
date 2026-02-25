@@ -70,14 +70,14 @@ export default function GulfCoastRefineryPage() {
                   Cosasco deployed a combined LPR and ER probe monitoring strategy across eight zones in the CDU overhead circuit: the overhead vapor line, condenser inlet and outlet, accumulator, and four overhead product rundown lines. LPR probes provided instantaneous corrosion rate readings every 60 seconds; ER probes provided cumulative metal loss trend data for long-term validation.
                 </p>
                 <p className="text-[#566677] leading-relaxed mb-4">
-                  Data from all 16 probe positions (LPR + ER at each zone) was aggregated in FieldCom Cloud, with a custom dashboard overlaying corrosion rate trends against crude assay data and inhibitor injection rates. The refinery's corrosion engineer could now see — in real time — exactly how a shift to high-acid crude was affecting corrosion rates, and adjust inhibitor dosing accordingly.
+                  Data from all 16 probe positions (LPR + ER at each zone) was aggregated in CDO cloud, with a custom CDO cloud dashboard overlaying corrosion rate trends against crude assay data and inhibitor injection rates. The refinery's corrosion engineer could now see — in real time — exactly how a shift to high-acid crude was affecting corrosion rates, and adjust inhibitor dosing accordingly.
                 </p>
                 <ul className="space-y-3">
                   {[
                     'LPR probes: instantaneous corrosion rate per ASTM G59, 60-second update cycle',
                     'ER probes: cumulative metal loss trending for baseline and drift detection',
                     'Corrosion coupons retained at 3 critical zones for verification and regulatory compliance',
-                    'FieldCom Cloud dashboard with crude assay overlay and inhibitor dosing log',
+                    'CDO cloud dashboard with crude assay overlay and inhibitor dosing log',
                     'Cosasco corrosion engineer embedded for 90-day commissioning and optimization',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-[#566677] text-sm">

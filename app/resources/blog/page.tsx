@@ -40,11 +40,11 @@ const articles = [
     readTime: '5 min read',
   },
   {
-    href: '/resources/blog/fieldcom-cloud-deployment',
+    href: '/resources/blog/cdo-cloud-deployment',
     category: 'Product Update',
-    title: "FieldCom Cloud in 2026: What's New and How Operators Are Using It",
+    title: "CDO Cloud Platform: Real-Time Corrosion Data Anywhere",
     excerpt:
-      'New features, integration improvements, and real-world deployments from the past year of FieldCom Cloud development.',
+      'Real-time corrosion data accessible from anywhere. New features, integration improvements, and real-world CDO Cloud deployments.',
     author: 'Cosasco Product Team',
     date: 'Dec 18, 2025',
     readTime: '4 min read',

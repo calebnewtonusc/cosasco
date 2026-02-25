@@ -119,7 +119,7 @@ export default function RetractableERProbePage() {
                   'ATEX/IECEx Zone 1 certified body available for classified area installations',
                   'Full 1" NPT and flanged (150# through 900#) end connection options',
                   'Material certifications to EN 10204 3.1 available for all wetted components',
-                  'Backward compatible with existing Cosasco FieldCom and standalone logger systems',
+                  'Backward compatible with existing Cosasco Microcor® Wireless and standalone logger systems',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-[#f4a65d] flex-shrink-0 mt-0.5" />
@@ -201,8 +201,8 @@ export default function RetractableERProbePage() {
               <ul className="space-y-4">
                 {[
                   {
-                    href: '/news/fieldcom-5-launch',
-                    title: 'Cosasco Launches Next-Gen FieldCom 5.0 Wireless System',
+                    href: '/news/microcor-wireless-update',
+                    title: 'Cosasco Introduces Microcor® Wireless Transmitter Updates',
                   },
                   {
                     href: '/news/industry-recognition-2025',

@@ -130,10 +130,10 @@ export default function ChemicalInjectionOptimizationPage() {
               </div>
 
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
-                Adaptive Injection with FieldCom
+                Adaptive Injection with CDO
               </h2>
               <p>
-                Cosasco&apos;s FieldCom software supports direct integration with chemical injection
+                Cosasco&apos;s CDO software supports direct integration with chemical injection
                 pump controllers via Modbus/HART. This enables closed-loop adaptive injection:
                 when LPR detects a corrosion rate increase above a defined threshold, the system
                 automatically increases the injection dose until the rate returns to baseline, then
@@ -153,7 +153,7 @@ export default function ChemicalInjectionOptimizationPage() {
                   'Conservative dosing is not the same as optimal protection — it often isn\'t better.',
                   'LPR is the right tool for inhibitor optimization because it responds in real time.',
                   'Step-down optimization in controlled increments is safe and quantifiable.',
-                  'Adaptive injection via FieldCom eliminates the need for manual dose management.',
+                  'Adaptive injection via CDO eliminates the need for manual dose management.',
                   'ROI on instrumentation is typically recovered in less than one year of reduced chemical spend.',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm">
@@ -173,7 +173,7 @@ export default function ChemicalInjectionOptimizationPage() {
                 {[
                   { href: '/products/chemical-injection', label: 'Chemical Injection Systems' },
                   { href: '/products/lpr-probes', label: 'LPR Probe Systems' },
-                  { href: '/software', label: 'FieldCom Software' },
+                  { href: '/software', label: 'CDO Software' },
                   { href: '/resources/case-studies/gulf-coast-refinery', label: 'Gulf Coast Case Study' },
                 ].map((item) => (
                   <li key={item.href}>
@@ -203,7 +203,7 @@ export default function ChemicalInjectionOptimizationPage() {
                 {[
                   { href: '/resources/blog/corrosion-monitoring-fundamentals', title: 'ER vs. LPR vs. Coupons: Fundamentals' },
                   { href: '/resources/blog/h2s-sour-service-integrity', title: 'H₂S Sour Service Corrosion Management' },
-                  { href: '/resources/blog/fieldcom-cloud-deployment', title: 'FieldCom Cloud in 2026' },
+                  { href: '/resources/blog/cdo-cloud-deployment', title: 'CDO Cloud Platform' },
                 ].map((a) => (
                   <li key={a.href} className="border-b border-[#e8edf2] pb-4 last:border-0 last:pb-0">
                     <Link href={a.href} className="text-sm text-[#0f2a4a] font-semibold hover:text-[#f4a65d] transition-colors leading-snug block">
@@ -223,8 +223,8 @@ export default function ChemicalInjectionOptimizationPage() {
           <Link href="/resources/blog" className="text-[#0f2a4a] font-semibold flex items-center gap-2 hover:text-[#f4a65d] transition-colors text-sm">
             <ArrowLeft className="w-4 h-4" /> Back to Blog
           </Link>
-          <Link href="/resources/blog/fieldcom-cloud-deployment" className="text-[#0f2a4a] font-semibold flex items-center gap-2 hover:text-[#f4a65d] transition-colors text-sm">
-            Next: FieldCom Cloud 2026 <ArrowRight className="w-4 h-4" />
+          <Link href="/resources/blog/cdo-cloud-deployment" className="text-[#0f2a4a] font-semibold flex items-center gap-2 hover:text-[#f4a65d] transition-colors text-sm">
+            Next: CDO Cloud Platform <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

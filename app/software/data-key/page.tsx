@@ -3,23 +3,23 @@ import Link from 'next/link'
 import { CheckCircle2, ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Data Key Activation | Cosasco FieldCom Software',
+  title: 'Data Key Activation | Cosasco CDO Software',
   description:
-    'Activate your FieldCom data key to unlock your licensed software features. Step-by-step instructions, troubleshooting, and support for hardware key activation.',
+    'Activate your CDO software activation key to unlock your licensed software features. Step-by-step instructions, troubleshooting, and support for software activation.',
 }
 
 export default function DataKeyPage() {
   const licenseFeatures = [
-    'FieldCom Desktop software license',
-    'FieldCom Cloud portal access (up to 5 users)',
+    'Cosasco Data Online (CDO) software license',
+    'CDO cloud portal access (up to 5 users)',
     'Technical support (business hours)',
     'Software updates for 12 months',
     'Access to calibration data exports',
   ]
 
   const steps = [
-    'Locate your 16-character activation code on the sticker inside your FieldCom hardware packaging or in your order confirmation email.',
-    'Ensure your device is connected to the internet. Open FieldCom Desktop or navigate to the FieldCom Cloud portal.',
+    'Locate your 16-character activation code on the sticker inside your CDO software packaging or in your order confirmation email.',
+    'Ensure your device is connected to the internet. Open CDO software or navigate to the CDO cloud portal.',
     'Click \"Activate License\" in the software menu, then enter your activation code when prompted.',
     'Your software will verify the key and unlock your licensed features within 60 seconds. A confirmation email will be sent to the registered email address.',
   ]
@@ -39,7 +39,7 @@ export default function DataKeyPage() {
     },
     {
       q: 'My key expired',
-      a: 'Annual maintenance licenses must be renewed to retain access to updates and support. Contact support@cosasco.com or log in to FieldCom Cloud to renew.',
+      a: 'Annual maintenance licenses must be renewed to retain access to updates and support. Contact support@cosasco.com or log in to the CDO portal to renew.',
     },
   ]
 
@@ -59,7 +59,7 @@ export default function DataKeyPage() {
             Data Key Activation
           </h1>
           <p className="text-lg text-[#8ab4d4] max-w-2xl">
-            Activate your FieldCom hardware key to unlock your licensed software features.
+            Activate your CDO software license to unlock your licensed software features.
           </p>
         </div>
       </section>

@@ -98,7 +98,7 @@ export default function ERProbePage() {
                 extend this to sub-0.0001 mpy for ultra-low corrosion environments.
               </p>
               <p>
-                Cosasco ER probes are compatible with both wired data loggers and the FieldCom
+                Cosasco ER probes are compatible with both wired data loggers and the Microcor®
                 wireless acquisition platform, enabling seamless integration into SCADA, DCS, and
                 cloud analytics environments. All probe bodies are pressure-rated to ASME and API
                 standards, and carry ATEX/IECEx Zone 1 &amp; 2 certification for use in classified
@@ -114,7 +114,7 @@ export default function ERProbePage() {
                 "Multiple element alloys: CS, 316SS, Alloy 22, Hastelloy C-276, and more",
                 "Tubular, wire loop, spiral, and flush disk element geometries available",
                 "Rated to 10,000 PSI and 200°C; subsea-rated variants to 15,000 PSI",
-                "FieldCom wireless compatible for remote and unmanned installations",
+                "Microcor® wireless compatible for remote and unmanned installations",
                 "ATEX Zone 1 & 2, IECEx, CSA, and UL certifications available",
               ].map((f) => (
                 <li key={f} className="flex items-start gap-3 text-[#1e2b3a] text-sm">
@@ -146,7 +146,7 @@ export default function ERProbePage() {
                     ["Materials", "CS, 316SS, Alloy 22, Hastelloy", "Many options; per NACE MR0175"],
                     ["Connection", "1\" NPT, Flanged", "Standard fittings; adapters available"],
                     ["Certifications", "ATEX, IECEx, CSA, UL", "Zone 1 & 2; per request"],
-                    ["Wireless Option", "FieldCom Compatible", "900 MHz ISM; up to 1 km range"],
+                    ["Wireless Option", "Microcor® Wireless Compatible", "900 MHz ISM; up to 1 km range"],
                   ].map(([param, value, notes], i) => (
                     <tr key={param} className={i % 2 === 0 ? "bg-white" : "bg-[#f7f9fc]"}>
                       <td className="px-5 py-3 text-sm font-semibold text-[#1e2b3a] border-b border-[#e8edf2]">{param}</td>
@@ -198,7 +198,7 @@ export default function ERProbePage() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
                 { name: "Retrieval Access Fittings", desc: "Hot-tap fittings for under-pressure probe insertion and retrieval up to 10,000 PSI.", href: "/products/access-fittings" },
-                { name: "FieldCom Wireless Logger", desc: "900 MHz data acquisition transmitter compatible with all Cosasco ER probe variants.", href: "/products/fieldcom" },
+                { name: "Microcor® Wireless Transmitter (MWT)", desc: "900 MHz data acquisition transmitter compatible with all Cosasco ER probe variants.", href: "/products/data-acquisition" },
                 { name: "Corrosion Coupon Racks", desc: "Complementary weight-loss coupons for confirming ER probe corrosion rate data.", href: "/products/corrosion-coupons" },
               ].map((acc) => (
                 <div key={acc.name} className="bg-white border border-[#e8edf2] rounded-xl p-5">
@@ -267,7 +267,7 @@ export default function ERProbePage() {
                 {[
                   { name: "Retrieval Access Fittings", href: "/products/access-fittings" },
                   { name: "Corrosion Coupon Systems", href: "/products/corrosion-coupons" },
-                  { name: "FieldCom Wireless DAQ", href: "/products/fieldcom" },
+                  { name: "Microcor® Wireless DAQ", href: "/products/data-acquisition" },
                 ].map((p) => (
                   <li key={p.name}>
                     <Link href={p.href} className="flex items-center justify-between text-sm text-[#0f2a4a] hover:text-[#f4a65d] font-medium transition-colors group">

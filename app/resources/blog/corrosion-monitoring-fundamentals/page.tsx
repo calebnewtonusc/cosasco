@@ -161,7 +161,7 @@ export default function CorrosionMonitoringFundamentals() {
               </p>
               <p>
                 Cosasco systems are designed for multi-method deployments: HPHT retrievable
-                assemblies accommodate both probe types in the same access fitting, and FieldCom
+                assemblies accommodate both probe types in the same access fitting, and CDO
                 data management software normalizes data from all three methods into a single
                 corrosion rate dashboard.
               </p>
@@ -217,7 +217,7 @@ export default function CorrosionMonitoringFundamentals() {
                 {[
                   { href: '/resources/blog/h2s-sour-service-integrity', title: 'H₂S Sour Service Corrosion Management' },
                   { href: '/resources/blog/chemical-injection-optimization', title: 'Right-Sizing Chemical Injection' },
-                  { href: '/resources/blog/fieldcom-cloud-deployment', title: 'FieldCom Cloud in 2026' },
+                  { href: '/resources/blog/cdo-cloud-deployment', title: 'CDO Cloud Platform' },
                 ].map((a) => (
                   <li key={a.href} className="border-b border-[#e8edf2] pb-4 last:border-0 last:pb-0">
                     <Link href={a.href} className="text-sm text-[#0f2a4a] font-semibold hover:text-[#f4a65d] transition-colors leading-snug block">

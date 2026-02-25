@@ -11,7 +11,7 @@ const sections = [
   {
     id: 'acceptance',
     title: '1. Acceptance of Terms',
-    content: `By accessing or using the Cosasco Systems, Inc. website (cosasco.com) or any associated web portals, applications, or digital services (collectively, "the Services"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, please do not use the Services.
+    content: `By accessing or using the Rohrback Cosasco Systems, Inc. website (cosasco.com) or any associated web portals, applications, or digital services (collectively, "the Services"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, please do not use the Services.
 
 These Terms apply to all visitors, users, and others who access the Services. Cosasco reserves the right to update or modify these Terms at any time. Your continued use of the Services after any changes constitutes acceptance of the updated Terms.
 
@@ -38,9 +38,9 @@ You may not use the Services to:
   {
     id: 'ip',
     title: '3. Intellectual Property',
-    content: `All content on the Services — including but not limited to text, graphics, photographs, product designs, software, technical documentation, white papers, case studies, and the Cosasco brand — is owned by or licensed to Cosasco Systems, Inc. and is protected by copyright, trademark, trade secret, and other intellectual property laws.
+    content: `All content on the Services — including but not limited to text, graphics, photographs, product designs, software, technical documentation, white papers, case studies, and the Cosasco brand — is owned by or licensed to Rohrback Cosasco Systems, Inc. and is protected by copyright, trademark, trade secret, and other intellectual property laws.
 
-The Cosasco name, logo, and product names are trademarks or registered trademarks of Cosasco Systems, Inc. or its affiliates. You may not use these marks without prior written permission.
+The Cosasco name, logo, and product names are trademarks or registered trademarks of Rohrback Cosasco Systems, Inc. or its affiliates. You may not use these marks without prior written permission.
 
 You may download or print individual pages for your own professional reference, provided you do not remove copyright notices or modify the content. Redistribution, republication, or commercial use requires written authorization from Cosasco.
 
@@ -102,7 +102,7 @@ Some jurisdictions do not allow limitations on liability for certain types of da
   {
     id: 'indemnification',
     title: '9. Indemnification',
-    content: `You agree to indemnify, defend, and hold harmless Cosasco Systems, Inc. and its affiliates, officers, employees, agents, and licensors from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or in any way connected with your access to or use of the Services, your violation of these Terms, or your violation of any rights of another party.`,
+    content: `You agree to indemnify, defend, and hold harmless Rohrback Cosasco Systems, Inc. and its affiliates, officers, employees, agents, and licensors from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising out of or in any way connected with your access to or use of the Services, your violation of these Terms, or your violation of any rights of another party.`,
   },
   {
     id: 'governing-law',
@@ -125,7 +125,7 @@ Sections 3, 7, 8, 9, 10, and 12 shall survive any termination of these Terms.`,
     title: '12. Contact',
     content: `If you have questions about these Terms of Use, please contact:
 
-Cosasco Systems, Inc.
+Rohrback Cosasco Systems, Inc.
 11841 Smith Avenue
 Santa Fe Springs, CA 90670
 United States

@@ -78,7 +78,7 @@ export default function LegacySoftwarePage() {
             <p className="text-amber-800 text-sm leading-relaxed">
               <span className="font-semibold">Legacy software notice:</span> Legacy software is
               provided for compatibility with older hardware only. For new deployments, we strongly
-              recommend FieldCom Cloud or CorrView Desktop (current). Legacy versions do not receive
+              recommend CDO (Cosasco Data Online). Legacy versions do not receive
               security updates.
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function LegacySoftwarePage() {
               <div className="bg-white border border-[#e8edf2] rounded-xl p-7">
                 <h3 className="font-bold text-[#0f2a4a] text-lg mb-3">Upgrade Consultation</h3>
                 <p className="text-[#566677] text-sm leading-relaxed mb-5">
-                  Planning a transition to FieldCom Cloud? Our engineers can assess your hardware
+                  Planning a transition to CDO? Our engineers can assess your hardware
                   and recommend a migration path.
                 </p>
                 <Link

@@ -25,7 +25,7 @@ const partnerTypes = [
   {
     icon: <BookOpen className="w-6 h-6 text-[#f4a65d]" />,
     title: 'Technology Partner',
-    desc: 'Integrate your monitoring software or hardware with the FieldCom ecosystem. Access our developer API and partner certification program.',
+    desc: 'Integrate your monitoring software or hardware with the Cosasco CDO platform. Access our developer API and partner certification program.',
   },
   {
     icon: <Users className="w-6 h-6 text-[#f4a65d]" />,

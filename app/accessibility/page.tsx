@@ -65,14 +65,14 @@ export default function AccessibilityPage() {
           <div>
             <h2 className="text-[#0f2a4a] font-black text-2xl mb-4">Our Commitment</h2>
             <p className="text-[#566677] text-sm leading-relaxed mb-4">
-              Cosasco Systems, Inc. is committed to providing a website that is accessible to the
+              Rohrback Cosasco Systems, Inc. is committed to providing a website that is accessible to the
               widest possible audience, including people with disabilities. We aim to conform to the{' '}
               <strong className="text-[#0f2a4a]">Web Content Accessibility Guidelines (WCAG) 2.1, Level AA</strong>{' '}
               as published by the World Wide Web Consortium (W3C).
             </p>
             <p className="text-[#566677] text-sm leading-relaxed">
               This statement was prepared on February 1, 2026 and relates to the cosasco.com website
-              and all associated web portals operated by Cosasco Systems, Inc. We review and update
+              and all associated web portals operated by Rohrback Cosasco Systems, Inc. We review and update
               this statement at least annually.
             </p>
           </div>

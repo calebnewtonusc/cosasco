@@ -43,7 +43,7 @@ export default function IndustryRecognitionPage() {
           <article className="lg:col-span-2">
             <div className="text-[#566677] leading-relaxed space-y-6 text-[1.05rem]">
               <p className="text-xl text-[#0f2a4a] font-semibold leading-snug">
-                Santa Fe Springs, CA — Cosasco Systems, Inc. has been ranked among the top three
+                Santa Fe Springs, CA — Rohrback Cosasco Systems, Inc. has been ranked among the top three
                 global suppliers of corrosion monitoring equipment in the 2025 Corrosion Management
                 Market Report published by independent industry analysts, marking the fourth
                 consecutive year the company has received this recognition.
@@ -83,7 +83,7 @@ export default function IndustryRecognitionPage() {
                 satisfaction, and market share trajectory. Cosasco received particularly high scores
                 in global service capability — supported by its network of six regional offices
                 across North America, Europe, the Middle East, Asia Pacific, and Oceania — and in
-                product innovation, driven by the launch of FieldCom 5.0 and the new high-pressure
+                product innovation, driven by the launch of Microcor® Wireless Transmitter (MWT) and the new high-pressure
                 retractable ER probe in Q1 2026.
               </p>
 
@@ -99,7 +99,7 @@ export default function IndustryRecognitionPage() {
                   place in Cosasco, many of whom have been partners for decades.&rdquo;
                 </p>
                 <footer className="text-[#566677] text-sm">
-                  — Chief Executive Officer, Cosasco Systems, Inc.
+                  — Chief Executive Officer, Rohrback Cosasco Systems, Inc.
                 </footer>
               </blockquote>
 
@@ -136,10 +136,10 @@ export default function IndustryRecognitionPage() {
               </div>
 
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
-                About Cosasco Systems, Inc.
+                About Rohrback Cosasco Systems, Inc.
               </h2>
               <p>
-                Cosasco Systems, Inc. is a global leader in corrosion and erosion monitoring
+                Rohrback Cosasco Systems, Inc. is a global leader in corrosion and erosion monitoring
                 solutions with over 70 years of field experience. Headquartered in Santa Fe Springs,
                 California, Cosasco serves operators in oil and gas, petrochemical, water treatment,
                 chemical processing, pulp and paper, and utility sectors across more than 110
@@ -197,8 +197,8 @@ export default function IndustryRecognitionPage() {
               <ul className="space-y-4">
                 {[
                   {
-                    href: '/news/fieldcom-5-launch',
-                    title: 'Cosasco Launches Next-Gen FieldCom 5.0 Wireless System',
+                    href: '/news/microcor-wireless-update',
+                    title: 'Cosasco Launches Next-Gen Microcor® Wireless Transmitter (MWT) Wireless System',
                   },
                   {
                     href: '/news/retractable-er-probe',
@@ -230,10 +230,10 @@ export default function IndustryRecognitionPage() {
             <ArrowLeft className="w-4 h-4" /> Back to News
           </Link>
           <Link
-            href="/news/fieldcom-5-launch"
+            href="/news/microcor-wireless-update"
             className="text-[#0f2a4a] font-semibold flex items-center gap-2 hover:text-[#f4a65d] transition-colors text-sm"
           >
-            Latest: FieldCom 5.0 Launch <ArrowRight className="w-4 h-4" />
+            Latest: Microcor® Wireless Transmitter (MWT) Launch <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

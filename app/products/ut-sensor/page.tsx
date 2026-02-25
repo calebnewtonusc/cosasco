@@ -85,7 +85,7 @@ export default function UTSensorPage() {
                 Sensors are available in two attachment configurations: permanent weld-on mounts
                 bonded directly to the pipe exterior for fixed monitoring points, and magnetic
                 clamp-on holders for temporary surveys and inspection campaigns. The permanent
-                weld-on configuration is compatible with the FieldCom wireless transmitter,
+                weld-on configuration is compatible with the Microcor® Wireless Transmitter,
                 enabling autonomous, continuous wall thickness trending with no operator visits
                 between reading cycles. Measurement range covers wall thicknesses from 3 mm to
                 100 mm, making the sensors applicable across small-bore instrument tubing,
@@ -97,7 +97,7 @@ export default function UTSensorPage() {
                 or special hardware. All Cosasco UT sensors carry DNV-GL type approval for marine
                 and offshore applications, as well as ATEX Zone 1 certification for classified
                 hazardous areas. Outputs are compatible with all standard ultrasonic instruments
-                and the Cosasco FieldCom data acquisition system.
+                and the Cosasco CDO data acquisition system.
               </p>
             </div>
 
@@ -138,7 +138,7 @@ export default function UTSensorPage() {
                     ["Measurement Range", "3–100 mm wall thickness", "Pipe wall and vessel shell"],
                     ["Temperature", "-40°C to 150°C", "No high-temp couplant required to 150°C"],
                     ["Attachment", "Permanent weld-on or magnetic clamp", "Weld-on for continuous; magnetic for surveys"],
-                    ["Compatibility", "Standard UT instruments", "All major brands; FieldCom compatible"],
+                    ["Compatibility", "Standard UT instruments", "All major brands; Microcor® Wireless compatible"],
                     ["Certifications", "DNV-GL, ATEX Zone 1 & 2", "Marine and hazardous area approved"],
                     ["Connector", "LEMO 00 Series", "Industry standard UT instrument interface"],
                   ].map(([param, value, notes], i) => (
@@ -172,7 +172,7 @@ export default function UTSensorPage() {
                     ["UT-5MHZ-MAG-STD", "5 MHz UT Sensor, Magnetic Clamp", "Carbon Steel Magnet", "N/A (external)"],
                     ["UT-5MHZ-WO-ATEX", "5 MHz UT Sensor, Weld-On, ATEX Z1", "316SS Housing", "N/A (external)"],
                     ["UT-2MHZ-WO-STD", "2.25 MHz UT Sensor, Weld-On, Thick Wall", "316SS Housing", "N/A (external)"],
-                    ["UT-FC-ADAPTER", "FieldCom Wireless Adapter for UT Sensor", "GRP Enclosure", "N/A"],
+                    ["UT-FC-ADAPTER", "Microcor® Wireless Adapter for UT Sensor", "GRP Enclosure", "N/A"],
                   ].map(([pn, desc, mat, psi], i) => (
                     <tr key={pn} className={i % 2 === 0 ? "bg-white" : "bg-[#f7f9fc]"}>
                       <td className="px-5 py-3 text-sm font-mono font-semibold text-[#0f2a4a] border-b border-[#e8edf2]">{pn}</td>
@@ -191,7 +191,7 @@ export default function UTSensorPage() {
             <h3 className="text-[#0f2a4a] font-bold text-xl mb-6">Compatible Accessories</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { name: "FieldCom Wireless DAQ", desc: "Connect weld-on UT sensors to the FieldCom wireless transmitter for autonomous continuous monitoring.", href: "/products/fieldcom" },
+                { name: "Microcor® Wireless DAQ", desc: "Connect weld-on UT sensors to the Microcor® Wireless Transmitter for autonomous continuous monitoring.", href: "/products/data-acquisition" },
                 { name: "ER Probe Systems", desc: "Combine UT external thickness trending with ER probe internal corrosion rate data for full-picture integrity.", href: "/products/er-probe" },
                 { name: "Retrieval Access Fittings", desc: "For applications requiring both non-intrusive UT and intrusive probe monitoring at the same location.", href: "/products/access-fittings" },
               ].map((acc) => (
@@ -255,7 +255,7 @@ export default function UTSensorPage() {
               <h4 className="font-bold text-[#1e2b3a] mb-4">Related Products</h4>
               <ul className="space-y-3">
                 {[
-                  { name: "FieldCom Wireless DAQ", href: "/products/fieldcom" },
+                  { name: "Microcor® Wireless DAQ", href: "/products/data-acquisition" },
                   { name: "ER Probe Systems", href: "/products/er-probe" },
                   { name: "Retrieval Access Fittings", href: "/products/access-fittings" },
                 ].map((p) => (

@@ -11,7 +11,7 @@ const sections = [
   {
     id: 'overview',
     title: '1. Overview',
-    content: `Cosasco Systems, Inc. ("Cosasco," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you visit our website at cosasco.com, use our web applications, or interact with us in connection with our products and services.
+    content: `Rohrback Cosasco Systems, Inc. ("Cosasco," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you visit our website at cosasco.com, use our web applications, or interact with us in connection with our products and services.
 
 Please read this policy carefully. By using our website or submitting information to us, you agree to the terms described here. If you do not agree, please do not use our services.
 
@@ -159,7 +159,7 @@ No system is completely secure. If you believe your data has been compromised, p
     title: '12. Contact & Data Controller',
     content: `The data controller for personal information collected through this website is:
 
-**Cosasco Systems, Inc.**
+**Rohrback Cosasco Systems, Inc.**
 11841 Smith Avenue
 Santa Fe Springs, CA 90670
 United States
@@ -222,7 +222,7 @@ export default function PrivacyPage() {
           <article className="lg:col-span-3 space-y-12 mt-8 lg:mt-0">
             <div className="bg-[#f0f4f8] border border-[#e8edf2] rounded-xl p-6">
               <p className="text-[#566677] text-sm leading-relaxed">
-                This Privacy Policy applies to Cosasco Systems, Inc. and its global subsidiaries and
+                This Privacy Policy applies to Rohrback Cosasco Systems, Inc. and its global subsidiaries and
                 affiliates. Cosasco is a member of the Halma plc group of companies. For questions,
                 contact <a href="mailto:privacy@cosasco.com" className="text-[#f4a65d] hover:underline">privacy@cosasco.com</a>.
               </p>

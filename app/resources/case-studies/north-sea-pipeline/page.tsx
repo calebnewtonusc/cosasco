@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'North Sea Pipeline Case Study | Cosasco',
-  description: 'How Cosasco ER probes and FieldCom eliminated unplanned shutdowns on a 400km North Sea gas transmission pipeline operated by a major North Sea operator.',
+  description: 'How Cosasco ER probes and Microcor® wireless eliminated unplanned shutdowns on a 400km North Sea gas transmission pipeline operated by a major North Sea operator.',
 }
 
 const results = [
@@ -16,7 +16,7 @@ const results = [
 
 const relatedProducts = [
   { name: 'ER Probes', href: '/products/er-probe', desc: 'Electrical resistance corrosion monitoring' },
-  { name: 'FieldCom Systems', href: '/products/fieldcom', desc: 'Cloud-connected data acquisition' },
+  { name: 'Microcor® Wireless', href: '/products/data-acquisition', desc: 'Cloud-connected data acquisition' },
   { name: 'Access Fittings', href: '/products/access-fittings', desc: 'Live retrieval under pressure' },
 ]
 
@@ -34,7 +34,7 @@ export default function NorthSeaPipelinePage() {
             <span className="text-white">North Sea Pipeline</span>
           </nav>
           <div className="flex flex-wrap gap-2 mb-5">
-            {['Gas Transmission', 'ER Probes', 'FieldCom'].map((tag) => (
+            {['Gas Transmission', 'ER Probes', 'Microcor® Wireless'].map((tag) => (
               <span key={tag} className="bg-[#f4a65d]/20 text-[#f4a65d] text-xs font-semibold px-3 py-1 rounded-full">
                 {tag}
               </span>
@@ -73,14 +73,14 @@ export default function NorthSeaPipelinePage() {
                   Cosasco engineers conducted a full pipeline risk assessment to identify the 14 highest-risk monitoring points based on flow modeling, operating history, and geometry. HPHT-rated ER probe systems were installed at each location via Cosasco flush-mounted access fittings, allowing safe installation without shutdown.
                 </p>
                 <p className="text-[#566677] leading-relaxed mb-4">
-                  All 14 points were connected to FieldCom remote data acquisition units, transmitting corrosion rate data to FieldCom Cloud every 15 minutes. The operator's integrity team received automated email and SMS alerts when instantaneous corrosion rates exceeded pre-defined thresholds at any point on the pipeline.
+                  All 14 points were connected to Microcor® Wireless Transmitters (MWT), transmitting corrosion rate data to CDO cloud every 15 minutes. The operator's integrity team received automated email and SMS alerts when instantaneous corrosion rates exceeded pre-defined thresholds at any point on the pipeline.
                 </p>
                 <ul className="space-y-3">
                   {[
                     'HPHT ER probes rated to 10,000 PSI / 300°C, H₂S-compatible materials',
                     'Flush-mounted Cosasco access fittings for hot-tap installation under live pressure',
-                    'FieldCom remote RTUs with 4G/satellite redundant communication',
-                    'FieldCom Cloud dashboard with configurable corrosion rate alarms',
+                    'Microcor® Wireless RTUs with 4G/satellite redundant communication',
+                    'CDO cloud dashboard with configurable corrosion rate alarms',
                     'Cosasco field engineers on-call for 24/7 data interpretation support',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-[#566677] text-sm">
@@ -103,14 +103,14 @@ export default function NorthSeaPipelinePage() {
                   ))}
                 </div>
                 <p className="text-[#566677] leading-relaxed">
-                  Within 18 months of deployment, the FieldCom alert system detected two corrosion exceedances that would have gone undetected under the previous 90-day coupon cycle. Both events were resolved through targeted chemical inhibitor injection before any pipeline integrity was compromised. The operator has since extended the FieldCom contract for an additional five years.
+                  Within 18 months of deployment, the Microcor® monitoring system detected two corrosion exceedances that would have gone undetected under the previous 90-day coupon cycle. Both events were resolved through targeted chemical inhibitor injection before any pipeline integrity was compromised. The operator has since extended the Microcor® monitoring contract for an additional five years.
                 </p>
               </div>
 
               {/* Quote */}
               <blockquote className="border-l-4 border-[#f4a65d] pl-6 py-2">
                 <p className="text-[#0f2a4a] text-lg font-medium italic leading-relaxed mb-3">
-                  &ldquo;The shift from retrospective coupon data to real-time FieldCom monitoring fundamentally changed how we manage pipeline integrity. We went from reacting to corrosion events to predicting and preventing them.&rdquo;
+                  &ldquo;The shift from retrospective coupon data to real-time Microcor® monitoring fundamentally changed how we manage pipeline integrity. We went from reacting to corrosion events to predicting and preventing them.&rdquo;
                 </p>
                 <footer className="text-[#566677] text-sm font-semibold">
                   — Senior Integrity Engineer, Major North Sea Operator

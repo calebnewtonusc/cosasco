@@ -191,7 +191,7 @@ export default function CorrosionCouponsPage() {
               {[
                 { name: "Retrieval Access Fittings", desc: "NPT and flanged access fittings for safe under-pressure coupon insertion and retrieval.", href: "/products/access-fittings" },
                 { name: "ER Probe Systems", desc: "Continuous ER monitoring to complement periodic coupon gravimetric measurements.", href: "/products/er-probe" },
-                { name: "FieldCom Wireless DAQ", desc: "Data loggers to record ambient conditions and correlate with coupon exposure results.", href: "/products/fieldcom" },
+                { name: "Microcor® Wireless DAQ", desc: "Microcor® wireless data loggers to record ambient conditions and correlate with coupon exposure results.", href: "/products/data-acquisition" },
               ].map((acc) => (
                 <div key={acc.name} className="bg-white border border-[#e8edf2] rounded-xl p-5">
                   <h4 className="text-[#0f2a4a] font-bold text-sm mb-2">{acc.name}</h4>
@@ -255,7 +255,7 @@ export default function CorrosionCouponsPage() {
                 {[
                   { name: "Retrieval Access Fittings", href: "/products/access-fittings" },
                   { name: "ER Probe Systems", href: "/products/er-probe" },
-                  { name: "FieldCom Wireless DAQ", href: "/products/fieldcom" },
+                  { name: "Microcor® Wireless DAQ", href: "/products/data-acquisition" },
                 ].map((p) => (
                   <li key={p.name}>
                     <Link href={p.href} className="flex items-center justify-between text-sm text-[#0f2a4a] hover:text-[#f4a65d] font-medium transition-colors group">

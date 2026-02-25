@@ -17,7 +17,7 @@ const results = [
 const relatedProducts = [
   { name: 'Corrosion Coupons', href: '/products/corrosion-coupons', desc: 'Weight-loss analysis across multiple wells' },
   { name: 'Quill Assemblies', href: '/products/quill-assembly', desc: 'Precise chemical injection delivery' },
-  { name: 'FieldCom Mobile', href: '/products/fieldcom', desc: 'Field data capture on iOS and Android' },
+  { name: 'Microcor® Wireless', href: '/products/data-acquisition', desc: 'Wireless data acquisition' },
 ]
 
 export default function WaterInjectionPlatformPage() {
@@ -73,14 +73,14 @@ export default function WaterInjectionPlatformPage() {
                   Cosasco quill assemblies with integral check valves were installed at each well for biocide and oxygen scavenger injection, replacing a mix of legacy equipment with a single, maintainable standard. All chemical injection rates were sized to actual well flow conditions rather than conservative blanket rates.
                 </p>
                 <p className="text-[#566677] leading-relaxed mb-4">
-                  FieldCom Mobile was deployed to all field technicians, replacing paper-based coupon retrieval records. Weight-loss data, inspection photographs, and condition notes were captured digitally at the wellhead and automatically synced to FieldCom Cloud, giving the integrity team a real-time portfolio view for the first time.
+                  Microcor® Wireless was deployed to all field technicians, replacing paper-based coupon retrieval records. Weight-loss data, inspection photographs, and condition notes were captured digitally at the wellhead and automatically synced to CDO cloud portfolio dashboard, giving the integrity team a real-time portfolio view for the first time.
                 </p>
                 <ul className="space-y-3">
                   {[
                     'Standardized coupon racks: L-80 and 316L coupons, identical geometry across all 23 wells',
                     'Cosasco quill assemblies with integral check valves, sized per well flowrate',
-                    'FieldCom Mobile for digital coupon retrieval records and photo documentation',
-                    'FieldCom Cloud portfolio dashboard: corrosion rate trends per well, per platform, aggregate',
+                    'Microcor® Wireless for digital coupon retrieval records and photo documentation',
+                    'CDO cloud portfolio dashboard: corrosion rate trends per well, per platform, aggregate',
                     'Cosasco corrosion engineer quarterly review of chemical injection optimization',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-[#566677] text-sm">

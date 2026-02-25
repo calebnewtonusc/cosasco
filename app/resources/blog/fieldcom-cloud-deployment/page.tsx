@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'CDO Cloud Platform: Real-Time Corrosion Data Anywhere | Cosasco Blog',
   description:
-    'How CDO (Cosasco Data Online) delivers real-time corrosion monitoring data from field sensors to any device - and what\'s new in 2025–2026.',
+    'How CDO (Cosasco Data Online) delivers real-time corrosion monitoring data from field sensors to any device, and what\'s new in 2025–2026.',
 }
 
 export default function CDOCloudPlatformPage() {
@@ -54,7 +54,7 @@ export default function CDOCloudPlatformPage() {
               <div className="space-y-4">
                 {[
                   {
-                    version: 'v3.4 - SCADA/OPC-UA Integration',
+                    version: 'v3.4: SCADA/OPC-UA Integration',
                     date: 'Q1 2025',
                     features: [
                       'Native OPC-UA server: publish corrosion rate data directly to DCS/SCADA without middleware',
@@ -63,7 +63,7 @@ export default function CDOCloudPlatformPage() {
                     ],
                   },
                   {
-                    version: 'v3.5 - Anomaly Detection Engine',
+                    version: 'v3.5: Anomaly Detection Engine',
                     date: 'Q2 2025',
                     features: [
                       'Statistical process control (SPC) alerts: flag readings outside ±3σ of rolling 30-day baseline',
@@ -72,21 +72,21 @@ export default function CDOCloudPlatformPage() {
                     ],
                   },
                   {
-                    version: 'v3.6 - Mobile Inspection Module',
+                    version: 'v3.6: Mobile Inspection Module',
                     date: 'Q3 2025',
                     features: [
                       'iOS/Android app for coupon retrieval workflow: scan barcode, log weight, auto-calculate rate',
-                      'Offline mode for sites with limited connectivity - syncs on reconnection',
+                      'Offline mode for sites with limited connectivity, syncs on reconnection',
                       'Photo documentation attached directly to inspection records',
                     ],
                   },
                   {
-                    version: 'v3.7 - Dashboard Redesign',
+                    version: 'v3.7: Dashboard Redesign',
                     date: 'Q4 2025',
                     features: [
                       'New multi-site fleet overview: see all pipeline segments and corrosion status on a single map view',
                       'Configurable KPI cards with RAG (Red/Amber/Green) threshold indicators',
-                      'Export to PDF and Excel directly from dashboard - no additional reporting tools needed',
+                      'Export to PDF and Excel directly from dashboard, with no additional reporting tools needed',
                     ],
                   },
                 ].map(({ version, date, features }) => (
@@ -157,7 +157,7 @@ export default function CDOCloudPlatformPage() {
               </ul>
 
               <div className="bg-[#0f2a4a] rounded-xl p-6 mt-8">
-                <p className="text-white font-black text-lg mb-2">CDO (Cosasco Data Online) - Free 30-Day Trial</p>
+                <p className="text-white font-black text-lg mb-2">CDO (Cosasco Data Online): Free 30-Day Trial</p>
                 <p className="text-[#94aabb] text-sm leading-relaxed mb-4">
                   CDO is available as a hosted SaaS subscription starting at $195/month for up to
                   10 monitoring points. On-premises deployment is also available.

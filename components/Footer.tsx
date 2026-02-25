@@ -74,7 +74,7 @@ export default function Footer() {
                 Stay ahead of corrosion.
               </h3>
               <p className="text-[#8ab4d4] text-sm mt-1 leading-relaxed">
-                Get technical articles, application notes, and product updates from Cosasco engineers - no marketing fluff.
+                Get technical articles, application notes, and product updates from Cosasco engineers, no marketing fluff.
               </p>
             </div>
 

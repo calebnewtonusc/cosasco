@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const challenges = [
   {
     title: 'Ore Slurry Abrasion & Erosion',
-    body: 'Hydrotransport pipelines and mill circuit equipment carry high-velocity slurries of abrasive ore particles that combine mechanical erosion with electrochemical corrosion. The synergistic erosion-corrosion mechanism attacks pipe walls at rates far exceeding either mechanism alone - making dedicated erosion-corrosion probes essential for accurate wall-loss monitoring.',
+    body: 'Hydrotransport pipelines and mill circuit equipment carry high-velocity slurries of abrasive ore particles that combine mechanical erosion with electrochemical corrosion. The synergistic erosion-corrosion mechanism attacks pipe walls at rates far exceeding either mechanism alone; making dedicated erosion-corrosion probes essential for accurate wall-loss monitoring.',
   },
   {
     title: 'Acid Mine Drainage Extremes',
@@ -19,7 +19,7 @@ const challenges = [
   },
   {
     title: 'Leach Circuit Aggressive Chemistry',
-    body: 'Heap leach and tank leach circuits for copper, gold, and uranium use concentrated sulfuric acid, cyanide, or ammonium solutions that aggressively attack carbon steel and even stainless alloys. Process upsets can shift chemistry rapidly - requiring real-time ER probe data to detect corrosion rate changes before equipment integrity is compromised.',
+    body: 'Heap leach and tank leach circuits for copper, gold, and uranium use concentrated sulfuric acid, cyanide, or ammonium solutions that aggressively attack carbon steel and even stainless alloys. Process upsets can shift chemistry rapidly; requiring real-time ER probe data to detect corrosion rate changes before equipment integrity is compromised.',
   },
 ]
 
@@ -41,7 +41,7 @@ const products = [
   },
   {
     name: 'Microcor® Wireless Loggers',
-    desc: 'Real-time probe data from remote tailings lines and in-pit monitoring points transmitted wirelessly to SCADA - no cable runs required across active mine areas.',
+    desc: 'Real-time probe data from remote tailings lines and in-pit monitoring points transmitted wirelessly to SCADA; no cable runs required across active mine areas.',
     href: '/products/data-acquisition',
   },
 ]
@@ -80,7 +80,7 @@ export default function MiningPage() {
               Mining &amp; Minerals
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
-              Erosion-corrosion monitoring for the world&apos;s most abrasive environments - ore slurry
+              Erosion-corrosion monitoring for the world&apos;s most abrasive environments: ore slurry
               hydrotransport, acid mine drainage, and aggressive leach circuits. Cosasco abrasion-resistant
               probes and chemical injection systems protect mineral processing infrastructure and extend
               equipment life where conventional monitoring fails.

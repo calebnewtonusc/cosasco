@@ -62,7 +62,7 @@ export default function NorthSeaPipelinePage() {
                   Each unplanned shutdown cost an estimated <span className="font-semibold text-[#0f2a4a]">$2.4M per day</span> in lost throughput, emergency mobilization, and regulatory reporting obligations. The operator's existing corrosion coupon-only program provided retrospective data on 90-day retrieval cycles - far too slow to catch fast-developing corrosion events before they impacted operations.
                 </p>
                 <p className="text-[#566677] leading-relaxed">
-                  The integrity team needed continuous, real-time corrosion rate data across the full pipeline length, with automated alerting when rates exceeded threshold - all without increasing personnel exposure offshore.
+                  The integrity team needed continuous, real-time corrosion rate data across the full pipeline length, with automated alerting when rates exceeded threshold, all without increasing personnel exposure offshore.
                 </p>
               </div>
 
@@ -113,7 +113,7 @@ export default function NorthSeaPipelinePage() {
                   &ldquo;The shift from retrospective coupon data to real-time Microcor® monitoring fundamentally changed how we manage pipeline integrity. We went from reacting to corrosion events to predicting and preventing them.&rdquo;
                 </p>
                 <footer className="text-[#566677] text-sm font-semibold">
-                  - Senior Integrity Engineer, Major North Sea Operator
+                  Senior Integrity Engineer, Major North Sea Operator
                 </footer>
               </blockquote>
 

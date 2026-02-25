@@ -116,13 +116,13 @@ export default function DataAcquisitionPage() {
                 unified, real-time monitoring infrastructure. WirelessHART 7 compliant nodes with
                 18-bit resolution eliminate the cost and complexity of cable routing across large
                 process plants, while the Class I Zone 1 certification ensures safe deployment in
-                the most demanding hazardous area classifications - including large metal structures
+                the most demanding hazardous area classifications, including large metal structures
                 and offshore topsides.
               </p>
               <p className="text-[#566677] leading-relaxed mb-8">
                 For operators seeking deeper integration, the Cosasco Data Online (CDO) cloud
                 analytics platform provides trend visualization, configurable alarm management, and
-                automated exception reporting - accessible from any device via secure web browser.
+                automated exception reporting, accessible from any device via secure web browser.
                 Native Modbus TCP/RTU and OPC-UA drivers ensure seamless integration with existing
                 plant DCS and SCADA infrastructure, including pre-configured templates for Yokogawa
                 and Emerson platforms, across our 1M+ global monitoring locations in over 110 countries.

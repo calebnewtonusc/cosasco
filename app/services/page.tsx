@@ -39,7 +39,7 @@ const mainServices = [
     title: 'Installation & Commissioning',
     tagline: 'Certified field teams. Zero process disruption.',
     description:
-      'From under-pressure hot-tap work to full Microcor® wireless commissioning, Cosasco field engineers execute to the highest safety and quality standards - delivering production-ready monitoring systems from day one.',
+      'From under-pressure hot-tap work to full Microcor® wireless commissioning, Cosasco field engineers execute to the highest safety and quality standards, delivering production-ready monitoring systems from day one.',
     bullets: [
       'Hot-tap access fitting installation at full operating pressure',
       'Under-pressure probe and coupon insertion to Cosasco procedures',
@@ -55,12 +55,12 @@ const mainServices = [
     title: 'Service & Maintenance',
     tagline: 'Proactive maintenance. Emergency callout. Global coverage.',
     description:
-      "Cosasco's global service network keeps your monitoring program performing to specification year-round - with planned maintenance schedules, rapid emergency response, and access to certified service engineers in 110+ countries.",
+      "Cosasco's global service network keeps your monitoring program performing to specification year-round, with planned maintenance schedules, rapid emergency response, and access to certified service engineers in 110+ countries.",
     bullets: [
       'Planned probe retrieval cycles and element replacement',
       'Sensor calibration and instrument performance verification',
       'Corrosion coupon retrieval, preparation, and mass-loss analysis',
-      'Emergency callout service - 24/7 availability',
+      'Emergency callout service: 24/7 availability',
       'Global service network spanning 110+ countries',
     ],
     href: '/contact',
@@ -84,7 +84,7 @@ const processSteps = [
   {
     step: 2,
     title: 'System Design',
-    desc: 'We produce a full engineering design package - monitoring point selection, access fitting specifications, instrument selection, and compliance documentation.',
+    desc: 'We produce a full engineering design package: monitoring point selection, access fitting specifications, instrument selection, and compliance documentation.',
   },
   {
     step: 3,
@@ -94,7 +94,7 @@ const processSteps = [
   {
     step: 4,
     title: 'Installation',
-    desc: 'Certified teams install access fittings, probes, and coupons at operating pressure - with full compliance to your PTW and HSE procedures.',
+    desc: 'Certified teams install access fittings, probes, and coupons at operating pressure, with full compliance to your PTW and HSE procedures.',
   },
   {
     step: 5,
@@ -132,7 +132,7 @@ export default function ServicesPage() {
               Engineering Services
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
-              From design through commissioning and ongoing maintenance - Cosasco's global service
+              From design through commissioning and ongoing maintenance, Cosasco's global service
               network supports your corrosion monitoring program at every stage.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -238,7 +238,7 @@ export default function ServicesPage() {
             </h2>
             <p className="text-[#8ab4d4] text-lg max-w-2xl mx-auto leading-relaxed">
               Cosasco's worldwide distribution and service network means certified engineers and
-              stocked inventory are never far away - from the North Sea to Southeast Asia.
+              stocked inventory are never far away, from the North Sea to Southeast Asia.
             </p>
           </div>
 
@@ -270,7 +270,7 @@ export default function ServicesPage() {
             </h2>
             <p className="text-[#566677] text-lg max-w-2xl mx-auto leading-relaxed">
               A structured, repeatable process that delivers reliable corrosion monitoring
-              systems - on schedule and to specification.
+              systems, on schedule and to specification.
             </p>
           </div>
 
@@ -314,7 +314,7 @@ export default function ServicesPage() {
             </h2>
             <p className="text-[#566677] text-lg max-w-xl mx-auto leading-relaxed mb-10">
               Describe your application and one of our corrosion specialists will recommend the
-              right service approach - no obligation, no sales pressure.
+              right service approach, no obligation, no sales pressure.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/contact" className="btn btn-primary">

@@ -18,7 +18,7 @@ import {
 
 const featuredProducts = [
   {
-    name: "Echo Point - Ultrasonic Thickness Sensor",
+    name: "Echo Point: Ultrasonic Thickness Sensor",
     flagship: true,
     desc: "Cosasco&rsquo;s flagship non-intrusive UT sensor. Up to 3&times; sensitivity versus standard UT sensors, with thru-coating measurement capability and ultra-high temperature rating of 932&deg;F (500&deg;C). 5-year battery life. WirelessHART 7 protocol. ATEX/IECEx certified for hazardous area installation.",
     spec: "Max Temp: 932°F (500°C) · WirelessHART 7 · ATEX/IECEx",
@@ -26,7 +26,7 @@ const featuredProducts = [
   {
     name: "Microcor® High-Sensitivity Erosion Probes",
     flagship: false,
-    desc: "Microcor® technology enables sand erosion detection approaching real-time speeds - up to 50× faster data acquisition rates than standard ER response. Ideal for choke valves, bends, and tees in high-rate production wells.",
+    desc: "Microcor® technology enables sand erosion detection approaching real-time speeds, up to 50× faster data acquisition rates than standard ER response. Ideal for choke valves, bends, and tees in high-rate production wells.",
     spec: "Response Speed: Near real-time · Sand erosion detection",
   },
   {
@@ -38,19 +38,19 @@ const featuredProducts = [
   {
     name: "Non-Intrusive Underground Pipe Thickness Monitor",
     flagship: false,
-    desc: "Highest-accuracy ultrasonic wall thickness monitoring for buried pipelines and structures where access is restricted. No pipe entry required - permanently mounted sensors transmit continuous thickness data to surface.",
+    desc: "Highest-accuracy ultrasonic wall thickness monitoring for buried pipelines and structures where access is restricted. No pipe entry required; permanently mounted sensors transmit continuous thickness data to surface.",
     spec: "Application: Buried / inaccessible pipelines · Highest accuracy",
   },
 ];
 
 const products = [
   {
-    name: "UT Transducers - Permanent",
+    name: "UT Transducers: Permanent",
     desc: "Permanently bonded ultrasonic transducers for continuous wall thickness monitoring at high-wear locations. Corrosion-resistant housings rated for offshore and sour gas service.",
     spec: "Resolution: 0.01 mm",
   },
   {
-    name: "UT Transducers - Temporary",
+    name: "UT Transducers: Temporary",
     desc: "Clamp-on and magnetically mounted UT transducers for periodic inspection campaigns without welding or hot work. Suitable for field mapping of erosion profiles across a range of pipe diameters.",
     spec: "Frequency: 1–10 MHz",
   },
@@ -136,13 +136,13 @@ export default function ErosionMonitoringPage() {
                 downtime in high-rate oil and gas production. Cosasco&rsquo;s erosion monitoring
                 portfolio combines intrusive electrical resistance probes with non-intrusive
                 ultrasonic transducers to provide both real-time sand breakthrough alerts and
-                continuous wall thickness trending - giving operators a complete picture of asset
+                continuous wall thickness trending, giving operators a complete picture of asset
                 integrity at high-wear locations.
               </p>
               <p className="text-[#566677] leading-relaxed mb-8">
                 Our UT-based systems require no hot work and can be installed on live lines, making
-                them ideal for retrofitting onto existing infrastructure. The Echo Point sensor - our
-                flagship non-intrusive solution - delivers up to 3× the sensitivity of standard UT
+                them ideal for retrofitting onto existing infrastructure. The Echo Point sensor, our
+                flagship non-intrusive solution, delivers up to 3× the sensitivity of standard UT
                 sensors with WirelessHART 7 connectivity and a 5-year battery life. Permanent transducer
                 arrays combined with Microcor® Wireless data loggers enable continuous remote monitoring
                 of critical bends and reducers across our 1M+ global monitoring locations.

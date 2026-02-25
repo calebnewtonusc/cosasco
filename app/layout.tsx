@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: 'Cosasco',
     title: 'Cosasco | Corrosion Management Solutions',
     description:
-      'Global leader in corrosion and erosion monitoring - ER probes, access fittings, Microcor® CDO data acquisition, and chemical injection systems for oil & gas, petrochemical, and water treatment.',
+      'Global leader in corrosion and erosion monitoring: ER probes, access fittings, Microcor® CDO data acquisition, and chemical injection systems for oil & gas, petrochemical, and water treatment.',
     url: 'https://cosasco.com',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Cosasco Corrosion Monitoring Solutions' }],
   },

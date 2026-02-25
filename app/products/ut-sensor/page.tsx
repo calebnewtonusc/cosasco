@@ -40,7 +40,7 @@ export default function UTSensorPage() {
           </h1>
           <p className="text-[#94aabb] text-lg max-w-2xl leading-relaxed mb-8">
             Non-intrusive, high-resolution ultrasonic transducers for continuous external wall
-            thickness monitoring - detect corrosion and erosion thinning without process
+            thickness monitoring, detecting corrosion and erosion thinning without process
             interruption or pipe penetration.
           </p>
 
@@ -78,7 +78,7 @@ export default function UTSensorPage() {
                 measurement of pipe and vessel wall thickness from the external surface, requiring
                 no penetration of the pressure boundary. By emitting a 5 MHz ultrasonic pulse
                 through the pipe wall and measuring the time-of-flight of the returning echo,
-                the system resolves wall thickness to 0.01 mm - sufficient to detect early-stage
+                the system resolves wall thickness to 0.01 mm, sufficient to detect early-stage
                 corrosion and erosion thinning well before it reaches critical alert thresholds.
               </p>
               <p>
@@ -104,8 +104,8 @@ export default function UTSensorPage() {
             <h3 className="text-[#0f2a4a] font-bold text-xl mb-4">Key Features</h3>
             <ul className="space-y-3">
               {[
-                "0.01 mm resolution at 5 MHz - detects sub-millimeter wall loss early in corrosion cycle",
-                "Non-intrusive external attachment - no pipe penetration or process shutdown required",
+                "0.01 mm resolution at 5 MHz: detects sub-millimeter wall loss early in corrosion cycle",
+                "Non-intrusive external attachment; no pipe penetration or process shutdown required",
                 "Wall thickness range 3 mm to 100 mm for tubing to large-bore vessel shells",
                 "Permanent weld-on and temporary magnetic clamp-on configurations available",
                 "Operating temperature -40°C to 150°C; compatible with all pipe insulation systems",

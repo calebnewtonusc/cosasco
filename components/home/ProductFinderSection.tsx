@@ -26,7 +26,7 @@ export default function ProductFinderSection() {
               </h2>
               <p className="mt-4 leading-relaxed" style={{ color: '#94aabb' }}>
                 Tell us your operating environment, pipe material, and monitoring
-                goal - and we&apos;ll recommend the ideal Cosasco solution for
+                goal, and we&apos;ll recommend the ideal Cosasco solution for
                 your application.
               </p>
 

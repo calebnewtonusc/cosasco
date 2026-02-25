@@ -39,7 +39,7 @@ const featuredProducts = [
   },
   {
     name: "AquaMate® Portable LPR Instrument",
-    desc: "Handheld portable LPR instrument for spot measurements and field surveys in aqueous systems. No dedicated data logger required - ideal for periodic inspection programs.",
+    desc: "Handheld portable LPR instrument for spot measurements and field surveys in aqueous systems. No dedicated data logger required, making it ideal for periodic inspection programs.",
     spec: "Type: Portable · Application: Spot measurement",
   },
   {
@@ -53,7 +53,7 @@ const featuredProducts = [
     spec: "Application: Sour service · HIC risk monitoring",
   },
   {
-    name: "AirIQ - Airborne Corrosion Monitor",
+    name: "AirIQ: Airborne Corrosion Monitor",
     desc: "Real-time airborne corrosion monitoring for specialty applications including control rooms, electrical switchgear, and storage environments. Detects H2S, Cl2, and mixed corrosive gases.",
     spec: "Application: Atmospheric / indoor environments",
   },
@@ -124,7 +124,7 @@ export default function CorrosionMonitoringPage() {
           </h1>
           <p className="text-[#94aabb] text-lg max-w-2xl leading-relaxed">
             From electrical resistance probes and LPR electrochemical sensors to access fittings,
-            corrosion coupons, and pipe penetration hardware - a complete, integrated corrosion
+            corrosion coupons, and pipe penetration hardware: a complete, integrated corrosion
             monitoring system for any process environment.
           </p>
         </div>
@@ -139,7 +139,7 @@ export default function CorrosionMonitoringPage() {
               <h2 className="font-black text-[#0f2a4a] text-3xl mb-4">About Our Monitoring Systems</h2>
               <p className="text-[#566677] leading-relaxed mb-4">
                 Cosasco&rsquo;s corrosion monitoring portfolio is anchored by our electrical resistance
-                (ER) probe systems - the most widely deployed technology for continuous, online metal
+                (ER) probe systems, the most widely deployed technology for continuous, online metal
                 loss measurement in oil and gas pipelines, process vessels, and petrochemical equipment.
                 ER probes measure the increase in electrical resistance of a corroding sensing element,
                 delivering cumulative corrosion data that is independent of process fluid conductivity.

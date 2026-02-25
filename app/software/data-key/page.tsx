@@ -35,7 +35,7 @@ export default function DataKeyPage() {
     },
     {
       q: 'Can I use the same key on multiple computers?',
-      a: 'Standard licenses are single-seat. Multi-seat and site licenses are available - contact sales@cosasco.com for volume pricing.',
+      a: 'Standard licenses are single-seat. Multi-seat and site licenses are available; contact sales@cosasco.com for volume pricing.',
     },
     {
       q: 'My key expired',

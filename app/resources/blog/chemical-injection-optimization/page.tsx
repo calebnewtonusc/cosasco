@@ -45,7 +45,7 @@ export default function ChemicalInjectionOptimizationPage() {
               <p className="text-xl text-[#0f2a4a] font-semibold leading-snug">
                 Most pipeline operators are over-dosing their corrosion inhibitors by 20–50%.
                 It&apos;s an expensive safety blanket that doesn&apos;t necessarily provide better
-                protection - and in some cases, over-injection actually degrades performance.
+                protection, and in some cases, over-injection actually degrades performance.
               </p>
 
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
@@ -84,7 +84,7 @@ export default function ChemicalInjectionOptimizationPage() {
                 Beyond direct chemical cost, over-dosing can create secondary problems: some
                 inhibitors form stable emulsions at high concentrations that complicate separation
                 operations. Certain film-forming inhibitors at excess dose adsorb in multiple
-                layers - the outer layers do not contribute to corrosion protection and can
+                layers; the outer layers do not contribute to corrosion protection and can
                 interfere with scale inhibitor performance.
               </p>
 
@@ -141,7 +141,7 @@ export default function ChemicalInjectionOptimizationPage() {
               </p>
               <p>
                 Operators in the Gulf of Mexico using adaptive injection have reported 30–40%
-                inhibitor cost reductions while maintaining corrosion rates below 2 mpy - well
+                inhibitor cost reductions while maintaining corrosion rates below 2 mpy, well
                 within NORSOK M-506 and NACE SP0106 guidance levels.
               </p>
 
@@ -150,7 +150,7 @@ export default function ChemicalInjectionOptimizationPage() {
               </h2>
               <ul className="space-y-2">
                 {[
-                  'Conservative dosing is not the same as optimal protection - it often isn\'t better.',
+                  'Conservative dosing is not the same as optimal protection; it often isn\'t better.',
                   'LPR is the right tool for inhibitor optimization because it responds in real time.',
                   'Step-down optimization in controlled increments is safe and quantifiable.',
                   'Adaptive injection via CDO eliminates the need for manual dose management.',
@@ -189,7 +189,7 @@ export default function ChemicalInjectionOptimizationPage() {
             <div className="bg-[#0f2a4a] rounded-xl p-6 text-white">
               <p className="font-black text-lg mb-2">Optimize Your Program</p>
               <p className="text-[#94aabb] text-sm leading-relaxed mb-4">
-                Ask us about our chemical injection optimization audit service - we analyze your
+                Ask us about our chemical injection optimization audit service: we analyze your
                 existing data and identify the minimum effective dose.
               </p>
               <Link href="/contact" className="block text-center bg-[#f4a65d] hover:bg-[#d4892a] text-white font-bold py-3 rounded-lg transition-colors text-sm">

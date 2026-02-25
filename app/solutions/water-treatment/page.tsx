@@ -19,7 +19,7 @@ const challenges = [
   },
   {
     title: 'Chemical Dosing Optimization',
-    body: 'Scale inhibitors, corrosion inhibitors, and biocides must be dosed precisely to maintain protection without wasteful overdose. Cosasco precision chemical injection quills - sized for low-flow water systems - ensure complete dispersion of treatment chemicals into the process stream at every dosing point.',
+    body: 'Scale inhibitors, corrosion inhibitors, and biocides must be dosed precisely to maintain protection without wasteful overdose. Cosasco precision chemical injection quills, sized for low-flow water systems, ensure complete dispersion of treatment chemicals into the process stream at every dosing point.',
   },
 ]
 
@@ -79,7 +79,7 @@ export default function WaterTreatmentPage() {
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
               Municipal distribution networks, industrial cooling systems, and wastewater
-              treatment facilities - Cosasco monitoring and dosing systems protect water
+              treatment facilities: Cosasco monitoring and dosing systems protect water
               infrastructure from MIC, pH attack, and chemical scaling.
             </p>
           </div>
@@ -126,7 +126,7 @@ export default function WaterTreatmentPage() {
               <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Proven Results</p>
               <h3 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-6">Case Study</h3>
               <div className="bg-[#0f2a4a] rounded-xl p-8 text-white">
-                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Municipal Water Utility - Southwest USA</p>
+                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Municipal Water Utility, Southwest USA</p>
                 <h4 className="text-xl font-black text-white mb-4">
                   Bypass Coupon Program Identifies MIC Source in Distribution System
                 </h4>
@@ -135,7 +135,7 @@ export default function WaterTreatmentPage() {
                   with integrated MIC sampling ports at 22 locations across their 380-mile
                   distribution network. Within 6 months, biological analysis on retrieved
                   coupons identified sulfate-reducing bacteria concentrations at five
-                  dead-leg locations - enabling targeted biocide treatment and infrastructure
+                  dead-leg locations, enabling targeted biocide treatment and infrastructure
                   replacement that eliminated the corrosion risk before customer service disruptions occurred.
                 </p>
                 <div className="grid grid-cols-3 gap-4 mb-8">

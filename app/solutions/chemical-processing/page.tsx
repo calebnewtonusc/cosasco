@@ -78,7 +78,7 @@ export default function ChemicalProcessingPage() {
               Chemical Processing Solutions
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
-              Acid service, PSM compliance, and specialty alloy environments - Cosasco
+              Acid service, PSM compliance, and specialty alloy environments: Cosasco
               high-alloy monitoring systems and PSM-compliant coupon programs protect
               chemical plants operating with the most aggressive process fluids on earth.
             </p>
@@ -126,7 +126,7 @@ export default function ChemicalProcessingPage() {
               <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Proven Results</p>
               <h3 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-6">Case Study</h3>
               <div className="bg-[#0f2a4a] rounded-xl p-8 text-white">
-                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Specialty Chemical Manufacturer - Texas</p>
+                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Specialty Chemical Manufacturer, Texas</p>
                 <h4 className="text-xl font-black text-white mb-4">
                   PSM-Compliant ER Probe Program Passes OSHA Process Safety Audit
                 </h4>

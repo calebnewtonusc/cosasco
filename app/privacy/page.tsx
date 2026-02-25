@@ -54,26 +54,26 @@ We do not sell, rent, or trade your personal information to third parties for th
     title: '4. Legal Basis for Processing (GDPR)',
     content: `If you are located in the European Economic Area (EEA) or United Kingdom, we process your personal data under one of the following legal bases:
 
-**Contract performance** - When processing is necessary to fulfill a contract with you or to take steps at your request before entering into a contract (e.g., responding to a quote request or processing an RMA).
+**Contract performance:** When processing is necessary to fulfill a contract with you or to take steps at your request before entering into a contract (e.g., responding to a quote request or processing an RMA).
 
-**Legitimate interests** - When processing is necessary for our legitimate business interests, such as improving our products, conducting analytics, or communicating with existing customers about related products - provided those interests are not overridden by your rights.
+**Legitimate interests:** When processing is necessary for our legitimate business interests, such as improving our products, conducting analytics, or communicating with existing customers about related products, provided those interests are not overridden by your rights.
 
-**Consent** - When you have given explicit consent, such as subscribing to our newsletter or accepting non-essential cookies. You may withdraw consent at any time.
+**Consent:** When you have given explicit consent, such as subscribing to our newsletter or accepting non-essential cookies. You may withdraw consent at any time.
 
-**Legal obligation** - When we are required to process data to comply with applicable law.`,
+**Legal obligation:** When we are required to process data to comply with applicable law.`,
   },
   {
     id: 'sharing',
     title: '5. How We Share Your Information',
     content: `We may share your personal information with:
 
-**Service providers** - Third-party vendors who help us operate our website and business, including cloud hosting providers, email delivery services, and analytics platforms. These providers are contractually bound to protect your data and may only use it to perform services on our behalf.
+**Service providers:** Third-party vendors who help us operate our website and business, including cloud hosting providers, email delivery services, and analytics platforms. These providers are contractually bound to protect your data and may only use it to perform services on our behalf.
 
-**Halma plc** - Cosasco is a subsidiary of Halma plc, a global group of life-saving technology companies. We may share data within the Halma group for business operations and group-level reporting, subject to appropriate data transfer safeguards.
+**Halma plc:** Cosasco is a subsidiary of Halma plc, a global group of life-saving technology companies. We may share data within the Halma group for business operations and group-level reporting, subject to appropriate data transfer safeguards.
 
-**Regional distributors and authorized representatives** - If you use our "Find a Rep" form, your inquiry may be shared with the authorized Cosasco representative in your region to facilitate a response.
+**Regional distributors and authorized representatives:** If you use our "Find a Rep" form, your inquiry may be shared with the authorized Cosasco representative in your region to facilitate a response.
 
-**Legal requirements** - We may disclose your information when required by law, court order, or to protect the rights and safety of Cosasco, our customers, or the public.
+**Legal requirements:** We may disclose your information when required by law, court order, or to protect the rights and safety of Cosasco, our customers, or the public.
 
 We do not share personal data with third parties for advertising purposes.`,
   },
@@ -91,11 +91,11 @@ By using our website and submitting information to us, you acknowledge that your
     title: '7. Cookies',
     content: `Our website uses the following types of cookies:
 
-**Essential cookies** - Required for the website to function. These cannot be disabled. They include session management cookies, security tokens, and load balancing cookies.
+**Essential cookies:** Required for the website to function. These cannot be disabled. They include session management cookies, security tokens, and load balancing cookies.
 
-**Analytics cookies** - We use aggregated analytics to understand how visitors interact with our site, which pages are most popular, and how to improve navigation. Analytics data is anonymized and not linked to individual users. You can opt out of analytics cookies via our cookie banner.
+**Analytics cookies:** We use aggregated analytics to understand how visitors interact with our site, which pages are most popular, and how to improve navigation. Analytics data is anonymized and not linked to individual users. You can opt out of analytics cookies via our cookie banner.
 
-**Functional cookies** - Used to remember your preferences (such as language or region) between visits.
+**Functional cookies:** Used to remember your preferences (such as language or region) between visits.
 
 We do not use cookies for targeted advertising or cross-site tracking.
 
@@ -119,21 +119,21 @@ After the applicable retention period, data is securely deleted or anonymized.`,
     title: '9. Your Privacy Rights',
     content: `Depending on your location, you may have the following rights regarding your personal data:
 
-**Right to access** - Request a copy of the personal data we hold about you.
+**Right to access:** Request a copy of the personal data we hold about you.
 
-**Right to rectification** - Request correction of inaccurate or incomplete data.
+**Right to rectification:** Request correction of inaccurate or incomplete data.
 
-**Right to erasure** - Request deletion of your personal data where we no longer have a lawful basis to retain it.
+**Right to erasure:** Request deletion of your personal data where we no longer have a lawful basis to retain it.
 
-**Right to restrict processing** - Request that we limit how we use your data in certain circumstances.
+**Right to restrict processing:** Request that we limit how we use your data in certain circumstances.
 
-**Right to data portability** - Receive your data in a structured, machine-readable format.
+**Right to data portability:** Receive your data in a structured, machine-readable format.
 
-**Right to object** - Object to processing based on legitimate interests or for direct marketing.
+**Right to object:** Object to processing based on legitimate interests or for direct marketing.
 
-**Right to withdraw consent** - If processing is based on consent, withdraw it at any time without affecting the lawfulness of prior processing.
+**Right to withdraw consent:** If processing is based on consent, withdraw it at any time without affecting the lawfulness of prior processing.
 
-**California residents (CCPA/CPRA)** - You have the right to know what personal information we collect and how it is used, the right to delete your personal information, the right to opt out of the sale of personal information (note: we do not sell personal information), and the right to non-discrimination for exercising your privacy rights.
+**California residents (CCPA/CPRA):** You have the right to know what personal information we collect and how it is used, the right to delete your personal information, the right to opt out of the sale of personal information (note: we do not sell personal information), and the right to non-discrimination for exercising your privacy rights.
 
 To exercise any of these rights, contact us at privacy@cosasco.com or use the details in Section 12. We will respond within 30 days (GDPR) or 45 days (CCPA) of receiving a verifiable request.`,
   },

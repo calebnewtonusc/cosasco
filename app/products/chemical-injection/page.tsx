@@ -18,12 +18,12 @@ import {
 
 const products = [
   {
-    name: "Quill Assemblies - Fixed",
+    name: "Quill Assemblies: Fixed",
     desc: "Single-piece welded quill assemblies deliver chemical inhibitor to the center of the flow stream for optimal dispersion. Available in straight and angle-entry configurations with integral check valve.",
     spec: "Max Pressure: 6,000 PSI",
   },
   {
-    name: "Quill Assemblies - Retractable",
+    name: "Quill Assemblies: Retractable",
     desc: "Spring-loaded retractable quills allow removal under live line conditions without depressurization. Preferred for high-solids or scaling service where periodic cleaning or replacement is required.",
     spec: "Rated: 3,000 PSI / 300°F",
   },
@@ -112,7 +112,7 @@ export default function ChemicalInjectionPage() {
               <p className="text-[#566677] leading-relaxed mb-4">
                 Effective corrosion and scale management begins with reliable chemical delivery.
                 Cosasco injection quills and assemblies are designed to position the injection point
-                at the centerline of the flow stream - away from the pipe wall - ensuring turbulent
+                at the centerline of the flow stream, away from the pipe wall, ensuring turbulent
                 mixing and uniform inhibitor distribution. Retractable designs allow removal and
                 inspection without shutdown, critical for long-term operability in high-scaling or
                 high-solids environments.

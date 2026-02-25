@@ -5,7 +5,7 @@ import { ChevronRight, ArrowRight, Phone, Mail } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Innovation | Cosasco',
   description:
-    "Cosasco's latest corrosion monitoring technologies - Echo Point, Microcor\u00ae, and the SafeGuard Service Valve.",
+    "Cosasco's latest corrosion monitoring technologies: Echo Point, Microcor\u00ae, and the SafeGuard Service Valve.",
 }
 
 const featuredProducts = [
@@ -36,7 +36,7 @@ const featuredProducts = [
   {
     name: 'SafeGuard Service Valve',
     tagline: 'Fire-rated, PED-certified, double-isolation',
-    desc: 'Fire-rated and PED-certified service valve with double isolation valve technology. Made with NACE-compliant 4130 or Duplex stainless steel - the lightest available service valve that meets the highest safety standards.',
+    desc: 'Fire-rated and PED-certified service valve with double isolation valve technology. Made with NACE-compliant 4130 or Duplex stainless steel: the lightest available service valve that meets the highest safety standards.',
     href: '/products/corrosion-monitoring',
     highlights: [
       'Fire-rated & PED-certified',
@@ -58,7 +58,7 @@ const focusAreas = [
   },
   {
     title: 'Deliver results you can trust',
-    body: 'The consequences of corrosion are significant - for safety, the environment, and the bottom line. Our technology is certified and proven.',
+    body: 'The consequences of corrosion are significant: for safety, the environment, and the bottom line. Our technology is certified and proven.',
   },
   {
     title: 'Find and solve the most complex problems',
@@ -92,7 +92,7 @@ export default function InnovationPage() {
               Innovation
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
-              Our latest technologies, available today. Innovation is core to who we are - because
+              Our latest technologies, available today. Innovation is core to who we are, because
               we&apos;re closer to customers, we&apos;re building what the industry needs most.
             </p>
           </div>

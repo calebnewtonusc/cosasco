@@ -175,7 +175,7 @@ function Sidebar() {
             '30-day return window from date of delivery',
             'Warranty claims are processed at no charge',
             'Repair estimates provided before any work begins',
-            'Ship prepaid - write RMA number on outside of package',
+            'Ship prepaid: write RMA number on outside of package',
             'Expected turnaround: 2–3 business weeks',
           ].map((note) => (
             <li key={note} className="flex items-start gap-2.5 text-sm text-[#566677] leading-snug">
@@ -263,7 +263,7 @@ function Step3({ state, dispatch }: { state: FormState; dispatch: React.Dispatch
         <textarea
           id="issueDescription"
           rows={5}
-          placeholder="Describe the issue - symptoms, when it started, any error readings, and troubleshooting already attempted..."
+          placeholder="Describe the issue, noting symptoms, when it started, any error readings, and troubleshooting already attempted..."
           value={state.issueDescription}
           onChange={(e) => set('issueDescription')(e.target.value)}
           required

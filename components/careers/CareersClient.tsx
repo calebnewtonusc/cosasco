@@ -47,12 +47,12 @@ const DEPT_FILTERS = ['All', 'Engineering', 'Sales', 'Operations', 'Finance', 'H
 
 const jobs = [
   { title: 'Corrosion Application Engineer', dept: 'Engineering', location: 'Santa Fe Springs, CA' },
-  { title: 'Sales Engineer - EMEA', dept: 'Sales', location: 'London, UK' },
+  { title: 'Sales Engineer: EMEA', dept: 'Sales', location: 'London, UK' },
   { title: 'Field Service Technician', dept: 'Field Services', location: 'Houston, TX' },
-  { title: 'Product Manager - Corrosion Monitoring', dept: 'Engineering', location: 'Santa Fe Springs, CA' },
-  { title: 'Regional Sales Manager - Asia Pacific', dept: 'Sales', location: 'Singapore' },
+  { title: 'Product Manager: Corrosion Monitoring', dept: 'Engineering', location: 'Santa Fe Springs, CA' },
+  { title: 'Regional Sales Manager: Asia Pacific', dept: 'Sales', location: 'Singapore' },
   { title: 'Quality Assurance Engineer', dept: 'Engineering', location: 'Santa Fe Springs, CA' },
-  { title: 'Account Manager - Oil & Gas', dept: 'Sales', location: 'Calgary, Canada' },
+  { title: 'Account Manager: Oil & Gas', dept: 'Sales', location: 'Calgary, Canada' },
   { title: 'Operations Coordinator', dept: 'Operations', location: 'Santa Fe Springs, CA' },
   { title: 'Financial Analyst', dept: 'Finance', location: 'Santa Fe Springs, CA' },
   { title: 'HR Business Partner', dept: 'HR', location: 'Santa Fe Springs, CA' },
@@ -101,7 +101,7 @@ const benefits = [
   {
     icon: <Baby className="w-6 h-6 text-white" />,
     title: '14 Weeks Paid Parental Leave',
-    desc: 'Cosasco offers 14 weeks of fully paid maternity and paternity leave - one of the most generous parental leave policies in the industry.',
+    desc: 'Cosasco offers 14 weeks of fully paid maternity and paternity leave, one of the most generous parental leave policies in the industry.',
     featured: true,
   },
   {
@@ -113,7 +113,7 @@ const benefits = [
   {
     icon: <BriefcaseBusiness className="w-6 h-6 text-[#f4a65d]" />,
     title: 'Global Career Opportunities',
-    desc: "As part of the Halma Group - 45+ companies worldwide - your career path extends far beyond Cosasco.",
+    desc: "As part of the Halma Group (45+ companies worldwide), your career path extends far beyond Cosasco.",
     featured: false,
   },
 ]

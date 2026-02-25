@@ -80,7 +80,7 @@ export default function PetrochemicalPage() {
               Petrochemical Solutions
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
-              Refineries, cracking units, and heat exchangers operating at extreme temperatures -
+              Refineries, cracking units, and heat exchangers operating at extreme temperatures:
               Cosasco high-temperature monitoring systems protect your most critical assets
               without interrupting process continuity.
             </p>

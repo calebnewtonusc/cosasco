@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 const challenges = [
   {
     title: 'CO₂/H₂S Corrosion at Low Points',
-    body: 'Carbon dioxide and hydrogen sulfide dissolved in natural gas streams form carbonic and sulfuric acids when they contact liquid water accumulating at pipeline low points and dead legs. Sweet corrosion from CO₂ and sour corrosion from H₂S create aggressive localized attack that accelerates rapidly in stagnant accumulations - ER probes positioned at known low points deliver continuous corrosion rate data before integrity is compromised.',
+    body: 'Carbon dioxide and hydrogen sulfide dissolved in natural gas streams form carbonic and sulfuric acids when they contact liquid water accumulating at pipeline low points and dead legs. Sweet corrosion from CO₂ and sour corrosion from H₂S create aggressive localized attack that accelerates rapidly in stagnant accumulations; ER probes positioned at known low points deliver continuous corrosion rate data before integrity is compromised.',
   },
   {
     title: 'Water Dropout and Condensation',
-    body: 'As high-pressure gas cools along a transmission line, water condenses and drops out of the gas stream, accumulating at low-elevation points and in slug catchers. This liquid water - often containing dissolved CO₂, H₂S, and chlorides - creates localized corrosion cells that cannot be detected by routine inline inspection in gas-filled lines. Real-time monitoring at known water accumulation points is essential for proactive integrity management.',
+    body: 'As high-pressure gas cools along a transmission line, water condenses and drops out of the gas stream, accumulating at low-elevation points and in slug catchers. This liquid water, often containing dissolved CO₂, H₂S, and chlorides, creates localized corrosion cells that cannot be detected by routine inline inspection in gas-filled lines. Real-time monitoring at known water accumulation points is essential for proactive integrity management.',
   },
   {
     title: 'High-Pressure Access for In-Service Monitoring',
@@ -36,7 +36,7 @@ const products = [
   },
   {
     name: 'Microcor® Wireless Loggers',
-    desc: 'Real-time corrosion data from remote pipeline monitoring points - SCADA-compatible, cloud-connected, and certified for hazardous gas areas (Class I, Division 1).',
+    desc: 'Real-time corrosion data from remote pipeline monitoring points: SCADA-compatible, cloud-connected, and certified for hazardous gas areas (Class I, Division 1).',
     href: '/products/data-acquisition',
   },
   {
@@ -90,7 +90,7 @@ export default function GasTransmissionPage() {
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
               Internal corrosion monitoring and chemical injection for high-pressure natural
-              gas transmission pipelines - detecting CO₂, H₂S, and water dropout corrosion
+              gas transmission pipelines: detecting CO₂, H₂S, and water dropout corrosion
               at the points that matter before integrity is compromised.
             </p>
           </div>

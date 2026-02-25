@@ -52,7 +52,7 @@ const steps = [
   {
     id: 'need',
     question: 'What is your primary monitoring need?',
-    subtitle: 'Select the closest match - you can combine solutions later.',
+    subtitle: 'Select the closest match; you can combine solutions later.',
     options: [
       { id: 'corrosion-rate', label: 'Real-Time Corrosion Rate', icon: Activity, desc: 'Instantaneous ER / LPR measurement' },
       { id: 'weight-loss', label: 'Periodic Weight-Loss Analysis', icon: Shield, desc: 'Coupon retrieval & lab analysis' },
@@ -86,7 +86,7 @@ function getRecommendation(answers: Answers): Recommendation {
     return {
       title: 'ER Probe System with Microcor® Wireless Logger',
       description:
-        'For continuous, real-time corrosion rate data we recommend an Electrical Resistance (ER) probe installed in a Cosasco access fitting, paired with a Microcor® Wireless logger. ER probes operate in any fluid - conductive or non-conductive - making them ideal for hydrocarbon and gas service.',
+        'For continuous, real-time corrosion rate data we recommend an Electrical Resistance (ER) probe installed in a Cosasco access fitting, paired with a Microcor® Wireless logger. ER probes operate in any fluid (conductive or non-conductive), making them ideal for hydrocarbon and gas service.',
       products: ['ER Probe (flush-mount or retractable)', 'Standard Access Fitting (1" or 2")', 'Microcor® Wireless Logger', 'CDO (Cosasco Data Online) Software'],
       href: '/products/corrosion-monitoring',
       secondaryHref: '/products/data-acquisition',
@@ -130,7 +130,7 @@ function getRecommendation(answers: Answers): Recommendation {
     return {
       title: 'Microcor® Wireless Data Acquisition System',
       description:
-        'Microcor® Wireless is Cosasco\'s flagship wireless data acquisition platform. Loggers connect to existing ER probes and sensors, transmitting corrosion data over licensed radio or cellular to CDO (Cosasco Data Online) - no wiring required in hazardous areas.',
+        'Microcor® Wireless is Cosasco\'s flagship wireless data acquisition platform. Loggers connect to existing ER probes and sensors, transmitting corrosion data over licensed radio or cellular to CDO (Cosasco Data Online), with no wiring required in hazardous areas.',
       products: ['Microcor® Wireless Logger (IS-rated)', 'CDO (Cosasco Data Online) Cloud Dashboard', 'SCADA Integration Module', 'CDO Analysis Software'],
       href: '/products/data-acquisition',
       secondaryHref: '/software',

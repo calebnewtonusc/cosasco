@@ -14,7 +14,7 @@ const articles = [
     category: 'Technical Guide',
     title: 'Corrosion Monitoring Fundamentals: ER Probes vs. LPR vs. Coupons',
     excerpt:
-      'Understanding the core differences between electrical resistance, linear polarization, and weight-loss methods - and when to use each.',
+      'Understanding the core differences between electrical resistance, linear polarization, and weight-loss methods, and when to use each.',
     author: 'Cosasco Engineering Team',
     date: 'Feb 12, 2026',
     readTime: '8 min read',

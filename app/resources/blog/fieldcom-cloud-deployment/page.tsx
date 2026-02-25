@@ -3,12 +3,12 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight, CheckCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'FieldCom Cloud in 2026: What\'s New and How Operators Are Using It | Cosasco Blog',
+  title: 'CDO Cloud Platform: Real-Time Corrosion Data Anywhere | Cosasco Blog',
   description:
-    'New features, integration improvements, and real-world deployments from the past year of FieldCom Cloud development.',
+    'How CDO (Cosasco Data Online) delivers real-time corrosion monitoring data from field sensors to any device — and what\'s new in 2025–2026.',
 }
 
-export default function FieldComCloudPage() {
+export default function CDOCloudPlatformPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* HERO */}
@@ -19,13 +19,13 @@ export default function FieldComCloudPage() {
             <span className="mx-1">/</span>
             <Link href="/resources/blog" className="hover:text-[#f4a65d] transition-colors">Blog</Link>
             <span className="mx-1">/</span>
-            <span className="text-white">FieldCom Cloud 2026</span>
+            <span className="text-white">CDO Cloud Platform</span>
           </nav>
           <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-[#ede9fe] text-[#5b21b6] mb-5">
             Product Update
           </span>
           <h1 className="text-white font-black text-4xl md:text-5xl leading-tight max-w-4xl mb-5">
-            FieldCom Cloud in 2026: What&apos;s New and How Operators Are Using It
+            CDO Cloud Platform: Real-Time Corrosion Data Anywhere
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-[#94aabb]">
             <span className="font-semibold text-white">Cosasco Product Team</span>
@@ -43,13 +43,13 @@ export default function FieldComCloudPage() {
           <article className="lg:col-span-2">
             <div className="text-[#566677] leading-relaxed space-y-6 text-[1.05rem]">
               <p className="text-xl text-[#0f2a4a] font-semibold leading-snug">
-                FieldCom Cloud has seen significant development over 2025, with a focus on three
-                areas: deeper integration with SCADA and historian platforms, improved anomaly
-                detection, and expanded mobile capabilities for remote inspection workflows.
+                CDO (Cosasco Data Online) has seen significant development over 2025, with a focus
+                on three areas: deeper integration with SCADA and historian platforms, improved
+                anomaly detection, and expanded mobile capabilities for remote inspection workflows.
               </p>
 
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
-                What&apos;s New in 2025–2026
+                What&apos;s New in CDO 2025–2026
               </h2>
               <div className="space-y-4">
                 {[
@@ -108,26 +108,26 @@ export default function FieldComCloudPage() {
               </div>
 
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
-                How Operators Are Using It
+                How Operators Are Using CDO
               </h2>
               <p>
-                Three deployment patterns have emerged as the most common use cases for FieldCom
-                Cloud in 2025:
+                Three deployment patterns have emerged as the most common use cases for CDO
+                (Cosasco Data Online) in 2025:
               </p>
 
               <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-6 space-y-5">
                 {[
                   {
                     use: 'Multi-field fleet management',
-                    body: 'Operators with 10+ pipeline segments now use the fleet map as the primary morning dashboard. Status is color-coded by corrosion rate severity, enabling supervisors to prioritize field visits without reviewing raw data from each site.',
+                    body: 'Operators with 10+ pipeline segments now use the CDO fleet map as the primary morning dashboard. Status is color-coded by corrosion rate severity, enabling supervisors to prioritize field visits without reviewing raw data from each site.',
                   },
                   {
                     use: 'Automated inhibitor dose adjustment',
-                    body: 'Via the Modbus integration, several Gulf of Mexico operators have implemented closed-loop injection control. FieldCom monitors LPR rate continuously and sends set-point adjustments to injection pumps, reducing both chemical cost and human error.',
+                    body: 'Via the Modbus integration, several Gulf of Mexico operators have implemented closed-loop injection control. CDO monitors LPR rate continuously via the Microcor® Wireless Transmitter and sends set-point adjustments to injection pumps, reducing both chemical cost and human error.',
                   },
                   {
                     use: 'Regulatory compliance reporting',
-                    body: 'The PDF/Excel export in v3.7 is widely used to generate PHMSA and internal quarterly integrity reports directly from the software. Audit trails for inspection records and anomaly responses satisfy regulatory recordkeeping requirements without additional documentation effort.',
+                    body: 'The PDF/Excel export in v3.7 is widely used to generate PHMSA and internal quarterly integrity reports directly from the CDO portal. Audit trails for inspection records and anomaly responses satisfy regulatory recordkeeping requirements without additional documentation effort.',
                   },
                 ].map(({ use, body }) => (
                   <div key={use} className="border-l-4 border-[#f4a65d] pl-4">
@@ -141,13 +141,13 @@ export default function FieldComCloudPage() {
                 What&apos;s Coming in 2026
               </h2>
               <p>
-                The FieldCom roadmap for 2026 includes three major initiatives:
+                The CDO roadmap for 2026 includes three major initiatives:
               </p>
               <ul className="space-y-2">
                 {[
                   'AI-assisted corrosion rate prediction: regression models trained on historical data to project 30/60/90-day cumulative loss and flag sites approaching risk thresholds before they exceed them.',
-                  'Digital twin integration: export of FieldCom sensor data into ASME B31.8S and DNV pipeline integrity management models via standardized API.',
-                  'Expanded hardware support: native drivers for third-party ER/LPR transmitters from non-Cosasco manufacturers, allowing FieldCom to serve as the unified data management layer for multi-vendor programs.',
+                  'Digital twin integration: export of CDO sensor data into ASME B31.8S and DNV pipeline integrity management models via standardized API.',
+                  'Expanded hardware support: native drivers for third-party ER/LPR transmitters, allowing CDO to serve as the unified data management layer for multi-vendor corrosion monitoring programs.',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm">
                     <span className="text-[#f4a65d] font-bold flex-shrink-0 mt-0.5">→</span>
@@ -157,13 +157,13 @@ export default function FieldComCloudPage() {
               </ul>
 
               <div className="bg-[#0f2a4a] rounded-xl p-6 mt-8">
-                <p className="text-white font-black text-lg mb-2">FieldCom Cloud — Free 30-Day Trial</p>
+                <p className="text-white font-black text-lg mb-2">CDO (Cosasco Data Online) — Free 30-Day Trial</p>
                 <p className="text-[#94aabb] text-sm leading-relaxed mb-4">
-                  FieldCom Cloud is available as a hosted SaaS subscription starting at $195/month
-                  for up to 10 monitoring points. On-premises deployment is also available.
+                  CDO is available as a hosted SaaS subscription starting at $195/month for up to
+                  10 monitoring points. On-premises deployment is also available.
                 </p>
                 <Link href="/software" className="inline-block bg-[#f4a65d] hover:bg-[#d4892a] text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm">
-                  Learn More About FieldCom
+                  Learn More About CDO
                 </Link>
               </div>
             </div>
@@ -175,10 +175,10 @@ export default function FieldComCloudPage() {
               <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#566677] mb-4">Related Resources</p>
               <ul className="space-y-3">
                 {[
-                  { href: '/software', label: 'FieldCom Software Overview' },
+                  { href: '/software', label: 'CDO Software Overview' },
                   { href: '/software/data-key', label: 'Data Key Activation' },
                   { href: '/software/legacy', label: 'Legacy Software Downloads' },
-                  { href: '/resources/webinar/fieldcom-cloud-intro', label: 'FieldCom Webinar Recording' },
+                  { href: '/resources/webinar/cdo-cloud-intro', label: 'CDO Platform Webinar Recording' },
                 ].map((item) => (
                   <li key={item.href}>
                     <Link href={item.href} className="text-[#0f2a4a] text-sm font-medium hover:text-[#f4a65d] transition-colors flex items-center gap-2">

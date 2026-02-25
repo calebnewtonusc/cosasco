@@ -94,7 +94,7 @@ const resources: Resource[] = [
   {
     id: 8,
     title: 'Pipeline Integrity Case Study: Midstream Operator',
-    description: 'How a major midstream operator deployed Cosasco ER probes and FieldCom wireless systems to reduce corrosion-related incidents by 94% across 1,200 miles of transmission pipeline.',
+    description: 'How a major midstream operator deployed Cosasco ER probes and Microcor® wireless systems to reduce corrosion-related incidents by 94% across 1,200 miles of transmission pipeline.',
     type: 'Case Study',
     industries: ['Oil & Gas'],
     pages: 8,
@@ -368,7 +368,7 @@ export default function ResourcesPage() {
                 year: '2026',
                 time: '2:00 PM PT',
                 duration: '45 min',
-                title: 'FieldCom Cloud: Live Product Demo & Q&A',
+                title: 'CDO Platform: Live Product Demo & Q&A',
                 presenter: 'Cosasco Software Team',
                 badge: 'Registration Open',
                 badgeClass: 'bg-[#d1fae5] text-[#065f46]',

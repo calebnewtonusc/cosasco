@@ -35,7 +35,7 @@ const products = [
     href: '/products/chemical-injection',
   },
   {
-    name: 'FieldCom Wireless Loggers',
+    name: 'Microcor® Wireless Loggers',
     desc: 'Real-time corrosion data from remote pipeline monitoring points — SCADA-compatible, cloud-connected, and certified for hazardous gas areas (Class I, Division 1).',
     href: '/products/data-acquisition',
   },
@@ -49,7 +49,7 @@ const products = [
 const capabilities = [
   'Continuous ER probe monitoring at pipeline low points and water dropout zones',
   'Chemical injection for corrosion inhibitor and biocide delivery into gas streams',
-  'SCADA and FieldCom wireless integration for remote monitoring and alarming',
+  'SCADA and Microcor® wireless integration for remote monitoring and alarming',
   'Retractable probe access for in-service retrieval under full operating pressure',
   'Compliance with API 570 pipeline inspection and NACE SP0106 internal corrosion standards',
   'Full material traceability and pressure-rated documentation for all pressure-boundary components',

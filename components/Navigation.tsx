@@ -80,7 +80,6 @@ const productsDropdown = [
     icon: BarChart2,
     href: '/products/data-acquisition',
     items: [
-      { name: 'FieldCom Systems', description: 'Wireless IS-rated loggers', href: '/products/fieldcom' },
       { name: 'Data Loggers', description: 'Wired & multiplexed systems', href: '/products/data-acquisition' },
       { name: 'Cloud Analytics', description: 'Real-time dashboards', href: '/products/data-acquisition' },
     ],
@@ -97,7 +96,7 @@ const companyDropdown = [
 
 const softwareDropdown = [
   { name: 'Software Overview', href: '/software' },
-  { name: 'FieldCom Platform', href: '/products/fieldcom' },
+  { name: 'CDO (Cosasco Data Online)', href: '/products/data-acquisition' },
   { name: 'Data Key Activation', href: '/software/data-key' },
   { name: 'Device Length Calculator', href: '/tools/device-length-calculator' },
   { name: 'Legacy Software', href: '/software/legacy' },

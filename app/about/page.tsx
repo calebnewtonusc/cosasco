@@ -73,7 +73,7 @@ const timeline = [
     year: '2010s',
     title: 'Digital & Wireless Monitoring',
     description:
-      'FieldCom wireless monitoring solutions and cloud-connected data acquisition platforms extended Cosasco\'s reach to remote and offshore assets, enabling real-time corrosion management across geographically distributed infrastructure.',
+      'Microcor® wireless monitoring solutions and CDO-connected data acquisition platforms extended Cosasco\'s reach to remote and offshore assets, enabling real-time corrosion management across geographically distributed infrastructure.',
   },
   {
     year: 'Today',

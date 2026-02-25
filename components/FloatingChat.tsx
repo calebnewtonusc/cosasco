@@ -14,7 +14,7 @@ const QUICK_QUESTIONS = [
   'Which industries do you serve?',
   'ER probe vs corrosion coupon?',
   'How do I request a quote?',
-  'Tell me about FieldCom 5',
+  'Tell me about Microcor® CDO systems',
 ]
 
 // ── Simple markdown renderer ─────────────────────────────────────────────────

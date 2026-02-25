@@ -40,7 +40,7 @@ const products = [
     href: '/products/chemical-injection',
   },
   {
-    name: 'FieldCom Wireless Loggers',
+    name: 'Microcor® Wireless Loggers',
     desc: 'Real-time probe data from remote tailings lines and in-pit monitoring points transmitted wirelessly to SCADA — no cable runs required across active mine areas.',
     href: '/products/data-acquisition',
   },

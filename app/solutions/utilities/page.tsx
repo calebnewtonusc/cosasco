@@ -41,7 +41,7 @@ const products = [
   },
   {
     name: 'Automated Data Loggers',
-    desc: 'FieldCom wireless loggers for remote corrosion monitoring across geographically distributed utility assets. SCADA-compatible with configurable alarm thresholds.',
+    desc: 'Microcor® wireless loggers for remote corrosion monitoring across geographically distributed utility assets. SCADA-compatible with configurable alarm thresholds.',
     href: '/products/data-acquisition',
   },
 ]

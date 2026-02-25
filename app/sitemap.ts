@@ -26,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/products/er-probe`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/products/access-fittings`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/products/corrosion-coupons`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${BASE_URL}/products/fieldcom`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/products/cdo-systems`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/products/quill-assembly`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/products/ut-sensor`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     // Solutions sub-pages
@@ -48,14 +48,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/resources/blog/corrosion-monitoring-fundamentals`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/resources/blog/h2s-sour-service-integrity`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/resources/blog/chemical-injection-optimization`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${BASE_URL}/resources/blog/fieldcom-cloud-deployment`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/resources/blog/cdo-cloud-deployment`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     // Resources — case studies
     { url: `${BASE_URL}/resources/case-studies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/resources/case-studies/north-sea-pipeline`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/resources/case-studies/gulf-coast-refinery`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/resources/case-studies/water-injection-platform`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     // News articles
-    { url: `${BASE_URL}/news/fieldcom-5-launch`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/news/microcor-wireless-update`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/news/retractable-er-probe`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/news/industry-recognition-2025`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     // Contact & support

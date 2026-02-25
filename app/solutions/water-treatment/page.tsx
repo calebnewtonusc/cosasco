@@ -40,7 +40,7 @@ const products = [
     href: '/products/chemical-injection',
   },
   {
-    name: 'FieldCom Data Loggers',
+    name: 'Microcor® Data Loggers',
     desc: 'Wireless and wired data loggers for remote corrosion monitoring across geographically distributed water infrastructure without dedicated fiber or SCADA wiring.',
     href: '/products/data-acquisition',
   },

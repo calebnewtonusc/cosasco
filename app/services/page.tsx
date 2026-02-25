@@ -39,11 +39,11 @@ const mainServices = [
     title: 'Installation & Commissioning',
     tagline: 'Certified field teams. Zero process disruption.',
     description:
-      'From under-pressure hot-tap work to full FieldCom wireless commissioning, Cosasco field engineers execute to the highest safety and quality standards — delivering production-ready monitoring systems from day one.',
+      'From under-pressure hot-tap work to full Microcor® wireless commissioning, Cosasco field engineers execute to the highest safety and quality standards — delivering production-ready monitoring systems from day one.',
     bullets: [
       'Hot-tap access fitting installation at full operating pressure',
       'Under-pressure probe and coupon insertion to Cosasco procedures',
-      'FieldCom wireless logger network configuration and baseline acquisition',
+      'Microcor® wireless logger network configuration and baseline acquisition',
       'PTW, LOTO, and site HSE procedure compliance',
       'Post-commissioning data quality verification and handover report',
     ],
@@ -99,7 +99,7 @@ const processSteps = [
   {
     step: 5,
     title: 'Commissioning',
-    desc: 'Instruments are verified, baseline measurements established, and FieldCom wireless networks configured. Handover documentation is issued at completion.',
+    desc: 'Instruments are verified, baseline measurements established, and Microcor® wireless networks configured. Handover documentation is issued at completion.',
   },
   {
     step: 6,

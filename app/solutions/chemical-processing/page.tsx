@@ -15,7 +15,7 @@ const challenges = [
   },
   {
     title: 'PSM Compliance & Audit Trails',
-    body: 'Process Safety Management regulations require documented corrosion monitoring programs with full audit trails for covered chemicals above threshold quantities. Cosasco corrosion coupon programs with NACE-compliant analysis reports and Cosasco\'s FieldCom data logging system provide the documented corrosion rate history that PSM inspections and management of change reviews demand.',
+    body: 'Process Safety Management regulations require documented corrosion monitoring programs with full audit trails for covered chemicals above threshold quantities. Cosasco corrosion coupon programs with NACE-compliant analysis reports and Cosasco\'s CDO data logging system provide the documented corrosion rate history that PSM inspections and management of change reviews demand.',
   },
   {
     title: 'Vapor-Phase & Overhead Condensate Attack',
@@ -41,7 +41,7 @@ const products = [
   },
   {
     name: 'Data Acquisition Systems',
-    desc: 'FieldCom wireless loggers and wired data acquisition systems for continuous corrosion monitoring with full audit trail logging for PSM compliance documentation.',
+    desc: 'Microcor® wireless loggers and wired data acquisition systems for continuous corrosion monitoring with full audit trail logging for PSM compliance documentation.',
     href: '/products/data-acquisition',
   },
 ]
@@ -132,7 +132,7 @@ export default function ChemicalProcessingPage() {
                 </h4>
                 <p className="text-[#8ab4d4] text-sm leading-relaxed mb-8">
                   A Texas specialty chemical manufacturer operating under OSHA PSM deployed
-                  Cosasco Hastelloy ER probes and FieldCom data loggers at 8 monitoring
+                  Cosasco Hastelloy ER probes and Microcor® data loggers at 8 monitoring
                   points across their HCl and sulfuric acid production and storage areas.
                   The program provided complete electronic audit trails that satisfied all
                   OSHA corrosion monitoring documentation requirements during their

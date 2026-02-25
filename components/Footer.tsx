@@ -22,7 +22,7 @@ const productLinks = [
   { label: 'Corrosion Coupons', href: '/products/corrosion-coupons' },
   { label: 'Erosion Monitoring', href: '/products/erosion-monitoring' },
   { label: 'Chemical Injection', href: '/products/chemical-injection' },
-  { label: 'FieldCom Systems', href: '/products/fieldcom' },
+  { label: 'Microcor® CDO Systems', href: '/products/cdo-systems' },
   { label: 'View All Products', href: '/products' },
 ]
 

@@ -26,7 +26,7 @@ const challenges = [
 const products = [
   {
     name: 'ER Probe Systems',
-    desc: 'Continuous real-time corrosion-rate measurement in high-pressure sour service. Retractable and fixed configurations, compatible with FieldCom wireless loggers.',
+    desc: 'Continuous real-time corrosion-rate measurement in high-pressure sour service. Retractable and fixed configurations, compatible with Microcor® wireless loggers.',
     href: '/products/corrosion-monitoring',
   },
   {
@@ -35,7 +35,7 @@ const products = [
     href: '/products/chemical-injection',
   },
   {
-    name: 'FieldCom Wireless Loggers',
+    name: 'Microcor® Wireless Loggers',
     desc: 'Real-time corrosion data from remote pipeline monitoring points — SCADA-compatible, cloud-connected, and hazardous-area certified.',
     href: '/products/data-acquisition',
   },

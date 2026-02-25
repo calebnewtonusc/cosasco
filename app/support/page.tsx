@@ -7,8 +7,8 @@ import SupportFAQ from '@/components/SupportFAQ'
 
 const downloads = [
   {
-    name: 'FieldCom Desktop',
-    version: 'v5.0',
+    name: 'Cosasco Data Online (CDO)',
+    version: 'v3.2',
     platform: 'Windows 10/11',
     size: '245 MB',
     buttonLabel: 'Download',
@@ -23,7 +23,7 @@ const downloads = [
     buttonClass: 'bg-[#0f2a4a] text-white hover:bg-[#1a3d66]',
   },
   {
-    name: 'FieldCom Mobile',
+    name: 'CDO Mobile',
     version: '',
     platform: 'iOS — App Store',
     size: null,
@@ -31,7 +31,7 @@ const downloads = [
     buttonClass: 'bg-black text-white hover:bg-[#222]',
   },
   {
-    name: 'FieldCom Mobile',
+    name: 'CDO Mobile',
     version: '',
     platform: 'Android — Play Store',
     size: null,
@@ -240,7 +240,7 @@ export default function SupportPage() {
                 </div>
                 {item.platform.includes('App Store') ? (
                   <a
-                    href="https://apps.apple.com/search?term=fieldcom+cosasco"
+                    href="https://apps.apple.com/search?term=cdo+cosasco"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`block w-full text-center rounded-lg px-4 py-2.5 text-xs font-semibold transition-colors ${item.buttonClass}`}
@@ -249,7 +249,7 @@ export default function SupportPage() {
                   </a>
                 ) : item.platform.includes('Play Store') ? (
                   <a
-                    href="https://play.google.com/store/search?q=fieldcom+cosasco"
+                    href="https://play.google.com/store/search?q=cdo+cosasco"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`block w-full text-center rounded-lg px-4 py-2.5 text-xs font-semibold transition-colors ${item.buttonClass}`}
@@ -365,7 +365,7 @@ export default function SupportPage() {
                       type="text"
                       value={form.product}
                       onChange={set('product')}
-                      placeholder="e.g. ER Probe Model 7012, FieldCom 3.0"
+                      placeholder="e.g. ER Probe Model 7012, Microcor® Wireless"
                       className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30"
                     />
                   </div>

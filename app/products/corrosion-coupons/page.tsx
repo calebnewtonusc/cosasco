@@ -9,7 +9,7 @@ import Link from "next/link";
 import {
   ChevronRight,
   CheckCircle,
-  ShoppingCart,
+  MessageSquare,
   FileText,
   Phone,
   Mail,
@@ -211,7 +211,7 @@ export default function CorrosionCouponsPage() {
 
             <div className="bg-[#f4a65d] rounded-xl p-6 text-white">
               <div className="flex items-center gap-3 mb-4">
-                <ShoppingCart size={24} />
+                <MessageSquare size={24} />
                 <span className="font-bold text-lg">Request a Quote</span>
               </div>
               <p className="text-orange-100 text-sm mb-5 leading-relaxed">
@@ -241,7 +241,7 @@ export default function CorrosionCouponsPage() {
               <h4 className="font-bold text-[#1e2b3a] mb-3">Technical Support</h4>
               <div className="flex items-center gap-2.5 text-sm text-[#566677] mb-2">
                 <Phone size={15} className="text-[#0f2a4a] flex-shrink-0" />
-                +1 (562) 595-5671
+                +1 (562) 949-0123
               </div>
               <div className="flex items-center gap-2.5 text-sm text-[#566677]">
                 <Mail size={15} className="text-[#0f2a4a] flex-shrink-0" />

@@ -16,7 +16,7 @@ export default function GlobalError({
 
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "'Mukta Mahee', sans-serif", background: '#ffffff' }}>
+      <body style={{ margin: 0, fontFamily: "'Inter', sans-serif", background: '#ffffff' }}>
         <div
           style={{
             minHeight: '100vh',

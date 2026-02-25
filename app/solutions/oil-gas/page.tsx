@@ -169,6 +169,79 @@ export default function OilGasPage() {
             </section>
           </div>
 
+
+            {/* Upstream */}
+            <section id="upstream" className="scroll-mt-24">
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Upstream</p>
+              <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-4">Upstream Oil &amp; Gas</h2>
+              <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-7">
+                <p className="text-[#566677] text-sm leading-relaxed mb-4">
+                  Wellheads, production tubing, separators, and water injection systems operate in aggressive sour service from day one. Cosasco retractable ER probes and chemical injection quills provide real-time corrosion intelligence and precise inhibitor delivery at every critical point — from the wellhead to the production manifold.
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    'Retractable ER probes for high-pressure sour wellhead service',
+                    'Chemical injection quills with integral check valves for H₂S and CO₂ scavengers',
+                    'Downhole Corrosion Monitoring System (DCMS™) for production tubing integrity',
+                    'SCADA-compatible Microcor® wireless loggers for remote field deployment',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-[#566677]">
+                      <CheckCircle className="w-4 h-4 text-[#f4a65d] flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            {/* Midstream */}
+            <section id="midstream" className="scroll-mt-24">
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Midstream</p>
+              <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-4">Midstream &amp; Pipelines</h2>
+              <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-7">
+                <p className="text-[#566677] text-sm leading-relaxed mb-4">
+                  Long-haul transmission lines, compressor stations, and gas processing facilities span thousands of miles and operate under continuous regulatory scrutiny. Cosasco access fittings, ER probe networks, and Microcor® wireless infrastructure deliver the density of monitoring data required for PHMSA-compliant integrity management programs.
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    'Hot-tap weld-on access fittings for non-shutdown probe installation on live pipelines',
+                    'Fixed and retractable ER probes rated for ANSI Class 1500 and above',
+                    'Microcor® wireless transmitters for cost-effective remote monitoring across dispersed stations',
+                    'Inhibitor injection quills engineered for full-bore high-velocity gas service',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-[#566677]">
+                      <CheckCircle className="w-4 h-4 text-[#f4a65d] flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            {/* Downstream */}
+            <section id="downstream" className="scroll-mt-24">
+              <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Downstream</p>
+              <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-4">Downstream &amp; Refining</h2>
+              <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-7">
+                <p className="text-[#566677] text-sm leading-relaxed mb-4">
+                  Crude distillation units, hydrotreaters, FCC units, and storage tanks present some of the most complex corrosion environments in the industry — high temperatures, naphthenic acid, ammonium bisulfide, and chloride attack all require targeted monitoring strategies. Cosasco provides fixed ER probes, corrosion coupons, and LPR probes specifically qualified for refinery service.
+                </p>
+                <ul className="space-y-2">
+                  {[
+                    'Fixed process ER probes for CDU overhead and hydroprocessing units',
+                    'LPR probes for aqueous phase corrosion rate measurement in refinery streams',
+                    'Corrosion coupon assemblies for heat exchanger and storage tank monitoring',
+                    'Chemical injection systems for neutralizer and filming-amine delivery in overhead circuits',
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2 text-sm text-[#566677]">
+                      <CheckCircle className="w-4 h-4 text-[#f4a65d] flex-shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
           {/* ── SIDEBAR (col-span-1) ── */}
           <aside className="lg:col-span-1 mt-12 lg:mt-0 space-y-6">
 

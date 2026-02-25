@@ -9,7 +9,7 @@ import {
   X,
   Phone,
   Search,
-  ShoppingCart,
+  MessageSquare,
   Shield,
   Activity,
   Droplet,
@@ -26,13 +26,12 @@ import {
   Pickaxe,
   Gauge,
   Settings2,
-  MapPin,
 } from 'lucide-react'
 
 const industriesDropdown = [
-  { name: 'Upstream Oil & Gas', href: '/solutions/oil-gas', icon: Flame, desc: 'Production, injection & wellhead' },
-  { name: 'Midstream / Pipelines', href: '/solutions/oil-gas', icon: Route, desc: 'Transmission & gas compression' },
-  { name: 'Downstream / Refining', href: '/solutions/oil-gas', icon: FlaskConical, desc: 'Process units & storage tanks' },
+  { name: 'Upstream Oil & Gas', href: '/solutions/oil-gas#upstream', icon: Flame, desc: 'Production, injection & wellhead' },
+  { name: 'Midstream / Pipelines', href: '/solutions/oil-gas#midstream', icon: Route, desc: 'Transmission & gas compression' },
+  { name: 'Downstream / Refining', href: '/solutions/oil-gas#downstream', icon: FlaskConical, desc: 'Process units & storage tanks' },
   { name: 'Petrochemical', href: '/solutions/petrochemical', icon: Atom, desc: 'Reactors, columns & transfer lines' },
   { name: 'Water Treatment', href: '/solutions/water-treatment', icon: Droplets, desc: 'Distribution & treatment systems' },
   { name: 'Chemical Processing', href: '/solutions/chemical-processing', icon: TestTube, desc: 'Aggressive media environments' },
@@ -91,6 +90,7 @@ const companyDropdown = [
   { name: 'Leadership', href: '/about#leadership', desc: 'Meet our team' },
   { name: 'Careers', href: '/careers', desc: 'Join our global team' },
   { name: 'News & Events', href: '/news', desc: 'Latest updates' },
+  { name: 'Find A Rep', href: '/contact/find-a-rep', desc: 'Locate your regional rep' },
   { name: 'Contact Us', href: '/contact', desc: 'Get in touch' },
 ]
 
@@ -103,7 +103,7 @@ const softwareDropdown = [
   { name: 'Partner Payment', href: '/software/partner-payment' },
 ]
 
-type OpenMenu = 'industries' | 'products' | 'company' | 'software' | null
+type OpenMenu = 'solutions' | 'products' | 'about' | 'software' | null
 
 // ── Nav state management ───────────────────────────────────────────────────────
 
@@ -325,15 +325,15 @@ function MobileMenu({
         {/* Industries accordion */}
         <button
           className="w-full flex items-center justify-between px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-          onClick={() => setMobileAccordion(mobileAccordion === 'industries' ? null : 'industries')}
+          onClick={() => setMobileAccordion(mobileAccordion === 'solutions' ? null : 'solutions')}
         >
-          Industries
+          Solutions
           <ChevronDown
             size={15}
-            className={`transition-transform duration-200 text-[#566677] ${mobileAccordion === 'industries' ? 'rotate-180 text-[#f4a65d]' : ''}`}
+            className={`transition-transform duration-200 text-[#566677] ${mobileAccordion === 'solutions' ? 'rotate-180 text-[#f4a65d]' : ''}`}
           />
         </button>
-        {mobileAccordion === 'industries' && (
+        {mobileAccordion === 'solutions' && (
           <div className="pl-4 pb-2 space-y-0.5">
             {industriesDropdown.map((ind) => {
               const Icon = ind.icon
@@ -419,13 +419,7 @@ function MobileMenu({
         >
           Resources
         </Link>
-        <Link
-          href="/innovation"
-          onClick={onClose}
-          className="block px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-        >
-          Innovation
-        </Link>
+
 
         {/* Software accordion */}
         <button
@@ -456,15 +450,15 @@ function MobileMenu({
         {/* Company accordion */}
         <button
           className="w-full flex items-center justify-between px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-          onClick={() => setMobileAccordion(mobileAccordion === 'company' ? null : 'company')}
+          onClick={() => setMobileAccordion(mobileAccordion === 'about' ? null : 'about')}
         >
-          Company
+          About
           <ChevronDown
             size={15}
-            className={`transition-transform duration-200 text-[#566677] ${mobileAccordion === 'company' ? 'rotate-180 text-[#f4a65d]' : ''}`}
+            className={`transition-transform duration-200 text-[#566677] ${mobileAccordion === 'about' ? 'rotate-180 text-[#f4a65d]' : ''}`}
           />
         </button>
-        {mobileAccordion === 'company' && (
+        {mobileAccordion === 'about' && (
           <div className="pl-4 pb-2 space-y-0.5">
             {companyDropdown.map((item) => (
               <Link
@@ -479,23 +473,13 @@ function MobileMenu({
           </div>
         )}
 
-        {/* Support */}
+        {/* Contact */}
         <Link
-          href="/support"
+          href="/contact"
           onClick={onClose}
           className="block px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
         >
-          Support
-        </Link>
-
-        {/* Find A Rep */}
-        <Link
-          href="/contact/find-a-rep"
-          onClick={onClose}
-          className="flex items-center gap-2 px-3 py-3.5 text-[0.9rem] font-semibold text-[#f4a65d] rounded-md hover:bg-[#fef8f0] transition-colors duration-150"
-        >
-          <MapPin size={15} />
-          Find A Rep
+          Contact
         </Link>
 
         {/* CTA */}
@@ -615,14 +599,6 @@ export default function Navigation() {
           : 'bg-white border-transparent'
       }`}
     >
-      {/* Skip to main content */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-[78px] focus:left-4 focus:z-50 focus:bg-[#f4a65d] focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:text-sm focus:font-semibold"
-      >
-        Skip to main content
-      </a>
-
       {/* Orange top accent */}
       <div className="h-[3px] bg-gradient-to-r from-[#f4a65d] via-[#d4892a] to-[#f4a65d] w-full" />
 
@@ -644,15 +620,15 @@ export default function Navigation() {
         {/* Desktop center nav */}
         <nav className="hidden lg:flex items-center gap-0.5">
           <button
-            onClick={() => toggle('industries')}
-            aria-expanded={open === 'industries'}
+            onClick={() => toggle('solutions')}
+            aria-expanded={open === 'solutions'}
             aria-haspopup="true"
-            className={`${navLinkBase} ${open === 'industries' ? navLinkActive : navLinkIdle}`}
+            className={`${navLinkBase} ${open === 'solutions' ? navLinkActive : navLinkIdle}`}
           >
-            Industries
+            Solutions
             <ChevronDown
               size={14}
-              className={`transition-transform duration-200 ${open === 'industries' ? 'rotate-180' : ''}`}
+              className={`transition-transform duration-200 ${open === 'solutions' ? 'rotate-180' : ''}`}
             />
           </button>
 
@@ -675,9 +651,6 @@ export default function Navigation() {
           <Link href="/resources" className={`${navLinkBase} ${navLinkIdle}`}>
             Resources
           </Link>
-          <Link href="/innovation" className={`${navLinkBase} ${navLinkIdle}`}>
-            Innovation
-          </Link>
 
           <button
             onClick={() => toggle('software')}
@@ -693,28 +666,20 @@ export default function Navigation() {
           </button>
 
           <button
-            onClick={() => toggle('company')}
-            aria-expanded={open === 'company'}
+            onClick={() => toggle('about')}
+            aria-expanded={open === 'about'}
             aria-haspopup="true"
-            className={`${navLinkBase} ${open === 'company' ? navLinkActive : navLinkIdle}`}
+            className={`${navLinkBase} ${open === 'about' ? navLinkActive : navLinkIdle}`}
           >
-            Company
+            About
             <ChevronDown
               size={14}
-              className={`transition-transform duration-200 ${open === 'company' ? 'rotate-180' : ''}`}
+              className={`transition-transform duration-200 ${open === 'about' ? 'rotate-180' : ''}`}
             />
           </button>
 
-          <Link href="/support" className={`${navLinkBase} ${navLinkIdle}`}>
-            Support
-          </Link>
-
-          <Link
-            href="/contact/find-a-rep"
-            className={`${navLinkBase} text-[#f4a65d] hover:text-[#d4892a] hover:bg-[#fef8f0]`}
-          >
-            <MapPin size={14} />
-            Find A Rep
+          <Link href="/contact" className={`${navLinkBase} ${navLinkIdle}`}>
+            Contact
           </Link>
         </nav>
 
@@ -733,7 +698,7 @@ export default function Navigation() {
             aria-label="Quote cart"
             className="relative inline-flex p-1.5 rounded-md text-[#566677] hover:text-[#0f2a4a] hover:bg-[#f4f6f8] transition-colors duration-150"
           >
-            <ShoppingCart size={16} />
+            <MessageSquare size={16} />
           </Link>
 
           <a
@@ -768,10 +733,10 @@ export default function Navigation() {
       )}
 
       {/* Desktop dropdowns */}
-      {open === 'industries' && <IndustriesDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
+      {open === 'solutions' && <IndustriesDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
       {open === 'products' && <ProductsDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
       {open === 'software' && <SoftwareDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
-      {open === 'company' && <CompanyDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
+      {open === 'about' && <CompanyDropdown onClose={() => dispatch({ type: 'CLOSE_DROPDOWN' })} />}
 
       {/* Mobile menu */}
       {mobileOpen && (

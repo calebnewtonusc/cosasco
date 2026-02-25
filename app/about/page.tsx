@@ -20,13 +20,13 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Cosasco | 70+ Years of Corrosion Monitoring Excellence',
+  title: 'About Cosasco | 75+ Years of Corrosion Monitoring Excellence',
   description:
     'Cosasco has protected critical industrial infrastructure for over 70 years. ISO 9001-certified manufacturer of corrosion monitoring instruments and chemical injection systems. A Halma company.',
 }
 
 const stats = [
-  { value: '70+', label: 'Years in Service', sub: 'Founded 1950, California' },
+  { value: '75+', label: 'Years in Service', sub: 'Founded 1950, California' },
   { value: '110', label: 'Countries Served', sub: 'Global distribution network' },
   { value: '1M+', label: 'Monitoring Locations', sub: 'Worldwide deployments' },
   { value: 'ISO 9001', label: 'Quality Certified', sub: 'Rigorous QMS since 1990s' },
@@ -144,37 +144,37 @@ const leadership = [
     initials: 'PB',
     name: 'Philip Borup',
     title: 'President',
-    bio: 'As President of Rohrback Cosasco Systems, Philip leads global strategy, customer relationships, and the company\'s mission to deliver confidence in corrosion management.',
+    bio: 'With over 20 years in corrosion monitoring and industrial instrumentation, Philip leads Cosasco\'s global strategy, customer relationships, and company mission. He is committed to advancing precision corrosion management that protects people, assets, and the environment.',
   },
   {
     initials: 'DJ',
     name: 'Dustin Jennings',
     title: 'VP Operations',
-    bio: 'Dustin oversees manufacturing operations, supply chain, and quality management across Cosasco\'s production facilities, maintaining ISO standards.',
+    bio: 'Dustin manages global field services, manufacturing operations, and supply chain — ensuring ISO 9001 quality standards are upheld from the production floor to customer site. His operational leadership spans multiple continents and product lines.',
   },
   {
     initials: 'SM',
     name: 'Shriom "Om" Mourya',
     title: 'VP Sales',
-    bio: 'Om drives global sales across 110+ countries, building relationships with operators, distributors, and EPC partners in every major industrial region.',
+    bio: 'Om leads Cosasco\'s international expansion strategy, building distributor networks and key account relationships across 110+ countries. He brings deep expertise in consultative selling within oil & gas, petrochemical, and pipeline markets.',
   },
   {
     initials: 'AS',
     name: 'Anupam Sangal',
     title: 'Director of Engineering',
-    bio: 'Anupam leads Cosasco\'s engineering team, directing product development and technical support for corrosion monitoring solutions across all industries.',
+    bio: 'Anupam heads R&D and engineering, directing new product development and providing technical authority on corrosion monitoring system design. His team supports application engineers worldwide on complex, high-stakes projects.',
   },
   {
     initials: 'SU',
     name: 'Sabrina Uyehara',
     title: 'Finance Director',
-    bio: 'Sabrina manages financial operations and reporting within the Halma plc group framework, ensuring disciplined capital allocation.',
+    bio: 'Sabrina oversees financial planning, reporting, and compliance within the Halma plc group framework. She ensures disciplined capital allocation and transparent financial governance across all of Cosasco\'s global operations.',
   },
   {
     initials: 'NI',
     name: 'Naomi Ikeda',
     title: 'HR Director',
-    bio: 'Naomi leads HR, talent acquisition, and people programs — including Cosasco\'s industry-leading 14-week paid parental leave benefit.',
+    bio: 'Naomi leads talent acquisition, employee development, and people programs at Cosasco — including the company\'s industry-leading 14-week paid parental leave policy. She champions a culture of inclusion, safety, and continuous learning.',
   },
 ]
 
@@ -401,8 +401,8 @@ export default function AboutPage() {
                 className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-6 hover:shadow-md transition-all"
               >
                 <div className="flex items-start justify-between mb-4">
-                  <div className="bg-[#0f2a4a] rounded-full w-16 h-16 flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-xl">{person.initials}</span>
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#1a3d6b] to-[#0f2a4a] flex items-center justify-center text-white font-bold text-2xl ring-2 ring-[#f4a65d]/30 flex-shrink-0">
+                    {person.initials}
                   </div>
                   <a
                     href="https://www.linkedin.com/company/cosasco"

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Download, Key, Ruler, AlertTriangle, HelpCircle } from 'lucide-react'
+import { Download, Key, Ruler, AlertTriangle, HelpCircle, Mail, Info } from 'lucide-react'
 import ActivationForm from './ActivationForm'
 
 export const metadata: Metadata = {
@@ -14,19 +14,19 @@ const legacySoftware = [
     title: 'Corrdata\u00ae Plus',
     version: 'v3.3.0',
     os: 'Windows XP / Vista',
-    href: '/downloads/corrdata-plus-3.3.0.zip',
+    href: 'mailto:support@cosasco.com?subject=Corrdata%20Plus%20Download',
   },
   {
     title: 'Microcor\u00ae Tools Software',
     version: 'v4.4.5',
     os: 'Windows 7 / XP / Vista',
-    href: '/downloads/microcor-tools-4.4.5.zip',
+    href: 'mailto:support@cosasco.com?subject=Microcor%20Tools%20Download',
   },
   {
     title: 'Corrdata II',
     version: 'v1.0.4.7',
     os: 'Windows 7 / XP / Vista',
-    href: '/downloads/corrdata-ii-1.0.4.7.zip',
+    href: 'mailto:support@cosasco.com?subject=Corrdata%20II%20Download',
   },
 ]
 
@@ -45,6 +45,27 @@ export default function SoftwarePage() {
           <p className="text-lg text-[#8ab4d4] max-w-2xl mx-auto">
             Official Cosasco software for data acquisition, analysis, and device configuration.
           </p>
+        </div>
+      </section>
+
+      {/* ── INFO NOTICE ── */}
+      <section className="bg-[#f7f9fc] pt-10 pb-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <div className="flex items-start gap-3 bg-blue-50 border border-blue-200 rounded-xl px-5 py-4">
+              <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+              <p className="text-blue-900 text-sm leading-relaxed">
+                <strong>To receive download links, contact our support team at{' '}
+                <a href="mailto:support@cosasco.com" className="underline underline-offset-2 hover:text-blue-700">
+                  support@cosasco.com
+                </a>.</strong>{' '}
+                CDO software requires a valid activation key — see{' '}
+                <a href="#data-key-activation" className="underline underline-offset-2 hover:text-blue-700">
+                  Data Key Activation below
+                </a>.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -82,11 +103,11 @@ export default function SoftwarePage() {
                 </div>
 
                 <a
-                  href="/downloads/CosascoDataSetup.exe.zip"
+                  href="mailto:support@cosasco.com?subject=CDO%20Software%20Download%20Request&body=Please%20send%20me%20the%20Cosasco%20Data%20Online%20(CDO)%20software%20download%20link.%20Machine%20ID%3A%20"
                   className="inline-flex items-center gap-2 bg-[#0f2a4a] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1a3d6b] transition-colors mb-4"
                 >
-                  <Download className="w-4 h-4" />
-                  Download CDO Software
+                  <Mail className="w-4 h-4" />
+                  Request CDO Software Download
                 </a>
 
                 <p className="text-[#6b7280] text-xs leading-relaxed">
@@ -142,11 +163,11 @@ export default function SoftwarePage() {
               </p>
 
               <a
-                href="/downloads/device-length-calculator.zip"
+                href="mailto:support@cosasco.com?subject=Device%20Length%20Calculator%20Download&body=Please%20send%20me%20the%20Device%20Length%20Calculator%20download%20link."
                 className="inline-flex items-center gap-2 bg-[#0f2a4a] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1a3d6b] transition-colors mb-4"
               >
-                <Download className="w-4 h-4" />
-                Download Device Length Calculator
+                <Mail className="w-4 h-4" />
+                Request Download
               </a>
 
               <div className="flex items-start gap-2 mt-1">
@@ -195,8 +216,8 @@ export default function SoftwarePage() {
                   href={sw.href}
                   className="inline-flex items-center justify-center gap-2 border border-[#0f2a4a] text-[#0f2a4a] px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-[#0f2a4a] hover:text-white transition-colors"
                 >
-                  <Download className="w-4 h-4" />
-                  Download
+                  <Mail className="w-4 h-4" />
+                  Request Download
                 </a>
               </div>
             ))}

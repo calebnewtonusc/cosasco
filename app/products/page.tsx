@@ -28,7 +28,7 @@ const categories = [
     desc: "Industry-proven electrical resistance and electrochemical monitoring systems for continuous and periodic corrosion measurement across all process environments.",
     products: [
       "ER Probes — Fixed Process 2500/2520 & Retractable 3500/3700",
-      "Microcor® High-Speed ER Probes (50× faster response)",
+      "Microcor® High-Speed ER Probes (up to 50× faster data acquisition rates)",
       "LPR Probe 6112/7012 — Real-time corrosion rate",
       "Corrosion Coupons CI — NACE TM-0169 compliant",
       "Access Fittings (1\" to 3\")",

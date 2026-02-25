@@ -24,10 +24,10 @@ const featuredProducts = [
   {
     name: 'Microcor\u00ae',
     tagline: 'Highest-sensitivity intrusive ER probe',
-    desc: 'The highest-sensitivity intrusive probe with the fastest response time in the industry. The Microcor® Wireless Transmitter (MWT) delivers 18-bit resolution with WirelessHART 7 connectivity. 50× faster than standard ER monitoring. Compatible with Yokogawa and Emerson DCS platforms.',
+    desc: 'The highest-sensitivity intrusive probe with the fastest response time in the industry. The Microcor® Wireless Transmitter (MWT) delivers 18-bit resolution with WirelessHART 7 connectivity. Up to 50× faster data acquisition rates than standard ER monitoring. Compatible with Yokogawa and Emerson DCS platforms.',
     href: '/products/corrosion-monitoring',
     highlights: [
-      '50× faster than standard ER',
+      'Up to 50× faster data acquisition rates than standard ER',
       '18-bit resolution',
       'WirelessHART 7 connectivity',
       'Yokogawa & Emerson DCS compatible',

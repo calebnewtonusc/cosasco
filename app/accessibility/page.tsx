@@ -66,9 +66,9 @@ export default function AccessibilityPage() {
             <h2 className="text-[#0f2a4a] font-black text-2xl mb-4">Our Commitment</h2>
             <p className="text-[#566677] text-sm leading-relaxed mb-4">
               Rohrback Cosasco Systems, Inc. is committed to providing a website that is accessible to the
-              widest possible audience, including people with disabilities. We aim to conform to the{' '}
+              widest possible audience, including people with disabilities. We are working toward{' '}
               <strong className="text-[#0f2a4a]">Web Content Accessibility Guidelines (WCAG) 2.1, Level AA</strong>{' '}
-              as published by the World Wide Web Consortium (W3C).
+              conformance as published by the World Wide Web Consortium (W3C), and actively address accessibility issues as they are identified.
             </p>
             <p className="text-[#566677] text-sm leading-relaxed">
               This statement was prepared on February 1, 2026 and relates to the cosasco.com website
@@ -81,7 +81,7 @@ export default function AccessibilityPage() {
           <div>
             <h2 className="text-[#0f2a4a] font-black text-2xl mb-4">Technical Specification</h2>
             <p className="text-[#566677] text-sm leading-relaxed mb-4">
-              The cosasco.com website relies on the following technologies for conformance with WCAG 2.1:
+              The cosasco.com website relies on the following technologies in its efforts toward WCAG 2.1 conformance:
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
               {['HTML5', 'CSS3 / Tailwind CSS', 'JavaScript / React', 'WAI-ARIA 1.1', 'SVG (Lucide Icons)', 'Next.js App Router'].map((tech) => (
@@ -160,7 +160,7 @@ export default function AccessibilityPage() {
                   <a href="tel:+18006356898" className="text-[#566677] text-sm hover:text-[#f4a65d] transition-colors">
                     +1-800-635-6898 (Toll Free)
                   </a>
-                  <p className="text-[#94aabb] text-xs mt-1">Mon–Fri, 7:30 AM–5:00 PM PT</p>
+                  <p className="text-[#94aabb] text-xs mt-1">Mon–Fri, 7:00 AM–5:00 PM PT</p>
                 </div>
               </div>
             </div>

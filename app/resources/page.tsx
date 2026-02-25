@@ -213,10 +213,10 @@ export default function ResourcesPage() {
         <div className="max-w-6xl mx-auto px-6 text-center">
           <p className="text-[#94aabb] text-sm font-semibold uppercase tracking-widest mb-4">Resource Library</p>
           <h1 className="text-white font-black text-5xl md:text-6xl leading-tight mb-5">
-            Technical Resources &amp; Downloads
+            Technical Resources & Document Requests
           </h1>
           <p className="text-[#94aabb] text-lg max-w-2xl mx-auto leading-relaxed">
-            Access datasheets, installation guides, white papers, case studies, and application notes for Cosasco corrosion monitoring and chemical injection systems.
+            Request technical documentation from our engineering team. We'll send requested documents directly to your email.
           </p>
         </div>
       </section>

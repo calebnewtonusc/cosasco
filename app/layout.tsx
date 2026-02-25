@@ -1,15 +1,13 @@
 import type { Metadata } from 'next'
-import '@fontsource/mukta-mahee/300.css'
-import '@fontsource/mukta-mahee/400.css'
-import '@fontsource/mukta-mahee/500.css'
-import '@fontsource/mukta-mahee/600.css'
-import '@fontsource/mukta-mahee/700.css'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import CookieBanner from '@/components/CookieBanner'
 import FloatingChat from '@/components/FloatingChat'
+
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' })
 
 export const metadata: Metadata = {
   title: 'Cosasco | Corrosion Management Solutions',
@@ -39,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
         <script
           type="application/ld+json"
@@ -77,7 +75,7 @@ export default function RootLayout({
       <body className="pt-[75px]">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-[#f4a65d] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold focus:text-sm"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] bg-[#f4a65d] text-white px-4 py-2 rounded-md font-semibold text-sm focus:outline-none"
         >
           Skip to main content
         </a>

@@ -181,9 +181,9 @@ export default function HeroSection() {
               className="font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05]"
               style={{ color: '#ffffff' }}
             >
-              Complete confidence in
+              Real-Time Corrosion Intelligence
               <br />
-              <span style={{ color: '#f4a65d' }}>corrosion management.</span>
+              <span style={{ color: '#f4a65d' }}>for Critical Infrastructure.</span>
             </h1>
 
             <p className="text-xl mt-6 max-w-2xl mx-auto lg:mx-0" style={{ color: '#94aabb' }}>

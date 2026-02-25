@@ -29,8 +29,8 @@ const featuredProducts = [
   },
   {
     name: "Microcor® High-Speed ER Probes",
-    desc: "Cosasco&rsquo;s Microcor® technology delivers up to 50× faster response than standard ER probes, enabling near-real-time corrosion rate monitoring in dynamic process environments.",
-    spec: "Response Speed: 50× standard ER",
+    desc: "Cosasco&rsquo;s Microcor® technology delivers up to 50× faster data acquisition rates than standard ER probes, enabling near-real-time corrosion rate monitoring in dynamic process environments.",
+    spec: "Response Speed: up to 50× faster data acquisition rates vs. standard ER",
   },
   {
     name: "LPR Probe 6112/7012",

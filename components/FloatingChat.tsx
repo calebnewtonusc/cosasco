@@ -153,7 +153,7 @@ export default function FloatingChat() {
           {/* Header */}
           <div className="bg-[#0f2a4a] px-5 py-3.5 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2.5">
-              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-green-500" />
               <div>
                 <p className="text-white font-bold text-sm leading-tight">Cosasco AI</p>
                 <p className="text-[#8ab4d4] text-[11px] leading-tight">Ask anything about our solutions</p>
@@ -309,9 +309,6 @@ export default function FloatingChat() {
           <X size={22} className="text-white" />
         ) : (
           <MessageCircle size={22} className="text-white" />
-        )}
-        {!open && (
-          <span className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white" />
         )}
       </button>
 

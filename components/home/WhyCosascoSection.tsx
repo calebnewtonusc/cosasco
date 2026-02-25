@@ -4,7 +4,7 @@ import AnimateOnScroll from '@/components/AnimateOnScroll'
 
 const features = [
   {
-    title: '70+ Years of Application Engineering',
+    title: '75+ Years of Application Engineering',
     desc: 'Not just products. Deep domain expertise across every major industrial process and corrosion mechanism.',
   },
   {
@@ -38,7 +38,7 @@ export default function WhyCosascoSection() {
             <p className="mt-5 leading-relaxed" style={{ color: '#374151' }}>
               For over seven decades, Cosasco has led the industry in corrosion
               and erosion monitoring technology. From the original retractable
-              probe and coupon rack designs to today&apos;s wireless Microcor® Wireless
+              probe and coupon rack designs to today&apos;s Microcor® wireless
               data systems, every product is built on deep application
               engineering knowledge. Major operators trust Cosasco because we
               understand the chemistry, the pressures, and the consequences.

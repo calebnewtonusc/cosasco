@@ -26,7 +26,7 @@ const featuredProducts = [
   {
     name: "Microcor® High-Sensitivity Erosion Probes",
     flagship: false,
-    desc: "Microcor® technology enables sand erosion detection approaching real-time speeds — up to 50× faster than standard ER response. Ideal for choke valves, bends, and tees in high-rate production wells.",
+    desc: "Microcor® technology enables sand erosion detection approaching real-time speeds — up to 50× faster data acquisition rates than standard ER response. Ideal for choke valves, bends, and tees in high-rate production wells.",
     spec: "Response Speed: Near real-time · Sand erosion detection",
   },
   {

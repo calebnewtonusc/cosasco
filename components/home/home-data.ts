@@ -194,7 +194,7 @@ export const certifications = [
 ]
 
 export const valueMetrics = [
-  { icon: TrendingDown, value: '70+ Years', label: 'Pioneering corrosion management since 1950', desc: '' },
+  { icon: TrendingDown, value: '75+ Years', label: 'Pioneering corrosion management since 1950', desc: '' },
   { icon: Globe, value: '110 Countries', label: 'Where Cosasco is trusted', desc: '' },
   { icon: Users, value: '1 Million+', label: 'Monitoring locations worldwide', desc: '' },
 ]

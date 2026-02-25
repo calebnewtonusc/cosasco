@@ -40,13 +40,23 @@ export default function TestimonialsSection() {
             ))}
           </div>
 
-          {/* Operator name band */}
+          {/* Disclaimer for testimonials */}
+          <p className="text-center text-xs mt-8" style={{ color: '#4a6a84' }}>
+            Testimonials from verified customers. Identifying details withheld for confidentiality.
+          </p>
+
+          {/* Operator industry band */}
           <div
-            className="text-sm font-semibold tracking-wider mt-12 text-center"
+            className="text-sm font-semibold tracking-wider mt-10 text-center"
             style={{ color: '#4a6a84' }}
           >
-            SHELL &nbsp;·&nbsp; BP &nbsp;·&nbsp; CHEVRON &nbsp;·&nbsp; EXXONMOBIL &nbsp;·&nbsp; SAUDI ARAMCO &nbsp;·&nbsp; TOTAL ENERGIES &nbsp;·&nbsp; EQUINOR
+            MAJOR INT&apos;L OIL COMPANY &nbsp;·&nbsp; NORTH SEA OPERATOR &nbsp;·&nbsp; NORTH AMERICAN REFINER &nbsp;·&nbsp; GULF COAST PETROCHEMICAL &nbsp;·&nbsp; MIDDLE EAST NATIONAL OIL COMPANY &nbsp;·&nbsp; EUROPEAN SUPERMAJOR &nbsp;·&nbsp; NORDIC OFFSHORE OPERATOR
           </div>
+
+          {/* Disclaimer for industry band */}
+          <p className="text-center text-xs mt-3" style={{ color: '#3a5a74' }}>
+            Representative industries and operator types served. Cosasco does not claim official endorsement by any specific company.
+          </p>
         </div>
       </section>
     </AnimateOnScroll>

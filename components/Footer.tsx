@@ -290,7 +290,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="mt-10 pt-6 border-t border-white/10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-[#6b8aa0]">
-            <p>&copy; 2025 Rohrback Cosasco Systems, Inc. All rights reserved.</p>
+            <p>&copy; 2026 Rohrback Cosasco Systems, Inc. All rights reserved.</p>
             <div className="flex items-center gap-3 flex-wrap justify-center">
               <Link href="/privacy" className="hover:text-white transition-colors duration-150">Privacy Policy</Link>
               <span className="text-white/20">·</span>

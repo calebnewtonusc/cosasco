@@ -40,11 +40,11 @@ const articles = [
     href: null,
   },
   {
-    title: 'Cosasco at NACE Corrosion 2026 \u2014 Booth #1247',
+    title: 'Cosasco at AMPP Annual Conference & Expo 2026 \u2014 Booth #1247',
     category: 'Events',
     date: 'Dec 5, 2025',
     excerpt:
-      "Visit us at the world's largest corrosion conference. Live product demonstrations of the Microcor\u00ae Wireless Transmitter, SafeGuard Service Valve, and Echo Point UT sensor will be on display.",
+      "Visit us at AMPP Annual Conference & Expo 2026. Live product demonstrations of the Microcor\u00ae Wireless Transmitter, SafeGuard Service Valve, and Echo Point UT sensor will be on display.",
     href: null,
   },
   {
@@ -96,7 +96,7 @@ const articles = [
     href: null,
   },
   {
-    title: 'Interview: 70+ Years of Corrosion Innovation',
+    title: 'Interview: 75+ Years of Corrosion Innovation',
     category: 'Technical Article',
     date: 'Sep 25, 2025',
     excerpt:

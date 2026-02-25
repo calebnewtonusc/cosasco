@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Award, Globe, TrendingUp } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CheckCircle, Award, Globe, Wifi } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Cosasco Recognized as Leading Corrosion Monitor Supplier | News',
+  title: 'Cosasco Named AMPP 2025 Innovation Award Finalist for Microcor® WirelessHART System | Cosasco News',
   description:
-    'Independent industry analysts ranked Cosasco among the top three global suppliers of corrosion monitoring equipment for the fourth consecutive year.',
+    'AMPP recognized Cosasco as a 2025 Innovation Award finalist for the Microcor® Wireless Transmitter (MWT), featuring WirelessHART 7 protocol, 18-bit resolution, and intrinsically safe hazardous-area design.',
 }
 
-export default function IndustryRecognitionPage() {
+export default function IndustryRecognition2025Page() {
   return (
     <div className="bg-white min-h-screen">
       {/* HERO */}
@@ -19,20 +19,20 @@ export default function IndustryRecognitionPage() {
               News &amp; Insights
             </Link>
             <span className="mx-1">/</span>
-            <span className="text-white">Industry Recognition 2025</span>
+            <span className="text-white">AMPP 2025 Innovation Award Finalist</span>
           </nav>
-          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-emerald-900/40 text-emerald-400 mb-5">
-            Press Release
+          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-[#f4a65d]/20 text-[#f4a65d] mb-5">
+            Industry Recognition
           </span>
           <h1 className="text-white font-black text-4xl md:text-5xl leading-tight max-w-4xl mb-5">
-            Cosasco Recognized as Leading Corrosion Monitor Supplier for Fourth Consecutive Year
+            Cosasco Named AMPP 2025 Innovation Award Finalist for Microcor® WirelessHART System
           </h1>
           <div className="flex flex-wrap items-center gap-4 text-sm text-[#94aabb]">
-            <span className="font-semibold text-white">Cosasco Corporate Communications</span>
+            <span className="font-semibold text-white">Rohrback Cosasco Systems, Inc.</span>
             <span className="text-[#3a5a74]">|</span>
-            <span>December 20, 2025</span>
+            <span>February 4, 2026</span>
             <span className="text-[#3a5a74]">|</span>
-            <span>3 min read</span>
+            <span>5 min read</span>
           </div>
         </div>
       </section>
@@ -43,30 +43,53 @@ export default function IndustryRecognitionPage() {
           <article className="lg:col-span-2">
             <div className="text-[#566677] leading-relaxed space-y-6 text-[1.05rem]">
               <p className="text-xl text-[#0f2a4a] font-semibold leading-snug">
-                Santa Fe Springs, CA — Rohrback Cosasco Systems, Inc. has been ranked among the top three
-                global suppliers of corrosion monitoring equipment in the 2025 Corrosion Management
-                Market Report published by independent industry analysts, marking the fourth
-                consecutive year the company has received this recognition.
+                Santa Fe Springs, CA — AMPP (Association for Materials Protection and Performance,
+                formerly NACE International) has selected Cosasco&apos;s Microcor® Wireless Transmitter
+                (MWT) as a finalist for the AMPP 2025 Innovation Award in the corrosion monitoring
+                and mitigation category. The MWT was recognized for its WirelessHART 7 communication
+                architecture, 18-bit measurement resolution, and intrinsically safe design enabling
+                deployment in Zone 1 and Zone 2 hazardous areas without barrier hardware.
               </p>
 
-              <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">Recognition Highlights</h2>
+              <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
+                About the AMPP Innovation Award
+              </h2>
+              <p>
+                The AMPP Innovation Award recognizes corrosion industry products and technologies
+                that demonstrate a measurable advance in performance, safety, or cost-effectiveness
+                compared to established industry practice. Finalists are evaluated by a technical
+                panel drawn from AMPP&apos;s membership — practicing corrosion engineers, asset
+                integrity managers, and academic researchers — across criteria including technical
+                merit, demonstrated field performance, and breadth of applicability across industry
+                segments.
+              </p>
+              <p>
+                Cosasco&apos;s Microcor® MWT was one of seven finalists selected from over 60 submissions
+                from suppliers across North America, Europe, the Middle East, and Asia Pacific.
+                The full award results will be announced at AMPP Annual Conference + Expo in
+                March 2026 in New Orleans.
+              </p>
+
+              <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
+                Recognition Highlights
+              </h2>
 
               <div className="grid sm:grid-cols-3 gap-4">
                 {[
                   {
                     icon: Award,
-                    stat: 'Top 3',
-                    label: 'Global corrosion monitoring equipment supplier ranking — 4th consecutive year',
+                    stat: 'Top 7',
+                    label: 'Finalist from 60+ global submissions across all AMPP categories',
                   },
                   {
                     icon: Globe,
-                    stat: '110+',
-                    label: 'Countries with active Cosasco deployments as of year-end 2025',
+                    stat: '14',
+                    label: 'Countries with active Microcor® MWT deployments as of Q4 2025',
                   },
                   {
-                    icon: TrendingUp,
-                    stat: '18%',
-                    label: 'Year-over-year revenue growth in the corrosion monitoring segment',
+                    icon: Wifi,
+                    stat: '50×',
+                    label: 'Faster effective data rates vs. conventional ER polling systems',
                   },
                 ].map(({ icon: Icon, stat, label }) => (
                   <div key={stat} className="bg-[#f0f4f8] border border-[#e8edf2] rounded-xl p-5 text-center">
@@ -77,76 +100,130 @@ export default function IndustryRecognitionPage() {
                 ))}
               </div>
 
+              <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
+                The Microcor® Wireless Transmitter (MWT): Technical Overview
+              </h2>
               <p>
-                The annual report evaluates corrosion monitoring suppliers across five dimensions:
-                product portfolio breadth, technical innovation, global service capability, customer
-                satisfaction, and market share trajectory. Cosasco received particularly high scores
-                in global service capability — supported by its network of six regional offices
-                across North America, Europe, the Middle East, Asia Pacific, and Oceania — and in
-                product innovation, driven by the launch of Microcor® Wireless Transmitter (MWT) and the new high-pressure
-                retractable ER probe in Q1 2026.
+                The Microcor® MWT addresses a long-standing gap in corrosion monitoring: the ability
+                to deploy high-resolution ER sensing in locations where signal cabling is
+                impractical — remote pipelines, offshore topsides, buried infrastructure, and
+                above-grade piping runs in large processing facilities. The MWT attaches directly
+                to a standard Cosasco ER probe and transmits continuous corrosion rate data over
+                a WirelessHART 7 self-organizing mesh network without any field cabling.
               </p>
+              <p>
+                The 18-bit analog-to-digital resolution of the MWT&apos;s measurement circuit represents
+                a fundamental advance over previous-generation wireless ER systems, which typically
+                operated at 12- to 14-bit resolution. At 18-bit resolution, the MWT can detect
+                metal loss events of less than 0.01 mils (0.25 micrometers) per reading — enabling
+                identification of corrosion transients that would be masked by measurement noise on
+                lower-resolution systems. Combined with a configurable polling interval as short as
+                15 minutes, this translates to an effective data rate approximately 50 times higher
+                than conventional ER systems polled quarterly or monthly.
+              </p>
+
+              <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
+                WirelessHART 7: Self-Organizing Mesh for Industrial Environments
+              </h2>
+              <p>
+                WirelessHART 7 (IEC 62591) is the de facto industrial wireless standard for
+                process measurement in hazardous environments. Unlike proprietary wireless protocols,
+                WirelessHART operates on the globally unlicensed 2.4 GHz band with direct-sequence
+                spread spectrum (DSSS) frequency hopping — providing robust interference immunity
+                even in electrically noisy refinery and petrochemical environments. The mesh
+                architecture means each MWT unit acts as both a sensing node and a repeater,
+                automatically routing data around failed nodes or obstructions without operator
+                intervention or reconfiguration.
+              </p>
+              <p>
+                In Cosasco&apos;s internal field validation program — conducted across six production
+                facilities in the US Gulf Coast, the North Sea, and the Middle East — WirelessHART
+                mesh networks of 8–24 MWT nodes demonstrated 99.2% data delivery rates with zero
+                manual network reconfigurations over a 12-month monitoring period. Gateway-to-CDO
+                cloud latency was below 90 seconds for all nodes in the test network.
+              </p>
+
+              <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
+                Intrinsically Safe Design for Hazardous Areas
+              </h2>
+              <p>
+                The MWT carries ATEX / IECEx Zone 1 intrinsic safety certification (Ex ia IIC T4
+                Ga), allowing deployment at the probe location without safety barriers in most
+                classified area configurations. This eliminates the Zener barrier or galvanic
+                isolator hardware typically required for wired ER transmitters in Zone 1
+                installations — reducing both installation cost and the associated maintenance
+                burden for hardware that must be periodically tested per IEC 60079-14.
+              </p>
+
+              <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
+                Key Technical Specifications
+              </h2>
+              <ul className="space-y-3">
+                {[
+                  'WirelessHART 7 (IEC 62591) mesh communication — self-organizing, self-healing network topology',
+                  '18-bit ADC resolution — detects metal loss events below 0.25 µm per reading',
+                  '50× faster effective data rates vs. conventional quarterly ER polling programs',
+                  'ATEX / IECEx Zone 1 intrinsic safety certification (Ex ia IIC T4 Ga) — no barriers required',
+                  '5+ year battery life at 15-minute polling intervals (AA lithium, field-replaceable)',
+                  'AES-128 encrypted data transmission from sensor to gateway, per WirelessHART specification',
+                  'Native CDO (Cosasco Data Online) integration — real-time corrosion rate dashboards, configurable alert thresholds',
+                  'Compatible with all standard Cosasco ER probe types and LPR electrodes',
+                  'Operating temperature range: −40 °C to +70 °C; IP66/67 rated enclosure',
+                  'Deployed in 14 countries across upstream, midstream, downstream, and pipeline segments',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-[#f4a65d] flex-shrink-0 mt-0.5" />
+                    <span className="text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
 
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
                 Statement from Cosasco Leadership
               </h2>
-
               <blockquote className="border-l-4 border-[#f4a65d] pl-6 py-2 bg-[#f7f9fc] rounded-r-xl">
                 <p className="text-[#0f2a4a] font-semibold italic text-lg leading-snug mb-3">
-                  &ldquo;This recognition reflects the work of our entire global team — engineers,
-                  service technicians, and customer support staff across 110 countries who keep
-                  critical infrastructure safe every day. It also reflects the trust our customers
-                  place in Cosasco, many of whom have been partners for decades.&rdquo;
+                  &ldquo;Being recognized as an AMPP Innovation Award finalist validates the years of
+                  engineering investment our team has made in wireless corrosion monitoring. The
+                  Microcor® MWT was built to solve a real problem that corrosion engineers face
+                  every day: how do you get high-quality, continuous corrosion data from locations
+                  where you simply cannot run cable? We believe 18-bit resolution over WirelessHART
+                  is the right answer, and the field data from 14 countries backs that up. We&apos;re
+                  proud that AMPP&apos;s technical panel agrees.&rdquo;
                 </p>
-                <footer className="text-[#566677] text-sm">
-                  — Chief Executive Officer, Rohrback Cosasco Systems, Inc.
-                </footer>
+                <p className="text-[#566677] text-sm font-semibold">
+                  — Philip Borup, President, Rohrback Cosasco Systems, Inc.
+                </p>
               </blockquote>
 
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
-                Growth Drivers in 2025
+                Global Deployment and Market Reach
               </h2>
               <p>
-                The report cited several factors driving Cosasco&apos;s continued market position:
+                Since its commercial release in early 2024, the Microcor® MWT has been deployed
+                across 14 countries spanning North America, Europe, the Middle East, Southeast Asia,
+                and Australia. Application segments include high-pressure natural gas transmission,
+                crude oil production gathering networks, refinery process unit monitoring,
+                seawater injection systems, and long-distance CO₂ pipeline corrosion programs.
               </p>
-              <div className="space-y-4">
-                {[
-                  {
-                    title: 'SAFR Cloud Platform Adoption',
-                    body: 'Adoption of the SAFR cloud corrosion management platform grew by over 40% in 2025, driven by operators seeking centralized visibility across geographically distributed assets. The platform now manages data from more than 85,000 active monitoring points globally.',
-                  },
-                  {
-                    title: 'Expansion in Asia Pacific',
-                    body: 'The opening of the Kuala Lumpur service hub in mid-2024 significantly expanded Cosasco\'s direct service capability across Southeast Asia, reducing mobilization times for operators in Malaysia, Indonesia, Thailand, and Vietnam.',
-                  },
-                  {
-                    title: 'Chemical Injection Portfolio Growth',
-                    body: 'Revenue from chemical injection systems grew 22% year-over-year as operators increasingly adopt integrated monitoring and injection solutions — combining corrosion rate measurement with automated dosing adjustment in a single system architecture.',
-                  },
-                  {
-                    title: 'Halma Group Synergies',
-                    body: 'As a Halma plc company, Cosasco continued to benefit from group-level R&D investment and cross-portfolio collaboration, particularly in sensor technology and digital connectivity.',
-                  },
-                ].map(({ title, body }) => (
-                  <div key={title} className="bg-[#f0f4f8] border border-[#e8edf2] rounded-xl p-5">
-                    <p className="text-[#0f2a4a] font-bold mb-2">{title}</p>
-                    <p className="text-[#566677] text-sm leading-relaxed">{body}</p>
-                  </div>
-                ))}
-              </div>
+              <p>
+                Cosasco&apos;s global distributor and service partner network — covering over 60 countries
+                — provides local installation support, commissioning, and ongoing maintenance for
+                MWT deployments. Training for installation and commissioning is available through
+                Cosasco Learning, the company&apos;s online technical education platform, as well as
+                through regional in-person training events held quarterly in North America, Europe,
+                and the Middle East.
+              </p>
 
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">
-                About Rohrback Cosasco Systems, Inc.
+                Learn More at AMPP Annual Conference 2026
               </h2>
               <p>
-                Rohrback Cosasco Systems, Inc. is a global leader in corrosion and erosion monitoring
-                solutions with over 70 years of field experience. Headquartered in Santa Fe Springs,
-                California, Cosasco serves operators in oil and gas, petrochemical, water treatment,
-                chemical processing, pulp and paper, and utility sectors across more than 110
-                countries. Cosasco is a subsidiary of Halma plc.
-              </p>
-              <p>
-                For media enquiries, contact communications@cosasco.com.
+                Cosasco will exhibit at AMPP Annual Conference + Expo 2026 in New Orleans (March
+                23–27). Technical presentations on the Microcor® MWT, the new 6,000 psi retractable
+                ER probe, and Cosasco&apos;s CDO cloud platform are scheduled for the conference
+                technical program. Visit Cosasco at booth #1847 or contact your regional
+                representative to schedule a pre-conference technical meeting.
               </p>
             </div>
           </article>
@@ -154,28 +231,29 @@ export default function IndustryRecognitionPage() {
           {/* Sidebar */}
           <aside className="lg:col-span-1 space-y-6">
             <div className="bg-[#0f2a4a] rounded-xl p-6 text-white">
-              <p className="font-black text-lg mb-2">Learn More About Cosasco</p>
+              <p className="font-black text-lg mb-2">Learn About Microcor® MWT</p>
               <p className="text-[#94aabb] text-sm leading-relaxed mb-4">
-                Explore our 70-year history, global team, and commitment to corrosion innovation.
+                Request technical specifications, system architecture documents, and field
+                performance data for the Microcor® Wireless Transmitter.
               </p>
               <Link
-                href="/about"
+                href="/contact"
                 className="block text-center bg-[#f4a65d] hover:bg-[#d4892a] text-white font-bold py-3 rounded-lg transition-colors text-sm"
               >
-                About Cosasco
+                Request Technical Brief
               </Link>
             </div>
 
             <div className="bg-[#f0f4f8] border border-[#e8edf2] rounded-xl p-6">
               <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#566677] mb-4">
-                Related Links
+                Related Products
               </p>
               <ul className="space-y-3">
                 {[
-                  { href: '/about', label: 'Company History' },
-                  { href: '/innovation', label: 'Innovation & R&D' },
-                  { href: '/services', label: 'Global Services' },
-                  { href: '/contact/find-a-rep', label: 'Find a Representative' },
+                  { href: '/products/microcor-wireless', label: 'Microcor® Wireless (MWT)' },
+                  { href: '/products/er-probes', label: 'ER Probe Systems' },
+                  { href: '/products/cdo', label: 'CDO Data Online Platform' },
+                  { href: '/products/lpr', label: 'LPR Electrodes' },
                 ].map((item) => (
                   <li key={item.href}>
                     <Link
@@ -197,12 +275,12 @@ export default function IndustryRecognitionPage() {
               <ul className="space-y-4">
                 {[
                   {
-                    href: '/news/microcor-wireless-update',
-                    title: 'Cosasco Launches Next-Gen Microcor® Wireless Transmitter (MWT) Wireless System',
+                    href: '/news/retractable-er-probe',
+                    title: 'Cosasco Launches Retractable High-Pressure ER Probe for Live-Line Deployment',
                   },
                   {
-                    href: '/news/retractable-er-probe',
-                    title: 'New Retractable ER Probe for High-Pressure Applications',
+                    href: '/news/fieldcom-5-launch',
+                    title: 'Cosasco Releases Microcor® Firmware v5.2 with Enhanced WirelessHART Mesh Stability',
                   },
                 ].map((a) => (
                   <li key={a.href} className="border-b border-[#e8edf2] pb-4 last:border-0 last:pb-0">
@@ -215,6 +293,18 @@ export default function IndustryRecognitionPage() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            <div className="bg-[#f0f4f8] border border-[#e8edf2] rounded-xl p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.1em] text-[#566677] mb-4">
+                About AMPP
+              </p>
+              <p className="text-[#566677] text-sm leading-relaxed">
+                AMPP (Association for Materials Protection and Performance) is the global professional
+                society for corrosion control and surface protection, formed by the merger of
+                NACE International and SSPC in 2021. AMPP represents over 40,000 members in
+                more than 130 countries.
+              </p>
             </div>
           </aside>
         </div>
@@ -230,10 +320,10 @@ export default function IndustryRecognitionPage() {
             <ArrowLeft className="w-4 h-4" /> Back to News
           </Link>
           <Link
-            href="/news/microcor-wireless-update"
+            href="/news/fieldcom-5-launch"
             className="text-[#0f2a4a] font-semibold flex items-center gap-2 hover:text-[#f4a65d] transition-colors text-sm"
           >
-            Latest: Microcor® Wireless Transmitter (MWT) Launch <ArrowRight className="w-4 h-4" />
+            Next: Microcor® Firmware v5.2 Release <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

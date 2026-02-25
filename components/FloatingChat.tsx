@@ -96,6 +96,12 @@ export default function FloatingChat() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, loading])
 
+  useEffect(() => {
+    const handler = () => setOpen(true)
+    window.addEventListener('cosasco:open-chat', handler)
+    return () => window.removeEventListener('cosasco:open-chat', handler)
+  }, [])
+
   async function send(text: string) {
     if (!text.trim() || loading) return
     setInput('')

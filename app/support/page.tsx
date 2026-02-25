@@ -1,7 +1,8 @@
 'use client'
 
+import { useState, useRef } from 'react'
 import Link from 'next/link'
-import { AlertTriangle, MessageSquare, Phone, FileText, ArrowRight, Download, MessageCircle, Upload } from 'lucide-react'
+import { AlertTriangle, MessageSquare, Phone, FileText, ArrowRight, Download, MessageCircle, Upload, X, CheckCircle } from 'lucide-react'
 import SupportFAQ from '@/components/SupportFAQ'
 
 const downloads = [
@@ -60,7 +61,82 @@ const pathwayCards = [
   },
 ]
 
+type FormStatus = 'idle' | 'loading' | 'success' | 'error'
+
 export default function SupportPage() {
+  const [form, setForm] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    product: '',
+    appType: '',
+    issue: '',
+    priority: 'critical',
+  })
+  const [files, setFiles] = useState<File[]>([])
+  const [status, setStatus] = useState<FormStatus>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
+  const [dragging, setDragging] = useState(false)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const set = (k: keyof typeof form) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+      setForm(prev => ({ ...prev, [k]: e.target.value }))
+
+  function addFiles(incoming: FileList | null) {
+    if (!incoming) return
+    setFiles(prev => {
+      const existing = new Set(prev.map(f => f.name))
+      const next = Array.from(incoming).filter(f => !existing.has(f.name))
+      return [...prev, ...next]
+    })
+  }
+
+  function removeFile(name: string) {
+    setFiles(prev => prev.filter(f => f.name !== name))
+  }
+
+  function handleDrop(e: React.DragEvent) {
+    e.preventDefault()
+    setDragging(false)
+    addFiles(e.dataTransfer.files)
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!form.name.trim() || !form.email.trim() || !form.issue.trim()) return
+    setStatus('loading')
+    setErrorMsg('')
+
+    try {
+      const res = await fetch('/api/support', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          company: form.company,
+          email: form.email,
+          phone: form.phone,
+          category: form.appType,
+          serial: form.product,
+          subject: form.product ? `Issue with ${form.product}` : 'Technical Support Request',
+          description: form.issue,
+          priority: form.priority,
+        }),
+      })
+      if (!res.ok) throw new Error('failed')
+      setStatus('success')
+    } catch {
+      setStatus('error')
+      setErrorMsg('Something went wrong. Please try again or call us at +1 (562) 949-0123.')
+    }
+  }
+
+  function openChat() {
+    window.dispatchEvent(new Event('cosasco:open-chat'))
+  }
+
   return (
     <div className="bg-white min-h-screen">
       {/* HERO */}
@@ -104,9 +180,18 @@ export default function SupportPage() {
                     {card.link}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
+                ) : card.title === 'Contact an Engineer' ? (
+                  <a
+                    href="tel:+15629490123"
+                    className="text-[#f4a65d] font-semibold text-sm mt-5 flex items-center gap-1 hover:gap-2 transition-all"
+                  >
+                    {card.link}
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
                 ) : (
                   <button
                     type="button"
+                    onClick={() => document.getElementById('support-faq')?.scrollIntoView({ behavior: 'smooth' })}
                     className="text-[#f4a65d] font-semibold text-sm mt-5 flex items-center gap-1 hover:gap-2 transition-all"
                   >
                     {card.link}
@@ -120,7 +205,9 @@ export default function SupportPage() {
       </section>
 
       {/* FAQ */}
-      <SupportFAQ />
+      <div id="support-faq">
+        <SupportFAQ />
+      </div>
 
       {/* SOFTWARE DOWNLOADS */}
       <section className="bg-[#f7f9fc] py-16 border-t border-[#e8edf2]">
@@ -173,111 +260,199 @@ export default function SupportPage() {
                 Submit a detailed request and our engineering team will follow up within the timeframes listed.
               </p>
 
-              <form className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {status === 'success' ? (
+                <div className="rounded-2xl border border-green-100 bg-green-50 py-14 px-8 text-center space-y-3">
+                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto shadow-sm">
+                    <CheckCircle className="w-8 h-8 text-green-500" />
+                  </div>
+                  <p className="font-black text-2xl text-[#0f2a4a]">Request Submitted</p>
+                  <p className="text-[#566677] text-sm max-w-xs mx-auto leading-relaxed">
+                    Your support ticket has been logged. Our engineering team will respond within the SLA window for your selected priority.
+                  </p>
+                  <button
+                    onClick={() => { setStatus('idle'); setForm({ name: '', company: '', email: '', phone: '', product: '', appType: '', issue: '', priority: 'critical' }); setFiles([]) }}
+                    className="mt-3 text-sm font-semibold text-[#f4a65d] hover:underline"
+                  >
+                    Submit another request
+                  </button>
+                </div>
+              ) : (
+                <form className="space-y-5" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="support-name" className="block text-[#0f2a4a] font-medium text-sm mb-1">
+                        Full Name <span className="text-[#f4a65d]">*</span>
+                      </label>
+                      <input
+                        id="support-name"
+                        type="text"
+                        required
+                        value={form.name}
+                        onChange={set('name')}
+                        placeholder="John Smith"
+                        className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="support-company" className="block text-[#0f2a4a] font-medium text-sm mb-1">Company</label>
+                      <input
+                        id="support-company"
+                        type="text"
+                        value={form.company}
+                        onChange={set('company')}
+                        placeholder="Acme Corp"
+                        className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="support-email" className="block text-[#0f2a4a] font-medium text-sm mb-1">
+                        Email <span className="text-[#f4a65d]">*</span>
+                      </label>
+                      <input
+                        id="support-email"
+                        type="email"
+                        required
+                        value={form.email}
+                        onChange={set('email')}
+                        placeholder="john@company.com"
+                        className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="support-phone" className="block text-[#0f2a4a] font-medium text-sm mb-1">Phone</label>
+                      <input
+                        id="support-phone"
+                        type="tel"
+                        value={form.phone}
+                        onChange={set('phone')}
+                        placeholder="+1 (555) 000-0000"
+                        className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label htmlFor="support-name" className="block text-[#0f2a4a] font-medium text-sm mb-1">Full Name</label>
+                    <label htmlFor="support-product" className="block text-[#0f2a4a] font-medium text-sm mb-1">Product / System</label>
                     <input
-                      id="support-name"
+                      id="support-product"
                       type="text"
-                      placeholder="John Smith"
-                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
+                      value={form.product}
+                      onChange={set('product')}
+                      placeholder="e.g. ER Probe Model 7012, FieldCom 3.0"
+                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30"
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="support-company" className="block text-[#0f2a4a] font-medium text-sm mb-1">Company</label>
-                    <input
-                      id="support-company"
-                      type="text"
-                      placeholder="Acme Corp"
-                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
-                    />
+                    <label htmlFor="support-app-type" className="block text-[#0f2a4a] font-medium text-sm mb-1">Application Type</label>
+                    <select
+                      id="support-app-type"
+                      value={form.appType}
+                      onChange={set('appType')}
+                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30 bg-white"
+                    >
+                      <option value="">Select application...</option>
+                      <option>Oil &amp; Gas — Upstream</option>
+                      <option>Oil &amp; Gas — Midstream Pipeline</option>
+                      <option>Oil &amp; Gas — Downstream / Refining</option>
+                      <option>Petrochemical</option>
+                      <option>Water Treatment</option>
+                      <option>Utilities</option>
+                      <option>Chemical Processing</option>
+                      <option>Other</option>
+                    </select>
                   </div>
-                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="support-email" className="block text-[#0f2a4a] font-medium text-sm mb-1">Email</label>
-                    <input
-                      id="support-email"
-                      type="email"
-                      placeholder="john@company.com"
-                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
+                    <label htmlFor="support-issue" className="block text-[#0f2a4a] font-medium text-sm mb-1">
+                      Issue Description <span className="text-[#f4a65d]">*</span>
+                    </label>
+                    <textarea
+                      id="support-issue"
+                      rows={5}
+                      required
+                      value={form.issue}
+                      onChange={set('issue')}
+                      placeholder="Describe the issue, symptoms, and any troubleshooting steps already taken..."
+                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30 resize-none"
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="support-phone" className="block text-[#0f2a4a] font-medium text-sm mb-1">Phone</label>
-                    <input
-                      id="support-phone"
-                      type="tel"
-                      placeholder="+1 (555) 000-0000"
-                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
-                    />
+                    <label htmlFor="support-priority" className="block text-[#0f2a4a] font-medium text-sm mb-1">Priority</label>
+                    <select
+                      id="support-priority"
+                      value={form.priority}
+                      onChange={set('priority')}
+                      className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30 bg-white"
+                    >
+                      <option value="critical">Critical — System Down</option>
+                      <option value="high">High — Degraded Performance</option>
+                      <option value="normal">Normal — Planning / Inquiry</option>
+                    </select>
                   </div>
-                </div>
 
-                <div>
-                  <label htmlFor="support-product" className="block text-[#0f2a4a] font-medium text-sm mb-1">Product / System</label>
-                  <input
-                    id="support-product"
-                    type="text"
-                    placeholder="e.g. ER Probe Model 7012, FieldCom 3.0"
-                    className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d]"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="support-app-type" className="block text-[#0f2a4a] font-medium text-sm mb-1">Application Type</label>
-                  <select id="support-app-type" className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] bg-white">
-                    <option value="">Select application...</option>
-                    <option>Oil &amp; Gas — Upstream</option>
-                    <option>Oil &amp; Gas — Midstream Pipeline</option>
-                    <option>Oil &amp; Gas — Downstream / Refining</option>
-                    <option>Petrochemical</option>
-                    <option>Water Treatment</option>
-                    <option>Utilities</option>
-                    <option>Chemical Processing</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="support-issue" className="block text-[#0f2a4a] font-medium text-sm mb-1">Issue Description</label>
-                  <textarea
-                    id="support-issue"
-                    rows={5}
-                    placeholder="Describe the issue, symptoms, and any troubleshooting steps already taken..."
-                    className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:border-[#f4a65d] resize-none"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="support-priority" className="block text-[#0f2a4a] font-medium text-sm mb-1">Priority</label>
-                  <select id="support-priority" className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] bg-white">
-                    <option value="critical">Critical — System Down</option>
-                    <option value="high">High — Degraded Performance</option>
-                    <option value="normal">Normal — Planning / Inquiry</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="support-attachments" className="block text-[#0f2a4a] font-medium text-sm mb-1">Attachments</label>
-                  <div className="border-2 border-dashed border-[#e8edf2] rounded-xl p-8 text-center hover:border-[#f4a65d] transition-colors cursor-pointer">
-                    <input type="file" id="support-attachments" className="sr-only" multiple accept=".pdf,.png,.jpg,.jpeg" />
-                    <Upload className="w-8 h-8 text-[#8898aa] mx-auto mb-3" />
-                    <p className="text-[#566677] text-sm font-medium">Drag and drop files here</p>
-                    <p className="text-[#8898aa] text-xs mt-1">or <span className="text-[#f4a65d] font-semibold">browse to upload</span></p>
-                    <p className="text-[#8898aa] text-xs mt-2">PDF, PNG, JPG up to 25MB each</p>
+                  <div>
+                    <label className="block text-[#0f2a4a] font-medium text-sm mb-1">Attachments</label>
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => fileInputRef.current?.click()}
+                      onKeyDown={(e) => e.key === 'Enter' && fileInputRef.current?.click()}
+                      onDragOver={(e) => { e.preventDefault(); setDragging(true) }}
+                      onDragLeave={() => setDragging(false)}
+                      onDrop={handleDrop}
+                      className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-colors ${dragging ? 'border-[#f4a65d] bg-[#fef3e2]' : 'border-[#e8edf2] hover:border-[#f4a65d]'}`}
+                    >
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        id="support-attachments"
+                        className="sr-only"
+                        multiple
+                        accept=".pdf,.png,.jpg,.jpeg"
+                        onChange={(e) => addFiles(e.target.files)}
+                      />
+                      <Upload className="w-8 h-8 text-[#8898aa] mx-auto mb-3" />
+                      <p className="text-[#566677] text-sm font-medium">Drag and drop files here</p>
+                      <p className="text-[#8898aa] text-xs mt-1">or <span className="text-[#f4a65d] font-semibold">browse to upload</span></p>
+                      <p className="text-[#8898aa] text-xs mt-2">PDF, PNG, JPG up to 25MB each</p>
+                    </div>
+                    {files.length > 0 && (
+                      <ul className="mt-3 space-y-1.5">
+                        {files.map((f) => (
+                          <li key={f.name} className="flex items-center justify-between bg-[#f7f9fc] border border-[#e8edf2] rounded-lg px-3 py-2 text-xs">
+                            <span className="text-[#334150] font-medium truncate max-w-[85%]">{f.name}</span>
+                            <button
+                              type="button"
+                              onClick={() => removeFile(f.name)}
+                              className="text-[#8898aa] hover:text-[#0f2a4a] transition-colors ml-2 shrink-0"
+                              aria-label={`Remove ${f.name}`}
+                            >
+                              <X size={13} />
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
-                </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-[#f4a65d] text-white rounded-lg py-3 font-semibold hover:bg-[#d4892a] transition-colors"
-                >
-                  Submit Support Request
-                </button>
-              </form>
+                  {errorMsg && (
+                    <p className="text-red-500 text-sm">{errorMsg}</p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="w-full bg-[#f4a65d] text-white rounded-lg py-3 font-semibold hover:bg-[#d4892a] transition-colors disabled:opacity-60"
+                  >
+                    {status === 'loading' ? 'Submitting…' : 'Submit Support Request'}
+                  </button>
+                </form>
+              )}
             </div>
 
             <div className="lg:col-span-2 space-y-6">
@@ -304,11 +479,15 @@ export default function SupportPage() {
                 <div className="space-y-3">
                   <div>
                     <p className="text-[#566677] text-xs font-semibold uppercase tracking-wider mb-1">Phone</p>
-                    <p className="text-[#0f2a4a] font-semibold text-sm">+1 (562) 949-0123</p>
+                    <a href="tel:+15629490123" className="text-[#0f2a4a] font-semibold text-sm hover:text-[#f4a65d] transition-colors">
+                      +1 (562) 949-0123
+                    </a>
                   </div>
                   <div>
                     <p className="text-[#566677] text-xs font-semibold uppercase tracking-wider mb-1">Email</p>
-                    <p className="text-[#0f2a4a] font-semibold text-sm">support@cosasco.com</p>
+                    <a href="mailto:support@cosasco.com" className="text-[#0f2a4a] font-semibold text-sm hover:text-[#f4a65d] transition-colors">
+                      support@cosasco.com
+                    </a>
                   </div>
                   <div>
                     <p className="text-[#566677] text-xs font-semibold uppercase tracking-wider mb-1">Hours</p>
@@ -330,11 +509,12 @@ export default function SupportPage() {
               <MessageCircle className="w-6 h-6 text-[#f4a65d]" />
             </div>
             <p className="text-white font-semibold text-lg">
-              Need immediate help? Chat with our support team.
+              Need immediate help? Chat with our AI assistant.
             </p>
           </div>
           <button
             type="button"
+            onClick={openChat}
             className="flex-shrink-0 bg-[#f4a65d] hover:bg-[#d4892a] text-white font-bold rounded-lg px-7 py-3 text-sm transition-colors whitespace-nowrap"
           >
             Start Chat →

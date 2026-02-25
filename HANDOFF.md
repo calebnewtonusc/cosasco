@@ -1,4 +1,4 @@
-# Cosasco Website — Developer Handoff Guide
+# Cosasco Website: Developer Handoff Guide
 
 > **Last updated:** February 2026
 > **Built by:** Caleb Newton
@@ -12,7 +12,7 @@
 1. [Quick Start](#1-quick-start)
 2. [Environment Variables](#2-environment-variables)
 3. [Deploy to Vercel (Production)](#3-deploy-to-vercel-production)
-4. [Email Forms — How They Work](#4-email-forms--how-they-work)
+4. [Email Forms: How They Work](#4-email-forms-how-they-work)
 5. [How to Add a Blog Post](#5-how-to-add-a-blog-post)
 6. [How to Add a Product Page](#6-how-to-add-a-product-page)
 7. [How to Add a Case Study](#7-how-to-add-a-case-study)
@@ -58,7 +58,7 @@ Create a `.env.local` file in the project root. **Never commit this file** (it's
 
 | Variable | Description | Example Value |
 |---|---|---|
-| `RESEND_API_KEY` | API key from [resend.com](https://resend.com) — required for all 3 contact forms | `re_abc123...` |
+| `RESEND_API_KEY` | API key from [resend.com](https://resend.com), required for all 3 contact forms | `re_abc123...` |
 | `CONTACT_TO_EMAIL` | Email address that receives form submissions. If not set, falls back to the default below | `info@cosasco.com` |
 
 **Default fallback destinations (if `CONTACT_TO_EMAIL` is not set):**
@@ -92,7 +92,7 @@ In Vercel → Settings → Domains, add `cosasco.com` and `www.cosasco.com`. Upd
 
 ---
 
-## 4. Email Forms — How They Work
+## 4. Email Forms: How They Work
 
 There are three contact forms on the site, each with a dedicated API route:
 
@@ -154,7 +154,7 @@ With `.env.local` configured, run `npm run dev` and submit a form. Check the Res
 
 4. **Optionally add it to the Resources page preview** (`app/resources/page.tsx`) by updating the 3-card "From the Blog" section.
 
-5. Commit and push — Vercel deploys automatically.
+5. Commit and push. Vercel deploys automatically.
 
 ### Category color reference
 
@@ -187,7 +187,7 @@ With `.env.local` configured, run `npm run dev` and submit a form. Check the Res
 
 ## 8. Design System & Brand Tokens
 
-All styling uses **Tailwind CSS v4 inline arbitrary values only** — no custom CSS classes, no config-level theme overrides.
+All styling uses **Tailwind CSS v4 inline arbitrary values only** (no custom CSS classes, no config-level theme overrides).
 
 ### Color palette
 
@@ -326,7 +326,7 @@ cosasco/
 
 ### Update navigation links
 
-Edit `components/Navigation.tsx`. There are two nav sections — desktop (search for `hidden md:flex`) and mobile (search for `md:hidden`). Both must be updated together.
+Edit `components/Navigation.tsx`. There are two nav sections: desktop (search for `hidden md:flex`) and mobile (search for `md:hidden`). Both must be updated together.
 
 ### Change the "Contact To" email
 
@@ -366,12 +366,12 @@ The sitemap (`app/sitemap.ts`) is auto-generated from a static list. When you ad
 npm run build
 ```
 TypeScript errors will be shown with file and line number. Common causes:
-- Unescaped apostrophes in single-quoted strings — use double quotes or `&apos;`
+- Unescaped apostrophes in single-quoted strings (use double quotes or `&apos;`)
 - Missing `'use client'` directive on a component that uses `useState`/`useEffect`
 
 ### Styles not applying
 
-This project uses **Tailwind CSS v4**. All class names must be full inline arbitrary values like `bg-[#0f2a4a]`. Do not use shorthand theme values or add to `tailwind.config.ts` — the v4 setup does not use a traditional config-based theme.
+This project uses **Tailwind CSS v4**. All class names must be full inline arbitrary values like `bg-[#0f2a4a]`. Do not use shorthand theme values or add to `tailwind.config.ts`, as the v4 setup does not use a traditional config-based theme.
 
 ### Dev server shows stale content
 
@@ -386,6 +386,6 @@ rm -rf .next && npm run dev
 | Role | Name | Email |
 |---|---|---|
 | Developer (handoff) | Caleb Newton | calebsnewton@gmail.com |
-| Cosasco Support | — | support@cosasco.com |
-| Cosasco RMA | — | rma@cosasco.com |
-| Cosasco General | — | info@cosasco.com |
+| Cosasco Support | (unassigned) | support@cosasco.com |
+| Cosasco RMA | (unassigned) | rma@cosasco.com |
+| Cosasco General | (unassigned) | info@cosasco.com |

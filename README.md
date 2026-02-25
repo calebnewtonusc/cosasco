@@ -5,7 +5,7 @@
 ![Resend](https://img.shields.io/badge/Resend-000000?style=flat-square&logo=mail&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-black?style=flat-square&logo=vercel&logoColor=white)
 
-# Cosasco — Corporate Website Redesign
+# Cosasco: Corporate Website Redesign
 
 A full website redesign for **Cosasco**, a global leader in corrosion and erosion monitoring solutions serving the oil and gas, petrochemical, chemical processing, water treatment, and pulp and paper industries. Built for Avenues Tech Consulting Spring 2026, the project delivers a restructured information architecture, application-based product discovery, and a modern UI grounded in Cosasco's industrial brand.
 
@@ -15,12 +15,12 @@ A full website redesign for **Cosasco**, a global leader in corrosion and erosio
 
 ## Features
 
-- **AI-powered product finder** — interactive wizard that guides users to the right corrosion monitoring solution based on their application, industry, and environment
-- **Full product catalog** — dedicated pages for ER probes, corrosion coupons, access fittings, chemical injection systems, data acquisition hardware, erosion monitoring, FieldCom devices, quill assemblies, and UT sensors
-- **Industry-specific solutions** — tailored landing pages for Oil & Gas, Petrochemical, Chemical Processing, Water Treatment, Pulp & Paper, and Utilities
-- **Resources hub** — technical blog with categorized articles (Technical Guide, Field Applications, Chemical Injection, Product Update) and case studies including a North Sea pipeline deployment
-- **Contact and support system** — general contact form, technical support ticketing, and RMA request form with automated confirmation emails (powered by Resend); AI-assisted floating chat via Claude
-- **Interactive probe depth calculator** — engineering tool at `/tools/device-length-calculator` for field technicians
+- **AI-powered product finder:** interactive wizard that guides users to the right corrosion monitoring solution based on their application, industry, and environment
+- **Full product catalog:** dedicated pages for ER probes, corrosion coupons, access fittings, chemical injection systems, data acquisition hardware, erosion monitoring, FieldCom devices, quill assemblies, and UT sensors
+- **Industry-specific solutions:** tailored landing pages for Oil & Gas, Petrochemical, Chemical Processing, Water Treatment, Pulp & Paper, and Utilities
+- **Resources hub:** technical blog with categorized articles (Technical Guide, Field Applications, Chemical Injection, Product Update) and case studies including a North Sea pipeline deployment
+- **Contact and support system:** general contact form, technical support ticketing, and RMA request form with automated confirmation emails (powered by Resend); AI-assisted floating chat via Claude
+- **Interactive probe depth calculator:** engineering tool at `/tools/device-length-calculator` for field technicians
 
 ## Tech Stack
 
@@ -54,11 +54,11 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Variable | Description |
 |---|---|
-| `RESEND_API_KEY` | API key from resend.com — required for all contact forms |
+| `RESEND_API_KEY` | API key from resend.com, required for all contact forms |
 | `CONTACT_TO_EMAIL` | Destination email for form submissions (defaults to `info@cosasco.com`) |
 
 ```bash
-npm run build   # Production build — TypeScript errors surface here
+npm run build   # Production build (TypeScript errors surface here)
 npm start       # Production server
 ```
 
@@ -82,4 +82,4 @@ Built for Avenues Tech Consulting Spring 2026. Developer handoff documentation a
 
 ## Author
 
-**Caleb Newton** — [calebnewton.me](https://calebnewton.me)
+**Caleb Newton** at [calebnewton.me](https://calebnewton.me)

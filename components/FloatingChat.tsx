@@ -1,7 +1,14 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { MessageCircle, X, Send, Phone, Mail, Trash2 } from 'lucide-react'
+import { MessageCircle, X, Send, Phone, Mail, Trash2, GripHorizontal } from 'lucide-react'
+
+const MIN_W = 280
+const MAX_W = 680
+const MIN_H = 360
+const MAX_H = 860
+const DEFAULT_W = 340
+const DEFAULT_H = 540
 
 interface Message {
   role: 'user' | 'assistant'
@@ -72,13 +79,35 @@ function renderMarkdown(text: string): React.ReactNode {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function FloatingChat() {
-  const [open, setOpen]       = useState(false)
+  const [open, setOpen]         = useState(false)
   const [messages, setMessages] = useState<Message[]>([])
-  const [input, setInput]     = useState('')
-  const [loading, setLoading] = useState(false)
-  const bottomRef    = useRef<HTMLDivElement>(null)
-  const textareaRef  = useRef<HTMLTextAreaElement>(null)
-  const messagesRef  = useRef<HTMLDivElement>(null)
+  const [input, setInput]       = useState('')
+  const [loading, setLoading]   = useState(false)
+  const [size, setSize]         = useState({ w: DEFAULT_W, h: DEFAULT_H })
+  const bottomRef   = useRef<HTMLDivElement>(null)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const messagesRef = useRef<HTMLDivElement>(null)
+  const dragRef     = useRef<{ startX: number; startY: number; startW: number; startH: number } | null>(null)
+
+  const onResizePointerDown = useCallback((e: React.PointerEvent) => {
+    e.preventDefault()
+    dragRef.current = { startX: e.clientX, startY: e.clientY, startW: size.w, startH: size.h }
+    ;(e.target as Element).setPointerCapture(e.pointerId)
+  }, [size])
+
+  const onResizePointerMove = useCallback((e: React.PointerEvent) => {
+    if (!dragRef.current) return
+    const { startX, startY, startW, startH } = dragRef.current
+    // Panel anchored bottom-right: dragging left/up grows the panel
+    const newW = Math.min(MAX_W, Math.max(MIN_W, startW - (e.clientX - startX)))
+    const newH = Math.min(MAX_H, Math.max(MIN_H, startH - (e.clientY - startY)))
+    setSize({ w: newW, h: newH })
+  }, [])
+
+  const onResizePointerUp = useCallback((e: React.PointerEvent) => {
+    dragRef.current = null
+    ;(e.target as Element).releasePointerCapture(e.pointerId)
+  }, [])
 
   // Auto-resize textarea
   const resizeTextarea = useCallback(() => {
@@ -144,14 +173,29 @@ export default function FloatingChat() {
       {/* ── Chat panel ──────────────────────────────────────────────────── */}
       {open && (
         <div
-          className="w-[340px] bg-white rounded-2xl shadow-2xl border border-[#e8edf2] overflow-hidden flex flex-col"
+          className="relative bg-white rounded-2xl shadow-2xl border border-[#e8edf2] overflow-hidden flex flex-col"
           style={{
-            height: '540px',
+            width: size.w,
+            height: size.h,
             animation: 'chatSlideIn 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
           }}
         >
-          {/* Header */}
-          <div className="bg-[#0f2a4a] px-5 py-3.5 flex items-center justify-between shrink-0">
+          {/* Header — contains resize handle on left */}
+          <div className="bg-[#0f2a4a] px-5 py-3.5 flex items-center justify-between shrink-0 select-none">
+            {/* Resize handle */}
+            <div
+              role="separator"
+              aria-label="Resize chat window"
+              title="Drag to resize"
+              onPointerDown={onResizePointerDown}
+              onPointerMove={onResizePointerMove}
+              onPointerUp={onResizePointerUp}
+              className="absolute -top-px -left-px w-8 h-8 flex items-end justify-end cursor-nw-resize rounded-tl-2xl rounded-br-lg text-[#2a4a6a] hover:text-[#f4a65d] transition-colors p-1 z-10"
+              style={{ touchAction: 'none' }}
+            >
+              <GripHorizontal size={13} className="rotate-45" />
+            </div>
+
             <div className="flex items-center gap-2.5">
               <span className="w-2 h-2 rounded-full bg-green-500" />
               <div>

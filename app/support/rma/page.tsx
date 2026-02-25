@@ -75,10 +75,10 @@ function generateRMANumber(): string {
 // ── Input helper ──────────────────────────────────────────────────────────────
 
 function InputField({
-  id, label, type = 'text', placeholder, value, onChange, required = false,
+  id, label, type = 'text', placeholder, value, onChange, required = false, autoComplete,
 }: {
   id: string; label: string; type?: string; placeholder?: string
-  value: string; onChange: (v: string) => void; required?: boolean
+  value: string; onChange: (v: string) => void; required?: boolean; autoComplete?: string
 }) {
   return (
     <div>
@@ -92,6 +92,7 @@ function InputField({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         required={required}
+        autoComplete={autoComplete}
         className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] placeholder-[#8898aa] focus:outline-none focus:ring-2 focus:ring-[#f4a65d] focus:border-[#f4a65d] transition-colors bg-white"
       />
     </div>
@@ -196,12 +197,12 @@ function Step1({ state, dispatch }: { state: FormState; dispatch: React.Dispatch
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <InputField id="fullName" label="Full Name" placeholder="John Smith" value={state.fullName} onChange={set('fullName')} required />
-        <InputField id="company" label="Company" placeholder="Acme Industrial Corp" value={state.company} onChange={set('company')} required />
+        <InputField id="fullName" label="Full Name" placeholder="John Smith" value={state.fullName} onChange={set('fullName')} required autoComplete="name" />
+        <InputField id="company" label="Company" placeholder="Acme Industrial Corp" value={state.company} onChange={set('company')} required autoComplete="organization" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <InputField id="email" label="Email Address" type="email" placeholder="john@company.com" value={state.email} onChange={set('email')} required />
-        <InputField id="phone" label="Phone Number" type="tel" placeholder="+1 (555) 000-0000" value={state.phone} onChange={set('phone')} />
+        <InputField id="email" label="Email Address" type="email" placeholder="john@company.com" value={state.email} onChange={set('email')} required autoComplete="email" />
+        <InputField id="phone" label="Phone Number" type="tel" placeholder="+1 (555) 000-0000" value={state.phone} onChange={set('phone')} autoComplete="tel" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <InputField id="originalPONumber" label="Original PO Number" placeholder="PO-2026-04821" value={state.originalPONumber} onChange={set('originalPONumber')} required />

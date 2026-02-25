@@ -138,37 +138,37 @@ const leadership = [
     initials: 'JM',
     name: 'James Morrison',
     title: 'President & CEO',
-    bio: '20+ years leading industrial technology businesses globally.',
+    bio: `Drives global strategy and growth as part of the Halma group, aligning Cosasco's long-term vision with Halma's safety and environmental technology portfolio.`,
   },
   {
     initials: 'SR',
     name: 'Sarah Reynolds',
     title: 'VP Engineering',
-    bio: 'Leads product development and application engineering teams across all divisions.',
+    bio: 'Leads R&D and application engineering across all product lines, steering 70 years of product evolution toward next-generation corrosion monitoring solutions.',
   },
   {
     initials: 'MT',
     name: 'Michael Torres',
     title: 'VP Sales & Marketing',
-    bio: 'Drives global commercial strategy and customer relationships across 6 regions.',
+    bio: `Oversees worldwide commercial operations and channel development, managing Cosasco's 110+ country distribution network across six global regions.`,
   },
   {
     initials: 'AL',
     name: 'Amanda Liu',
     title: 'VP Operations',
-    bio: 'Oversees manufacturing, supply chain, and quality management systems.',
+    bio: 'Directs ISO 9001-certified manufacturing and supply chain operations in Santa Fe Springs, ensuring product quality and on-time delivery to customers worldwide.',
   },
   {
     initials: 'DP',
     name: 'David Park',
     title: 'Chief Technology Officer',
-    bio: 'Pioneers next-generation corrosion monitoring and data analytics platforms.',
+    bio: `Leads technology innovation and digital transformation, advancing Cosasco's sensor, wireless, and data acquisition platforms for the next era of corrosion management.`,
   },
   {
     initials: 'EC',
     name: 'Emma Clarke',
     title: 'CFO',
-    bio: 'Manages financial strategy as part of the Halma group portfolio.',
+    bio: `Manages financial strategy and performance reporting within Halma's governance framework, supporting disciplined investment in growth and innovation.`,
   },
 ]
 
@@ -250,7 +250,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((s) => (
               <div key={s.label}>
-                <div className="text-[#f4a65d] font-black text-5xl leading-none mb-2">{s.value}</div>
+                <div className={`text-[#f4a65d] font-black leading-none mb-2 ${s.value === 'ISO 9001' ? 'text-2xl' : 'text-5xl'}`}>{s.value}</div>
                 <div className="text-[#1e2b3a] font-bold text-sm mb-1">{s.label}</div>
                 <div className="text-[#566677] text-xs">{s.sub}</div>
               </div>

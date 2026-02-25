@@ -40,7 +40,47 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Cosasco',
+              url: 'https://www.cosasco.com',
+              logo: 'https://www.cosasco.com/cosasco-logo.png',
+              description: 'Cosasco is a global leader in corrosion and erosion monitoring equipment, chemical injection systems, and related engineering services.',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: '11841 Smith Avenue',
+                addressLocality: 'Santa Fe Springs',
+                addressRegion: 'CA',
+                postalCode: '90670',
+                addressCountry: 'US',
+              },
+              contactPoint: {
+                '@type': 'ContactPoint',
+                telephone: '+1-562-949-0123',
+                contactType: 'customer service',
+              },
+              sameAs: ['https://www.linkedin.com/company/cosasco'],
+              parentOrganization: {
+                '@type': 'Organization',
+                name: 'Halma plc',
+                url: 'https://www.halma.com',
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="pt-[75px]">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] focus:bg-[#f4a65d] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold focus:text-sm"
+        >
+          Skip to main content
+        </a>
         <Navigation />
         <main id="main-content">{children}</main>
         <Footer />

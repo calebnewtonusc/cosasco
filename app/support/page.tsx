@@ -306,6 +306,7 @@ export default function SupportPage() {
                       <input
                         id="support-name"
                         type="text"
+                        autoComplete="name"
                         required
                         value={form.name}
                         onChange={set('name')}
@@ -318,6 +319,7 @@ export default function SupportPage() {
                       <input
                         id="support-company"
                         type="text"
+                        autoComplete="organization"
                         value={form.company}
                         onChange={set('company')}
                         placeholder="Acme Corp"
@@ -334,6 +336,7 @@ export default function SupportPage() {
                       <input
                         id="support-email"
                         type="email"
+                        autoComplete="email"
                         required
                         value={form.email}
                         onChange={set('email')}
@@ -346,6 +349,7 @@ export default function SupportPage() {
                       <input
                         id="support-phone"
                         type="tel"
+                        autoComplete="tel"
                         value={form.phone}
                         onChange={set('phone')}
                         placeholder="+1 (555) 000-0000"

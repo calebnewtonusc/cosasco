@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { rateLimit } from '@/lib/rate-limit'
 
 function generateRmaNumber(): string {
   const year = new Date().getFullYear()
@@ -8,6 +9,16 @@ function generateRmaNumber(): string {
 }
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get('x-forwarded-for') ?? '127.0.0.1'
+  const { allowed, resetIn } = rateLimit(ip, 5, 60_000)
+
+  if (!allowed) {
+    return Response.json(
+      { error: 'Too many requests' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil(resetIn / 1000)) } },
+    )
+  }
+
   const resend = new Resend(process.env.RESEND_API_KEY)
   const to = process.env.CONTACT_TO_EMAIL ?? 'rma@cosasco.com'
 

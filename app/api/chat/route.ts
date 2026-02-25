@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { rateLimit } from '@/lib/rate-limit'
 
 const OLLAMA_API = process.env.OLLAMA_BASE_URL ?? 'https://api.ollama.com'
 const OLLAMA_KEY = process.env.OLLAMA_API_KEY ?? ''
@@ -70,6 +71,16 @@ CONTACT & NAVIGATION:
 If someone asks what you can help with, tell them: products and product selection, industry solutions, software, services, how to get a quote, finding a rep, or technical support.`
 
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get('x-forwarded-for') ?? '127.0.0.1'
+  const { allowed, remaining, resetIn } = rateLimit(ip, 20, 60_000)
+
+  if (!allowed) {
+    return Response.json(
+      { error: 'Too many requests' },
+      { status: 429, headers: { 'Retry-After': String(Math.ceil(resetIn / 1000)) } },
+    )
+  }
+
   try {
     const { messages } = await req.json()
 
@@ -103,7 +114,7 @@ export async function POST(req: NextRequest) {
     const data = await response.json()
     const content = data.message?.content ?? "Sorry, I couldn't generate a response. Please contact us at info@cosasco.com."
 
-    return NextResponse.json({ content })
+    return NextResponse.json({ content }, { headers: { 'X-RateLimit-Remaining': String(remaining) } })
   } catch (err) {
     console.error('Chat route error:', err)
     return NextResponse.json(

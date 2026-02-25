@@ -231,6 +231,7 @@ export default function ContactPage() {
                       <input
                         id="contact-name"
                         type="text"
+                        autoComplete="name"
                         value={name}
                         onChange={(e) => { dispatch({ type: 'SET_FIELD', field: 'name', value: e.target.value }); revalidate() }}
                         placeholder="Jane Smith"
@@ -245,6 +246,7 @@ export default function ContactPage() {
                       <input
                         id="contact-company"
                         type="text"
+                        autoComplete="organization"
                         value={company}
                         onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'company', value: e.target.value })}
                         placeholder="Acme Refining Ltd."
@@ -261,6 +263,7 @@ export default function ContactPage() {
                       <input
                         id="contact-email"
                         type="email"
+                        autoComplete="email"
                         value={email}
                         onChange={(e) => { dispatch({ type: 'SET_FIELD', field: 'email', value: e.target.value }); revalidate() }}
                         placeholder="jsmith@company.com"
@@ -275,6 +278,7 @@ export default function ContactPage() {
                       <input
                         id="contact-phone"
                         type="tel"
+                        autoComplete="tel"
                         value={phone}
                         onChange={(e) => dispatch({ type: 'SET_FIELD', field: 'phone', value: e.target.value })}
                         placeholder="+1 (555) 000-0000"

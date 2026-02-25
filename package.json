@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
     "@fontsource/mukta": "^5.2.8",
     "@fontsource/mukta-mahee": "^5.2.8",
     "lucide-react": "^0.574.0",

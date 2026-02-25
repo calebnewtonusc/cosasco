@@ -43,13 +43,13 @@ const timeline = [
     year: '1960s',
     title: 'ER Probe Development',
     description:
-      'Cosasco engineers pioneered the electrical resistance (ER) probe methodology for continuous, real-time corrosion measurement — a breakthrough that transformed corrosion monitoring from periodic sampling to continuous surveillance.',
+      'Cosasco engineers pioneered the electrical resistance (ER) probe methodology for continuous, real-time corrosion measurement - a breakthrough that transformed corrosion monitoring from periodic sampling to continuous surveillance.',
   },
   {
     year: '1970s',
     title: 'Access Fitting Innovation',
     description:
-      'Development of under-pressure access fitting and retrieval tool systems enabled safer installation of corrosion probes and coupons without process shutdown — an innovation that became an industry standard worldwide.',
+      'Development of under-pressure access fitting and retrieval tool systems enabled safer installation of corrosion probes and coupons without process shutdown - an innovation that became an industry standard worldwide.',
   },
   {
     year: '1980s',
@@ -67,7 +67,7 @@ const timeline = [
     year: '2000s',
     title: 'Chemical Injection Portfolio',
     description:
-      'Cosasco broadened its portfolio with complete chemical injection quill, valve, and system assemblies — providing end-to-end corrosion mitigation capability from monitoring to treatment delivery.',
+      'Cosasco broadened its portfolio with complete chemical injection quill, valve, and system assemblies - providing end-to-end corrosion mitigation capability from monitoring to treatment delivery.',
   },
   {
     year: '2010s',
@@ -77,7 +77,7 @@ const timeline = [
   },
   {
     year: 'Today',
-    title: 'A Halma Company — Global Leader',
+    title: 'A Halma Company - Global Leader',
     description:
       'As a Halma company, Rohrback Cosasco Systems, Inc. operates within a global portfolio of safety, health, and environmental technology businesses. With over 1 million monitoring locations across 110 countries, Cosasco remains the world\'s most trusted name in corrosion management.',
   },
@@ -150,7 +150,7 @@ const leadership = [
     initials: 'DJ',
     name: 'Dustin Jennings',
     title: 'VP Operations',
-    bio: 'Dustin manages global field services, manufacturing operations, and supply chain — ensuring ISO 9001 quality standards are upheld from the production floor to customer site. His operational leadership spans multiple continents and product lines.',
+    bio: 'Dustin manages global field services, manufacturing operations, and supply chain - ensuring ISO 9001 quality standards are upheld from the production floor to customer site. His operational leadership spans multiple continents and product lines.',
   },
   {
     initials: 'SM',
@@ -174,7 +174,7 @@ const leadership = [
     initials: 'NI',
     name: 'Naomi Ikeda',
     title: 'HR Director',
-    bio: 'Naomi leads talent acquisition, employee development, and people programs at Cosasco — including the company\'s industry-leading 14-week paid parental leave policy. She champions a culture of inclusion, safety, and continuous learning.',
+    bio: 'Naomi leads talent acquisition, employee development, and people programs at Cosasco - including the company\'s industry-leading 14-week paid parental leave policy. She champions a culture of inclusion, safety, and continuous learning.',
   },
 ]
 
@@ -191,12 +191,12 @@ const esgPillars = [
   {
     icon: Leaf,
     title: 'Environmental',
-    body: 'As part of Halma, Cosasco is aligned with group-level net-zero commitments. We continuously reduce manufacturing waste, improve energy efficiency, and help customers extend asset life — reducing the environmental footprint of industrial infrastructure.',
+    body: 'As part of Halma, Cosasco is aligned with group-level net-zero commitments. We continuously reduce manufacturing waste, improve energy efficiency, and help customers extend asset life - reducing the environmental footprint of industrial infrastructure.',
   },
   {
     icon: Users,
     title: 'Social',
-    body: 'We invest in people — from operator training programs and safe working procedures to community engagement in our California headquarters. Our products directly contribute to safer workplaces by preventing corrosion failures before they become incidents.',
+    body: 'We invest in people - from operator training programs and safe working procedures to community engagement in our California headquarters. Our products directly contribute to safer workplaces by preventing corrosion failures before they become incidents.',
   },
   {
     icon: Scale,
@@ -288,7 +288,7 @@ export default function AboutPage() {
                 <p>
                   Through the following decades, Cosasco extended its portfolio to include
                   access fitting systems, chemical injection hardware, and data acquisition
-                  platforms — building the most comprehensive corrosion management product
+                  platforms - building the most comprehensive corrosion management product
                   line in the industry. By the 1990s, Cosasco products were protecting
                   pipelines, refineries, and water systems in more than 50 countries.
                 </p>
@@ -335,12 +335,12 @@ export default function AboutPage() {
               Vision, Mission &amp; Core Values
             </h2>
             <p className="text-[#566677] text-lg max-w-2xl mx-auto leading-relaxed">
-              The principles that have guided Cosasco since 1950 — and that define how we
+              The principles that have guided Cosasco since 1950 - and that define how we
               design, build, and support every product we manufacture today.
             </p>
           </div>
 
-          {/* Vision & Mission — navy contrast cards */}
+          {/* Vision & Mission - navy contrast cards */}
           <div className="grid md:grid-cols-2 gap-6 mb-10">
             <div className="bg-[#0f2a4a] rounded-xl p-8 text-white">
               <div className="border-l-4 border-[#f4a65d] pl-5 mb-5">
@@ -366,7 +366,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Core Values — 4 white cards */}
+          {/* Core Values - 4 white cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {coreValues.map((v) => {
               const Icon = v.icon
@@ -431,7 +431,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-3">Worldwide</p>
             <h2 className="text-3xl md:text-4xl font-black text-[#0f2a4a] mb-4">Global Presence</h2>
             <p className="text-[#566677] text-lg max-w-xl mx-auto leading-relaxed">
-              Cosasco distributes, supports, and serves customers across every major region — backed by local expertise and global resources.
+              Cosasco distributes, supports, and serves customers across every major region - backed by local expertise and global resources.
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -518,7 +518,7 @@ export default function AboutPage() {
               </h2>
               <p className="text-[#8ab4d4] leading-relaxed mb-6">
                 Cosasco's manufacturing facility in Santa Fe Springs, California houses the
-                full product lifecycle — precision CNC machining, alloy welding, hydrostatic
+                full product lifecycle - precision CNC machining, alloy welding, hydrostatic
                 testing, final inspection, and customer support. Everything that matters about
                 a Cosasco product happens here, under ISO 9001 certification.
               </p>
@@ -554,7 +554,7 @@ export default function AboutPage() {
                     <h3 className="font-black text-white text-sm mb-2">Manufacturing Facility</h3>
                     <p className="text-[#8ab4d4] text-sm leading-relaxed">
                       Precision CNC machining, alloy welding, hydrostatic testing to 15,000 psi,
-                      and full quality inspection — all under ISO 9001:2015 certification.
+                      and full quality inspection - all under ISO 9001:2015 certification.
                     </p>
                   </div>
                 </div>
@@ -577,7 +577,7 @@ export default function AboutPage() {
                   <div>
                     <h3 className="font-black text-white text-sm mb-2">A Halma Company</h3>
                     <p className="text-[#8ab4d4] text-sm leading-relaxed">
-                      Cosasco operates within the Halma group — a global portfolio of safety,
+                      Cosasco operates within the Halma group - a global portfolio of safety,
                       health, and environmental technology businesses with operations in over
                       20 countries and revenues exceeding £2 billion annually.
                     </p>
@@ -596,7 +596,7 @@ export default function AboutPage() {
             See What Cosasco Can Do for Your Operation
           </h2>
           <p className="text-[#566677] text-base max-w-xl mx-auto mb-8 leading-relaxed">
-            Talk to one of our application engineers about your corrosion challenge — no obligation.
+            Talk to one of our application engineers about your corrosion challenge - no obligation.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact" className="btn btn-primary">Contact an Engineer <ArrowRight className="w-4 h-4" /></Link>

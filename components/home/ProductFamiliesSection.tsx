@@ -19,7 +19,7 @@ export default function ProductFamiliesSection() {
                 Complete monitoring systems.
               </h2>
               <p className="mt-4 leading-relaxed" style={{ color: '#374151' }}>
-                Every component designed to work together — from the access
+                Every component designed to work together - from the access
                 fitting on the pipe wall to the dashboard in the control room.
               </p>
             </div>
@@ -29,7 +29,7 @@ export default function ProductFamiliesSection() {
               </div>
               <div className="text-sm mt-1 leading-relaxed max-w-xs" style={{ color: '#6b7280' }}>
                 Products spanning access fittings, probes, retrievers, chemical
-                injection, and data systems — engineered for interoperability.
+                injection, and data systems - engineered for interoperability.
               </div>
               <Link
                 href="/products"

@@ -15,7 +15,7 @@ const challenges = [
   },
   {
     title: 'Production Equipment Integrity',
-    body: 'Separators, treaters, heat exchangers, and ESP systems operate continuously in sour produced-water environments. Cyclic process upsets and high-velocity flow at inlets cause localized attack that periodic inspection alone cannot catch in time — making real-time ER probe data essential for proactive integrity management.',
+    body: 'Separators, treaters, heat exchangers, and ESP systems operate continuously in sour produced-water environments. Cyclic process upsets and high-velocity flow at inlets cause localized attack that periodic inspection alone cannot catch in time - making real-time ER probe data essential for proactive integrity management.',
   },
   {
     title: 'Chemical Dosing Optimization',
@@ -36,7 +36,7 @@ const products = [
   },
   {
     name: 'Microcor® Wireless Loggers',
-    desc: 'Real-time corrosion data from remote pipeline monitoring points — SCADA-compatible, cloud-connected, and hazardous-area certified.',
+    desc: 'Real-time corrosion data from remote pipeline monitoring points - SCADA-compatible, cloud-connected, and hazardous-area certified.',
     href: '/products/data-acquisition',
   },
   {
@@ -80,7 +80,7 @@ export default function OilGasPage() {
               Oil &amp; Gas Solutions
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
-              Upstream, midstream, and downstream corrosion management — from wellhead chemistry
+              Upstream, midstream, and downstream corrosion management - from wellhead chemistry
               to pipeline integrity monitoring. Cosasco has protected oil and gas infrastructure
               on six continents for over 70 years.
             </p>
@@ -176,7 +176,7 @@ export default function OilGasPage() {
               <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-4">Upstream Oil &amp; Gas</h2>
               <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-7">
                 <p className="text-[#566677] text-sm leading-relaxed mb-4">
-                  Wellheads, production tubing, separators, and water injection systems operate in aggressive sour service from day one. Cosasco retractable ER probes and chemical injection quills provide real-time corrosion intelligence and precise inhibitor delivery at every critical point — from the wellhead to the production manifold.
+                  Wellheads, production tubing, separators, and water injection systems operate in aggressive sour service from day one. Cosasco retractable ER probes and chemical injection quills provide real-time corrosion intelligence and precise inhibitor delivery at every critical point - from the wellhead to the production manifold.
                 </p>
                 <ul className="space-y-2">
                   {[
@@ -224,7 +224,7 @@ export default function OilGasPage() {
               <h2 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-4">Downstream &amp; Refining</h2>
               <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-7">
                 <p className="text-[#566677] text-sm leading-relaxed mb-4">
-                  Crude distillation units, hydrotreaters, FCC units, and storage tanks present some of the most complex corrosion environments in the industry — high temperatures, naphthenic acid, ammonium bisulfide, and chloride attack all require targeted monitoring strategies. Cosasco provides fixed ER probes, corrosion coupons, and LPR probes specifically qualified for refinery service.
+                  Crude distillation units, hydrotreaters, FCC units, and storage tanks present some of the most complex corrosion environments in the industry - high temperatures, naphthenic acid, ammonium bisulfide, and chloride attack all require targeted monitoring strategies. Cosasco provides fixed ER probes, corrosion coupons, and LPR probes specifically qualified for refinery service.
                 </p>
                 <ul className="space-y-2">
                   {[

@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Corrosion Monitoring Fundamentals: ER Probes vs. LPR vs. Coupons | Cosasco Blog',
   description:
-    'Understanding the core differences between electrical resistance, linear polarization, and weight-loss corrosion monitoring methods — and when to use each.',
+    'Understanding the core differences between electrical resistance, linear polarization, and weight-loss corrosion monitoring methods - and when to use each.',
 }
 
 export default function CorrosionMonitoringFundamentals() {
@@ -56,7 +56,7 @@ export default function CorrosionMonitoringFundamentals() {
                 ER probes measure the increase in electrical resistance of a metal element as it
                 corrodes and loses cross-sectional area. Because resistance is inversely proportional
                 to the remaining metal thickness, the cumulative metal loss can be tracked over time
-                with high precision — down to fractions of a mil per year in modern instruments.
+                with high precision - down to fractions of a mil per year in modern instruments.
               </p>
               <p>
                 The key advantage of ER probes is their ability to operate in virtually any
@@ -82,7 +82,7 @@ export default function CorrosionMonitoringFundamentals() {
                 inversely proportional to corrosion rate via the Stern-Geary relationship.
               </p>
               <p>
-                LPR excels at detecting rapid changes in corrosion rate — making it ideal for
+                LPR excels at detecting rapid changes in corrosion rate - making it ideal for
                 monitoring the effectiveness of corrosion inhibitor injection in real time. Where ER
                 probes might take days or weeks to register a meaningful change in cumulative loss,
                 LPR can show a corrosion rate shift within minutes of an inhibitor dosage change.
@@ -90,7 +90,7 @@ export default function CorrosionMonitoringFundamentals() {
               <p>
                 The limitation is that LPR requires a conductive electrolyte (water) at the probe
                 surface. In low-water-cut or gas-phase systems, LPR gives unreliable or no readings.
-                It also measures only the active corrosion rate at that moment — historical
+                It also measures only the active corrosion rate at that moment - historical
                 cumulative loss must be integrated over time, introducing uncertainty.
               </p>
 
@@ -104,7 +104,7 @@ export default function CorrosionMonitoringFundamentals() {
                 surface area and time gives the average corrosion rate over the exposure period.
               </p>
               <p>
-                Coupons provide the most direct measurement of actual material loss — no
+                Coupons provide the most direct measurement of actual material loss - no
                 instrumentation uncertainty, no calibration drift, no sensor fouling. They also
                 allow visual inspection of the corrosion morphology (pitting, uniform, crevice),
                 and the retrieved coupon surface can be analyzed for deposits, microbiological

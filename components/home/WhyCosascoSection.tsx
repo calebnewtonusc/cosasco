@@ -9,11 +9,11 @@ const features = [
   },
   {
     title: 'Online Retrieval Without Shutdown',
-    desc: 'Live insertion and extraction of monitoring equipment at full operating pressure — no downtime, no lost production.',
+    desc: 'Live insertion and extraction of monitoring equipment at full operating pressure - no downtime, no lost production.',
   },
   {
     title: 'From Probe to Cloud in One System',
-    desc: 'ER probes, access fittings, Microcor® wireless, and analytics — a fully integrated, interoperable system.',
+    desc: 'ER probes, access fittings, Microcor® wireless, and analytics - a fully integrated, interoperable system.',
   },
   {
     title: 'Global Support Network',
@@ -53,7 +53,7 @@ export default function WhyCosascoSection() {
             </Link>
           </div>
 
-          {/* Right column — feature rows */}
+          {/* Right column - feature rows */}
           <div className="mt-12 lg:mt-0 space-y-7">
             {features.map((feature) => (
               <div key={feature.title} className="flex items-start gap-4">

@@ -144,7 +144,7 @@ export default function DeviceLengthCalculatorPage() {
                 </div>
               </div>
 
-              {/* Step 1 — Pipe Size */}
+              {/* Step 1 - Pipe Size */}
               <div>
                 <h2 className="text-[#0f2a4a] font-black text-lg mb-1">1. Pipe Size (NPS)</h2>
                 <p className="text-[#566677] text-sm mb-4">Select the nominal pipe size.</p>
@@ -167,7 +167,7 @@ export default function DeviceLengthCalculatorPage() {
                 </div>
               </div>
 
-              {/* Step 2 — Schedule */}
+              {/* Step 2 - Schedule */}
               <div>
                 <h2 className="text-[#0f2a4a] font-black text-lg mb-1">2. Pipe Schedule</h2>
                 <p className="text-[#566677] text-sm mb-4">Available schedules for {pipe.label} pipe (OD = {fmt(pipe.od, units)}).</p>
@@ -185,7 +185,7 @@ export default function DeviceLengthCalculatorPage() {
                 </div>
               </div>
 
-              {/* Step 3 — Access Fitting */}
+              {/* Step 3 - Access Fitting */}
               <div>
                 <h2 className="text-[#0f2a4a] font-black text-lg mb-1">3. Access Fitting Thread Size</h2>
                 <p className="text-[#566677] text-sm mb-4">Select the NPT thread size of the access fitting. This determines thread engagement allowance.</p>
@@ -203,7 +203,7 @@ export default function DeviceLengthCalculatorPage() {
                 </div>
               </div>
 
-              {/* Step 4 — Probe Position */}
+              {/* Step 4 - Probe Position */}
               <div>
                 <h2 className="text-[#0f2a4a] font-black text-lg mb-1">4. Probe Tip Position</h2>
                 <p className="text-[#566677] text-sm mb-4">Where should the probe tip sit relative to the pipe bore? Centerline is standard for most applications.</p>
@@ -300,7 +300,7 @@ export default function DeviceLengthCalculatorPage() {
                   {deviceLength !== null && !customTooDeep ? (
                     <p className="text-[#f4a65d] font-black text-4xl">{fmt(deviceLength, units)}</p>
                   ) : (
-                    <p className="text-[#8898aa] font-black text-xl">—</p>
+                    <p className="text-[#8898aa] font-black text-xl">-</p>
                   )}
                 </div>
 
@@ -373,7 +373,7 @@ export default function DeviceLengthCalculatorPage() {
             ))}
           </div>
           <p className="text-[#8898aa] text-xs mt-8">
-            All calculations are based on standard ASME B36.10M pipe dimensional data. Results are recommendations — final device specifications should be confirmed by a qualified corrosion engineer. Cosasco accepts no liability for field installations made solely on the basis of this calculator output.
+            All calculations are based on standard ASME B36.10M pipe dimensional data. Results are recommendations - final device specifications should be confirmed by a qualified corrosion engineer. Cosasco accepts no liability for field installations made solely on the basis of this calculator output.
           </p>
         </div>
       </section>

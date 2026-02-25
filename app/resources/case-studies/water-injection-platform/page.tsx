@@ -57,17 +57,17 @@ export default function WaterInjectionPlatformPage() {
                   A national oil company in the Middle East operating 23 seawater injection wells across two offshore platforms had accumulated years of inconsistent corrosion data. Different service providers, varying coupon retrieval schedules, and non-standardized coupon materials meant the integrity team could not reliably compare corrosion rates across the portfolio or make defensible decisions about inhibitor dosing.
                 </p>
                 <p className="text-[#566677] leading-relaxed mb-4">
-                  Oxygen ingress and sulfate-reducing bacteria (SRB) were identified as the primary corrosion drivers. Without a standardized baseline, the operator defaulted to conservative over-dosing of biocide and oxygen scavenger — spending significantly more on chemicals than the actual corrosion threat warranted, while still lacking confidence in the data.
+                  Oxygen ingress and sulfate-reducing bacteria (SRB) were identified as the primary corrosion drivers. Without a standardized baseline, the operator defaulted to conservative over-dosing of biocide and oxygen scavenger - spending significantly more on chemicals than the actual corrosion threat warranted, while still lacking confidence in the data.
                 </p>
                 <p className="text-[#566677] leading-relaxed">
-                  The integrity team needed a standardized, comparable corrosion monitoring program across all 23 wells with centralized data management — and needed it deployable within a six-month maintenance window.
+                  The integrity team needed a standardized, comparable corrosion monitoring program across all 23 wells with centralized data management - and needed it deployable within a six-month maintenance window.
                 </p>
               </div>
 
               <div>
                 <h2 className="text-[#0f2a4a] font-black text-2xl mb-4">The Cosasco Solution</h2>
                 <p className="text-[#566677] leading-relaxed mb-4">
-                  Cosasco designed a standardized corrosion coupon program covering all 23 injection wells. A single coupon rack design — using L-80 carbon steel and 316L stainless steel coupons — was specified across all locations, eliminating the material variability that had made cross-well comparisons meaningless.
+                  Cosasco designed a standardized corrosion coupon program covering all 23 injection wells. A single coupon rack design - using L-80 carbon steel and 316L stainless steel coupons - was specified across all locations, eliminating the material variability that had made cross-well comparisons meaningless.
                 </p>
                 <p className="text-[#566677] leading-relaxed mb-4">
                   Cosasco quill assemblies with integral check valves were installed at each well for biocide and oxygen scavenger injection, replacing a mix of legacy equipment with a single, maintainable standard. All chemical injection rates were sized to actual well flow conditions rather than conservative blanket rates.
@@ -102,7 +102,7 @@ export default function WaterInjectionPlatformPage() {
                   ))}
                 </div>
                 <p className="text-[#566677] leading-relaxed">
-                  With actual corrosion rate data from standardized coupons, the integrity team was able to right-size chemical injection across the portfolio. Average biocide dosing fell 35% and oxygen scavenger fell 44% — without any increase in observed corrosion rates. The operator achieved full ROI on the program investment within nine months through chemical cost savings alone.
+                  With actual corrosion rate data from standardized coupons, the integrity team was able to right-size chemical injection across the portfolio. Average biocide dosing fell 35% and oxygen scavenger fell 44% - without any increase in observed corrosion rates. The operator achieved full ROI on the program investment within nine months through chemical cost savings alone.
                 </p>
               </div>
 
@@ -111,7 +111,7 @@ export default function WaterInjectionPlatformPage() {
                   &ldquo;For the first time, we can look at corrosion data from every well in the portfolio on a single screen and make decisions with confidence. The standardization Cosasco brought us was worth as much as the hardware.&rdquo;
                 </p>
                 <footer className="text-[#566677] text-sm font-semibold">
-                  — Corrosion & Integrity Lead, Middle East NOC
+                  - Corrosion & Integrity Lead, Middle East NOC
                 </footer>
               </blockquote>
 

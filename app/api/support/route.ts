@@ -28,18 +28,18 @@ export async function POST(req: NextRequest) {
       from: 'Cosasco Support Form <noreply@cosasco.com>',
       to,
       replyTo: email,
-      subject: `[${priority ?? 'Normal'}] Support Request: ${subject ?? category ?? 'General'} — ${name}`,
+      subject: `[${priority ?? 'Normal'}] Support Request: ${subject ?? category ?? 'General'} - ${name}`,
       html: `
         <h2>New Support Request</h2>
         <table style="border-collapse:collapse;width:100%;max-width:600px;">
           <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Name</td><td style="padding:8px;border:1px solid #e0e0e0;">${name}</td></tr>
-          <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Company</td><td style="padding:8px;border:1px solid #e0e0e0;">${company ?? '—'}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Company</td><td style="padding:8px;border:1px solid #e0e0e0;">${company ?? '-'}</td></tr>
           <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Email</td><td style="padding:8px;border:1px solid #e0e0e0;">${email}</td></tr>
-          <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Phone</td><td style="padding:8px;border:1px solid #e0e0e0;">${phone ?? '—'}</td></tr>
-          <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Category</td><td style="padding:8px;border:1px solid #e0e0e0;">${category ?? '—'}</td></tr>
-          <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Product/Serial</td><td style="padding:8px;border:1px solid #e0e0e0;">${serial ?? '—'}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Phone</td><td style="padding:8px;border:1px solid #e0e0e0;">${phone ?? '-'}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Category</td><td style="padding:8px;border:1px solid #e0e0e0;">${category ?? '-'}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Product/Serial</td><td style="padding:8px;border:1px solid #e0e0e0;">${serial ?? '-'}</td></tr>
           <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Priority</td><td style="padding:8px;border:1px solid #e0e0e0;">${priority ?? 'Normal'}</td></tr>
-          <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Subject</td><td style="padding:8px;border:1px solid #e0e0e0;">${subject ?? '—'}</td></tr>
+          <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Subject</td><td style="padding:8px;border:1px solid #e0e0e0;">${subject ?? '-'}</td></tr>
           <tr><td style="padding:8px;border:1px solid #e0e0e0;font-weight:bold;background:#f5f5f5;">Description</td><td style="padding:8px;border:1px solid #e0e0e0;">${description}</td></tr>
         </table>
       `,

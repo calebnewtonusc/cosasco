@@ -42,7 +42,7 @@ export default function ERProbePage() {
           </h1>
           <p className="text-[#94aabb] text-lg max-w-2xl leading-relaxed mb-8">
             Continuous, real-time corrosion rate measurement for pipelines, vessels, and process equipment
-            across all fluid environments — upstream to downstream.
+            across all fluid environments - upstream to downstream.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -92,7 +92,7 @@ export default function ERProbePage() {
               <p>
                 The sensing elements are manufactured from the same alloy as the pipe or vessel being
                 monitored, ensuring corrosion behavior is directly representative of the protected
-                asset. Element geometries — including tubular, wire loop, spiral, and flush disk —
+                asset. Element geometries - including tubular, wire loop, spiral, and flush disk -
                 are selected based on expected corrosion rate, flow velocity, and required sensitivity.
                 Standard elements provide resolution to 0.001 mpy, while high-sensitivity variants
                 extend this to sub-0.0001 mpy for ultra-low corrosion environments (laboratory conditions).
@@ -110,7 +110,7 @@ export default function ERProbePage() {
             <h3 className="text-[#0f2a4a] font-bold text-xl mb-4">Key Features</h3>
             <ul className="space-y-3">
               {[
-                "Continuous real-time corrosion rate output — no fluid sampling required",
+                "Continuous real-time corrosion rate output - no fluid sampling required",
                 "Multiple element alloys: CS, 316SS, Alloy 22, Hastelloy C-276, and more",
                 "Tubular, wire loop, spiral, and flush disk element geometries available",
                 "Rated to 10,000 PSI and 200°C; subsea-rated variants to 15,000 PSI",

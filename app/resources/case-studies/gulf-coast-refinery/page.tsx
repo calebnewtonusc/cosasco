@@ -54,13 +54,13 @@ export default function GulfCoastRefineryPage() {
               <div>
                 <h2 className="text-[#0f2a4a] font-black text-2xl mb-4">The Challenge</h2>
                 <p className="text-[#566677] leading-relaxed mb-4">
-                  A major Gulf Coast refinery processing 180,000 bbl/day of mixed crudes was experiencing severe HCl corrosion in the overhead system of its primary crude distillation unit (CDU). Variable crude slate — shifting between low-TAN domestic crudes and high-acid opportunity crudes — made corrosion rates unpredictable and difficult to manage with fixed inhibitor dosing programs.
+                  A major Gulf Coast refinery processing 180,000 bbl/day of mixed crudes was experiencing severe HCl corrosion in the overhead system of its primary crude distillation unit (CDU). Variable crude slate - shifting between low-TAN domestic crudes and high-acid opportunity crudes - made corrosion rates unpredictable and difficult to manage with fixed inhibitor dosing programs.
                 </p>
                 <p className="text-[#566677] leading-relaxed mb-4">
-                  Over a three-year period, unplanned maintenance attributed to overhead corrosion exceeded <span className="font-semibold text-[#0f2a4a]">$8M</span>. Two unplanned unit shutdowns in 18 months triggered regulatory review and significant lost margin. The existing monitoring program relied on quarterly corrosion coupon pulls — a cadence completely mismatched to the week-to-week variability in crude quality.
+                  Over a three-year period, unplanned maintenance attributed to overhead corrosion exceeded <span className="font-semibold text-[#0f2a4a]">$8M</span>. Two unplanned unit shutdowns in 18 months triggered regulatory review and significant lost margin. The existing monitoring program relied on quarterly corrosion coupon pulls - a cadence completely mismatched to the week-to-week variability in crude quality.
                 </p>
                 <p className="text-[#566677] leading-relaxed">
-                  The refinery's corrosion team needed the ability to see corrosion rate changes in real time and adjust inhibitor injection rates before damage accumulated — not weeks after the fact.
+                  The refinery's corrosion team needed the ability to see corrosion rate changes in real time and adjust inhibitor injection rates before damage accumulated - not weeks after the fact.
                 </p>
               </div>
 
@@ -70,7 +70,7 @@ export default function GulfCoastRefineryPage() {
                   Cosasco deployed a combined LPR and ER probe monitoring strategy across eight zones in the CDU overhead circuit: the overhead vapor line, condenser inlet and outlet, accumulator, and four overhead product rundown lines. LPR probes provided instantaneous corrosion rate readings every 60 seconds; ER probes provided cumulative metal loss trend data for long-term validation.
                 </p>
                 <p className="text-[#566677] leading-relaxed mb-4">
-                  Data from all 16 probe positions (LPR + ER at each zone) was aggregated in CDO cloud, with a custom CDO cloud dashboard overlaying corrosion rate trends against crude assay data and inhibitor injection rates. The refinery's corrosion engineer could now see — in real time — exactly how a shift to high-acid crude was affecting corrosion rates, and adjust inhibitor dosing accordingly.
+                  Data from all 16 probe positions (LPR + ER at each zone) was aggregated in CDO cloud, with a custom CDO cloud dashboard overlaying corrosion rate trends against crude assay data and inhibitor injection rates. The refinery's corrosion engineer could now see - in real time - exactly how a shift to high-acid crude was affecting corrosion rates, and adjust inhibitor dosing accordingly.
                 </p>
                 <ul className="space-y-3">
                   {[
@@ -105,10 +105,10 @@ export default function GulfCoastRefineryPage() {
 
               <blockquote className="border-l-4 border-[#f4a65d] pl-6 py-2">
                 <p className="text-[#0f2a4a] text-lg font-medium italic leading-relaxed mb-3">
-                  &ldquo;We used to find out about corrosion problems when we pulled coupons. Now we know within an hour of a crude switch. The difference is night and day — we&apos;re managing the CDU overhead, not chasing it.&rdquo;
+                  &ldquo;We used to find out about corrosion problems when we pulled coupons. Now we know within an hour of a crude switch. The difference is night and day - we&apos;re managing the CDU overhead, not chasing it.&rdquo;
                 </p>
                 <footer className="text-[#566677] text-sm font-semibold">
-                  — Unit Corrosion Engineer, Major Gulf Coast Refinery
+                  - Unit Corrosion Engineer, Major Gulf Coast Refinery
                 </footer>
               </blockquote>
 

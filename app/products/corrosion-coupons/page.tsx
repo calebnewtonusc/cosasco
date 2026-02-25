@@ -39,7 +39,7 @@ export default function CorrosionCouponsPage() {
             Corrosion Coupon Systems
           </h1>
           <p className="text-[#94aabb] text-lg max-w-2xl leading-relaxed mb-8">
-            Proven weight-loss corrosion measurement for pipelines and process systems —
+            Proven weight-loss corrosion measurement for pipelines and process systems -
             the gold-standard reference method per NACE TM-0169 across all fluid environments.
           </p>
 

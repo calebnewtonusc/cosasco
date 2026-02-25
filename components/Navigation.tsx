@@ -194,7 +194,7 @@ function ProductsDropdown({ onClose }: { onClose: () => void }) {
             const Icon = col.icon
             return (
               <div key={col.heading}>
-                {/* Column header — clickable */}
+                {/* Column header - clickable */}
                 <Link
                   href={col.href}
                   onClick={onClose}

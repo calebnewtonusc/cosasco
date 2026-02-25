@@ -15,11 +15,11 @@ const applications = [
   },
   {
     title: 'Ultrapure Water Systems',
-    body: 'Semiconductor and pharmaceutical manufacturing require water of extreme purity — and the piping systems that carry it must not introduce trace metal contamination. Cosasco monitoring solutions detect even the earliest signs of corrosion in ultrapure environments before product quality or process yield is affected.',
+    body: 'Semiconductor and pharmaceutical manufacturing require water of extreme purity - and the piping systems that carry it must not introduce trace metal contamination. Cosasco monitoring solutions detect even the earliest signs of corrosion in ultrapure environments before product quality or process yield is affected.',
   },
   {
     title: 'Control Rooms & Data Centers',
-    body: 'Airborne corrosive gases — SO₂, H₂S, and Cl₂ — attack copper and silver contacts on circuit boards and connectors, causing premature electronics failures. Cosasco\'s AirIQ system provides real-time airborne corrosion monitoring using hypersensitive ER technology to protect critical infrastructure before failures occur.',
+    body: 'Airborne corrosive gases - SO₂, H₂S, and Cl₂ - attack copper and silver contacts on circuit boards and connectors, causing premature electronics failures. Cosasco\'s AirIQ system provides real-time airborne corrosion monitoring using hypersensitive ER technology to protect critical infrastructure before failures occur.',
   },
   {
     title: 'Other Industrial Applications',
@@ -105,7 +105,7 @@ export default function SpecialtyApplicationsPage() {
                 <p className="text-[#8ab4d4] text-sm leading-relaxed mb-8">
                   Real-time air quality monitoring through hypersensitive ER technology. The AirIQ
                   system continuously measures airborne corrosion caused by SO₂, H₂S, and Cl₂ gases
-                  — the invisible threats that silently degrade copper and silver contacts in electronics
+                  - the invisible threats that silently degrade copper and silver contacts in electronics
                   long before visual signs appear. Detects corrosive gases that damage electronics before
                   they cause failures, giving operators time to act.
                 </p>
@@ -141,7 +141,7 @@ export default function SpecialtyApplicationsPage() {
                   <p className="text-[#566677] text-sm leading-relaxed max-w-xl">
                     No two corrosive environments are exactly alike. Our engineers have spent over
                     70 years solving corrosion problems that standard products couldn&apos;t address.
-                    Tell us your challenge — we&apos;ll build the solution.
+                    Tell us your challenge - we&apos;ll build the solution.
                   </p>
                 </div>
                 <Link href="/contact" className="btn btn-primary whitespace-nowrap flex-shrink-0">

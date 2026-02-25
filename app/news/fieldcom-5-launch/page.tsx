@@ -46,7 +46,7 @@ export default function FieldCom5LaunchPage() {
                 Cosasco has released firmware version 5.2 for the Microcor® Wireless Transmitter
                 (MWT) platform, delivering significant improvements to WirelessHART mesh network
                 stability, enhanced two-way integration with the CDO (Cosasco Data Online) cloud
-                platform, and support for the new field-swappable sensor head — a hardware upgrade
+                platform, and support for the new field-swappable sensor head - a hardware upgrade
                 that allows in-service sensor replacement without removing the transmitter body
                 from its mounting location.
               </p>
@@ -57,8 +57,8 @@ export default function FieldCom5LaunchPage() {
               <p>
                 Microcor® MWT deployments have grown rapidly since the platform&apos;s commercial release,
                 with networks now operating across upstream, midstream, and downstream segments in
-                14 countries. As network sizes have grown — with some operator sites now running
-                30+ MWT nodes from a single gateway — the firmware engineering team identified
+                14 countries. As network sizes have grown - with some operator sites now running
+                30+ MWT nodes from a single gateway - the firmware engineering team identified
                 three areas where performance improvements would deliver the highest operational
                 value: mesh route recovery speed in large networks, CDO cloud synchronization
                 reliability under intermittent gateway connectivity, and the sensor maintenance
@@ -79,22 +79,22 @@ export default function FieldCom5LaunchPage() {
                   {
                     icon: Wifi,
                     stat: '3× Faster',
-                    label: 'Mesh route recovery after node loss — now under 90 seconds in networks up to 32 nodes',
+                    label: 'Mesh route recovery after node loss - now under 90 seconds in networks up to 32 nodes',
                   },
                   {
                     icon: Cloud,
                     stat: 'CDO Sync',
-                    label: 'Store-and-forward buffer increased to 30 days of local data — no gaps during gateway outages',
+                    label: 'Store-and-forward buffer increased to 30 days of local data - no gaps during gateway outages',
                   },
                   {
                     icon: RefreshCw,
                     stat: 'Hot-Swap',
-                    label: 'Field-swappable sensor head support — replace ER element without removing transmitter',
+                    label: 'Field-swappable sensor head support - replace ER element without removing transmitter',
                   },
                   {
                     icon: Cpu,
                     stat: '18-bit+',
-                    label: 'Improved ADC temperature compensation algorithm — ±0.05 µm measurement accuracy',
+                    label: 'Improved ADC temperature compensation algorithm - ±0.05 µm measurement accuracy',
                   },
                 ].map(({ icon: Icon, stat, label }) => (
                   <div key={stat} className="bg-[#f0f4f8] border border-[#e8edf2] rounded-xl p-5 text-center">
@@ -110,9 +110,9 @@ export default function FieldCom5LaunchPage() {
               </h2>
               <p>
                 The most significant change in v5.2 is a rewritten route management layer in the
-                WirelessHART stack. In large mesh networks — particularly those with 20+ nodes and
+                WirelessHART stack. In large mesh networks - particularly those with 20+ nodes and
                 complex RF propagation environments, such as tank farms with structural obstructions
-                or offshore platform decks with heavy steel-frame interference — the previous
+                or offshore platform decks with heavy steel-frame interference - the previous
                 firmware could take 4–8 minutes to re-establish stable routing after a node
                 went offline or a gateway rebooted. The v5.2 route manager uses a proactive
                 neighbor-table pre-computation approach, maintaining two pre-validated backup
@@ -132,8 +132,8 @@ export default function FieldCom5LaunchPage() {
               </h2>
               <p>
                 Firmware v5.2 introduces two-way CDO integration for remote configuration
-                management. Previously, MWT device configuration — including polling interval,
-                alert thresholds, and measurement averaging parameters — required either physical
+                management. Previously, MWT device configuration - including polling interval,
+                alert thresholds, and measurement averaging parameters - required either physical
                 access to the device or connection through the WirelessHART gateway&apos;s HART
                 command interface. With v5.2, these parameters can be pushed remotely from the
                 CDO web interface or the CDO mobile app to any online MWT node in under
@@ -141,8 +141,8 @@ export default function FieldCom5LaunchPage() {
               </p>
               <p>
                 The on-device store-and-forward buffer has been increased from 7 days to 30 days
-                of historical readings. If a gateway goes offline — due to power interruption,
-                communication link outage, or scheduled maintenance — the MWT continues logging
+                of historical readings. If a gateway goes offline - due to power interruption,
+                communication link outage, or scheduled maintenance - the MWT continues logging
                 locally. When gateway connectivity is restored, the full buffered dataset is
                 uploaded to CDO automatically, ensuring no data gaps in the corrosion trend record
                 even during extended outages. This is particularly valuable for remote pipeline
@@ -156,14 +156,14 @@ export default function FieldCom5LaunchPage() {
                 Working in conjunction with new field-swappable sensor head hardware (available
                 separately), firmware v5.2 adds support for hot-swap element replacement without
                 powering down the transmitter or removing it from its pipe mounting. The sensor
-                head — which contains the ER element and measurement bridge circuit — separates
+                head - which contains the ER element and measurement bridge circuit - separates
                 from the transmitter body at a quick-release connector, and can be exchanged
                 in under 4 minutes. The transmitter automatically detects the new sensor head,
                 performs a zero calibration cycle, and resumes monitoring without manual intervention.
               </p>
               <p>
-                For MWT units installed in locations with restricted access — elevated structures,
-                subsea topsides, or within process equipment insulation — the hot-swap capability
+                For MWT units installed in locations with restricted access - elevated structures,
+                subsea topsides, or within process equipment insulation - the hot-swap capability
                 eliminates the need to scaffold or use elevated work platforms simply to perform
                 a routine element change. The transmitter body remains in place; only the
                 sensor head is exchanged.
@@ -179,24 +179,24 @@ export default function FieldCom5LaunchPage() {
                 firmware introduces a revised temperature compensation algorithm based on an
                 empirical model developed from over 18 months of controlled laboratory testing
                 across the full operating temperature range of −40 °C to +70 °C. The result is
-                a measurement accuracy improvement to ±0.05 µm — a 40% improvement over
-                the v5.0 specification — particularly meaningful for installations in arctic
+                a measurement accuracy improvement to ±0.05 µm - a 40% improvement over
+                the v5.0 specification - particularly meaningful for installations in arctic
                 or desert environments where ambient temperature swings are large.
               </p>
 
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">Full v5.2 Feature List</h2>
               <ul className="space-y-3">
                 {[
-                  'Rewritten WirelessHART route management — mesh recovery under 90 seconds for networks up to 32 nodes',
+                  'Rewritten WirelessHART route management - mesh recovery under 90 seconds for networks up to 32 nodes',
                   'New node join time reduced from 8–12 minutes to under 3 minutes',
                   'Remote CDO configuration push for polling interval, alert thresholds, and averaging parameters',
                   'On-device store-and-forward buffer increased from 7 days to 30 days',
-                  'Field-swappable sensor head support — hot-swap without transmitter power cycle',
-                  'Revised 18-bit ADC temperature compensation algorithm — ±0.05 µm accuracy (−40 °C to +70 °C)',
+                  'Field-swappable sensor head support - hot-swap without transmitter power cycle',
+                  'Revised 18-bit ADC temperature compensation algorithm - ±0.05 µm accuracy (−40 °C to +70 °C)',
                   'CDO mobile app alert acknowledgment now propagates back to MWT device state within 2 minutes',
                   'Improved HART pass-through mode for wired maintenance access via portable HART communicator',
                   'Diagnostic event logging expanded to 500 entries (from 100) with UTC timestamps',
-                  'OTA (over-the-air) firmware update support via CDO gateway — no field access required for future updates',
+                  'OTA (over-the-air) firmware update support via CDO gateway - no field access required for future updates',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-[#f4a65d] flex-shrink-0 mt-0.5" />
@@ -212,16 +212,16 @@ export default function FieldCom5LaunchPage() {
                 <p className="text-[#0f2a4a] font-semibold italic text-lg leading-snug mb-3">
                   &ldquo;Every item in the v5.2 release came directly from operator feedback. The mesh
                   stability improvements came from our customer in the Middle East running 28 nodes
-                  across a refinery with heavy steel-frame RF obstruction — they needed faster
+                  across a refinery with heavy steel-frame RF obstruction - they needed faster
                   recovery after plant power events. The 30-day buffer was driven by a pipeline
                   operator in Canada whose satellite gateway link goes down for 3–5 days during
                   winter storms. And the hot-swap sensor head was a direct request from
                   customers with MWT units on elevated structures where scaffolding for a routine
-                  element change simply isn&apos;t practical. These aren&apos;t feature requests — they&apos;re
+                  element change simply isn&apos;t practical. These aren&apos;t feature requests - they&apos;re
                   real operational problems, and we built solutions for all of them.&rdquo;
                 </p>
                 <p className="text-[#566677] text-sm font-semibold">
-                  — Anupam Sangal, Director of Engineering, Rohrback Cosasco Systems, Inc.
+                  - Anupam Sangal, Director of Engineering, Rohrback Cosasco Systems, Inc.
                 </p>
               </blockquote>
 
@@ -236,7 +236,7 @@ export default function FieldCom5LaunchPage() {
               </p>
               <p>
                 For MWT units running firmware v3.x or earlier, a staged update path through v4.2
-                is required before applying v5.2 — contact your Cosasco regional representative
+                is required before applying v5.2 - contact your Cosasco regional representative
                 or distributor for a device assessment and update schedule. The field-swappable
                 sensor head hardware is sold separately as a retrofit kit; contact Cosasco for
                 compatibility confirmation against your existing MWT serial number.
@@ -322,7 +322,7 @@ export default function FieldCom5LaunchPage() {
               </p>
               <ul className="space-y-2 text-sm text-[#566677]">
                 {[
-                  { version: 'v5.2', note: 'Current — mesh stability, CDO sync, hot-swap' },
+                  { version: 'v5.2', note: 'Current - mesh stability, CDO sync, hot-swap' },
                   { version: 'v5.0', note: 'Native CDO integration, OTA update support' },
                   { version: 'v4.2', note: 'WirelessHART 7 mesh, ATEX Zone 1 cert' },
                   { version: 'v4.0', note: 'Initial 18-bit ADC platform release' },

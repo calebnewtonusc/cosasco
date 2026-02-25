@@ -13,7 +13,7 @@ const paymentPolicies = [
   'Wire transfer and ACH accepted for invoices over $5,000',
   'Credit card payments accepted via secure portal for invoices under $5,000',
   'Invoice disputes must be raised within 14 days of invoice date',
-  'Early payment discount available — contact your account manager',
+  'Early payment discount available - contact your account manager',
 ]
 
 const partnerTypes = [

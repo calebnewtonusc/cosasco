@@ -78,7 +78,7 @@ export default function UtilitiesPage() {
               Utilities Solutions
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
-              Power generation, cooling water systems, and steam cycles — Cosasco
+              Power generation, cooling water systems, and steam cycles - Cosasco
               monitoring instruments and chemical injection systems extend asset life
               and reduce the unplanned outages that cost utilities millions per incident.
             </p>
@@ -126,7 +126,7 @@ export default function UtilitiesPage() {
               <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Proven Results</p>
               <h3 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-6">Case Study</h3>
               <div className="bg-[#0f2a4a] rounded-xl p-8 text-white">
-                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Combined-Cycle Power Plant — Mid-Atlantic USA</p>
+                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Combined-Cycle Power Plant - Mid-Atlantic USA</p>
                 <h4 className="text-xl font-black text-white mb-4">
                   Cooling Water ER Program Prevents Condenser Tube Failure
                 </h4>
@@ -136,7 +136,7 @@ export default function UtilitiesPage() {
                   tower circuit following a condenser tube failure that caused a 72-hour
                   forced outage. The monitoring and treatment system detected a chemistry
                   excursion 11 days into operation and automatically adjusted biocide
-                  dosing — preventing a recurrence and delivering measurable improvement
+                  dosing - preventing a recurrence and delivering measurable improvement
                   in corrosion performance across the first operating season.
                 </p>
                 <div className="grid grid-cols-3 gap-4 mb-8">

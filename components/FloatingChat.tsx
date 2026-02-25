@@ -180,7 +180,7 @@ export default function FloatingChat() {
             animation: 'chatSlideIn 0.25s cubic-bezier(0.22, 1, 0.36, 1)',
           }}
         >
-          {/* Header — contains resize handle on left */}
+          {/* Header - contains resize handle on left */}
           <div className="bg-[#0f2a4a] px-5 py-3.5 flex items-center justify-between shrink-0 select-none">
             {/* Resize handle */}
             <div
@@ -237,7 +237,7 @@ export default function FloatingChat() {
               </div>
             </div>
 
-            {/* Quick question chips — shown before first message */}
+            {/* Quick question chips - shown before first message */}
             {messages.length === 0 && (
               <div className="pl-9 grid grid-cols-2 gap-1.5">
                 {QUICK_QUESTIONS.map((q) => (

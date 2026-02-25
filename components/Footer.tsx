@@ -74,7 +74,7 @@ export default function Footer() {
                 Stay ahead of corrosion.
               </h3>
               <p className="text-[#8ab4d4] text-sm mt-1 leading-relaxed">
-                Get technical articles, application notes, and product updates from Cosasco engineers — no marketing fluff.
+                Get technical articles, application notes, and product updates from Cosasco engineers - no marketing fluff.
               </p>
             </div>
 
@@ -162,7 +162,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 lg:gap-12">
 
-          {/* Col 1 — Brand (2 cols wide) */}
+          {/* Col 1 - Brand (2 cols wide) */}
           <div className="md:col-span-2">
             <div className="mb-5">
               <Image
@@ -224,7 +224,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2 — Industries */}
+          {/* Col 2 - Industries */}
           <div>
             <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">Industries</h4>
             <ul className="space-y-2.5">
@@ -239,7 +239,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 3 — Products */}
+          {/* Col 3 - Products */}
           <div>
             <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">Products</h4>
             <ul className="space-y-2.5">
@@ -261,7 +261,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4 — Company + Support */}
+          {/* Col 4 - Company + Support */}
           <div>
             <h4 className="text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#8ab4d4] mb-4">Company</h4>
             <ul className="space-y-2.5 mb-7">

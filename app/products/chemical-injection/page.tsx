@@ -18,12 +18,12 @@ import {
 
 const products = [
   {
-    name: "Quill Assemblies — Fixed",
+    name: "Quill Assemblies - Fixed",
     desc: "Single-piece welded quill assemblies deliver chemical inhibitor to the center of the flow stream for optimal dispersion. Available in straight and angle-entry configurations with integral check valve.",
     spec: "Max Pressure: 6,000 PSI",
   },
   {
-    name: "Quill Assemblies — Retractable",
+    name: "Quill Assemblies - Retractable",
     desc: "Spring-loaded retractable quills allow removal under live line conditions without depressurization. Preferred for high-solids or scaling service where periodic cleaning or replacement is required.",
     spec: "Rated: 3,000 PSI / 300°F",
   },
@@ -106,13 +106,13 @@ export default function ChemicalInjectionPage() {
       <section className="bg-white py-16 px-6 md:px-10 xl:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Left — 2 cols */}
+            {/* Left - 2 cols */}
             <div className="lg:col-span-2">
               <h2 className="font-black text-[#0f2a4a] text-3xl mb-4">About Chemical Injection</h2>
               <p className="text-[#566677] leading-relaxed mb-4">
                 Effective corrosion and scale management begins with reliable chemical delivery.
                 Cosasco injection quills and assemblies are designed to position the injection point
-                at the centerline of the flow stream — away from the pipe wall — ensuring turbulent
+                at the centerline of the flow stream - away from the pipe wall - ensuring turbulent
                 mixing and uniform inhibitor distribution. Retractable designs allow removal and
                 inspection without shutdown, critical for long-term operability in high-scaling or
                 high-solids environments.
@@ -138,7 +138,7 @@ export default function ChemicalInjectionPage() {
               </div>
             </div>
 
-            {/* Right — Key Features */}
+            {/* Right - Key Features */}
             <div className="lg:col-span-1">
               <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-6 h-full">
                 <p className="text-xs font-bold uppercase tracking-widest text-[#0f2a4a] mb-5">

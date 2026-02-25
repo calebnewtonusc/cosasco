@@ -188,7 +188,7 @@ export default function HeroSection() {
 
             <p className="text-xl mt-6 max-w-2xl mx-auto lg:mx-0" style={{ color: '#94aabb' }}>
               We exist to be the most complete and precise solution to measure and monitor
-              corrosion — improving the safety of people and the environment while protecting
+              corrosion - improving the safety of people and the environment while protecting
               assets and enhancing our customers&apos; bottom line.
             </p>
 

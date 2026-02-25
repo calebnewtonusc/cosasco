@@ -43,7 +43,7 @@ export default function H2SSourServicePage() {
           <article className="lg:col-span-2">
             <div className="text-[#566677] leading-relaxed space-y-6 text-[1.05rem]">
               <p className="text-xl text-[#0f2a4a] font-semibold leading-snug">
-                Sour service — any system containing H₂S above NACE MR0175 thresholds — presents a
+                Sour service - any system containing H₂S above NACE MR0175 thresholds - presents a
                 fundamentally different corrosion challenge than sweet service. The mechanisms are
                 different, the failure modes are different, and the monitoring strategy needs to
                 reflect that.
@@ -87,7 +87,7 @@ export default function H2SSourServicePage() {
               </p>
               <ul className="list-none space-y-3">
                 {[
-                  'Top-of-line corrosion (TLC) is frequently underestimated. In partially-filled pipelines, condensed water at the top of the pipe is more corrosive than the bulk liquid phase — ER probes placed only at the bottom give a false sense of security.',
+                  'Top-of-line corrosion (TLC) is frequently underestimated. In partially-filled pipelines, condensed water at the top of the pipe is more corrosive than the bulk liquid phase - ER probes placed only at the bottom give a false sense of security.',
                   'Pitting rates in H₂S service are highly localized. Average corrosion rates from weight-loss coupons often miss severe pitting that is occurring in isolated areas. Flush-mount ER probes detect this better by measuring the deepest penetration.',
                   'Inhibitor response in H₂S is slower than in sweet service. Allow at least 4–6 hours of LPR monitoring after a dosage change before drawing conclusions about inhibitor effectiveness.',
                   'Temperature above 80°C changes the failure mode. At elevated temperatures, SSC risk diminishes but HIC and SOHIC risk increase. Material selection and monitoring strategy must account for this transition.',

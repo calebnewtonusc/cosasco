@@ -152,7 +152,7 @@ export const services = [
 ]
 
 export const trustPoints = [
-  'No sales pressure — speak directly with an application engineer',
+  'No sales pressure - speak directly with an application engineer',
   'Response within one business day',
   'Global support in 110 countries',
 ]

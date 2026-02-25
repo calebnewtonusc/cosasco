@@ -78,7 +78,7 @@ export default function PulpPaperPage() {
               Pulp &amp; Paper Solutions
             </h1>
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl">
-              Digesters, bleach plants, and black liquor recovery systems — Cosasco
+              Digesters, bleach plants, and black liquor recovery systems - Cosasco
               chemical-resistant monitoring instruments and retractable systems protect
               pulp and paper assets in the most corrosive wet process environments.
             </p>
@@ -126,13 +126,13 @@ export default function PulpPaperPage() {
               <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Proven Results</p>
               <h3 className="text-2xl md:text-3xl font-black text-[#0f2a4a] mb-6">Case Study</h3>
               <div className="bg-[#0f2a4a] rounded-xl p-8 text-white">
-                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Kraft Pulp Mill — Pacific Northwest</p>
+                <p className="text-xs font-bold tracking-[0.1em] uppercase text-[#f4a65d] mb-2">Kraft Pulp Mill - Pacific Northwest</p>
                 <h4 className="text-xl font-black text-white mb-4">
                   Retractable ER Probes Eliminate Unplanned Digester Outages
                 </h4>
                 <p className="text-[#8ab4d4] text-sm leading-relaxed mb-8">
                   A Pacific Northwest kraft pulp mill installed Cosasco retractable ER probe
-                  assemblies at the continuous digester blow line and chip feed system — two
+                  assemblies at the continuous digester blow line and chip feed system - two
                   locations that had experienced two unplanned outages in three years due to
                   wall loss. Real-time corrosion rate trending from the Cosasco monitoring
                   program provided early warning on both occasions when process upsets

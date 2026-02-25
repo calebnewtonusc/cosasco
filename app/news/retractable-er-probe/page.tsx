@@ -45,7 +45,7 @@ export default function RetractableERProbePage() {
               <p className="text-xl text-[#0f2a4a] font-semibold leading-snug">
                 Cosasco has launched a next-generation retractable electrical resistance (ER) probe
                 engineered for live-line insertion and retrieval at pressures up to 6,000 psi (414 bar).
-                Built around Cosasco&apos;s patented access fitting — the field-proven &ldquo;stopple&rdquo; system — the
+                Built around Cosasco&apos;s patented access fitting - the field-proven &ldquo;stopple&rdquo; system - the
                 probe eliminates process shutdowns for routine element changes, dramatically reducing
                 the cost and operational disruption of high-pressure corrosion monitoring programs.
               </p>
@@ -56,7 +56,7 @@ export default function RetractableERProbePage() {
               <p>
                 Electrical resistance probes are the backbone of continuous corrosion monitoring
                 across the oil and gas, petrochemical, and midstream industries. They deliver real-time
-                metal loss data in virtually any fluid environment — but in high-pressure service above
+                metal loss data in virtually any fluid environment - but in high-pressure service above
                 3,000 psi, conventional fixed-insertion probes have always imposed a painful trade-off:
                 replace the sensing element under live pressure using specialist retrieval equipment,
                 or wait for a planned shutdown. Neither option is cost-free.
@@ -73,7 +73,7 @@ export default function RetractableERProbePage() {
                 The Stopple Access Fitting: Cosasco&apos;s Patented Foundation
               </h2>
               <p>
-                The retractable probe system is built on Cosasco&apos;s established stopple access fitting —
+                The retractable probe system is built on Cosasco&apos;s established stopple access fitting -
                 a patented isolation valve and retrieval mechanism that has been deployed across
                 Cosasco&apos;s global customer base for over two decades. The stopple creates a fully
                 isolated annular chamber between the process pipe bore and the probe body, allowing
@@ -98,7 +98,7 @@ export default function RetractableERProbePage() {
                   {
                     icon: Shield,
                     stat: '6,000 psi',
-                    label: 'Maximum working pressure (414 bar) — rated to API 6A PSL3',
+                    label: 'Maximum working pressure (414 bar) - rated to API 6A PSL3',
                   },
                   {
                     icon: Zap,
@@ -113,7 +113,7 @@ export default function RetractableERProbePage() {
                   {
                     icon: Wrench,
                     stat: '316SS / C-276',
-                    label: 'Standard wetted materials — 316L stainless steel and Hastelloy C-276',
+                    label: 'Standard wetted materials - 316L stainless steel and Hastelloy C-276',
                   },
                 ].map(({ icon: Icon, stat, label }) => (
                   <div key={stat} className="bg-[#f0f4f8] border border-[#e8edf2] rounded-xl p-5 text-center">
@@ -129,8 +129,8 @@ export default function RetractableERProbePage() {
                 C-276 for highly corrosive service including chloride-rich produced water, sour gas
                 (H₂S service per NACE MR0175 / ISO 15156), and mixed acid gas injection systems.
                 All wetted material certifications are provided to EN 10204 3.1. The probe body
-                is compatible with Cosasco&apos;s full range of ER sensing element geometries — flush
-                mount, tubular, cylindrical, and disc — allowing operators to select the optimum
+                is compatible with Cosasco&apos;s full range of ER sensing element geometries - flush
+                mount, tubular, cylindrical, and disc - allowing operators to select the optimum
                 element sensitivity for their specific corrosion rate regime.
               </p>
 
@@ -143,7 +143,7 @@ export default function RetractableERProbePage() {
                 Transmitter (MWT) for cable-free WirelessHART deployment, the FieldCom 5 handheld
                 reader for manual spot-check data collection, and Cosasco&apos;s panel-mount and DIN-rail
                 transmitters for hardwired SCADA integration. No adapter plates or modified
-                connection hardware are required — the probe uses the same standard Cosasco M10 top
+                connection hardware are required - the probe uses the same standard Cosasco M10 top
                 connection as the existing fixed-insertion ER probe range.
               </p>
               <p>
@@ -157,13 +157,13 @@ export default function RetractableERProbePage() {
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">Features at a Glance</h2>
               <ul className="space-y-3">
                 {[
-                  '6,000 psi / 414 bar working pressure — covers the full range of high-pressure gas and liquid service',
+                  '6,000 psi / 414 bar working pressure - covers the full range of high-pressure gas and liquid service',
                   'Live-line element exchange in under 8 minutes, single-operator procedure, no specialist tools',
                   'Patented stopple access fitting with dual metal-to-metal primary seal (API 6A PSL3)',
                   'Materials: 316L SS standard; Hastelloy C-276 for sour and high-chloride service',
                   'ASME B16.34 body rating; ANSI Class 900 through 4500 flanged end connections',
                   'ATEX / IECEx Zone 1 certified probe body available for classified area installation',
-                  'Compatible with all Cosasco CDO data acquisition systems — no hardware adapters required',
+                  'Compatible with all Cosasco CDO data acquisition systems - no hardware adapters required',
                   'Available in flush, tubular, cylindrical, and disc ER element geometries',
                   'Full EN 10204 3.1 material certification package standard; NACE-compliant documentation available',
                 ].map((item) => (
@@ -181,14 +181,14 @@ export default function RetractableERProbePage() {
                 <p className="text-[#0f2a4a] font-semibold italic text-lg leading-snug mb-3">
                   &ldquo;Our customers operating at 5,000 to 6,000 psi have been asking for a
                   truly safe live-line ER solution for years. Fixed probes at that pressure range
-                  are operationally costly to maintain — you either accept monitoring gaps or you
+                  are operationally costly to maintain - you either accept monitoring gaps or you
                   mobilize specialist intervention crews. We built this system so a regular field
                   technician can swap the element during a normal walk-around. The stopple
-                  mechanism handles all the pressure management — the technician just follows
+                  mechanism handles all the pressure management - the technician just follows
                   a seven-step procedure.&rdquo;
                 </p>
                 <p className="text-[#566677] text-sm font-semibold">
-                  — Dustin Jennings, VP Operations, Rohrback Cosasco Systems, Inc.
+                  - Dustin Jennings, VP Operations, Rohrback Cosasco Systems, Inc.
                 </p>
               </blockquote>
 
@@ -208,15 +208,15 @@ export default function RetractableERProbePage() {
                 second half of 2025, the retractable probe system reduced annual monitoring
                 maintenance expenditure by 65–80% compared to the equivalent fixed-probe programs,
                 while simultaneously increasing element change frequency from annual to
-                semi-annual — improving data quality and corrosion trend detection sensitivity.
+                semi-annual - improving data quality and corrosion trend detection sensitivity.
               </p>
 
               <h2 className="text-[#0f2a4a] font-black text-2xl mt-10 mb-3">Availability</h2>
               <p>
                 The retractable high-pressure ER probe is available for order beginning Q2 2026.
                 Standard lead time is 6–8 weeks for 316L stainless steel configurations and
-                10–14 weeks for Hastelloy C-276 bodies. The complete system — stopple access
-                fitting, probe body, retrieval tool, and sensing element — is available as a
+                10–14 weeks for Hastelloy C-276 bodies. The complete system - stopple access
+                fitting, probe body, retrieval tool, and sensing element - is available as a
                 packaged kit with a single part number for straightforward procurement.
               </p>
               <p>

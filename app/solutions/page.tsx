@@ -130,7 +130,7 @@ export default function SolutionsPage() {
             <p className="text-[#8ab4d4] text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
               Corrosion is not a generic problem. Each industry carries its own process chemistry,
               pressure ratings, regulatory environment, and failure consequences. Cosasco engineers
-              monitoring programs that account for all of it — backed by 70+ years of domain expertise.
+              monitoring programs that account for all of it - backed by 70+ years of domain expertise.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact" className="btn btn-primary">
@@ -155,7 +155,7 @@ export default function SolutionsPage() {
             </h2>
             <p className="text-[#566677] text-lg max-w-2xl mx-auto leading-relaxed">
               Cosasco domain expertise runs deep. Our application engineers have spent decades
-              solving corrosion problems specific to each industry — from sour crude pipelines to
+              solving corrosion problems specific to each industry - from sour crude pipelines to
               municipal water networks to kraft pulp mills. Select your sector to explore
               purpose-built monitoring solutions and proven case results.
             </p>
@@ -210,7 +210,7 @@ export default function SolutionsPage() {
           </h2>
           <p className="text-[#566677] text-base max-w-xl mx-auto mb-8 leading-relaxed">
             Our NACE-certified application engineers will assess your process conditions and
-            recommend the right monitoring strategy — at no cost.
+            recommend the right monitoring strategy - at no cost.
           </p>
           <Link href="/contact" className="btn btn-primary">
             Request a Free Consultation

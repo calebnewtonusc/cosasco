@@ -59,7 +59,7 @@ export default function SoftwarePage() {
                 <a href="mailto:support@cosasco.com" className="underline underline-offset-2 hover:text-blue-700">
                   support@cosasco.com
                 </a>.</strong>{' '}
-                CDO software requires a valid activation key — see{' '}
+                CDO software requires a valid activation key - see{' '}
                 <a href="#data-key-activation" className="underline underline-offset-2 hover:text-blue-700">
                   Data Key Activation below
                 </a>.

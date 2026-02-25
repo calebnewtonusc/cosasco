@@ -108,7 +108,7 @@ export default function DataAcquisitionPage() {
       <section className="bg-white py-16 px-6 md:px-10 xl:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-12">
-            {/* Left — 2 cols */}
+            {/* Left - 2 cols */}
             <div className="lg:col-span-2">
               <h2 className="font-black text-[#0f2a4a] text-3xl mb-4">About Data Acquisition</h2>
               <p className="text-[#566677] leading-relaxed mb-4">
@@ -116,13 +116,13 @@ export default function DataAcquisitionPage() {
                 unified, real-time monitoring infrastructure. WirelessHART 7 compliant nodes with
                 18-bit resolution eliminate the cost and complexity of cable routing across large
                 process plants, while the Class I Zone 1 certification ensures safe deployment in
-                the most demanding hazardous area classifications — including large metal structures
+                the most demanding hazardous area classifications - including large metal structures
                 and offshore topsides.
               </p>
               <p className="text-[#566677] leading-relaxed mb-8">
                 For operators seeking deeper integration, the Cosasco Data Online (CDO) cloud
                 analytics platform provides trend visualization, configurable alarm management, and
-                automated exception reporting — accessible from any device via secure web browser.
+                automated exception reporting - accessible from any device via secure web browser.
                 Native Modbus TCP/RTU and OPC-UA drivers ensure seamless integration with existing
                 plant DCS and SCADA infrastructure, including pre-configured templates for Yokogawa
                 and Emerson platforms, across our 1M+ global monitoring locations in over 110 countries.
@@ -141,7 +141,7 @@ export default function DataAcquisitionPage() {
               </div>
             </div>
 
-            {/* Right — Key Features */}
+            {/* Right - Key Features */}
             <div className="lg:col-span-1">
               <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-xl p-6 h-full">
                 <p className="text-xs font-bold uppercase tracking-widest text-[#0f2a4a] mb-5">

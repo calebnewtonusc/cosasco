@@ -25,7 +25,7 @@ const downloads = [
   {
     name: 'CDO Mobile',
     version: '',
-    platform: 'iOS — App Store',
+    platform: 'iOS - App Store',
     size: null,
     buttonLabel: 'Get on App Store',
     buttonClass: 'bg-black text-white hover:bg-[#222]',
@@ -33,7 +33,7 @@ const downloads = [
   {
     name: 'CDO Mobile',
     version: '',
-    platform: 'Android — Play Store',
+    platform: 'Android - Play Store',
     size: null,
     buttonLabel: 'Get on Play Store',
     buttonClass: 'bg-[#34A853] text-white hover:bg-[#2d9148]',
@@ -147,7 +147,7 @@ export default function SupportPage() {
             Customer Support
           </h1>
           <p className="text-[#94aabb] text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-            Expert technical assistance for corrosion monitoring and chemical injection systems — from initial setup to long-term maintenance.
+            Expert technical assistance for corrosion monitoring and chemical injection systems - from initial setup to long-term maintenance.
           </p>
           <div className="inline-flex items-center gap-3 bg-[#d4892a] rounded-lg px-6 py-3">
             <AlertTriangle className="text-white w-5 h-5 flex-shrink-0" />
@@ -379,9 +379,9 @@ export default function SupportPage() {
                       className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30 bg-white"
                     >
                       <option value="">Select application...</option>
-                      <option>Oil &amp; Gas — Upstream</option>
-                      <option>Oil &amp; Gas — Midstream Pipeline</option>
-                      <option>Oil &amp; Gas — Downstream / Refining</option>
+                      <option>Oil &amp; Gas - Upstream</option>
+                      <option>Oil &amp; Gas - Midstream Pipeline</option>
+                      <option>Oil &amp; Gas - Downstream / Refining</option>
                       <option>Petrochemical</option>
                       <option>Water Treatment</option>
                       <option>Utilities</option>
@@ -413,9 +413,9 @@ export default function SupportPage() {
                       onChange={set('priority')}
                       className="w-full border border-[#e8edf2] rounded-lg px-4 py-2.5 text-sm text-[#1e2b3a] focus:outline-none focus:border-[#f4a65d] focus:ring-1 focus:ring-[#f4a65d]/30 bg-white"
                     >
-                      <option value="critical">Critical — System Down</option>
-                      <option value="high">High — Degraded Performance</option>
-                      <option value="normal">Normal — Planning / Inquiry</option>
+                      <option value="critical">Critical - System Down</option>
+                      <option value="high">High - Degraded Performance</option>
+                      <option value="normal">Normal - Planning / Inquiry</option>
                     </select>
                   </div>
 

@@ -63,7 +63,7 @@ export default function ContactCTASection() {
             </h2>
             <p className="mt-4 leading-relaxed" style={{ color: '#374151' }}>
               Describe your application and we&apos;ll recommend the right
-              monitoring strategy — no obligation.
+              monitoring strategy - no obligation.
             </p>
 
             <div className="mt-8 space-y-4">
@@ -100,7 +100,7 @@ export default function ContactCTASection() {
             </div>
           </div>
 
-          {/* Right column — form */}
+          {/* Right column - form */}
           <div
             className="mt-12 lg:mt-0 border rounded-2xl p-8"
             style={{

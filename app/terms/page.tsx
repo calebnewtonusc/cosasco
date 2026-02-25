@@ -38,7 +38,7 @@ You may not use the Services to:
   {
     id: 'ip',
     title: '3. Intellectual Property',
-    content: `All content on the Services — including but not limited to text, graphics, photographs, product designs, software, technical documentation, white papers, case studies, and the Cosasco brand — is owned by or licensed to Rohrback Cosasco Systems, Inc. and is protected by copyright, trademark, trade secret, and other intellectual property laws.
+    content: `All content on the Services - including but not limited to text, graphics, photographs, product designs, software, technical documentation, white papers, case studies, and the Cosasco brand - is owned by or licensed to Rohrback Cosasco Systems, Inc. and is protected by copyright, trademark, trade secret, and other intellectual property laws.
 
 The Cosasco name, logo, and product names are trademarks or registered trademarks of Rohrback Cosasco Systems, Inc. or its affiliates. You may not use these marks without prior written permission.
 
@@ -194,7 +194,7 @@ export default function TermsPage() {
                           {lines.map((line, j) =>
                             line.startsWith('- ') ? (
                               <div key={j} className="flex items-start gap-2">
-                                <span className="text-[#f4a65d] font-bold flex-shrink-0 mt-0.5">—</span>
+                                <span className="text-[#f4a65d] font-bold flex-shrink-0 mt-0.5">-</span>
                                 <span>{line.slice(2)}</span>
                               </div>
                             ) : line ? (

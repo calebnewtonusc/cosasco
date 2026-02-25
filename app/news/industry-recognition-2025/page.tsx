@@ -43,7 +43,7 @@ export default function IndustryRecognition2025Page() {
           <article className="lg:col-span-2">
             <div className="text-[#566677] leading-relaxed space-y-6 text-[1.05rem]">
               <p className="text-xl text-[#0f2a4a] font-semibold leading-snug">
-                Santa Fe Springs, CA — AMPP (Association for Materials Protection and Performance,
+                Santa Fe Springs, CA - AMPP (Association for Materials Protection and Performance,
                 formerly NACE International) has selected Cosasco&apos;s Microcor® Wireless Transmitter
                 (MWT) as a finalist for the AMPP 2025 Innovation Award in the corrosion monitoring
                 and mitigation category. The MWT was recognized for its WirelessHART 7 communication
@@ -58,8 +58,8 @@ export default function IndustryRecognition2025Page() {
                 The AMPP Innovation Award recognizes corrosion industry products and technologies
                 that demonstrate a measurable advance in performance, safety, or cost-effectiveness
                 compared to established industry practice. Finalists are evaluated by a technical
-                panel drawn from AMPP&apos;s membership — practicing corrosion engineers, asset
-                integrity managers, and academic researchers — across criteria including technical
+                panel drawn from AMPP&apos;s membership - practicing corrosion engineers, asset
+                integrity managers, and academic researchers - across criteria including technical
                 merit, demonstrated field performance, and breadth of applicability across industry
                 segments.
               </p>
@@ -106,7 +106,7 @@ export default function IndustryRecognition2025Page() {
               <p>
                 The Microcor® MWT addresses a long-standing gap in corrosion monitoring: the ability
                 to deploy high-resolution ER sensing in locations where signal cabling is
-                impractical — remote pipelines, offshore topsides, buried infrastructure, and
+                impractical - remote pipelines, offshore topsides, buried infrastructure, and
                 above-grade piping runs in large processing facilities. The MWT attaches directly
                 to a standard Cosasco ER probe and transmits continuous corrosion rate data over
                 a WirelessHART 7 self-organizing mesh network without any field cabling.
@@ -115,7 +115,7 @@ export default function IndustryRecognition2025Page() {
                 The 18-bit analog-to-digital resolution of the MWT&apos;s measurement circuit represents
                 a fundamental advance over previous-generation wireless ER systems, which typically
                 operated at 12- to 14-bit resolution. At 18-bit resolution, the MWT can detect
-                metal loss events of less than 0.01 mils (0.25 micrometers) per reading — enabling
+                metal loss events of less than 0.01 mils (0.25 micrometers) per reading - enabling
                 identification of corrosion transients that would be masked by measurement noise on
                 lower-resolution systems. Combined with a configurable polling interval as short as
                 15 minutes, this translates to an effective data rate approximately 50 times higher
@@ -129,15 +129,15 @@ export default function IndustryRecognition2025Page() {
                 WirelessHART 7 (IEC 62591) is the de facto industrial wireless standard for
                 process measurement in hazardous environments. Unlike proprietary wireless protocols,
                 WirelessHART operates on the globally unlicensed 2.4 GHz band with direct-sequence
-                spread spectrum (DSSS) frequency hopping — providing robust interference immunity
+                spread spectrum (DSSS) frequency hopping - providing robust interference immunity
                 even in electrically noisy refinery and petrochemical environments. The mesh
                 architecture means each MWT unit acts as both a sensing node and a repeater,
                 automatically routing data around failed nodes or obstructions without operator
                 intervention or reconfiguration.
               </p>
               <p>
-                In Cosasco&apos;s internal field validation program — conducted across six production
-                facilities in the US Gulf Coast, the North Sea, and the Middle East — WirelessHART
+                In Cosasco&apos;s internal field validation program - conducted across six production
+                facilities in the US Gulf Coast, the North Sea, and the Middle East - WirelessHART
                 mesh networks of 8–24 MWT nodes demonstrated 99.2% data delivery rates with zero
                 manual network reconfigurations over a 12-month monitoring period. Gateway-to-CDO
                 cloud latency was below 90 seconds for all nodes in the test network.
@@ -151,7 +151,7 @@ export default function IndustryRecognition2025Page() {
                 Ga), allowing deployment at the probe location without safety barriers in most
                 classified area configurations. This eliminates the Zener barrier or galvanic
                 isolator hardware typically required for wired ER transmitters in Zone 1
-                installations — reducing both installation cost and the associated maintenance
+                installations - reducing both installation cost and the associated maintenance
                 burden for hardware that must be periodically tested per IEC 60079-14.
               </p>
 
@@ -160,13 +160,13 @@ export default function IndustryRecognition2025Page() {
               </h2>
               <ul className="space-y-3">
                 {[
-                  'WirelessHART 7 (IEC 62591) mesh communication — self-organizing, self-healing network topology',
-                  '18-bit ADC resolution — detects metal loss events below 0.25 µm per reading',
+                  'WirelessHART 7 (IEC 62591) mesh communication - self-organizing, self-healing network topology',
+                  '18-bit ADC resolution - detects metal loss events below 0.25 µm per reading',
                   '50× faster effective data rates vs. conventional quarterly ER polling programs',
-                  'ATEX / IECEx Zone 1 intrinsic safety certification (Ex ia IIC T4 Ga) — no barriers required',
+                  'ATEX / IECEx Zone 1 intrinsic safety certification (Ex ia IIC T4 Ga) - no barriers required',
                   '5+ year battery life at 15-minute polling intervals (AA lithium, field-replaceable)',
                   'AES-128 encrypted data transmission from sensor to gateway, per WirelessHART specification',
-                  'Native CDO (Cosasco Data Online) integration — real-time corrosion rate dashboards, configurable alert thresholds',
+                  'Native CDO (Cosasco Data Online) integration - real-time corrosion rate dashboards, configurable alert thresholds',
                   'Compatible with all standard Cosasco ER probe types and LPR electrodes',
                   'Operating temperature range: −40 °C to +70 °C; IP66/67 rated enclosure',
                   'Deployed in 14 countries across upstream, midstream, downstream, and pipeline segments',
@@ -192,7 +192,7 @@ export default function IndustryRecognition2025Page() {
                   proud that AMPP&apos;s technical panel agrees.&rdquo;
                 </p>
                 <p className="text-[#566677] text-sm font-semibold">
-                  — Philip Borup, President, Rohrback Cosasco Systems, Inc.
+                  - Philip Borup, President, Rohrback Cosasco Systems, Inc.
                 </p>
               </blockquote>
 
@@ -207,8 +207,8 @@ export default function IndustryRecognition2025Page() {
                 seawater injection systems, and long-distance CO₂ pipeline corrosion programs.
               </p>
               <p>
-                Cosasco&apos;s global distributor and service partner network — covering over 60 countries
-                — provides local installation support, commissioning, and ongoing maintenance for
+                Cosasco&apos;s global distributor and service partner network - covering over 60 countries
+                - provides local installation support, commissioning, and ongoing maintenance for
                 MWT deployments. Training for installation and commissioning is available through
                 Cosasco Learning, the company&apos;s online technical education platform, as well as
                 through regional in-person training events held quarterly in North America, Europe,

@@ -75,7 +75,7 @@ export default function AccessFittingsPage() {
             <div className="space-y-4 text-[#566677] leading-relaxed mb-10">
               <p>
                 Cosasco Retrieval Access Fittings provide a safe, efficient means of inserting and
-                retrieving corrosion monitoring instruments — probes, coupons, and sensors — into
+                retrieving corrosion monitoring instruments - probes, coupons, and sensors - into
                 pipelines and vessels operating at full working pressure. Eliminating the need for
                 costly shutdowns, these fittings allow maintenance and monitoring activities to
                 proceed without interrupting production, a critical capability in oil &amp; gas,
@@ -101,7 +101,7 @@ export default function AccessFittingsPage() {
             <h3 className="text-[#0f2a4a] font-bold text-xl mb-4">Key Features</h3>
             <ul className="space-y-3">
               {[
-                "Full-bore rated to 10,000 PSI — insert and retrieve probes under live pressure",
+                "Full-bore rated to 10,000 PSI - insert and retrieve probes under live pressure",
                 "Bore sizes from 1/2\" to 2\" NPT and flanged end connections",
                 "Body materials: Carbon Steel, 316SS, Duplex, Alloy 20, and Hastelloy C-276",
                 "Compliant with ASME B31.3 process piping and NACE MR0175/ISO 15156",

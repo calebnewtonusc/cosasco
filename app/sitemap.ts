@@ -43,13 +43,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/software/data-key`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/software/legacy`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/software/partner-payment`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
-    // Resources — blog
+    // Resources - blog
     { url: `${BASE_URL}/resources/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/resources/blog/corrosion-monitoring-fundamentals`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/resources/blog/h2s-sour-service-integrity`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/resources/blog/chemical-injection-optimization`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/resources/blog/cdo-cloud-deployment`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-    // Resources — case studies
+    // Resources - case studies
     { url: `${BASE_URL}/resources/case-studies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/resources/case-studies/north-sea-pipeline`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/resources/case-studies/gulf-coast-refinery`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useReducer, useRef, useEffect, useCallback } from 'react'
 import { MessageCircle, X, Send, Phone, Mail, Trash2, GripHorizontal } from 'lucide-react'
 
 const MIN_W = 280
@@ -15,6 +15,63 @@ interface Message {
   content: string
 }
 
+interface ChatSize {
+  w: number
+  h: number
+}
+
+interface ChatState {
+  open: boolean
+  messages: Message[]
+  input: string
+  loading: boolean
+  size: ChatSize
+}
+
+type ChatAction =
+  | { type: 'OPEN' }
+  | { type: 'CLOSE' }
+  | { type: 'TOGGLE' }
+  | { type: 'SET_INPUT'; value: string }
+  | { type: 'ADD_USER_MESSAGE'; content: string }
+  | { type: 'ADD_ASSISTANT_MESSAGE'; content: string }
+  | { type: 'SET_LOADING'; loading: boolean }
+  | { type: 'CLEAR_MESSAGES' }
+  | { type: 'SET_SIZE'; size: ChatSize }
+
+const initialState: ChatState = {
+  open: false,
+  messages: [],
+  input: '',
+  loading: false,
+  size: { w: DEFAULT_W, h: DEFAULT_H },
+}
+
+function chatReducer(state: ChatState, action: ChatAction): ChatState {
+  switch (action.type) {
+    case 'OPEN':
+      return { ...state, open: true }
+    case 'CLOSE':
+      return { ...state, open: false }
+    case 'TOGGLE':
+      return { ...state, open: !state.open }
+    case 'SET_INPUT':
+      return { ...state, input: action.value }
+    case 'ADD_USER_MESSAGE':
+      return { ...state, messages: [...state.messages, { role: 'user', content: action.content }], input: '' }
+    case 'ADD_ASSISTANT_MESSAGE':
+      return { ...state, messages: [...state.messages, { role: 'assistant', content: action.content }] }
+    case 'SET_LOADING':
+      return { ...state, loading: action.loading }
+    case 'CLEAR_MESSAGES':
+      return { ...state, messages: [] }
+    case 'SET_SIZE':
+      return { ...state, size: action.size }
+    default:
+      return state
+  }
+}
+
 const QUICK_QUESTIONS = [
   'What products do you offer?',
   'How does ER monitoring work?',
@@ -25,12 +82,58 @@ const QUICK_QUESTIONS = [
 ]
 
 // ── Simple markdown renderer ─────────────────────────────────────────────────
-function renderInline(text: string): React.ReactNode {
+
+function renderInlineParts(text: string): React.ReactNode[] {
   const parts = text.split(/(\*\*[^*]+\*\*)/)
-  return parts.map((part, i) =>
+  return parts.map((part) =>
     part.startsWith('**') && part.endsWith('**')
-      ? <strong key={i} className="font-semibold text-[#1e2b3a]">{part.slice(2, -2)}</strong>
+      ? <strong key={`bold-${part.slice(2, -2)}`} className="font-semibold text-[#1e2b3a]">{part.slice(2, -2)}</strong>
       : part
+  )
+}
+
+interface InlineTextProps {
+  text: string
+}
+
+function InlineText({ text }: InlineTextProps) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/)
+  return (
+    <>
+      {parts.map((part) =>
+        part.startsWith('**') && part.endsWith('**')
+          ? <strong key={`bold-${part.slice(2, -2)}`} className="font-semibold text-[#1e2b3a]">{part.slice(2, -2)}</strong>
+          : part
+      )}
+    </>
+  )
+}
+
+interface BulletItemProps {
+  id: string
+  text: string
+}
+
+function BulletItem({ id, text }: BulletItemProps) {
+  return (
+    <li key={id} className="flex gap-2">
+      <span className="text-[#f4a65d] shrink-0 mt-px">•</span>
+      <span><InlineText text={text} /></span>
+    </li>
+  )
+}
+
+interface MarkdownParagraphProps {
+  id: string
+  text: string
+  hasTopMargin: boolean
+}
+
+function MarkdownParagraph({ id, text, hasTopMargin }: MarkdownParagraphProps) {
+  return (
+    <p key={id} className={hasTopMargin ? 'mt-1.5' : ''}>
+      <InlineText text={text} />
+    </p>
   )
 }
 
@@ -50,25 +153,21 @@ function renderMarkdown(text: string): React.ReactNode {
     }
   }
 
-  lines.forEach((line, i) => {
+  lines.forEach((line, lineNum) => {
     const trimmed = line.trim()
     const isBullet = trimmed.startsWith('- ') || trimmed.startsWith('* ') || trimmed.startsWith('• ')
     if (isBullet) {
+      const bulletText = trimmed.slice(2)
       listItems.push(
-        <li key={i} className="flex gap-2">
-          <span className="text-[#f4a65d] shrink-0 mt-px">•</span>
-          <span>{renderInline(trimmed.slice(2))}</span>
-        </li>
+        <BulletItem key={`bullet-${lineNum}-${bulletText.slice(0, 20)}`} id={`bullet-${lineNum}`} text={bulletText} />
       )
     } else {
       flushList()
       if (trimmed === '') {
-        if (result.length > 0) result.push(<div key={`sp-${i}`} className="h-1" />)
+        if (result.length > 0) result.push(<div key={`sp-${lineNum}`} className="h-1" />)
       } else {
         result.push(
-          <p key={i} className={result.length > 0 ? 'mt-1.5' : ''}>
-            {renderInline(trimmed)}
-          </p>
+          <MarkdownParagraph key={`p-${lineNum}-${trimmed.slice(0, 20)}`} id={`p-${lineNum}`} text={trimmed} hasTopMargin={result.length > 0} />
         )
       }
     }
@@ -79,11 +178,9 @@ function renderMarkdown(text: string): React.ReactNode {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function FloatingChat() {
-  const [open, setOpen]         = useState(false)
-  const [messages, setMessages] = useState<Message[]>([])
-  const [input, setInput]       = useState('')
-  const [loading, setLoading]   = useState(false)
-  const [size, setSize]         = useState({ w: DEFAULT_W, h: DEFAULT_H })
+  const [state, dispatch] = useReducer(chatReducer, initialState)
+  const { open, messages, input, loading, size } = state
+
   const bottomRef   = useRef<HTMLDivElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const messagesRef = useRef<HTMLDivElement>(null)
@@ -101,7 +198,7 @@ export default function FloatingChat() {
     // Panel anchored bottom-right: dragging left/up grows the panel
     const newW = Math.min(MAX_W, Math.max(MIN_W, startW - (e.clientX - startX)))
     const newH = Math.min(MAX_H, Math.max(MIN_H, startH - (e.clientY - startY)))
-    setSize({ w: newW, h: newH })
+    dispatch({ type: 'SET_SIZE', size: { w: newW, h: newH } })
   }, [])
 
   const onResizePointerUp = useCallback((e: React.PointerEvent) => {
@@ -118,28 +215,38 @@ export default function FloatingChat() {
   }, [])
 
   useEffect(() => {
-    if (open) setTimeout(() => textareaRef.current?.focus(), 150)
-  }, [open])
-
-  useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, loading])
 
   useEffect(() => {
-    const handler = () => setOpen(true)
+    const handler = () => dispatch({ type: 'OPEN' })
     window.addEventListener('cosasco:open-chat', handler)
     return () => window.removeEventListener('cosasco:open-chat', handler)
   }, [])
 
+  function handleOpenChat() {
+    dispatch({ type: 'OPEN' })
+    setTimeout(() => textareaRef.current?.focus(), 150)
+  }
+
+  function handleToggleChat() {
+    if (!open) {
+      dispatch({ type: 'OPEN' })
+      setTimeout(() => textareaRef.current?.focus(), 150)
+    } else {
+      dispatch({ type: 'CLOSE' })
+    }
+  }
+
   async function send(text: string) {
     if (!text.trim() || loading) return
-    setInput('')
     if (textareaRef.current) textareaRef.current.style.height = 'auto'
 
-    const userMsg: Message = { role: 'user', content: text.trim() }
+    const userContent = text.trim()
+    const userMsg: Message = { role: 'user', content: userContent }
     const newMessages = [...messages, userMsg]
-    setMessages(newMessages)
-    setLoading(true)
+    dispatch({ type: 'ADD_USER_MESSAGE', content: userContent })
+    dispatch({ type: 'SET_LOADING', loading: true })
 
     try {
       const res = await fetch('/api/chat', {
@@ -149,14 +256,11 @@ export default function FloatingChat() {
       })
       const data = await res.json()
       const reply = data.content ?? data.error ?? 'Something went wrong. Please try again.'
-      setMessages([...newMessages, { role: 'assistant', content: reply }])
+      dispatch({ type: 'ADD_ASSISTANT_MESSAGE', content: reply })
     } catch {
-      setMessages([...newMessages, {
-        role: 'assistant',
-        content: 'Network error. Please try again or reach us at info@cosasco.com.',
-      }])
+      dispatch({ type: 'ADD_ASSISTANT_MESSAGE', content: 'Network error. Please try again or reach us at info@cosasco.com.' })
     } finally {
-      setLoading(false)
+      dispatch({ type: 'SET_LOADING', loading: false })
     }
   }
 
@@ -206,7 +310,7 @@ export default function FloatingChat() {
             <div className="flex items-center gap-2">
               {messages.length > 0 && (
                 <button
-                  onClick={() => setMessages([])}
+                  onClick={() => dispatch({ type: 'CLEAR_MESSAGES' })}
                   aria-label="Clear conversation"
                   title="Clear conversation"
                   className="text-[#8ab4d4] hover:text-white transition-colors p-1"
@@ -215,7 +319,7 @@ export default function FloatingChat() {
                 </button>
               )}
               <button
-                onClick={() => setOpen(false)}
+                onClick={() => dispatch({ type: 'CLOSE' })}
                 aria-label="Close chat"
                 className="text-[#8ab4d4] hover:text-white transition-colors p-1"
               >
@@ -254,8 +358,8 @@ export default function FloatingChat() {
             )}
 
             {/* Conversation */}
-            {messages.map((msg, i) => (
-              <div key={i} className={`flex items-end gap-2.5 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
+            {messages.map((msg) => (
+              <div key={`${msg.role}-${msg.content.slice(0, 40)}`} className={`flex items-end gap-2.5 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                 {msg.role === 'assistant' && (
                   <div className="w-7 h-7 rounded-full bg-[#0f2a4a] flex items-center justify-center shrink-0 text-white font-black text-xs mb-0.5">
                     C
@@ -319,7 +423,7 @@ export default function FloatingChat() {
                 ref={textareaRef}
                 rows={1}
                 value={input}
-                onChange={(e) => { setInput(e.target.value); resizeTextarea() }}
+                onChange={(e) => { dispatch({ type: 'SET_INPUT', value: e.target.value }); resizeTextarea() }}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask a question… (Enter to send)"
                 disabled={loading}
@@ -344,7 +448,7 @@ export default function FloatingChat() {
 
       {/* ── FAB button ──────────────────────────────────────────────────── */}
       <button
-        onClick={() => setOpen(!open)}
+        onClick={handleToggleChat}
         aria-label={open ? 'Close AI assistant' : 'Open AI assistant'}
         className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 active:scale-95 relative"
         style={{ backgroundColor: open ? '#0f2a4a' : '#f4a65d' }}

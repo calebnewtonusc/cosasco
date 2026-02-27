@@ -6,6 +6,7 @@ import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import CookieBanner from '@/components/CookieBanner'
 import FloatingChat from '@/components/FloatingChat'
+import JsonLd from '@/components/JsonLd'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' })
 
@@ -31,6 +32,34 @@ export const metadata: Metadata = {
   },
 }
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Cosasco',
+  url: 'https://cosasco.com',
+  logo: 'https://cosasco.com/cosasco-logo.png',
+  description: 'Cosasco is a global leader in corrosion and erosion monitoring equipment, chemical injection systems, and related engineering services.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '11841 Smith Avenue',
+    addressLocality: 'Santa Fe Springs',
+    addressRegion: 'CA',
+    postalCode: '90670',
+    addressCountry: 'US',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: '+1-562-949-0123',
+    contactType: 'customer service',
+  },
+  sameAs: ['https://www.linkedin.com/company/cosasco'],
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'Halma plc',
+    url: 'https://www.halma.com',
+  },
+} as const
+
 export default function RootLayout({
   children,
 }: {
@@ -39,38 +68,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'Cosasco',
-              url: 'https://cosasco.com',
-              logo: 'https://cosasco.com/cosasco-logo.png',
-              description: 'Cosasco is a global leader in corrosion and erosion monitoring equipment, chemical injection systems, and related engineering services.',
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: '11841 Smith Avenue',
-                addressLocality: 'Santa Fe Springs',
-                addressRegion: 'CA',
-                postalCode: '90670',
-                addressCountry: 'US',
-              },
-              contactPoint: {
-                '@type': 'ContactPoint',
-                telephone: '+1-562-949-0123',
-                contactType: 'customer service',
-              },
-              sameAs: ['https://www.linkedin.com/company/cosasco'],
-              parentOrganization: {
-                '@type': 'Organization',
-                name: 'Halma plc',
-                url: 'https://www.halma.com',
-              },
-            }),
-          }}
-        />
+        <JsonLd data={organizationJsonLd} />
       </head>
       <body className="pt-[75px]">
         <a

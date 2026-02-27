@@ -20,13 +20,13 @@ const featuredProducts = [
   {
     name: "Echo Point: Ultrasonic Thickness Sensor",
     flagship: true,
-    desc: "Cosasco&rsquo;s flagship non-intrusive UT sensor. Up to 3&times; sensitivity versus standard UT sensors, with thru-coating measurement capability and ultra-high temperature rating of 932&deg;F (500&deg;C). 5-year battery life. WirelessHART 7 protocol. ATEX/IECEx certified for hazardous area installation.",
+    desc: "Cosasco\u2019s flagship non-intrusive UT sensor. Up to 3\u00d7 sensitivity versus standard UT sensors, with thru-coating measurement capability and ultra-high temperature rating of 932\u00b0F (500\u00b0C). 5-year battery life. WirelessHART 7 protocol. ATEX/IECEx certified for hazardous area installation.",
     spec: "Max Temp: 932°F (500°C) · WirelessHART 7 · ATEX/IECEx",
   },
   {
     name: "Microcor® High-Sensitivity Erosion Probes",
     flagship: false,
-    desc: "Microcor® technology enables sand erosion detection approaching real-time speeds, up to 50× faster data acquisition rates than standard ER response. Ideal for choke valves, bends, and tees in high-rate production wells.",
+    desc: "Microcor® technology enables sand erosion detection approaching real-time speeds, up to 50\u00d7 faster data acquisition rates than standard ER response. Ideal for choke valves, bends, and tees in high-rate production wells.",
     spec: "Response Speed: Near real-time · Sand erosion detection",
   },
   {
@@ -205,10 +205,9 @@ export default function ErosionMonitoringPage() {
                   </span>
                 )}
                 <h3 className="font-bold text-[#0f2a4a] text-base leading-snug">{prod.name}</h3>
-                <p
-                  className="text-[#566677] text-sm mt-2 leading-relaxed flex-1"
-                  dangerouslySetInnerHTML={{ __html: prod.desc }}
-                />
+                <p className="text-[#566677] text-sm mt-2 leading-relaxed flex-1">
+                  {prod.desc}
+                </p>
                 <div className="bg-[#f0f4f8] rounded-md px-3 py-1.5 text-xs font-mono mt-3 inline-block text-[#1e2b3a]">
                   {prod.spec}
                 </div>

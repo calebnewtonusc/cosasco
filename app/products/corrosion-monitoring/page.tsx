@@ -29,7 +29,7 @@ const featuredProducts = [
   },
   {
     name: "Microcor® High-Speed ER Probes",
-    desc: "Cosasco&rsquo;s Microcor® technology delivers up to 50× faster data acquisition rates than standard ER probes, enabling near-real-time corrosion rate monitoring in dynamic process environments.",
+    desc: "Cosasco\u2019s Microcor® technology delivers up to 50\u00d7 faster data acquisition rates than standard ER probes, enabling near-real-time corrosion rate monitoring in dynamic process environments.",
     spec: "Response Speed: up to 50× faster data acquisition rates vs. standard ER",
   },
   {
@@ -200,10 +200,9 @@ export default function CorrosionMonitoringPage() {
                 className="bg-white border border-[#e8edf2] rounded-xl p-6 hover:shadow-md transition-all flex flex-col"
               >
                 <h3 className="font-bold text-[#0f2a4a] text-base leading-snug">{prod.name}</h3>
-                <p
-                  className="text-[#566677] text-sm mt-2 leading-relaxed flex-1"
-                  dangerouslySetInnerHTML={{ __html: prod.desc }}
-                />
+                <p className="text-[#566677] text-sm mt-2 leading-relaxed flex-1">
+                  {prod.desc}
+                </p>
                 <div className="bg-[#f0f4f8] rounded-md px-3 py-1.5 text-xs font-mono mt-3 inline-block text-[#1e2b3a]">
                   {prod.spec}
                 </div>

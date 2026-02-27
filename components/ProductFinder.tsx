@@ -179,7 +179,7 @@ export default function ProductFinder() {
     setAnswers(newAnswers)
 
     if (currentStep < totalSteps - 1) {
-      setCurrentStep(currentStep + 1)
+      setCurrentStep(prev => prev + 1)
     } else {
       setComplete(true)
     }
@@ -187,7 +187,7 @@ export default function ProductFinder() {
 
   function goBack() {
     if (currentStep > 0) {
-      setCurrentStep(currentStep - 1)
+      setCurrentStep(prev => prev - 1)
     }
   }
 

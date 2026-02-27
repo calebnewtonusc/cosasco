@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import Link from 'next/link'
 import { RefreshCw } from 'lucide-react'
 
 export default function GlobalError({
@@ -99,7 +100,7 @@ export default function GlobalError({
                 <RefreshCw size={16} />
                 Try Again
               </button>
-              <a
+              <Link
                 href="/"
                 style={{
                   display: 'inline-flex',
@@ -116,7 +117,7 @@ export default function GlobalError({
                 }}
               >
                 Go Home
-              </a>
+              </Link>
             </div>
 
             {error.digest && (

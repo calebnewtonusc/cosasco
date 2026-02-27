@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
+import Anthropic from '@anthropic-ai/sdk'
 import { rateLimit } from '@/lib/rate-limit'
 
-const OLLAMA_API = process.env.OLLAMA_BASE_URL ?? 'https://api.ollama.com'
-const OLLAMA_KEY = process.env.OLLAMA_API_KEY ?? ''
-const MODEL      = 'gemma3:4b'
+const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
 const SYSTEM_PROMPT = `You are CosascoBot, the official AI assistant embedded on Cosasco's website. Your job is to help visitors find the right products, understand Cosasco's solutions, and connect with the right team.
 
@@ -84,35 +83,16 @@ export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json()
 
-    const response = await fetch(`${OLLAMA_API}/api/chat`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${OLLAMA_KEY}`,
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        messages: [
-          { role: 'system', content: SYSTEM_PROMPT },
-          ...messages.slice(-16),
-        ],
-        stream: false,
-        options: { temperature: 0.4, num_predict: 512 },
-      }),
-      signal: AbortSignal.timeout(25000),
-    })
+    const message = await anthropic.messages.create({
+      model: 'claude-sonnet-4-6',
+      max_tokens: 512,
+      system: SYSTEM_PROMPT,
+      messages: messages.slice(-16),
+    }, { signal: AbortSignal.timeout(25000) })
 
-    if (!response.ok) {
-      const errorText = await response.text()
-      console.error('Ollama API error:', response.status, errorText)
-      return NextResponse.json(
-        { error: `Model unavailable (${response.status}). Please try again or contact us directly.` },
-        { status: 502 }
-      )
-    }
-
-    const data = await response.json()
-    const content = data.message?.content ?? "Sorry, I couldn't generate a response. Please contact us at info@cosasco.com."
+    const content = message.content[0].type === 'text'
+      ? message.content[0].text
+      : "Sorry, I couldn't generate a response. Please contact us at info@cosasco.com."
 
     return NextResponse.json({ content }, { headers: { 'X-RateLimit-Remaining': String(remaining) } })
   } catch (err) {

@@ -12,11 +12,13 @@
     "@anthropic-ai/sdk": "^0.78.0",
     "@fontsource/mukta": "^5.2.8",
     "@fontsource/mukta-mahee": "^5.2.8",
+    "aos": "^2.3.4",
     "lucide-react": "^0.574.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "resend": "^6.9.2"
+    "resend": "^6.9.2",
+    "typed.js": "^3.0.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

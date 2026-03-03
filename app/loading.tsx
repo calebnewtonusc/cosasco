@@ -1,8 +1,9 @@
 export default function Loading() {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center">
-      <div className="flex justify-center">
-        <div className="w-10 h-10 border-4 border-[#e8edf2] border-t-[#f4a65d] rounded-full animate-spin" />
+      <div className="flex flex-col items-center gap-4">
+        <div className="whirl-arc-double" role="status" aria-label="Loading" />
+        <p className="text-sm font-medium" style={{ color: '#94aabb' }}>Loading…</p>
       </div>
     </div>
   )

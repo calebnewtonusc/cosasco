@@ -21,16 +21,36 @@ export default function HomePage() {
   return (
     <main className="bg-white">
       <HeroSection />
-      <ValueMetricsSection />
-      <WhyCosascoSection />
-      <ProductFinderSection />
-      <IndustriesSection />
-      <ProductFamiliesSection />
-      <ComparisonTableSection />
-      <ServicesSection />
-      <TestimonialsSection />
-      <CertificationsSection />
-      <ContactCTASection />
+      <div data-aos="fade-up" data-aos-delay="0">
+        <ValueMetricsSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <WhyCosascoSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="0">
+        <ProductFinderSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="0">
+        <IndustriesSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <ProductFamiliesSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="0">
+        <ComparisonTableSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="0">
+        <ServicesSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <TestimonialsSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="0">
+        <CertificationsSection />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <ContactCTASection />
+      </div>
     </main>
   )
 }

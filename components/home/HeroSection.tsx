@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import StatCounter from '@/components/StatCounter'
+import TypedHeadline from '@/components/TypedHeadline'
 
 const heroParticles = [
   { cx: '10%', cy: 80, r: 2, dur: '6s', delay: '0s' },
@@ -184,7 +185,16 @@ export default function HeroSection() {
               Complete confidence in
               corrosion management
               <br />
-              <span style={{ color: '#f4a65d' }}>for Critical Infrastructure.</span>
+              <TypedHeadline
+                strings={[
+                  'for Critical Infrastructure.',
+                  'for Oil &amp; Gas Pipelines.',
+                  'for Petrochemical Plants.',
+                  'for Water Treatment Systems.',
+                  'across 110+ Countries.',
+                ]}
+                className="typed-headline"
+              />
             </h1>
 
             <p className="text-xl mt-6 max-w-2xl mx-auto lg:mx-0" style={{ color: '#94aabb' }}>

@@ -1,12 +1,14 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import 'aos/dist/aos.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import CookieBanner from '@/components/CookieBanner'
 import FloatingChat from '@/components/FloatingChat'
 import JsonLd from '@/components/JsonLd'
+import AOSInit from '@/components/AOSInit'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' })
 
@@ -77,6 +79,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <AOSInit />
         <Navigation />
         <main id="main-content">{children}</main>
         <Footer />

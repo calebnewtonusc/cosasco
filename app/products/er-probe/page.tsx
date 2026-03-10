@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import PrintButton from '@/components/PrintButton'
 import RecentlyViewed from '@/components/RecentlyViewed';
+import ProductImageGallery from '@/components/ProductImageGallery';
 
 export default function ERProbePage() {
   return (
@@ -71,12 +72,25 @@ export default function ERProbePage() {
         {/* ── MAIN ── col-span-2 ──────────────────────────────────────── */}
         <div className="lg:col-span-2 space-y-0">
 
-          {/* 1. OVERVIEW */}
+          {/* 1. OVERVIEW + IMAGE GALLERY */}
           <section className="bg-white py-12">
-            {/* Image placeholder */}
-            <div className="bg-[#f7f9fc] border border-[#e8edf2] rounded-2xl aspect-[4/3] flex flex-col items-center justify-center mb-10 gap-4">
-              <Activity size={72} className="text-[#0f2a4a] opacity-30" />
-              <span className="text-[#566677] font-semibold text-lg">ER Probe Systems</span>
+            <div className="mb-10">
+              <ProductImageGallery
+                images={[
+                  {
+                    src: '/next.svg',
+                    alt: 'Representative Cosasco ER probe assembly (temporary image)',
+                  },
+                  {
+                    src: '/file.svg',
+                    alt: 'Probe body and sensing element detail (temporary image)',
+                  },
+                  {
+                    src: '/window.svg',
+                    alt: 'ER probe installed on process line (temporary image)',
+                  },
+                ]}
+              />
             </div>
 
             {/* Description */}
@@ -190,6 +204,11 @@ export default function ERProbePage() {
                 </tbody>
               </table>
             </div>
+
+            <div className="mt-6 text-xs text-[#566677]">
+              Final part numbers and configurations (including 2500/2520 fixed probes and 3500/3700 retractable probes)
+              will be confirmed by our team when you request a quote.
+            </div>
           </section>
 
           {/* 4. RELATED ACCESSORIES */}
@@ -221,16 +240,33 @@ export default function ERProbePage() {
             <div className="bg-[#f4a65d] rounded-xl p-6 text-white">
               <div className="flex items-center gap-3 mb-4">
                 <MessageSquare size={24} />
-                <span className="font-bold text-lg">Request a Quote</span>
+                <span className="font-bold text-lg">Add to Quote</span>
               </div>
-              <p className="text-orange-100 text-sm mb-5 leading-relaxed">
-                Configure your ER probe system with the right element, material, and pressure rating for your application.
-              </p>
-              <button className="bg-white text-[#f4a65d] font-bold w-full py-3 rounded-lg hover:bg-orange-50 transition-colors">
-                Request a Quote
-              </button>
-              <Link href="/contact" className="block text-center text-orange-100 text-sm mt-3 hover:text-white transition-colors">
-                Contact an Engineer
+              <form action="/contact" method="GET" className="flex items-center gap-3">
+                <input type="hidden" name="quote" value="true" />
+                <input type="hidden" name="product" value="ER Probe Systems" />
+                <label className="flex items-center gap-1 text-xs font-semibold text-orange-100">
+                  Qty
+                  <input
+                    type="number"
+                    name="qty"
+                    min={1}
+                    defaultValue={1}
+                    className="w-16 rounded-md border border-orange-200 bg-white/90 px-2 py-1 text-sm text-[#0f2a4a] outline-none focus:ring-2 focus:ring-white/40"
+                  />
+                </label>
+                <button
+                  type="submit"
+                  className="flex-1 bg-white text-[#f4a65d] font-bold py-2.5 rounded-lg hover:bg-orange-50 transition-colors text-sm"
+                >
+                  Add to Quote
+                </button>
+              </form>
+              <Link
+                href="/contact?quote=true"
+                className="block text-right text-orange-100 text-xs mt-2 hover:text-white transition-colors"
+              >
+                View Quote
               </Link>
             </div>
 
@@ -238,12 +274,10 @@ export default function ERProbePage() {
             <div className="bg-white border border-[#e8edf2] rounded-xl p-5">
               <div className="flex items-center gap-3 mb-3">
                 <FileText size={20} className="text-[#0f2a4a]" />
-                <span className="font-bold text-[#1e2b3a]">Download Datasheet</span>
+                <span className="font-bold text-[#1e2b3a]">Datasheet</span>
               </div>
-              <p className="text-[#566677] text-xs mb-1">COSASCO_ER_Probe_Systems_DS.pdf</p>
-              <p className="text-[#8898aa] text-xs mb-4">2.4 MB · PDF</p>
               <button className="inline-flex items-center gap-2 bg-[#0f2a4a] text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-[#1a3a5c] transition-colors w-full justify-center">
-                <Download size={14} /> Download
+                Download Datasheet
               </button>
             </div>
 

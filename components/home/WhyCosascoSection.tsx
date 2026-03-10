@@ -24,24 +24,19 @@ const features = [
 export default function WhyCosascoSection() {
   return (
     <AnimateOnScroll delay={0}>
-      <section className="bg-white py-20 px-4">
-        <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+      <section className="bg-[#f7f9fc] py-24 lg:py-32 px-4">
+        <div className="max-w-7xl mx-auto lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center">
 
           {/* Left column */}
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest" style={{ color: '#f4a65d' }}>
+            <span className="text-xs font-bold uppercase tracking-[0.15em]" style={{ color: '#f4a65d' }}>
               Why Cosasco
             </span>
-            <h2 className="font-black text-3xl lg:text-4xl mt-3 leading-tight" style={{ color: '#0f2a4a' }}>
+            <h2 className="font-black text-4xl sm:text-5xl lg:text-6xl mt-4 leading-[1.08] tracking-tight" style={{ color: '#0f2a4a' }}>
               The most complete corrosion management portfolio in the industry.
             </h2>
-            <p className="mt-5 leading-relaxed" style={{ color: '#374151' }}>
-              For over seven decades, Cosasco has led the industry in corrosion
-              and erosion monitoring technology. From the original retractable
-              probe and coupon rack designs to today&apos;s Microcor® wireless
-              data systems, every product is built on deep application
-              engineering knowledge. Major operators trust Cosasco because we
-              understand the chemistry, the pressures, and the consequences.
+            <p className="mt-8 text-lg sm:text-xl leading-relaxed" style={{ color: '#374151' }}>
+              For over seven decades, Cosasco has led in corrosion and erosion monitoring. From the original retractable probe to today&apos;s Microcor® wireless systems—every product is built on deep application engineering. Major operators trust us because we understand the chemistry, the pressures, and the consequences.
             </p>
             <Link
               href="/about"

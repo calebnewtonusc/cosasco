@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 import HeroSection from '@/components/home/HeroSection'
 import ValueMetricsSection from '@/components/home/ValueMetricsSection'
 import WhyCosascoSection from '@/components/home/WhyCosascoSection'
+import InnovationSpotlightSection from '@/components/home/InnovationSpotlightSection'
 import ProductFinderSection from '@/components/home/ProductFinderSection'
 import IndustriesSection from '@/components/home/IndustriesSection'
 import ProductFamiliesSection from '@/components/home/ProductFamiliesSection'
@@ -27,6 +28,7 @@ export default function HomePage() {
       <div data-aos="fade-up" data-aos-delay="100">
         <WhyCosascoSection />
       </div>
+      <InnovationSpotlightSection />
       <div data-aos="fade-up" data-aos-delay="0">
         <ProductFinderSection />
       </div>

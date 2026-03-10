@@ -11,9 +11,6 @@ import {
   Search,
   MessageSquare,
   Shield,
-  Activity,
-  Droplet,
-  BarChart2,
   Flame,
   FlaskConical,
   Droplets,
@@ -27,66 +24,24 @@ import {
   Gauge,
   Settings2,
 } from 'lucide-react'
+import { topLevelProductCategories } from '@/lib/productCategories'
 
+// Solutions in the nav follow the six primary industries from the current public site
 const industriesDropdown = [
-  { name: 'Upstream Oil & Gas', href: '/solutions/oil-gas#upstream', icon: Flame, desc: 'Production, injection & wellhead' },
-  { name: 'Midstream / Pipelines', href: '/solutions/oil-gas#midstream', icon: Route, desc: 'Transmission & gas compression' },
-  { name: 'Downstream / Refining', href: '/solutions/oil-gas#downstream', icon: FlaskConical, desc: 'Process units & storage tanks' },
-  { name: 'Petrochemical', href: '/solutions/petrochemical', icon: Atom, desc: 'Reactors, columns & transfer lines' },
-  { name: 'Water Treatment', href: '/solutions/water-treatment', icon: Droplets, desc: 'Distribution & treatment systems' },
-  { name: 'Chemical Processing', href: '/solutions/chemical-processing', icon: TestTube, desc: 'Aggressive media environments' },
-  { name: 'Pulp & Paper', href: '/solutions/pulp-paper', icon: BookOpen, desc: 'Digesters & bleach plant' },
-  { name: 'Utilities / Power', href: '/solutions/utilities', icon: Zap, desc: 'Generation & cooling water' },
-  { name: 'Mining & Minerals', href: '/solutions/mining', icon: Pickaxe, desc: 'Mineral processing & extraction' },
+  { name: 'Upstream', href: '/solutions/oil-gas#upstream', icon: Flame, desc: 'Production, injection & wellhead' },
+  { name: 'Midstream', href: '/solutions/oil-gas#midstream', icon: Route, desc: 'Pipelines & gas compression' },
+  { name: 'Downstream', href: '/solutions/oil-gas#downstream', icon: FlaskConical, desc: 'Refining & process units' },
   { name: 'Gas Transmission', href: '/solutions/gas-transmission', icon: Gauge, desc: 'High-pressure pipeline networks' },
+  { name: 'Pulp & Paper', href: '/solutions/pulp-paper', icon: BookOpen, desc: 'Digesters & bleach plant' },
   { name: 'Specialty Applications', href: '/solutions/specialty-applications', icon: Settings2, desc: 'Custom & niche environments' },
 ]
 
-const productsDropdown = [
-  {
-    heading: 'Corrosion Monitoring',
-    icon: Shield,
-    href: '/products/corrosion-monitoring',
-    items: [
-      { name: 'ER Probes', description: 'Electrical resistance probe systems', href: '/products/er-probe' },
-      { name: 'Access Fittings', description: 'Live retrieval equipment', href: '/products/access-fittings' },
-      { name: 'Corrosion Coupons', description: 'Weight-loss analysis racks', href: '/products/corrosion-coupons' },
-      { name: 'LPR Systems', description: 'Linear polarization resistance', href: '/products/corrosion-monitoring' },
-    ],
-  },
-  {
-    heading: 'Erosion Monitoring',
-    icon: Activity,
-    href: '/products/erosion-monitoring',
-    items: [
-      { name: 'UT Sensors', description: 'Ultrasonic thickness monitoring', href: '/products/ut-sensor' },
-      { name: 'Sand Detection', description: 'Particle erosion probes', href: '/products/erosion-monitoring' },
-      { name: 'Erosion ER Probes', description: 'Quantitative erosion data', href: '/products/erosion-monitoring' },
-    ],
-  },
-  {
-    heading: 'Chemical Injection',
-    icon: Droplet,
-    href: '/products/chemical-injection',
-    items: [
-      { name: 'Quill Assemblies', description: 'Fixed & retractable quills', href: '/products/quill-assembly' },
-      { name: 'Injection Valves', description: 'Check & isolation valves', href: '/products/chemical-injection' },
-      { name: 'Dosing Skids', description: 'Complete injection packages', href: '/products/chemical-injection' },
-    ],
-  },
-  {
-    heading: 'Data Acquisition',
-    icon: BarChart2,
-    href: '/products/data-acquisition',
-    items: [
-      { name: 'Data Loggers', description: 'Wired & multiplexed systems', href: '/products/data-acquisition' },
-      { name: 'Cloud Analytics', description: 'Real-time dashboards', href: '/products/data-acquisition' },
-    ],
-  },
-]
+// Icon for products top-level categories – a simple shield to stay neutral
+const ProductCategoryIcon = Shield
 
 const companyDropdown = [
   { name: 'About Cosasco', href: '/about', desc: '70+ years of innovation' },
+  { name: 'Innovation', href: '/innovation', desc: 'New products & technologies' },
   { name: 'Leadership', href: '/about#leadership', desc: 'Meet our team' },
   { name: 'Careers', href: '/careers', desc: 'Join our global team' },
   { name: 'News & Events', href: '/news', desc: 'Latest updates' },
@@ -188,48 +143,24 @@ function IndustriesDropdown({ onClose }: { onClose: () => void }) {
 function ProductsDropdown({ onClose }: { onClose: () => void }) {
   return (
     <div className="absolute top-full left-0 right-0 bg-white shadow-2xl border-t-2 border-[#f4a65d] animate-[fadeInDown_0.15s_ease]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-14 py-8">
-        <div className="grid grid-cols-4 gap-8">
-          {productsDropdown.map((col) => {
-            const Icon = col.icon
-            return (
-              <div key={col.heading}>
-                {/* Column header - clickable */}
-                <Link
-                  href={col.href}
-                  onClick={onClose}
-                  className="flex items-center gap-2 mb-4 group"
-                >
-                  <div className="w-7 h-7 rounded-md bg-[#0f2a4a] group-hover:bg-[#f4a65d] flex items-center justify-center shrink-0 transition-colors">
-                    <Icon size={13} className="text-white" />
-                  </div>
-                  <span className="text-[0.72rem] font-bold uppercase tracking-[0.1em] text-[#0f2a4a] group-hover:text-[#f4a65d] transition-colors">
-                    {col.heading}
-                  </span>
-                </Link>
-
-                <ul className="space-y-1">
-                  {col.items.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        onClick={onClose}
-                        className="block px-2 py-1.5 rounded-md text-[0.85rem] font-medium text-[#334150] hover:text-[#f4a65d] hover:bg-[#fef8f0] transition-all duration-150"
-                      >
-                        {item.name}
-                        {item.description ? (
-                          <span className="text-[#8898aa] text-xs block mt-0.5 font-normal">{item.description}</span>
-                        ) : null}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 xl:px-14 py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+          {topLevelProductCategories.map((cat) => (
+            <Link
+              key={cat.id}
+              href={cat.href}
+              onClick={onClose}
+              className="flex items-center gap-4 px-4 py-3.5 rounded-lg hover:bg-[#f7f9fc] transition-colors duration-150 group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-[#0f2a4a] group-hover:bg-[#f4a65d] flex items-center justify-center shrink-0 transition-colors">
+                <ProductCategoryIcon size={18} className="text-white" />
               </div>
-            )
-          })}
+              <span className="text-[0.95rem] font-semibold text-[#334150] group-hover:text-[#f4a65d] transition-colors">
+                {cat.label}
+              </span>
+            </Link>
+          ))}
         </div>
-
-        {/* Bottom CTA strip */}
         <div className="mt-6 pt-5 border-t border-[#e8edf2]">
           <div className="flex items-center justify-between">
             <Link
@@ -240,23 +171,7 @@ function ProductsDropdown({ onClose }: { onClose: () => void }) {
               View all products
               <ArrowRight size={13} />
             </Link>
-            <div className="flex items-center gap-4">
-              <Link
-                href="/tools/device-length-calculator"
-                onClick={onClose}
-                className="text-xs text-[#566677] hover:text-[#0f2a4a] transition-colors"
-              >
-                Device Length Calculator
-              </Link>
-              <span className="text-[#e8edf2]">|</span>
-              <Link
-                href="/contact"
-                onClick={onClose}
-                className="text-xs text-[#566677] hover:text-[#0f2a4a] transition-colors"
-              >
-                Talk to an Engineer
-              </Link>
-            </div>
+            <span className="text-xs text-[#8898aa]">Browse all categories and families</span>
           </div>
         </div>
       </div>
@@ -371,30 +286,17 @@ function MobileMenu({
           />
         </button>
         {mobileAccordion === 'products' && (
-          <div className="pl-4 pb-2 space-y-4">
-            {productsDropdown.map((col) => {
-              const Icon = col.icon
-              return (
-                <div key={col.heading}>
-                  <div className="flex items-center gap-2 px-3 mb-1.5">
-                    <Icon size={12} className="text-[#f4a65d] shrink-0" />
-                    <div className="text-[0.65rem] font-bold uppercase tracking-widest text-[#8898aa]">
-                      {col.heading}
-                    </div>
-                  </div>
-                  {col.items.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      onClick={onClose}
-                      className="block py-2 px-3 rounded-md text-sm text-[#334150] hover:text-[#f4a65d] hover:bg-[#fef8f0] transition-colors duration-150"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )
-            })}
+          <div className="pl-4 pb-2 space-y-0.5">
+            {topLevelProductCategories.map((cat) => (
+              <Link
+                key={cat.id}
+                href={cat.href}
+                onClick={onClose}
+                className="block py-2.5 px-3 rounded-md text-sm text-[#334150] hover:text-[#f4a65d] hover:bg-[#fef8f0] transition-colors duration-150"
+              >
+                {cat.label}
+              </Link>
+            ))}
             <Link
               href="/products"
               onClick={onClose}

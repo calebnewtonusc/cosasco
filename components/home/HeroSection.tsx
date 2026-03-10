@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import StatCounter from '@/components/StatCounter'
-import TypedHeadline from '@/components/TypedHeadline'
 
 const heroParticles = [
   { cx: '10%', cy: 80, r: 2, dur: '6s', delay: '0s' },
@@ -179,28 +178,16 @@ export default function HeroSection() {
             </span>
 
             <h1
-              className="font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.05]"
+              className="font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl leading-[1.02] tracking-tight"
               style={{ color: '#ffffff' }}
             >
               Complete confidence in
-              corrosion management
               <br />
-              <TypedHeadline
-                strings={[
-                  'for Critical Infrastructure.',
-                  'for Oil &amp; Gas Pipelines.',
-                  'for Petrochemical Plants.',
-                  'for Water Treatment Systems.',
-                  'across 110+ Countries.',
-                ]}
-                className="typed-headline"
-              />
+              corrosion management.
             </h1>
 
-            <p className="text-xl mt-6 max-w-2xl mx-auto lg:mx-0" style={{ color: '#94aabb' }}>
-              We exist to be the most complete and precise solution to measure and monitor
-              corrosion, improving the safety of people and the environment while protecting
-              assets and enhancing our customers&apos; bottom line.
+            <p className="text-2xl sm:text-3xl lg:text-4xl mt-8 max-w-3xl mx-auto lg:mx-0 font-semibold leading-snug" style={{ color: '#b8cfe0' }}>
+              The most complete and precise solution to measure and monitor corrosion—protecting people, assets, and the bottom line.
             </p>
 
             <div className="mt-10 flex justify-center lg:justify-start gap-4 flex-wrap">

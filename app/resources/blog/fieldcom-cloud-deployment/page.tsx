@@ -178,7 +178,6 @@ export default function CDOCloudPlatformPage() {
                   { href: '/software', label: 'CDO Software Overview' },
                   { href: '/software/data-key', label: 'Data Key Activation' },
                   { href: '/software/legacy', label: 'Legacy Software Downloads' },
-                  { href: '/resources/webinar/cdo-cloud-intro', label: 'CDO Platform Webinar Recording' },
                 ].map((item) => (
                   <li key={item.href}>
                     <Link href={item.href} className="text-[#0f2a4a] text-sm font-medium hover:text-[#f4a65d] transition-colors flex items-center gap-2">

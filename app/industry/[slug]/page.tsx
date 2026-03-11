@@ -60,12 +60,6 @@ export default async function IndustryPage({ params }: Props) {
             View products
             <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 border-2 border-[#0f2a4a] text-[#0f2a4a] px-5 py-2.5 rounded-lg font-semibold hover:bg-[#0f2a4a] hover:text-white transition-colors"
-          >
-            Contact us
-          </Link>
         </div>
 
         <div className="mt-16 pt-10 border-t border-[#e8edf2]">

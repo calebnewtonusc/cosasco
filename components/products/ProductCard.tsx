@@ -3,8 +3,10 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { Minus, Plus, ShoppingCart } from 'lucide-react'
 import type { MockProduct } from '@/lib/productCatalog'
+import { useQuoteCart } from '@/context/QuoteCartContext'
 
 type ProductCardProps = {
   product: MockProduct
@@ -14,8 +16,16 @@ type ProductCardProps = {
 
 export default function ProductCard({ product, showSubfamily, subfamilyLabel }: ProductCardProps) {
   const [qty, setQty] = useState(1)
+  const router = useRouter()
+  const { addItem } = useQuoteCart()
 
   const detailHref = `/products/item/${product.slug}`
+
+  function handleAddToQuote(e: React.MouseEvent) {
+    e.preventDefault()
+    addItem(product.slug, product.name, qty)
+    router.push('/quote')
+  }
 
   return (
     <div className="bg-white border border-[#e8edf2] rounded-lg overflow-hidden hover:shadow-md hover:border-[#c8d8e8] transition-all flex flex-col">
@@ -69,13 +79,14 @@ export default function ProductCard({ product, showSubfamily, subfamilyLabel }: 
             <Plus size={12} />
           </button>
         </div>
-        <Link
-          href={`/contact?quote=true&product=${encodeURIComponent(product.name)}&qty=${qty}`}
+        <button
+          type="button"
+          onClick={handleAddToQuote}
           className="inline-flex items-center justify-center gap-1.5 flex-1 min-w-0 py-2 px-3 rounded-md bg-[#0f2a4a] text-white text-xs font-semibold hover:bg-[#1a3a5c] transition-colors"
         >
           <ShoppingCart size={12} />
           Add
-        </Link>
+        </button>
       </div>
     </div>
   )

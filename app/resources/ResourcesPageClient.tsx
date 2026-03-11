@@ -223,14 +223,22 @@ export default function ResourcesPageClient() {
 
       {/* TECHNICAL LIBRARY NOTE */}
       <div className="bg-[#f0f4f8] border-b border-[#e8edf2] py-5 px-6">
-        <div className="max-w-6xl mx-auto flex items-start gap-3">
-          <Mail className="w-5 h-5 text-[#f4a65d] flex-shrink-0 mt-0.5" />
-          <p className="text-[#566677] text-sm leading-relaxed">
-            <span className="font-bold text-[#0f2a4a]">Full Technical Library:</span> Our complete library contains 400+ documents including datasheets, installation guides, white papers, and case studies. To request specific documents, contact{' '}
-            <a href="mailto:info@cosasco.com?subject=Document Request" className="text-[#f4a65d] font-semibold hover:text-[#d4892a] transition-colors underline">
-              info@cosasco.com
-            </a>.
-          </p>
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="flex items-start gap-3">
+            <Mail className="w-5 h-5 text-[#f4a65d] flex-shrink-0 mt-0.5" />
+            <p className="text-[#566677] text-sm leading-relaxed">
+              <span className="font-bold text-[#0f2a4a]">Full Technical Library:</span> Our complete library contains 400+ documents including datasheets, installation guides, white papers, and case studies. To request specific documents, contact{' '}
+              <a href="mailto:info@cosasco.com?subject=Document Request" className="text-[#f4a65d] font-semibold hover:text-[#d4892a] transition-colors underline">
+                info@cosasco.com
+              </a>.
+            </p>
+          </div>
+          <Link
+            href="/resources/faq"
+            className="text-[#f4a65d] font-semibold text-sm hover:text-[#d4892a] transition-colors whitespace-nowrap"
+          >
+            FAQ →
+          </Link>
         </div>
       </div>
 

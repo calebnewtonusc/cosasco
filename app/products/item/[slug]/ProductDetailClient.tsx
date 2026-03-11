@@ -2,14 +2,22 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Minus, Plus, ShoppingCart } from 'lucide-react'
 import type { MockProduct } from '@/lib/productCatalog'
+import { useQuoteCart } from '@/context/QuoteCartContext'
 
 type Props = { product: MockProduct }
 
 export default function ProductDetailClient({ product }: Props) {
   const [qty, setQty] = useState(1)
-  const addHref = `/contact?quote=true&product=${encodeURIComponent(product.name)}&qty=${qty}`
+  const router = useRouter()
+  const { addItem } = useQuoteCart()
+
+  function handleAddToQuote() {
+    addItem(product.slug, product.name, qty)
+    router.push('/quote')
+  }
 
   return (
     <div className="flex flex-wrap items-center gap-4">
@@ -34,15 +42,16 @@ export default function ProductDetailClient({ product }: Props) {
           <Plus size={16} />
         </button>
       </div>
-      <Link
-        href={addHref}
+      <button
+        type="button"
+        onClick={handleAddToQuote}
         className="inline-flex items-center gap-2 py-3 px-6 rounded-lg bg-[#f4a65d] text-white font-bold hover:bg-[#d4892a] transition-colors"
       >
         <ShoppingCart size={18} />
         Add to Quote
-      </Link>
+      </button>
       <Link
-        href="/contact?quote=true"
+        href="/quote"
         className="text-sm font-semibold text-[#0f2a4a] hover:text-[#f4a65d] transition-colors"
       >
         View Quote

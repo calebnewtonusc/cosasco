@@ -3,7 +3,6 @@
 import { useReducer, useRef } from 'react'
 import Link from 'next/link'
 import { AlertTriangle, MessageSquare, Phone, FileText, ArrowRight, Download, MessageCircle, Upload, X, CheckCircle } from 'lucide-react'
-import SupportFAQ from '@/components/SupportFAQ'
 
 const downloads = [
   {
@@ -239,26 +238,20 @@ export default function SupportPageClient() {
                     {card.link}
                     <ArrowRight className="w-4 h-4" />
                   </a>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => document.getElementById('support-faq')?.scrollIntoView({ behavior: 'smooth' })}
+                ) : card.title === 'Browse FAQ' ? (
+                  <Link
+                    href="/resources/faq"
                     className="text-[#f4a65d] font-semibold text-sm mt-5 flex items-center gap-1 hover:gap-2 transition-all"
                   >
                     {card.link}
                     <ArrowRight className="w-4 h-4" />
-                  </button>
-                )}
+                  </Link>
+                ) : null}
               </div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* FAQ */}
-      <div id="support-faq">
-        <SupportFAQ />
-      </div>
 
       {/* SOFTWARE DOWNLOADS */}
       <section className="bg-[#f7f9fc] py-16 border-t border-[#e8edf2]">

@@ -8,6 +8,7 @@ import BackToTop from '@/components/BackToTop'
 import CookieBanner from '@/components/CookieBanner'
 import JsonLd from '@/components/JsonLd'
 import AOSInit from '@/components/AOSInit'
+import { QuoteCartProvider } from '@/context/QuoteCartContext'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' })
 
@@ -72,18 +73,20 @@ export default function RootLayout({
         <JsonLd data={organizationJsonLd} />
       </head>
       <body className="pt-[75px]">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] bg-[#f4a65d] text-white px-4 py-2 rounded-md font-semibold text-sm focus:outline-none"
-        >
-          Skip to main content
-        </a>
-        <AOSInit />
-        <Navigation />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <BackToTop />
-        <CookieBanner />
+        <QuoteCartProvider>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[9999] bg-[#f4a65d] text-white px-4 py-2 rounded-md font-semibold text-sm focus:outline-none"
+          >
+            Skip to main content
+          </a>
+          <AOSInit />
+          <Navigation />
+          <main id="main-content">{children}</main>
+          <Footer />
+          <BackToTop />
+          <CookieBanner />
+        </QuoteCartProvider>
       </body>
     </html>
   )

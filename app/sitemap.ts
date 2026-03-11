@@ -15,9 +15,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/software`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/quote`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/support`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/news`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/careers`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/company/partner-payment`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     // Products sub-pages
     { url: `${BASE_URL}/products/corrosion-monitoring`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/products/erosion-monitoring`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
@@ -44,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/software/legacy`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     { url: `${BASE_URL}/software/partner-payment`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
     // Resources - blog
+    { url: `${BASE_URL}/resources/faq`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/resources/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE_URL}/resources/blog/corrosion-monitoring-fundamentals`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/resources/blog/h2s-sour-service-integrity`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },

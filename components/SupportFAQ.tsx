@@ -317,10 +317,10 @@ export default function SupportFAQ() {
           </div>
         )}
 
-        {/* View all FAQs link */}
+        {/* View all FAQs link - canonical FAQ is at /resources/faq */}
         <div className="text-center mt-10">
           <Link
-            href="/support#faq"
+            href="/resources/faq"
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#f4a65d] hover:underline"
           >
             View all FAQs →

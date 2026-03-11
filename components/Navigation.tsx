@@ -24,6 +24,7 @@ import {
   Settings2,
 } from 'lucide-react'
 import { topLevelProductCategories } from '@/lib/productCategories'
+import { useQuoteCart } from '@/context/QuoteCartContext'
 
 // Six industries from cosasco.com — match site 100%. Links to /industry/[slug].
 const industriesDropdown = [
@@ -45,6 +46,7 @@ const companyDropdown = [
   { name: 'Careers', href: '/careers', desc: 'Join our global team' },
   { name: 'News & Events', href: '/news', desc: 'Latest updates' },
   { name: 'Find a Rep', href: '/contact/find-a-rep', desc: 'Locate your regional rep' },
+  { name: 'Partner Payment', href: '/company/partner-payment', desc: 'Partner portal & invoices' },
 ]
 
 const softwareDropdown = [
@@ -53,7 +55,6 @@ const softwareDropdown = [
   { name: 'Data Key Activation', href: '/software/data-key' },
   { name: 'Device Length Calculator', href: '/tools/device-length-calculator' },
   { name: 'Legacy Software', href: '/software/legacy' },
-  { name: 'Partner Payment', href: '/software/partner-payment' },
 ]
 
 type OpenMenu = 'solutions' | 'products' | 'about' | 'software' | null
@@ -226,10 +227,12 @@ function MobileMenu({
   onClose,
   mobileAccordion,
   setMobileAccordion,
+  quoteItemCount,
 }: {
   onClose: () => void
   mobileAccordion: string | null
   setMobileAccordion: (val: string | null) => void
+  quoteItemCount: number
 }) {
   return (
     <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-t-2 border-[#f4a65d] shadow-2xl max-h-[calc(100vh-75px)] overflow-y-auto" role="dialog" aria-modal="true" aria-label="Navigation menu">
@@ -320,14 +323,6 @@ function MobileMenu({
           Contact
         </Link>
 
-        <Link
-          href="/resources"
-          onClick={onClose}
-          className="block px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-        >
-          Resources
-        </Link>
-
         {/* Software accordion */}
         <button
           className="w-full flex items-center justify-between px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
@@ -380,8 +375,23 @@ function MobileMenu({
           </div>
         )}
 
+        <Link
+          href="/resources"
+          onClick={onClose}
+          className="block px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
+        >
+          Resources
+        </Link>
+
         {/* CTA */}
         <div className="pt-4 pb-3 border-t border-[#e8edf2] mt-2 space-y-2">
+          <Link
+            href="/quote"
+            onClick={onClose}
+            className="block w-full text-center border border-[#e8edf2] text-[#0f2a4a] font-semibold text-sm py-3 rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
+          >
+            {quoteItemCount > 0 ? `Quote (${quoteItemCount})` : 'Quote'}
+          </Link>
           <Link
             href="/contact"
             onClick={onClose}
@@ -439,6 +449,7 @@ export default function Navigation() {
   const searchInputRef = useRef<HTMLInputElement>(null)
   const navRef = useRef<HTMLDivElement>(null)
   const [scrolled, setScrolled] = useState(false)
+  const { itemCount: quoteItemCount } = useQuoteCart()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -546,9 +557,6 @@ export default function Navigation() {
           <Link href="/services" className={`${navLinkBase} ${navLinkIdle}`}>
             Services
           </Link>
-          <Link href="/resources" className={`${navLinkBase} ${navLinkIdle}`}>
-            Resources
-          </Link>
 
           <button
             onClick={() => toggle('software')}
@@ -575,6 +583,10 @@ export default function Navigation() {
               className={`transition-transform duration-200 ${open === 'about' ? 'rotate-180' : ''}`}
             />
           </button>
+
+          <Link href="/resources" className={`${navLinkBase} ${navLinkIdle}`}>
+            Resources
+          </Link>
         </nav>
 
         {/* Desktop right */}
@@ -586,6 +598,12 @@ export default function Navigation() {
             <Phone size={13} />
             <span>+1 (562) 949-0123</span>
           </a>
+          <Link
+            href="/quote"
+            className="flex items-center gap-1.5 text-[0.78rem] font-semibold text-[#0f2a4a] hover:text-[#f4a65d] transition-colors duration-150 px-2"
+          >
+            {quoteItemCount > 0 ? `Quote (${quoteItemCount})` : 'Quote'}
+          </Link>
           <Link
             href="/contact"
             className="bg-[#f4a65d] hover:bg-[#d4892a] text-white text-sm font-semibold px-5 py-2 rounded-md transition-colors duration-150 whitespace-nowrap"
@@ -622,6 +640,7 @@ export default function Navigation() {
           onClose={() => dispatch({ type: 'CLOSE_MOBILE' })}
           mobileAccordion={mobileAccordion}
           setMobileAccordion={(val) => dispatch({ type: 'SET_ACCORDION', value: val })}
+          quoteItemCount={quoteItemCount}
         />
       )}
     </header>

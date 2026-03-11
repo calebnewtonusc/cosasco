@@ -170,13 +170,6 @@ export default function HeroSection() {
 
           {/* Left: headline + buttons + stats */}
           <div className="text-center lg:text-left">
-            <span
-              className="text-xs font-semibold px-3 py-1 rounded-full inline-block mb-6"
-              style={{ backgroundColor: 'rgba(244,166,93,0.2)', color: '#f4a65d' }}
-            >
-              Trusted in 110 Countries · Since 1950
-            </span>
-
             <h1
               className="font-black text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl leading-[1.02] tracking-tight"
               style={{ color: '#ffffff' }}
@@ -186,33 +179,17 @@ export default function HeroSection() {
               corrosion management.
             </h1>
 
-            <p className="text-2xl sm:text-3xl lg:text-4xl mt-8 max-w-3xl mx-auto lg:mx-0 font-semibold leading-snug" style={{ color: '#b8cfe0' }}>
-              The most complete and precise solution to measure and monitor corrosion—protecting people, assets, and the bottom line.
+            <p className="text-lg sm:text-xl lg:text-2xl mt-6 max-w-3xl mx-auto lg:mx-0 leading-relaxed" style={{ color: '#94aabb' }}>
+              We exist to be the most complete and precise solution to measure and monitor corrosion. Not only do we improve the safety of people and the environment, we protect assets and enhance the bottom line of our customers.
             </p>
 
-            <div className="mt-10 flex justify-center lg:justify-start gap-4 flex-wrap">
-              <Link
-                href="/solutions"
-                className="font-semibold px-8 py-3.5 rounded-md text-base bg-[#f4a65d] hover:bg-[#d4892a] text-white transition-colors"
-              >
-                Explore Industries
-              </Link>
-              <Link
-                href="/contact"
-                className="font-semibold px-8 py-3.5 rounded-md text-base border transition-colors"
-                style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#ffffff' }}
-              >
-                Contact an Expert
-              </Link>
-            </div>
-
             <div
-              className="mt-16 pt-8 border-t grid grid-cols-1 sm:grid-cols-3 max-w-2xl mx-auto lg:mx-0"
+              className="mt-12 pt-8 border-t grid grid-cols-1 sm:grid-cols-3 max-w-2xl mx-auto lg:mx-0 gap-6"
               style={{ borderColor: 'rgba(255,255,255,0.1)' }}
             >
-              <StatCounter end={70} suffix="+" label="Years Experience" />
-              <StatCounter end={110} suffix="" label="Countries Served" />
-              <StatCounter end={1} suffix="M+" label="Monitoring Locations" />
+              <StatCounter end={70} suffix="+" label="Years" sublabel="Pioneering corrosion management" />
+              <StatCounter end={110} suffix="" label="Countries" sublabel="Where Cosasco is trusted" />
+              <StatCounter end={1} suffix="M+" label="Million+" sublabel="Monitoring locations" />
             </div>
           </div>
 

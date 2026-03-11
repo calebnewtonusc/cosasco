@@ -9,7 +9,6 @@ import {
   X,
   Phone,
   Search,
-  MessageSquare,
   Shield,
   Flame,
   FlaskConical,
@@ -26,14 +25,14 @@ import {
 } from 'lucide-react'
 import { topLevelProductCategories } from '@/lib/productCategories'
 
-// Solutions in the nav follow the six primary industries from the current public site
+// Six industries from cosasco.com — match site 100%. Links to /industry/[slug].
 const industriesDropdown = [
-  { name: 'Upstream', href: '/solutions/oil-gas#upstream', icon: Flame, desc: 'Production, injection & wellhead' },
-  { name: 'Midstream', href: '/solutions/oil-gas#midstream', icon: Route, desc: 'Pipelines & gas compression' },
-  { name: 'Downstream', href: '/solutions/oil-gas#downstream', icon: FlaskConical, desc: 'Refining & process units' },
-  { name: 'Gas Transmission', href: '/solutions/gas-transmission', icon: Gauge, desc: 'High-pressure pipeline networks' },
-  { name: 'Pulp & Paper', href: '/solutions/pulp-paper', icon: BookOpen, desc: 'Digesters & bleach plant' },
-  { name: 'Specialty Applications', href: '/solutions/specialty-applications', icon: Settings2, desc: 'Custom & niche environments' },
+  { name: 'Upstream', href: '/industry/upstream', icon: Flame, desc: 'Production, injection & wellhead' },
+  { name: 'Midstream', href: '/industry/midstream', icon: Route, desc: 'Pipelines & gas compression' },
+  { name: 'Downstream', href: '/industry/downstream', icon: FlaskConical, desc: 'Refining & process units' },
+  { name: 'Gas Transmission', href: '/industry/gas-transmission', icon: Gauge, desc: 'High-pressure pipeline networks' },
+  { name: 'Pulp & Paper', href: '/industry/pulp-paper', icon: BookOpen, desc: 'Digesters & bleach plant' },
+  { name: 'Specialty Applications', href: '/industry/specialty-applications', icon: Settings2, desc: 'Custom & niche environments' },
 ]
 
 // Icon for products top-level categories – a simple shield to stay neutral
@@ -45,8 +44,7 @@ const companyDropdown = [
   { name: 'Leadership', href: '/about#leadership', desc: 'Meet our team' },
   { name: 'Careers', href: '/careers', desc: 'Join our global team' },
   { name: 'News & Events', href: '/news', desc: 'Latest updates' },
-  { name: 'Find A Rep', href: '/contact/find-a-rep', desc: 'Locate your regional rep' },
-  { name: 'Contact Us', href: '/contact', desc: 'Get in touch' },
+  { name: 'Find a Rep', href: '/contact/find-a-rep', desc: 'Locate your regional rep' },
 ]
 
 const softwareDropdown = [
@@ -126,14 +124,14 @@ function IndustriesDropdown({ onClose }: { onClose: () => void }) {
         </div>
         <div className="mt-5 pt-4 border-t border-[#e8edf2] flex items-center justify-between">
           <Link
-            href="/solutions"
+            href="/industry"
             onClick={onClose}
             className="text-sm font-semibold text-[#f4a65d] hover:text-[#d4892a] transition-colors duration-150 inline-flex items-center gap-1"
           >
             View all industries
             <ArrowRight size={13} />
           </Link>
-          <span className="text-xs text-[#8898aa]">Solutions tailored for each sector</span>
+          <span className="text-xs text-[#8898aa]">Industries we serve</span>
         </div>
       </div>
     </div>
@@ -242,7 +240,7 @@ function MobileMenu({
           className="w-full flex items-center justify-between px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
           onClick={() => setMobileAccordion(mobileAccordion === 'solutions' ? null : 'solutions')}
         >
-          Solutions
+          Industries
           <ChevronDown
             size={15}
             className={`transition-transform duration-200 text-[#566677] ${mobileAccordion === 'solutions' ? 'rotate-180 text-[#f4a65d]' : ''}`}
@@ -265,7 +263,7 @@ function MobileMenu({
               )
             })}
             <Link
-              href="/solutions"
+              href="/industry"
               onClick={onClose}
               className="block py-2.5 px-3 text-sm font-semibold text-[#f4a65d]"
             >
@@ -315,13 +313,20 @@ function MobileMenu({
           Services
         </Link>
         <Link
+          href="/contact"
+          onClick={onClose}
+          className="block px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
+        >
+          Contact
+        </Link>
+
+        <Link
           href="/resources"
           onClick={onClose}
           className="block px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
         >
           Resources
         </Link>
-
 
         {/* Software accordion */}
         <button
@@ -354,7 +359,7 @@ function MobileMenu({
           className="w-full flex items-center justify-between px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
           onClick={() => setMobileAccordion(mobileAccordion === 'about' ? null : 'about')}
         >
-          About
+          Company
           <ChevronDown
             size={15}
             className={`transition-transform duration-200 text-[#566677] ${mobileAccordion === 'about' ? 'rotate-180 text-[#f4a65d]' : ''}`}
@@ -375,15 +380,6 @@ function MobileMenu({
           </div>
         )}
 
-        {/* Contact */}
-        <Link
-          href="/contact"
-          onClick={onClose}
-          className="block px-3 py-3.5 text-[0.9rem] font-semibold text-[#0f2a4a] rounded-md hover:bg-[#f4f6f8] transition-colors duration-150"
-        >
-          Contact
-        </Link>
-
         {/* CTA */}
         <div className="pt-4 pb-3 border-t border-[#e8edf2] mt-2 space-y-2">
           <Link
@@ -391,7 +387,7 @@ function MobileMenu({
             onClick={onClose}
             className="block w-full text-center bg-[#f4a65d] hover:bg-[#d4892a] text-white font-semibold text-sm py-3 rounded-md transition-colors duration-150"
           >
-            Request a Quote
+            Contact
           </Link>
           <a
             href="tel:+15629490123"
@@ -527,7 +523,7 @@ export default function Navigation() {
             aria-haspopup="true"
             className={`${navLinkBase} ${open === 'solutions' ? navLinkActive : navLinkIdle}`}
           >
-            Solutions
+            Industries
             <ChevronDown
               size={14}
               className={`transition-transform duration-200 ${open === 'solutions' ? 'rotate-180' : ''}`}
@@ -573,36 +569,16 @@ export default function Navigation() {
             aria-haspopup="true"
             className={`${navLinkBase} ${open === 'about' ? navLinkActive : navLinkIdle}`}
           >
-            About
+            Company
             <ChevronDown
               size={14}
               className={`transition-transform duration-200 ${open === 'about' ? 'rotate-180' : ''}`}
             />
           </button>
-
-          <Link href="/contact" className={`${navLinkBase} ${navLinkIdle}`}>
-            Contact
-          </Link>
         </nav>
 
         {/* Desktop right */}
         <div className="hidden lg:flex items-center gap-2 shrink-0">
-          <button
-            onClick={() => dispatch({ type: 'TOGGLE_SEARCH' })}
-            aria-label="Toggle search"
-            className="p-1.5 rounded-md text-[#566677] hover:text-[#0f2a4a] hover:bg-[#f4f6f8] transition-colors duration-150"
-          >
-            <Search size={16} />
-          </button>
-
-          <Link
-            href="/contact?quote=true"
-            aria-label="Quote cart"
-            className="relative inline-flex p-1.5 rounded-md text-[#566677] hover:text-[#0f2a4a] hover:bg-[#f4f6f8] transition-colors duration-150"
-          >
-            <MessageSquare size={16} />
-          </Link>
-
           <a
             href="tel:+15629490123"
             className="flex items-center gap-1.5 text-[0.78rem] text-[#566677] hover:text-[#0f2a4a] transition-colors duration-150 px-2"
@@ -614,7 +590,7 @@ export default function Navigation() {
             href="/contact"
             className="bg-[#f4a65d] hover:bg-[#d4892a] text-white text-sm font-semibold px-5 py-2 rounded-md transition-colors duration-150 whitespace-nowrap"
           >
-            Request a Quote
+            Contact
           </Link>
         </div>
 

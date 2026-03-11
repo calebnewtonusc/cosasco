@@ -6,7 +6,6 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import BackToTop from '@/components/BackToTop'
 import CookieBanner from '@/components/CookieBanner'
-import FloatingChat from '@/components/FloatingChat'
 import JsonLd from '@/components/JsonLd'
 import AOSInit from '@/components/AOSInit'
 
@@ -85,7 +84,6 @@ export default function RootLayout({
         <Footer />
         <BackToTop />
         <CookieBanner />
-        <FloatingChat />
       </body>
     </html>
   )

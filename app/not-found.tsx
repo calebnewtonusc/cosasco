@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const popularLinks = [
   { label: 'Products', desc: 'Browse our monitoring portfolio', href: '/products' },
-  { label: 'Solutions', desc: 'Find solutions for your industry', href: '/solutions' },
+  { label: 'Industries', desc: 'View industries we serve', href: '/industry' },
   { label: 'About', desc: 'Our history and mission', href: '/about' },
   { label: 'Support', desc: 'Technical support and documentation', href: '/support' },
   { label: 'Resources', desc: 'Case studies, whitepapers, and more', href: '/resources' },

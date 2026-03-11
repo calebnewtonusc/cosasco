@@ -7,6 +7,7 @@ interface StatCounterProps {
   suffix?: string
   duration?: number
   label: string
+  sublabel?: string
 }
 
 export default function StatCounter({
@@ -14,6 +15,7 @@ export default function StatCounter({
   suffix = '',
   duration = 2000,
   label,
+  sublabel,
 }: StatCounterProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [count, setCount] = useState(0)
@@ -68,12 +70,14 @@ export default function StatCounter({
         {count}
         {suffix}
       </div>
-      <div
-        className="text-sm mt-2"
-        style={{ color: '#94aabb' }}
-      >
+      <div className="text-xs font-semibold mt-1" style={{ color: '#ffffff' }}>
         {label}
       </div>
+      {sublabel && (
+        <div className="text-sm mt-0.5" style={{ color: '#94aabb' }}>
+          {sublabel}
+        </div>
+      )}
     </div>
   )
 }

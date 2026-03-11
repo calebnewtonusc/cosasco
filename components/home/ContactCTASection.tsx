@@ -55,15 +55,11 @@ export default function ContactCTASection() {
 
           {/* Left column */}
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest" style={{ color: '#f4a65d' }}>
-              Get in Touch
-            </span>
-            <h2 className="font-black text-3xl lg:text-4xl mt-3 leading-tight" style={{ color: '#0f2a4a' }}>
-              Talk to a Cosasco engineer.
+            <h2 className="font-black text-3xl lg:text-4xl leading-tight" style={{ color: '#0f2a4a' }}>
+              Schedule A Consultation
             </h2>
-            <p className="mt-4 leading-relaxed" style={{ color: '#374151' }}>
-              Describe your application and we&apos;ll recommend the right
-              monitoring strategy, with no obligation.
+            <p className="mt-4 text-lg leading-relaxed" style={{ color: '#566677' }}>
+              We&apos;re ready to help you get the most precise, trustworthy corrosion data available.
             </p>
 
             <div className="mt-8 space-y-4">

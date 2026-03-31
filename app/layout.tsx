@@ -9,6 +9,7 @@ import CookieBanner from '@/components/CookieBanner'
 import JsonLd from '@/components/JsonLd'
 import AOSInit from '@/components/AOSInit'
 import { QuoteCartProvider } from '@/context/QuoteCartContext'
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-sans' })
 
@@ -87,6 +88,7 @@ export default function RootLayout({
           <BackToTop />
           <CookieBanner />
         </QuoteCartProvider>
+        <Analytics />
       </body>
     </html>
   )

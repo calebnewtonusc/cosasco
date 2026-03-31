@@ -12,6 +12,7 @@
     "@anthropic-ai/sdk": "^0.78.0",
     "@fontsource/mukta": "^5.2.8",
     "@fontsource/mukta-mahee": "^5.2.8",
+    "@vercel/analytics": "^2.0.1",
     "aos": "^2.3.4",
     "lucide-react": "^0.574.0",
     "next": "16.1.6",

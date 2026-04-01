@@ -83,3 +83,5 @@ Built for Avenues Tech Consulting Spring 2026. Developer handoff documentation a
 ## Author
 
 **Caleb Newton** at [calebnewton.me](https://calebnewton.me)
+
+All glory to God! ✝️❤️
